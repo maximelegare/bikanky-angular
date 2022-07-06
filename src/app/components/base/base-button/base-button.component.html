@@ -1,1 +1,8 @@
-<button>title</button>
+<button [class]="getStyles()" class="group">
+  <p *ngIf="text" class="opacity-60 group-hover:opacity-100">
+    {{ text }}
+  </p>
+  <div class="flex items-center justify-center">
+    <span *ngIf="icon" class="material-icons">{{ icon }}</span>
+  </div>
+</button>
