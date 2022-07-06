@@ -2,18 +2,16 @@ import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-line-divisor',
-  templateUrl: './line-divisor.component.html',
-  styleUrls: ['./line-divisor.component.css']
+  template: `<hr [ngClass]="getStyles()" />`,
+  styleUrls: ['./line-divisor.component.css'],
 })
 export class LineDivisorComponent implements OnInit {
+  @Input() marginTop: number;
 
-  @Input() marginTop?:number = 0;
+  constructor() {}
+  ngOnInit(): void {}
 
-  constructor() { }
-  ngOnInit(): void {
+  getStyles() {
+    return `border-1 border-solid rounded-sm border-accent mt-${this.marginTop}`;
   }
-
-  myClass = `border-1 border-solid rounded-sm border-accent mt-${this.marginTop}`
-
-
 }
