@@ -6,9 +6,7 @@
     "bikanky": {
       "projectType": "application",
       "schematics": {
-        "@schematics/angular:component": {
-          "style": "css"
-        }
+        "@schematics/angular:component": {}
       },
       "root": "",
       "sourceRoot": "src",
