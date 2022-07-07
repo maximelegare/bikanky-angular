@@ -13,13 +13,13 @@ module.exports = {
       },
       container: {
         center:true,
-        // padding: {
-        //   DEFAULT: '1rem',
-        //   sm: '4rem',
-        //   lg: '8rem',
-        //   xl: '10rem',
-        //   '2xl': '14rem',
-        // },
+        padding: {
+          DEFAULT: '1rem',
+          sm: '4rem',
+          lg: '6rem',
+          xl: '8rem',
+          '2xl': '10rem',
+        },
       },
     },
   },

@@ -6,7 +6,7 @@ import { Component, Input, OnInit } from '@angular/core';
   styleUrls: ['./line-divisor.component.css'],
 })
 export class LineDivisorComponent implements OnInit {
-  @Input() marginTop: number;
+  @Input() marginTop: number = 0;
 
   constructor() {}
   ngOnInit(): void {}

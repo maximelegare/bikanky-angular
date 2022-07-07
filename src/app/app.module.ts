@@ -7,7 +7,7 @@ import { HeroSectionComponent } from './components/sections/hero-section/hero-se
 import { TheHeaderComponent } from './components/the-header/the-header.component';
 import { BaseButtonComponent } from './components/base/base-button/base-button.component';
 import { LineDivisorComponent } from './components/base/line-divisor/line-divisor.component';
-import { ProductCardComponent } from './components/cards/product-card/product-card.component';
+import { ProductCardComponent } from './components/card/product-card/product-card.component';
 import { ProductsSectionComponent } from './components/sections/products-section/products-section.component';
 import { TheFooterComponent } from './components/the-footer/the-footer.component';
 
