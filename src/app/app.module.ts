@@ -1,5 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+// import {IvyCarouselModule} from 'angular-responsive-carousel';
+
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -10,6 +12,8 @@ import { LineDivisorComponent } from './components/base/line-divisor/line-diviso
 import { ProductCardComponent } from './components/card/product-card/product-card.component';
 import { ProductsSectionComponent } from './components/sections/products-section/products-section.component';
 import { TheFooterComponent } from './components/the-footer/the-footer.component';
+import { IndexComponent } from './pages/index/index.component';
+import { StylismSectionComponent } from './components/sections/stylism-section/stylism-section.component';
 
 @NgModule({
   declarations: [
@@ -21,6 +25,8 @@ import { TheFooterComponent } from './components/the-footer/the-footer.component
     ProductCardComponent,
     ProductsSectionComponent,
     TheFooterComponent,
+    IndexComponent,
+    StylismSectionComponent,
   ],
   imports: [BrowserModule, AppRoutingModule],
   providers: [],
