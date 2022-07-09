@@ -14,6 +14,8 @@ import { ProductsSectionComponent } from './components/sections/products-section
 import { TheFooterComponent } from './components/the-footer/the-footer.component';
 import { IndexComponent } from './pages/index/index.component';
 import { StylismSectionComponent } from './components/sections/stylism-section/stylism-section.component';
+import { QuoteCardComponent } from './components/card/quote-card/quote-card.component';
+import { QuotesSectionComponent } from './components/sections/quotes-section/quotes-section.component';
 
 @NgModule({
   declarations: [
@@ -27,6 +29,8 @@ import { StylismSectionComponent } from './components/sections/stylism-section/s
     TheFooterComponent,
     IndexComponent,
     StylismSectionComponent,
+    QuoteCardComponent,
+    QuotesSectionComponent,
   ],
   imports: [BrowserModule, AppRoutingModule],
   providers: [],

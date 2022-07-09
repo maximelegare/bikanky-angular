@@ -1,9 +1,29 @@
-<div class="flex justify-between relative container my-10">
-  <!-- <div class="w-[400px] bg-black">asfhask jhfgsaj  hfgaskj fgsakjfh gaskjghsafkjh gsakfhgs adjha gsfkjhsdagf ksha gfkhasg</div> -->
-  <app-product-card [src]="'assets/img/designer_main.jpg'" [title]="'Badinedonpas'" [subTitle]="'Carré nickel ligné'" [startingPrice]="50" ></app-product-card>
-  <app-product-card [src]="'assets/img/designer_main.jpg'" [title]="'Pingkalapri'" [subTitle]="'Carré nickel ligné'" [startingPrice]="50" ></app-product-card>
-  <app-product-card [src]="'assets/img/designer_main.jpg'" [title]="'Zabarzack'" [subTitle]="'Carré nickel ligné'" [startingPrice]="50" ></app-product-card>
-</div>
-<div class="flex justify-center mb-20">
-    <app-base-button [variant]="'text-button'" [text]="'Voir plus de produits'"></app-base-button>
+<div class="relative container mb-28">
+  <div class="flex justify-between mb-10 gap-10">
+    <!-- <div class="w-[400px] bg-black">asfhask jhfgsaj  hfgaskj fgsakjfh gaskjghsafkjh gsakfhgs adjha gsfkjhsdagf ksha gfkhasg</div> -->
+    <app-product-card
+      [src]="'assets/img/designer_main.jpg'"
+      [title]="'Badinedonpas'"
+      [subTitle]="'Carré nickel ligné'"
+      [startingPrice]="50"
+    ></app-product-card>
+    <app-product-card
+      [src]="'assets/img/designer_main.jpg'"
+      [title]="'Pingkalapri'"
+      [subTitle]="'Carré nickel ligné'"
+      [startingPrice]="50"
+    ></app-product-card>
+    <app-product-card
+      [src]="'assets/img/designer_main.jpg'"
+      [title]="'Zabarzack'"
+      [subTitle]="'Carré nickel ligné'"
+      [startingPrice]="50"
+    ></app-product-card>
+  </div>
+  <div class="flex justify-center">
+    <app-base-button
+      [variant]="'text-button'"
+      [text]="'Voir plus de produits'"
+    ></app-base-button>
+  </div>
 </div>
