@@ -2,24 +2,33 @@
   <img class="w-screen" src="/assets/svg/hero_background.svg" alt="" />
 </div> -->
 
-<div class="">
+<div class="mb-12">
   <div class="bg-transparentAccent">
-    <div class="relative mr-0 flex justify-end">
-      <div>
-        <p class="text-6xl pt-32 font-semibold">
-          Une paire de manches pour chaque outfit
-        </p>
-        <p class="text-xl pt-6">
-          Une paire de manches pour chaque outfit htjhd dfjhgsdf sdjfhgs fsfgs sdfhdjfhsgdf sjdfhg
-        </p>
-        <app-base-button [text]="'Voir les produits'" [size]="'big'" [variant]="'text-button'" [color]="'[#fbf1d1]'"></app-base-button>
+    <div class="flex container justify-end gap-8">
+      <div class="flex">
+        <div class="left-32">
+          <p class="text-6xl pt-32 font-semibold">
+            Une paire de manches pour chaque outfit
+          </p>
+          <p class="text-xl pt-6">
+            Une paire de manches pour chaque outfit htjhd dfjhgsdf sdjfhgs fsfgs
+            sdfhdjfhsgdf sjdfhg
+          </p>
+          <app-base-button
+            [text]="'Voir les produits'"
+            [size]="'big'"
+            [variant]="'text-button'"
+            [textColor]="'white'"
+          ></app-base-button>
+        </div>
+        <div class="w-[800px] h-[600px]"></div>
       </div>
-      <div class="w-[700px] my-12 relative out ">
-        <img src="assets/img/home_top.png" type alt="" />
+      <div class="absolute my-12 right-0">
+        <img src="assets/img/home_top.png" class="2xl:w-[800px] xl:w-[600px] h-auto" alt="" />
       </div>
     </div>
   </div>
-  <div class="h-32 bg-accent relative"></div>
+  <div class="h-32 bg-accent"></div>
 </div>
 
 <!-- <div class="justify-end rounded-lg flex z-10 relative top-24 mb-52">
