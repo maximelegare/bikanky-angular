@@ -16,10 +16,15 @@
     <p class="text-sm text-center mt-2">
       à partir de <span class="">{{ refactorPrice(startingPrice) }}$</span>
     </p>
-    <div class="mt-6 flex justify-center">
+    <div class="mt-6 flex justify-center gap-4">
       <app-base-button
-        icon="add_shopping_cart"
-        variant="text-button"
+        [text]="'en savoir plus'"
+        [variant]="'text-button'"
+        [color]="'transparentAccent'"
+      ></app-base-button>
+      <app-base-button
+        [icon]="'add_shopping_cart'"
+        [variant]="'text-button'"
       ></app-base-button>
     </div>
     <app-line-divisor [marginTop]="6"></app-line-divisor>
