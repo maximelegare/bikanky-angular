@@ -19,7 +19,7 @@ import { QuotesSectionComponent } from './components/sections/quotes-section/quo
 import { BaseCartButtonComponent } from './components/base/buttons/base-cart-button/base-cart-button.component';
 import { HttpClientModule } from "@angular/common/http";
 import { StoreModule } from '@ngrx/store'
-
+// import { productsReducer } from './context/products/products.reducer';
 
 @NgModule({
   declarations: [
@@ -37,7 +37,9 @@ import { StoreModule } from '@ngrx/store'
     QuotesSectionComponent,
     BaseCartButtonComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule, HttpClientModule, StoreModule.forRoot({}, {}) ],
+  imports: [BrowserModule, AppRoutingModule, HttpClientModule,
+    //  StoreModule.forRoot({products: productsReducer}) 
+    ],
   providers: [],
   bootstrap: [AppComponent],
 })
