@@ -17,6 +17,9 @@ import { StylismSectionComponent } from './components/sections/stylism-section/s
 import { QuoteCardComponent } from './components/card/quote-card/quote-card.component';
 import { QuotesSectionComponent } from './components/sections/quotes-section/quotes-section.component';
 import { BaseCartButtonComponent } from './components/base/buttons/base-cart-button/base-cart-button.component';
+import { HttpClientModule } from "@angular/common/http";
+import { StoreModule } from '@ngrx/store'
+
 
 @NgModule({
   declarations: [
@@ -27,14 +30,14 @@ import { BaseCartButtonComponent } from './components/base/buttons/base-cart-but
     LineDivisorComponent,
     ProductCardComponent,
     ProductsSectionComponent,
-    TheFooterComponent,
+    TheFooterComponent, 
     IndexComponent,
     StylismSectionComponent,
     QuoteCardComponent,
     QuotesSectionComponent,
     BaseCartButtonComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule],
+  imports: [BrowserModule, AppRoutingModule, HttpClientModule, StoreModule.forRoot({}, {}) ],
   providers: [],
   bootstrap: [AppComponent],
 })

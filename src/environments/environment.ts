@@ -3,7 +3,10 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  shopifyDomain:process.env.NG_APP_SHOPIFY_DOMAIN,
+  shopifyAccessToken:process.env.NG_APP_SHOPIFY_ADMIN_ACCESS_TOKEN,
+  shopifyStoreFrontAccessToken:process.env.NG_APP_SHOPIFY_STOREFRONT_ACCESS_TOKEN
 };
 
 /*
