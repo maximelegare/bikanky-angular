@@ -37,7 +37,7 @@ import { StoreModule } from '@ngrx/store'
     QuotesSectionComponent,
     BaseCartButtonComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule, HttpClientModule,
+  imports: [BrowserModule.withServerTransition({ appId: 'serverApp' }), AppRoutingModule, HttpClientModule,
     //  StoreModule.forRoot({products: productsReducer}) 
     ],
   providers: [],
