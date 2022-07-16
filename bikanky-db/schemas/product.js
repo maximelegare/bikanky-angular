@@ -46,27 +46,31 @@ export default {
         layout: 'tags',
       },
     },
+    // {
+    //   name: 'categories',
+    //   title: 'Categories',
+    //   type: 'array',
+    //   of: [
+    //     {
+    //       type: 'reference',
+    //       to: {type: 'category'},
+    //     },
+    //   ],
+    // },
     {
-      name: 'vendor',
-      title: 'Vendor',
-      type: 'reference',
-      to: {type: 'vendor'},
-    },
-    {
-      name: 'blurb',
-      title: 'Blurb',
-      type: 'localeString',
-    },
-    {
-      name: 'categories',
-      title: 'Categories',
+      name: 'bullets',
+      title: 'Bullet Points',
       type: 'array',
       of: [
         {
-          type: 'reference',
-          to: {type: 'category'},
+          type:'localeString'
         },
       ],
+    },
+    {
+      name: 'shortDescriptiom',
+      title: 'Short Description',
+      type: 'localeBlockContent',
     },
     {
       name: 'body',

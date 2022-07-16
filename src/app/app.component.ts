@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ShopifyService } from './services/shopify/shopify.service';
-
+import { SanityService } from './services/sanity/sanity.service';
 
 
 @Component({
@@ -14,11 +14,9 @@ export class AppComponent implements OnInit {
 
 
 
-  constructor(private shopify:ShopifyService) {}
+  constructor(private sanity:SanityService) {}
 
   ngOnInit(): void {
-   this.shopify.fetchData()
+   this.sanity.fetchProducts()
   }
-
-
 }

@@ -10,23 +10,13 @@ export default {
     },
     {
       title: 'Weight in grams',
-      name: 'grams',
+      name: 'weight',
       type: 'number',
     },
     {
       title: 'Price',
       name: 'price',
       type: 'number',
-    },
-    {
-      title: 'SKU',
-      name: 'sku',
-      type: 'string',
-    },
-    {
-      title: 'Taxable',
-      name: 'taxable',
-      type: 'boolean',
     },
     {
       name: 'images',
@@ -40,11 +30,6 @@ export default {
           },
         },
       ],
-    },
-    {
-      title: 'Bar code',
-      name: 'barcode',
-      type: 'barcode',
     },
   ],
 }
