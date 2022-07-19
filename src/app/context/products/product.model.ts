@@ -1,5 +1,6 @@
 interface Product {
   _id:string
+  showOnHomePage:boolean;
   title: string;
   slug: string;
   defaultProductVariant: productVariant;

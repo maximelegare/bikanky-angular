@@ -11,7 +11,7 @@ interface productVariant {
   title: string;
   weight: string;
   price: number;
-  images: string[];
+  images: any;
 }
 
 interface bullet {

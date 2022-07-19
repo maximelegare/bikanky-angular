@@ -16,8 +16,6 @@ interface ProductsStateModel {
   error: '' | null;
 }
 
-
-
 @State<ProductsStateModel>({
   name: 'products',
   defaults: {
@@ -26,21 +24,36 @@ interface ProductsStateModel {
     error: null,
   },
 })
-
 @Injectable()
 export class ProductsState {
   constructor(private sanity: SanityService) {}
 
   @Selector()
   static getProducts(state: ProductsStateModel) {
-    console.log(state.products)
+    console.log(state.products);
     return state.products;
   }
 
   @Action(FectchAllProducts)
   fectchAllProducts(ctx: StateContext<ProductsStateModel>) {
     // Call the fetch products method and cancel if problem
-    return from(this.sanity.fetchProducts()).pipe(
+    return from(
+      this.sanity.fetchProducts(
+        `*[_type == "product" ]{
+          _id,
+          showOnHomePage,    
+          title,
+          slug,
+          defaultProductVariant{
+            images[]{"imageUrl": asset->url},
+            price
+          },
+          variants,
+          tags,
+          bullets
+        }[0...3]`
+      )
+    ).pipe(
       // Take the returned value and return a new success action containing the products
       tap((products) => {
         ctx.dispatch(new FectchAllProductsSuccess(products));

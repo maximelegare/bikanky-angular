@@ -17,7 +17,7 @@ import { SanityService } from './services/sanity/sanity.service';
 })
 export class AppComponent implements OnInit {
 
-  @Select(ProductsState.getProducts) products$:Observable<Product[]>
+ 
 
 
   constructor(private store: Store) {}

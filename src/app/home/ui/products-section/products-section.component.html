@@ -1,24 +1,14 @@
 <div class="relative container mb-28">
   <div class="flex justify-between mb-10 gap-10">
-    <!-- <div class="w-[400px] bg-black">asfhask jhfgsaj  hfgaskj fgsakjfh gaskjghsafkjh gsakfhgs adjha gsfkjhsdagf ksha gfkhasg</div> -->
-    <app-product-card
-      [src]="'assets/img/designer_main.jpg'"
-      [title]="'Badinedonpas'"
-      [subTitle]="'Carré nickel ligné'"
-      [startingPrice]="50"
-    ></app-product-card>
-    <app-product-card
-      [src]="'assets/img/designer_main.jpg'"
-      [title]="'Pingkalapri'"
-      [subTitle]="'Carré nickel ligné'"
-      [startingPrice]="50"
-    ></app-product-card>
-    <app-product-card
-      [src]="'assets/img/designer_main.jpg'"
-      [title]="'Zabarzack'"
-      [subTitle]="'Carré nickel ligné'"
-      [startingPrice]="50"
-    ></app-product-card>
+    <div *ngFor="let product of products$ | async">
+      <!-- <div class="w-[400px] bg-black">asfhask jhfgsaj  hfgaskj fgsakjfh gaskjghsafkjh gsakfhgs adjha gsfkjhsdagf ksha gfkhasg</div> -->
+      <app-product-card
+        [src]="product.defaultProductVariant.images[0].imageUrl"
+        [title]="product.title"
+        [subTitle]="product.defaultProductVariant.title"
+        [startingPrice]="product.defaultProductVariant.price"
+      ></app-product-card>
+    </div>
   </div>
   <div class="flex justify-center">
     <app-base-button

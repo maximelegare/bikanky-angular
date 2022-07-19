@@ -4,6 +4,12 @@ export default {
   type: 'document',
   fields: [
     {
+      name:"showOnHomePage",
+      title:"Show on Home Page",
+      type:"boolean",
+      initialValue: false
+    },
+    {
       name: 'title',
       title: 'Title',
       type: 'string',
