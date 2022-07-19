@@ -1,6 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { ShopifyService } from './services/shopify/shopify.service';
+import {  Select } from '@ngxs/store';
+import { Store } from '@ngxs/store';
+import { FectchAllProducts } from './context/products/products.actions';
+import { ProductsState } from './context/products/products.state';
+import { Observable } from 'rxjs';
+import { Product } from './context/products/product.model';
 import { SanityService } from './services/sanity/sanity.service';
+
 
 
 @Component({
@@ -9,14 +16,14 @@ import { SanityService } from './services/sanity/sanity.service';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit {
-  title = 'bikanky';
-  products = [] 
+
+  @Select(ProductsState.getProducts) products$:Observable<Product[]>
 
 
-
-  constructor(private sanity:SanityService) {}
+  constructor(private store: Store, private sanity:SanityService) {}
 
   ngOnInit(): void {
-   this.sanity.fetchProducts()
+   this.store.dispatch(new FectchAllProducts())
+    // this.sanity.fetchProducts()
   }
 }

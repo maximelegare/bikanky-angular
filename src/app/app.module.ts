@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgxsModule } from '@ngxs/store';
+import { ProductsState } from './context/products/products.state';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -16,7 +17,7 @@ import { StylismSectionComponent } from './home/ui/stylism-section/stylism-secti
 import { QuoteCardComponent } from './shared/ui/card/quote-card/quote-card.component';
 import { QuotesSectionComponent } from './home/ui/quotes-section/quotes-section.component';
 import { BaseCartButtonComponent } from './shared/ui/buttons/base-cart-button/base-cart-button.component';
-import { HttpClientModule } from "@angular/common/http";
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -27,16 +28,20 @@ import { HttpClientModule } from "@angular/common/http";
     LineDivisorComponent,
     ProductCardComponent,
     ProductsSectionComponent,
-    TheFooterComponent, 
+    TheFooterComponent,
     IndexComponent,
     StylismSectionComponent,
     QuoteCardComponent,
     QuotesSectionComponent,
     BaseCartButtonComponent,
   ],
-  imports: [BrowserModule.withServerTransition({ appId: 'serverApp' }), AppRoutingModule, HttpClientModule, NgxsModule.forRoot([])
-    ],
-  providers: [],
+  imports: [
+    BrowserModule.withServerTransition({ appId: 'serverApp' }),
+    AppRoutingModule,
+    HttpClientModule,
+    NgxsModule.forRoot([ProductsState]),
+  ],
+  providers: [NgxsModule],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

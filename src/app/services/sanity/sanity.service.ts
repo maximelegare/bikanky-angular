@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import sanityClient from '@sanity/client';
 import imageUrlBuilder from '@sanity/image-url';
 import { environment } from 'src/environments/environment';
-import { Product } from 'src/app/home/context/product.model';
+import { Product } from 'src/app/context/products/product.model';
 
 @Injectable({
   providedIn: 'root',
@@ -32,8 +32,7 @@ export class SanityService {
         bullets
   }`
     );
-    console.log(products)
-
+    console.log("[service]", products)
     return products;
   }
 }
