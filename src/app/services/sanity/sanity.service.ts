@@ -12,8 +12,8 @@ export class SanityService {
 
   sanityClientCredentials = {
     option: sanityClient({
-      projectId: "0mg3b574",
-      dataset: "production",
+      projectId: '0mg3b574',
+      dataset: 'production',
     }),
   };
 
@@ -22,7 +22,7 @@ export class SanityService {
 
   async fetchProducts(): Promise<Product[]> {
     const products = await this.sanityClientCredentials.option.fetch(
-      `*[_type == "content"]{
+      `*[_type == "product"]{
         _id,
         title,
         slug,
@@ -32,7 +32,6 @@ export class SanityService {
         bullets
   }`
     );
-    console.log("[service]", products)
     return products;
   }
 }

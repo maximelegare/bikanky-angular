@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import { Action, State, StateContext, Selector } from '@ngxs/store';
-import { switchMap, from, map, catchError } from 'rxjs';
+import { switchMap, from, tap, catchError } from 'rxjs';
 import { SanityService } from 'src/app/services/sanity/sanity.service';
-import { Products, Product } from './product.model';
+import { Product } from './product.model';
 
 import {
   FectchAllProducts,
@@ -10,7 +10,15 @@ import {
   FectchAllProductsSuccess,
 } from './products.actions';
 
-@State<Products>({
+interface ProductsStateModel {
+  products: Product[];
+  status: 'pending' | 'loading' | 'success' | 'failure';
+  error: '' | null;
+}
+
+
+
+@State<ProductsStateModel>({
   name: 'products',
   defaults: {
     products: [],
@@ -18,23 +26,23 @@ import {
     error: null,
   },
 })
-@Injectable()
 
+@Injectable()
 export class ProductsState {
   constructor(private sanity: SanityService) {}
 
   @Selector()
-  static getProducts(state: Products) {
-    return state.status;
+  static getProducts(state: ProductsStateModel) {
+    console.log(state.products)
+    return state.products;
   }
 
   @Action(FectchAllProducts)
-  fectchAllProducts(ctx: StateContext<Products>) {
+  fectchAllProducts(ctx: StateContext<ProductsStateModel>) {
     // Call the fetch products method and cancel if problem
     return from(this.sanity.fetchProducts()).pipe(
       // Take the returned value and return a new success action containing the products
-      map((products: Product[]) => {
-        console.log(products);
+      tap((products) => {
         ctx.dispatch(new FectchAllProductsSuccess(products));
       }),
       // Or... if it errors return a new failure action containing the error
@@ -44,13 +52,14 @@ export class ProductsState {
 
   @Action(FectchAllProductsSuccess)
   fectchAllProductsSuccess(
-    ctx: StateContext<Products>,
-    action: FectchAllProductsSuccess
+    ctx: StateContext<ProductsStateModel>,
+    { products }: FectchAllProductsSuccess
   ) {
     const state = ctx.getState();
 
     ctx.setState({
-      products: action.products,
+      ...state,
+      products: products,
       status: 'success',
       error: null,
     });
@@ -58,7 +67,7 @@ export class ProductsState {
 
   @Action(FectchAllProductsFailure)
   fectchAllProductsFailure(
-    ctx: StateContext<Products>,
+    ctx: StateContext<ProductsStateModel>,
     action: FectchAllProductsFailure
   ) {
     const state = ctx.getState();

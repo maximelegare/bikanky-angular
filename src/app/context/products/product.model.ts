@@ -1,4 +1,5 @@
 interface Product {
+  _id:string
   title: string;
   slug: string;
   defaultProductVariant: productVariant;
@@ -19,10 +20,4 @@ interface bullet {
   text: string;
 }
 
-interface Products {
-  products: Product[];
-  status: 'pending' | 'loading' | 'success' | 'failure';
-  error: '' | null;
-}
-
-export { Product, Products };
+export { Product };

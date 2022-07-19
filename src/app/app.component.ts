@@ -20,10 +20,10 @@ export class AppComponent implements OnInit {
   @Select(ProductsState.getProducts) products$:Observable<Product[]>
 
 
-  constructor(private store: Store, private sanity:SanityService) {}
+  constructor(private store: Store) {}
 
   ngOnInit(): void {
    this.store.dispatch(new FectchAllProducts())
-    // this.sanity.fetchProducts()
   }
+  
 }
