@@ -22,7 +22,6 @@ export class ProductEffect {
         from(this.sanity.fetchProducts()).pipe(
           // Take the returned value and return a new success action containing the todos
           map((products) =>  {
-            console.log(products)
             return loadProductsSuccess({ products: products })}),
           
           // Or... if it errors return a new failure action containing the error

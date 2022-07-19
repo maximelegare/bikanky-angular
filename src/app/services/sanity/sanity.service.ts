@@ -32,7 +32,7 @@ export class SanityService {
         bullets
   }`
     );
-
+    console.log(products)
     return products;
   }
 }

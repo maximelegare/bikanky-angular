@@ -2,11 +2,12 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 // import {IvyCarouselModule} from 'angular-responsive-carousel';
 import { HttpClientModule } from "@angular/common/http";
-import { StoreModule } from '@ngrx/store'
 import { EffectsModule } from '@ngrx/effects';
 import { productsReducer } from './store/products/products.reducer'; 
 import { AppRoutingModule } from './app-routing.module';
 import { ProductEffect } from './store/products/product.effects';
+import { StoreModule } from '@ngrx/store';
+
 
 import { AppComponent } from './app.component';
 import { HeroSectionComponent } from './components/sections/hero-section/hero-section.component';
