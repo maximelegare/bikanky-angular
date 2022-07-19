@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import sanityClient from '@sanity/client';
 import imageUrlBuilder from '@sanity/image-url';
 import { environment } from 'src/environments/environment';
-import { Product } from 'src/app/model/product.model';
+import { Product } from 'src/app/store/products/product.model';
 
 @Injectable({
   providedIn: 'root',
@@ -12,7 +12,7 @@ export class SanityService {
 
   sanityClientCredentials = {
     option: sanityClient({
-      projectId: "",
+      projectId: "0mg3b574",
       dataset: "production",
     }),
   };
@@ -22,7 +22,7 @@ export class SanityService {
 
   async fetchProducts(): Promise<Product[]> {
     const products = await this.sanityClientCredentials.option.fetch(
-      `*[_type == "content"]{
+      `*[_type == "product"]{
         _id,
         title,
         slug,
@@ -32,7 +32,6 @@ export class SanityService {
         bullets
   }`
     );
-    console.log(products)
 
     return products;
   }

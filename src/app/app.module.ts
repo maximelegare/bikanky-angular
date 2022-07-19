@@ -1,9 +1,13 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 // import {IvyCarouselModule} from 'angular-responsive-carousel';
-
-
+import { HttpClientModule } from "@angular/common/http";
+import { StoreModule } from '@ngrx/store'
+import { EffectsModule } from '@ngrx/effects';
+import { productsReducer } from './store/products/products.reducer'; 
 import { AppRoutingModule } from './app-routing.module';
+import { ProductEffect } from './store/products/product.effects';
+
 import { AppComponent } from './app.component';
 import { HeroSectionComponent } from './components/sections/hero-section/hero-section.component';
 import { TheHeaderComponent } from './components/layout/the-header/the-header.component';
@@ -17,9 +21,7 @@ import { StylismSectionComponent } from './components/sections/stylism-section/s
 import { QuoteCardComponent } from './components/card/quote-card/quote-card.component';
 import { QuotesSectionComponent } from './components/sections/quotes-section/quotes-section.component';
 import { BaseCartButtonComponent } from './components/base/buttons/base-cart-button/base-cart-button.component';
-import { HttpClientModule } from "@angular/common/http";
-import { StoreModule } from '@ngrx/store'
-// import { productsReducer } from './context/products/products.reducer';
+
 
 @NgModule({
   declarations: [
@@ -38,7 +40,7 @@ import { StoreModule } from '@ngrx/store'
     BaseCartButtonComponent,
   ],
   imports: [BrowserModule.withServerTransition({ appId: 'serverApp' }), AppRoutingModule, HttpClientModule,
-    //  StoreModule.forRoot({products: productsReducer}) 
+     StoreModule.forRoot({products: productsReducer}), EffectsModule.forRoot([ProductEffect]) 
     ],
   providers: [],
   bootstrap: [AppComponent],

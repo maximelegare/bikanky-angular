@@ -19,4 +19,10 @@ interface bullet {
   text: string;
 }
 
-export { Product };
+interface ProductState {
+  products: Product[];
+  error: string | null;
+  status: 'pending' | 'loading' | 'error' | 'success';
+}
+
+export { Product, ProductState };
