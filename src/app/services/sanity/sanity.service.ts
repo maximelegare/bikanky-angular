@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import sanityClient from '@sanity/client';
 import imageUrlBuilder from '@sanity/image-url';
 import { environment } from 'src/environments/environment';
-import { Product } from 'src/app/model/product.model';
+import { Product } from 'src/app/home/context/product.model';
 
 @Injectable({
   providedIn: 'root',
@@ -12,7 +12,7 @@ export class SanityService {
 
   sanityClientCredentials = {
     option: sanityClient({
-      projectId: "",
+      projectId: "0mg3b574",
       dataset: "production",
     }),
   };
