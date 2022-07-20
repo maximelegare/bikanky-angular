@@ -1,6 +1,9 @@
 <div>
   <app-line-divisor [marginTop]="6"></app-line-divisor>
-  <p class="mt-3">
-    {{bullet.text.fr}}
-  </p>
+  <div class="flex items-start mt-3 mx-1">
+    <span *ngIf="bullet.icon" class="material-icons mt-1 mr-2 text-transparentAccent">{{bullet.icon}}</span>
+    <p>
+      {{ bullet.text.fr }}
+    </p>
+  </div>
 </div>
