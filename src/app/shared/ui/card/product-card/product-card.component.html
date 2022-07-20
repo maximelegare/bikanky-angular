@@ -1,41 +1,41 @@
 <div
-  class="bg-transparent relative rounded-2xl hover:bg-white hover:-translate-y-3 transition-all ease-in-out duration-300"
+  class="bg-transparent h-full rounded-2xl hover:bg-white hover:-translate-y-3 transition-all ease-in-out duration-300"
 >
-  <div
-    class="w-fit mx-auto absolute top-14 translate-x-[-50%] translate-y-[-50%] left-[50%] drop-shadow-md"
-  >
-    <div class="w-44 overflow-hidden rounded-lg mx-auto">
-      <img [src]="src" alt="" />
+  <div class="relative">
+    <div
+      class="w-fit mx-auto absolute top-14 translate-x-[-50%] translate-y-[-50%] left-[50%] drop-shadow-md"
+    >
+      <div class="w-44 overflow-hidden rounded-lg mx-auto">
+        <img [src]="product.defaultProductVariant.images[0].imageUrl" alt="" />
+      </div>
+      <!-- <div>{{src | json}}</div> -->
     </div>
-    <!-- <div>{{src | json}}</div> -->
   </div>
-  <div class="w-full px-4 pt-48 pb-6">
-    <p class="text-2xl font-semibold text-center mt-3">{{ title }}</p>
-    <p *ngIf="subTitle" class="text-lg font-semibold text text-center mt-1">
-      ({{ subTitle }})
-    </p>
-    <p class="text-sm text-center mt-2">
-      à partir de <span class="">{{ refactorPrice(startingPrice) }}$</span>
-    </p>
-    <div class="mt-6 flex justify-center gap-4">
-      <app-base-button
-        [icon]="'add_shopping_cart'"
-        [variant]="'text-button'"
-        [textColor]="'white'"
-      ></app-base-button>
-    </div>
-    <app-line-divisor [marginTop]="6"></app-line-divisor>
-    <p class="mt-3">
-      ksjhgakgjh kgjh agdkjh dagkjh adgkjh dakjhdag kjdhag adkjgh
-    </p>
-    <app-line-divisor [marginTop]="3"></app-line-divisor>
-    <p class="mt-3">
-      ksjhgakgjh kgjh agdkjh dagkjh adgkjh dakjhdag kjdhag adkjgh
-    </p>
-    <app-line-divisor [marginTop]="3"></app-line-divisor>
-    <p class="mt-3">
-      ksjhgakgjh kgjh agdkjh dagkjh adgkjh dakjhdag kjdhag adkjgh
-    </p>
+  <div class="w-full px-4 pt-48 pb-6 h-full">
+    <p class="text-2xl font-semibold text-center mt-3">{{ product.title }}</p>
+      <p
+        *ngIf="product.defaultProductVariant.variantTitle"
+        class="text-lg font-semibold text text-center mt-1"
+      >
+        ({{ product.defaultProductVariant.variantTitle }})
+      </p>
+      <p class="text-sm text-center mt-2">
+        à partir de
+        <span class=""
+          >{{ refactorPrice(product.defaultProductVariant.price) }}$</span
+        >
+      </p>
+      <div class="mt-6 flex justify-center gap-4">
+        <app-base-button
+          [icon]="'add_shopping_cart'"
+          [variant]="'text-button'"
+          [textColor]="'white'"
+        ></app-base-button>
+      </div>
+      <div *ngFor="let bullet of product.bulletPoints">
+        <app-bullet [bullet]="bullet"></app-bullet>
+      </div>
+
     <div class="mt-10 flex justify-center">
       <app-base-button
         [text]="'en savoir plus'"

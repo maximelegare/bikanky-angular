@@ -1,24 +1,31 @@
 interface Product {
   _id:string
-  showOnHomePage:boolean;
+  showOnHomePage?:boolean;
   title: string;
   slug: string;
-  defaultProductVariant: productVariant;
-  variants: productVariant[];
+  defaultProductVariant: ProductVariant;
+  variants: ProductVariant[];
   tags: string[];
-  bullets: bullet[];
+  bulletPoints?: Bullet[];
 }
 
-interface productVariant {
-  title: string;
+interface ProductVariant {
+  variantTitle: string;
   weight: string;
   price: number;
-  images: string[];
+  images: Image[];
 }
 
-interface bullet {
+interface Image {
+  imageUrl:string
+}
+
+interface Bullet {
   icon: string;
-  text: string;
+  text:any;
 }
 
-export { Product };
+export { Product, Bullet };
+
+
+

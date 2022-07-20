@@ -24,13 +24,14 @@ interface ProductsStateModel {
     error: null,
   },
 })
+
 @Injectable()
 export class ProductsState {
   constructor(private sanity: SanityService) {}
 
   @Selector()
   static getProducts(state: ProductsStateModel) {
-    console.log(state.products);
+    console.log(state.products)
     return state.products;
   }
 
@@ -39,19 +40,20 @@ export class ProductsState {
     // Call the fetch products method and cancel if problem
     return from(
       this.sanity.fetchProducts(
-        `*[_type == "product" ]{
+        `*[_type == "product" && showOnHomePage == true]{
           _id,
           showOnHomePage,    
           title,
           slug,
           defaultProductVariant{
             images[]{"imageUrl": asset->url},
-            price
+            price,
+            variantTitle
           },
           variants,
           tags,
-          bullets
-        }[0...3]`
+          bulletPoints
+        }`
       )
     ).pipe(
       // Take the returned value and return a new success action containing the products

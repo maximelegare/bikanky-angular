@@ -4,8 +4,8 @@ export default {
   type: 'object',
   fields: [
     {
-      title: 'Title',
-      name: 'title',
+      title: 'Variant Title',
+      name: 'variantTitle',
       type: 'string',
     },
     {

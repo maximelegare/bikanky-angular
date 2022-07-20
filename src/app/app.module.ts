@@ -20,6 +20,7 @@ import { QuoteCardComponent } from './shared/ui/card/quote-card/quote-card.compo
 import { QuotesSectionComponent } from './home/ui/quotes-section/quotes-section.component';
 import { BaseCartButtonComponent } from './shared/ui/buttons/base-cart-button/base-cart-button.component';
 import { HttpClientModule } from '@angular/common/http';
+import { BulletComponent } from './shared/ui/bullet/bullet.component';
 
 @NgModule({
   declarations: [
@@ -36,6 +37,7 @@ import { HttpClientModule } from '@angular/common/http';
     QuoteCardComponent,
     QuotesSectionComponent,
     BaseCartButtonComponent,
+    BulletComponent,
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'serverApp' }),

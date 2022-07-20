@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
-import { Product } from '../../context/product.model';
+import { Product } from 'src/app/context/products/product.model'; 
 import { Select } from '@ngxs/store';
 import { ProductsState } from 'src/app/context/products/products.state';
 
@@ -15,6 +15,9 @@ export class ProductsSectionComponent implements OnInit {
   constructor() { }
   @Select(ProductsState.getProducts) products$:Observable<Product[]>
   
+
+
+
   ngOnInit(): void {
   }
 
