@@ -1,42 +1,39 @@
 <div
-  class="bg-transparent h-full rounded-2xl hover:bg-white hover:-translate-y-3 transition-all ease-in-out duration-300"
+  class="bg-transparent relative h-full rounded-2xl hover:bg-white hover:-translate-y-3 transition-all ease-in-out duration-300"
 >
-  <div class="relative">
-    <div
-      class="w-fit mx-auto absolute top-14 translate-x-[-50%] translate-y-[-50%] left-[50%] drop-shadow-md"
-    >
-      <div class="w-44 overflow-hidden rounded-lg mx-auto">
-        <img [src]="product.defaultProductVariant.images[0].imageUrl" alt="" />
-      </div>
-      <!-- <div>{{src | json}}</div> -->
+  <div
+    class="w-fit mx-auto absolute top-14 translate-x-[-50%] translate-y-[-50%] left-[50%] drop-shadow-md"
+  >
+    <div class="w-44 overflow-hidden rounded-lg mx-auto">
+      <img [src]="product.defaultProductVariant.images[0].imageUrl" alt="" />
     </div>
   </div>
-  <div class="w-full px-4 pt-48 pb-6 h-full">
+  <div class="w-full px-4 pt-48 pb-20 h-full">
     <p class="text-2xl font-semibold text-center mt-3">{{ product.title }}</p>
-      <p
-        *ngIf="product.defaultProductVariant.variantTitle"
-        class="text-lg font-semibold text text-center mt-1"
+    <p
+      *ngIf="product.defaultProductVariant.variantTitle"
+      class="text-lg font-semibold text text-center mt-1"
+    >
+      ({{ product.defaultProductVariant.variantTitle }})
+    </p>
+    <p class="text-sm text-center mt-2">
+      à partir de
+      <span class=""
+        >{{ refactorPrice(product.defaultProductVariant.price) }}$</span
       >
-        ({{ product.defaultProductVariant.variantTitle }})
-      </p>
-      <p class="text-sm text-center mt-2">
-        à partir de
-        <span class=""
-          >{{ refactorPrice(product.defaultProductVariant.price) }}$</span
-        >
-      </p>
-      <div class="mt-6 flex justify-center gap-4">
-        <app-base-button
-          [icon]="'add_shopping_cart'"
-          [variant]="'text-button'"
-          [textColor]="'white'"
-        ></app-base-button>
-      </div>
-      <div *ngFor="let bullet of product.bulletPoints">
-        <app-bullet [bullet]="bullet"></app-bullet>
-      </div>
-
-    <div class="mt-10 flex justify-center">
+    </p>
+    <div class="mt-6 flex justify-center gap-4">
+      <app-base-button
+        [icon]="'add_shopping_cart'"
+        [variant]="'text-button'"
+        [textColor]="'white'"
+      ></app-base-button>
+    </div>
+    <div *ngFor="let bullet of product.bulletPoints">
+      <app-bullet [bullet]="bullet"></app-bullet>
+    </div>
+    <!-- button position absolute at the bottom of the relative container. container has pb-20 to prevent content to go on button  -->
+    <div class="absolute bottom-0 translate-x-[-50%] translate-y-[-50%] left-[50%]">
       <app-base-button
         [text]="'en savoir plus'"
         [variant]="'text-button-border'"
