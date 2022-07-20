@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Select } from '@ngxs/store';
-import { TestimonialsState } from 'src/app/context/testimonials/testimonial.state';
+import { TestimonialsState } from 'src/app/shared/context/testimonials/testimonial.state'; 
 import { Observable } from 'rxjs';
-import { Testimonial } from 'src/app/context/testimonials/testimonial.model';
+import { Testimonial } from 'src/app/shared/context/testimonials/testimonial.model';
 
 
 @Component({

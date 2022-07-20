@@ -3,10 +3,10 @@ import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-index',
-  templateUrl: './index.page.html',
-  styleUrls: ['./index.page.css'],
+  templateUrl: './home.component.html',
+  styleUrls: ['./home.component.css'],
 })
-export class IndexComponent implements OnInit {
+export class HomeComponent implements OnInit {
   constructor() {}
 
   ngOnInit(): void {

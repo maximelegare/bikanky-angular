@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngxs/store';
-import { FectchAllProducts } from './context/products/products.actions';
-import { FectchTestimonials } from './context/testimonials/testimonial.actions';
+import { FectchAllProducts } from './shared/context/products/products.actions';
+import { FectchTestimonials } from './shared/context/testimonials/testimonial.actions';
 
 
 

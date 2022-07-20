@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
-import { Product } from 'src/app/context/products/product.model'; 
+import { Product } from 'src/app/shared/context/products/product.model'; 
 import { Select } from '@ngxs/store';
-import { ProductsState } from 'src/app/context/products/products.state';
+import { ProductsState } from 'src/app/shared/context/products/products.state';
 
 
 @Component({

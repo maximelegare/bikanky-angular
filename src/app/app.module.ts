@@ -1,19 +1,19 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgxsModule } from '@ngxs/store';
-import { ProductsState } from './context/products/products.state';
-import { TestimonialsState } from './context/testimonials/testimonial.state';
+import { ProductsState } from './shared/context/products/products.state';
+import { TestimonialsState } from './shared/context/testimonials/testimonial.state';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeroSectionComponent } from './home/ui/hero-section/hero-section.component';
-import { TheHeaderComponent } from './layout/the-header/the-header.component';
+import { TheHeaderComponent } from './shared/layout/the-header/the-header.component';
 import { BaseButtonComponent } from './shared/ui/buttons/base-button/base-button.component';
 import { LineDivisorComponent } from './shared/ui/other/line-divisor/line-divisor.component';
 import { ProductCardComponent } from './shared/ui/card/product-card/product-card.component';
 import { ProductsSectionComponent } from './home/ui/products-section/products-section.component';
-import { TheFooterComponent } from './layout/the-footer/the-footer.component';
-import { IndexComponent } from './home/ui/index.page';
+import { TheFooterComponent } from './shared/layout/the-footer/the-footer.component';
+import { HomeComponent } from './home/ui/home.component';
 import { StylismSectionComponent } from './home/ui/stylism-section/stylism-section.component';
 import { QuoteCardComponent } from './shared/ui/card/testimonial-card/testimonial-card.component';
 import { QuotesSectionComponent } from './home/ui/testimonials-section/testimonials-section.component';
@@ -31,7 +31,7 @@ import { BulletComponent } from './shared/ui/bullet/bullet.component';
     ProductCardComponent,
     ProductsSectionComponent,
     TheFooterComponent,
-    IndexComponent,
+    HomeComponent,
     StylismSectionComponent,
     QuoteCardComponent,
     QuotesSectionComponent,

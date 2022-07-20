@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Testimonial } from 'src/app/context/testimonials/testimonial.model';
+import { Testimonial } from 'src/app/shared/context/testimonials/testimonial.model';
 import { Input } from '@angular/core';
 
 @Component({
