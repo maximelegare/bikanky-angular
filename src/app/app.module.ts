@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgxsModule } from '@ngxs/store';
 import { ProductsState } from './context/products/products.state';
-
+import { TestimonialsState } from './context/testimonials/testimonial.state';
 
 
 import { AppRoutingModule } from './app-routing.module';
@@ -43,7 +43,7 @@ import { BulletComponent } from './shared/ui/bullet/bullet.component';
     BrowserModule.withServerTransition({ appId: 'serverApp' }),
     AppRoutingModule,
     HttpClientModule,
-    NgxsModule.forRoot([ProductsState]),
+    NgxsModule.forRoot([ProductsState, TestimonialsState]),
   ],
   providers: [NgxsModule],
   bootstrap: [AppComponent],

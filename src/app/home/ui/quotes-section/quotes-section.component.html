@@ -1,8 +1,10 @@
 <div class="container mb-28">
-  <p class="text-4xl font-semibold text-center mb-6">Commentaires de nos supportaires</p>
+  <p class="text-4xl font-semibold text-center mb-6">
+    Commentaires de nos supportaires
+  </p>
   <div class="flex justify-between gap-10">
-    <app-quote-card></app-quote-card>
-    <app-quote-card></app-quote-card>
-    <app-quote-card></app-quote-card>
+    <div *ngFor="let testimonial of testimonials$ | async">
+      <app-quote-card [testimonial]="testimonial"></app-quote-card>
+    </div>
   </div>
 </div>

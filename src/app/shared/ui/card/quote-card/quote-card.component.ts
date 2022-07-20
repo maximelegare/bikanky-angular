@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Testimonial } from 'src/app/context/testimonials/testimonial.model';
+import { Input } from '@angular/core';
 
 @Component({
   selector: 'app-quote-card',
@@ -8,6 +10,8 @@ import { Component, OnInit } from '@angular/core';
 export class QuoteCardComponent implements OnInit {
 
   constructor() { }
+
+  @Input() testimonial:Testimonial;
 
   ngOnInit(): void {
   }

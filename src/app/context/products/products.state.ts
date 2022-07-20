@@ -39,7 +39,7 @@ export class ProductsState {
   fectchAllProducts(ctx: StateContext<ProductsStateModel>) {
     // Call the fetch products method and cancel if problem
     return from(
-      this.sanity.fetchProducts(
+      this.sanity.fetchQuerry(
         `*[_type == "product" && showOnHomePage == true]{
           _id,
           showOnHomePage,    
