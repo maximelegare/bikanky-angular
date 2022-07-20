@@ -4,8 +4,7 @@ import { Input } from '@angular/core';
 
 @Component({
   selector: 'app-quote-card',
-  templateUrl: './quote-card.component.html',
-  styleUrls: ['./quote-card.component.css']
+  templateUrl: './testimonial-card.component.html',
 })
 export class QuoteCardComponent implements OnInit {
 

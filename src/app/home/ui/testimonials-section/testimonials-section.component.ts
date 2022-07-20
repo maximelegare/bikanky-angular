@@ -7,8 +7,8 @@ import { Testimonial } from 'src/app/context/testimonials/testimonial.model';
 
 @Component({
   selector: 'app-quotes-section',
-  templateUrl: './quotes-section.component.html',
-  styleUrls: ['./quotes-section.component.css']
+  templateUrl: './testimonials-section.component.html',
+  styleUrls: ['./testimonials-section.component.css']
 })
 export class QuotesSectionComponent implements OnInit {
 
