@@ -1,9 +1,11 @@
 <div class="relative container mb-28">
   <div>
-    <div class="flex justify-between mb-10 min-h-[400px]">
-      <div *ngFor="let product of products$ | async" class="flex">
+    <div class="flex justify-between mb-10 min-h-[400px] gap-6">
+      <div *ngFor="let product of products$ | async" class="flex-initial w-[350px]">
         <app-product-card
-          class="w-[350px]"
+         
+        
+        
           [product]="product"
         ></app-product-card>
       </div>

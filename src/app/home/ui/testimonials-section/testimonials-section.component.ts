@@ -6,7 +6,7 @@ import { Testimonial } from 'src/app/context/testimonials/testimonial.model';
 
 
 @Component({
-  selector: 'app-quotes-section',
+  selector: 'app-testimonials-section',
   templateUrl: './testimonials-section.component.html',
   styleUrls: ['./testimonials-section.component.css']
 })

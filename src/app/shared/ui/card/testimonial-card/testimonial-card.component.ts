@@ -3,7 +3,7 @@ import { Testimonial } from 'src/app/context/testimonials/testimonial.model';
 import { Input } from '@angular/core';
 
 @Component({
-  selector: 'app-quote-card',
+  selector: 'app-testimonial-card',
   templateUrl: './testimonial-card.component.html',
 })
 export class QuoteCardComponent implements OnInit {
