@@ -9,6 +9,7 @@ import { Product } from 'src/app/shared/context/products/product.model';
 export class ProductCardComponent implements OnInit {
 
   @Input() product:Product;
+  @Input() noBulletPoints?:boolean;
   
 
   constructor() { }

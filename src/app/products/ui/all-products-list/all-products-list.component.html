@@ -1,14 +1,12 @@
 <div class="relative container mb-28">
     <div>
-      <div class="flex justify-between mb-10 min-h-[400px] gap-6">
-        <!-- <div *ngFor="let product of products$ | async" class="flex-initial w-[350px]"> -->
+      <div class="flex flex-wrap justify-between min-h-[400px] gap-6 ">
+        <div *ngFor="let product of products$ | async" class="flex-initial w-[350px] pt-8">
           <app-product-card
+          [noBulletPoints]="true"
+          [product]="product"
           ></app-product-card>
-          <app-product-card
-          ></app-product-card>
-          <app-product-card
-          ></app-product-card>
-        <!-- </div> -->
+        </div>
       </div>
     </div>
     <!-- <div class="flex justify-center">

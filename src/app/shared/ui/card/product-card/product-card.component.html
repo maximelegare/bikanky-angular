@@ -29,11 +29,15 @@
         [textColor]="'white'"
       ></app-base-button>
     </div>
-    <div *ngFor="let bullet of product.bulletPoints">
-      <app-bullet [bullet]="bullet"></app-bullet>
+    <div *ngIf="!noBulletPoints">
+      <div *ngFor="let bullet of product.bulletPoints">
+        <app-bullet [bullet]="bullet"></app-bullet>
+      </div>
     </div>
     <!-- button position absolute at the bottom of the relative container. container has pb-20 to prevent content to go on button  -->
-    <div class="absolute bottom-0 translate-x-[-50%] translate-y-[-50%] left-[50%]">
+    <div
+      class="absolute bottom-0 translate-x-[-50%] translate-y-[-50%] left-[50%]"
+    >
       <app-base-button
         [text]="'en savoir plus'"
         [variant]="'text-button-border'"
