@@ -1,4 +1,12 @@
-<button [class]="getStyles()" class="group block">
+<a routerLink="routerLink" [class]="getStyles()" class="group block" *ngIf="routerLink">
+  <p *ngIf="text" class="opacity-60 group-hover:opacity-100">
+    {{ text }}
+  </p>
+  <div class="flex items-center justify-center">
+    <span *ngIf="icon" class="material-icons">{{ icon }}</span>
+  </div>
+</a>
+<button [class]="getStyles()" class="group block" *ngIf="!routerLink">
   <p *ngIf="text" class="opacity-60 group-hover:opacity-100">
     {{ text }}
   </p>

@@ -10,7 +10,6 @@ import { HeroSectionComponent } from './home/ui/hero-section/hero-section.compon
 import { TheHeaderComponent } from './shared/layout/the-header/the-header.component';
 import { BaseButtonComponent } from './shared/ui/buttons/base-button/base-button.component';
 import { LineDivisorComponent } from './shared/ui/other/line-divisor/line-divisor.component';
-import { ProductCardComponent } from './shared/ui/card/product-card/product-card.component';
 import { ProductsSectionComponent } from './home/ui/products-section/products-section.component';
 import { TheFooterComponent } from './shared/layout/the-footer/the-footer.component';
 import { HomeComponent } from './home/ui/home.component';
@@ -20,6 +19,11 @@ import { QuotesSectionComponent } from './home/ui/testimonials-section/testimoni
 import { BaseCartButtonComponent } from './shared/ui/buttons/base-cart-button/base-cart-button.component';
 import { HttpClientModule } from '@angular/common/http';
 import { BulletComponent } from './shared/ui/bullet/bullet.component';
+import { ProductsComponent } from './products/ui/products.component';
+import { AllProductsListComponent } from './products/ui/all-products-list/all-products-list.component';
+import { ProductCardComponent } from './shared/ui/card/product-card/product-card.component'; 
+
+
 
 @NgModule({
   declarations: [
@@ -37,6 +41,8 @@ import { BulletComponent } from './shared/ui/bullet/bullet.component';
     QuotesSectionComponent,
     BaseCartButtonComponent,
     BulletComponent,
+    AllProductsListComponent,
+    ProductsComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'serverApp' }),
@@ -46,5 +52,6 @@ import { BulletComponent } from './shared/ui/bullet/bullet.component';
   ],
   providers: [NgxsModule],
   bootstrap: [AppComponent],
+  exports:[AppComponent]
 })
 export class AppModule {}

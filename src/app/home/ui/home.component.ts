@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-
+import { Store } from '@ngxs/store';
+import { FectchTestimonials } from 'src/app/shared/context/testimonials/testimonial.actions';
 
 @Component({
   selector: 'app-index',
@@ -7,9 +8,9 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./home.component.css'],
 })
 export class HomeComponent implements OnInit {
-  constructor() {}
+  constructor(private store: Store) {}
 
   ngOnInit(): void {
-   
+    this.store.dispatch(new FectchTestimonials());
   }
 }

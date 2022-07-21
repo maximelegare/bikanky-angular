@@ -31,16 +31,26 @@ export class ProductsState {
 
   @Selector()
   static getProducts(state: ProductsStateModel) {
-    console.log(state.products)
     return state.products;
   }
+
+  @Selector()
+  static getHomeProducts(state: ProductsStateModel) {
+    
+    return state.products.filter((product) => product.showOnHomePage)
+  }
+
+
+
+
+
 
   @Action(FectchAllProducts)
   fectchAllProducts(ctx: StateContext<ProductsStateModel>) {
     // Call the fetch products method and cancel if problem
     return from(
       this.sanity.fetchQuerry(
-        `*[_type == "product" && showOnHomePage == true]{
+        `*[_type == "product"]{
           _id,
           showOnHomePage,    
           title,

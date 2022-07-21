@@ -1,4 +1,6 @@
-<div class="header-bg-color py-4 w-screen fixed  hover:bg-[#efcc1d37] drop-shadow-ms z-50">
+<div
+  class="header-bg-color py-4 w-screen fixed hover:bg-[#efcc1d37] drop-shadow-ms z-50"
+>
   <!-- <div class="flex i mx-auto container"> -->
   <!-- <div class="grow"></div> -->
   <div class="flex gap-4 items-center justify-center">
@@ -8,16 +10,19 @@
       <BaseButton title="Me Contacter" link="/contact" variant="text-only"/>
       <BaseButton title="Fr" variant="text-only"/> -->
     <div>
-      <img
-        class="w-10 h-10 cursor-pointer outilne"
-        src="/assets/svg/bikanky-logo.svg"
-        alt="logo Bikanky"
-      />
+      <a routerLink="/">
+        <img
+          class="w-10 h-10 cursor-pointer outilne"
+          src="/assets/svg/bikanky-logo.svg"
+          alt="logo Bikanky"
+        />
+      </a>
     </div>
     <app-base-button
       [text]="'Produits'"
       [variant]="'text-only'"
       [underlineOnHover]="true"
+      [routerLink]="'products'"
     ></app-base-button>
     <app-base-button
       [text]="'Stylisme'"
@@ -35,7 +40,11 @@
       [underlineOnHover]="true"
     ></app-base-button>
     <app-base-cart-button [numberItem]="4"></app-base-cart-button>
-    <app-base-button [text]="'Fr'" [variant]="'text-only'" [underlineOnHover]="true"></app-base-button>
+    <app-base-button
+      [text]="'Fr'"
+      [variant]="'text-only'"
+      [underlineOnHover]="true"
+    ></app-base-button>
     <!-- <CartButton :number="10" /> -->
   </div>
   <!-- </div> -->

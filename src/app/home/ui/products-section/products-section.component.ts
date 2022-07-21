@@ -13,7 +13,7 @@ import { ProductsState } from 'src/app/shared/context/products/products.state';
 export class ProductsSectionComponent implements OnInit {
 
   constructor() { }
-  @Select(ProductsState.getProducts) products$:Observable<Product[]>
+  @Select(ProductsState.getHomeProducts) products$:Observable<Product[]>
   
 
 

@@ -17,7 +17,7 @@ export class AppComponent implements OnInit {
 
   ngOnInit(): void {
    this.store.dispatch(new FectchAllProducts())
-   this.store.dispatch(new FectchTestimonials())
+   
   }
   
 }
