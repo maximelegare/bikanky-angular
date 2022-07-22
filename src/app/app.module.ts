@@ -21,7 +21,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { BulletComponent } from './shared/ui/bullet/bullet.component';
 import { ProductsComponent } from './products/ui/products.component';
 import { AllProductsListComponent } from './products/ui/all-products-list/all-products-list.component';
-import { ProductCardComponent } from './shared/ui/card/product-card/product-card.component'; 
+import { ProductCardComponent } from './shared/ui/card/product-card/product-card.component';
+import { ProductsTitleComponent } from './shared/ui/other/products-title/products-title.component'; 
 
 
 
@@ -42,7 +43,8 @@ import { ProductCardComponent } from './shared/ui/card/product-card/product-card
     BaseCartButtonComponent,
     BulletComponent,
     AllProductsListComponent,
-    ProductsComponent
+    ProductsComponent,
+    ProductsTitleComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'serverApp' }),

@@ -7,24 +7,32 @@
     <div class="flex container justify-end gap-8">
       <div class="flex">
         <div class="left-32">
-          <p class="text-6xl pt-32 font-semibold">
+          <p class="text-6xl mt-32 font-semibold">
             Une paire de manches pour chaque outfit
           </p>
-          <p class="text-xl pt-6">
+          <p class="text-xl mt-6">
             Une paire de manches pour chaque outfit htjhd dfjhgsdf sdjfhgs fsfgs
             sdfhdjfhsgdf sjdfhg
           </p>
-          <app-base-button
-            [text]="'Voir les produits'"
-            [size]="'big'"
-            [variant]="'text-button'"
-            [textColor]="'white'"
-          ></app-base-button>
+          <div class="mt-10">
+            <app-base-button
+              [text]="'Voir les produits'"
+              [size]="'big'"
+              [variant]="'text-button'"
+              [textColor]="'white'"
+              [routerLink]="'products'"
+            ></app-base-button>
+          </div>
         </div>
-        <div class="w-[800px] h-[600px]"></div>
+        <!-- placeholder for the absolute image -->
+        <div class="w-[800px] h-[550px]"></div>
       </div>
       <div class="absolute my-12 right-0">
-        <img src="assets/img/home_top.png" class="2xl:w-[800px] xl:w-[600px] h-auto" alt="" />
+        <img
+          src="assets/img/home_top.png"
+          class="2xl:w-[800px] xl:w-[600px] h-auto"
+          alt=""
+        />
       </div>
     </div>
   </div>

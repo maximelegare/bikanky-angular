@@ -1,4 +1,4 @@
-<div class="bg-transparentAccent py-12 flex flex-col items-center ">
+<footer class="bg-transparentAccent py-12 flex flex-col items-center ">
   <div class="container">
     <div class="mb-6 ml-3">
       <img
@@ -14,17 +14,17 @@
         <app-base-button
           [text]="'Produits'"
           [variant]="'text-only'"
-          link="/products"
+          [routerLink]="'products'"
         ></app-base-button>
         <app-base-button
           [text]="'Stylisme'"
           [variant]="'text-only'"
-          link="/stylism"
+          
         ></app-base-button>
         <app-base-button
           [text]="'À Propos'"
           [variant]="'text-only'"
-          link="/about"
+          
         ></app-base-button>
       </div>
       <div class="flex flex-col items-start w-52">
@@ -47,7 +47,7 @@
         <app-base-button
           [text]="'Me Joindre'"
           [variant]="'text-only'"
-          link="contact"
+          
         ></app-base-button>
         <app-base-button
           [text]="'FAQs'"
@@ -59,7 +59,7 @@
         <app-base-button
           [text]="'Me Joindre'"
           [variant]="'text-only'"
-          link="contact"
+
         ></app-base-button>
         <app-base-button
           [text]="'FAQs'"
@@ -77,4 +77,4 @@
       Bikanky
     </p>
   </div>
-</div>
+</footer>
