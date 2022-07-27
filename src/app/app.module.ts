@@ -4,6 +4,7 @@ import { NgxsModule } from '@ngxs/store';
 import { ProductsState } from './shared/context/products/products.state';
 import { TestimonialsState } from './shared/context/testimonials/testimonial.state';
 
+
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeroSectionComponent } from './home/ui/hero-section/hero-section.component';
@@ -23,6 +24,9 @@ import { ProductsComponent } from './products/ui/products.component';
 import { AllProductsListComponent } from './products/ui/all-products-list/all-products-list.component';
 import { ProductCardComponent } from './shared/ui/card/product-card/product-card.component';
 import { ProductsTitleComponent } from './shared/ui/other/products-title/products-title.component'; 
+import { CarouselModule } from './shared/ui/carousel/carousel.module';
+
+
 
 
 
@@ -44,15 +48,17 @@ import { ProductsTitleComponent } from './shared/ui/other/products-title/product
     BulletComponent,
     AllProductsListComponent,
     ProductsComponent,
-    ProductsTitleComponent
+    ProductsTitleComponent,
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'serverApp' }),
     AppRoutingModule,
     HttpClientModule,
     NgxsModule.forRoot([ProductsState, TestimonialsState]),
+    CarouselModule
+    
   ],
-  providers: [NgxsModule],
+  
   bootstrap: [AppComponent],
   exports:[AppComponent]
 })
