@@ -6,7 +6,7 @@ import { Input } from '@angular/core';
   selector: 'app-testimonial-card',
   templateUrl: './testimonial-card.component.html',
 })
-export class QuoteCardComponent implements OnInit {
+export class TestimonialCardComponent implements OnInit {
 
   constructor() { }
 

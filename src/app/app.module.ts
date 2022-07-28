@@ -4,7 +4,6 @@ import { NgxsModule } from '@ngxs/store';
 import { ProductsState } from './shared/context/products/products.state';
 import { TestimonialsState } from './shared/context/testimonials/testimonial.state';
 
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeroSectionComponent } from './home/ui/hero-section/hero-section.component';
@@ -15,7 +14,6 @@ import { ProductsSectionComponent } from './home/ui/products-section/products-se
 import { TheFooterComponent } from './shared/layout/the-footer/the-footer.component';
 import { HomeComponent } from './home/ui/home.component';
 import { StylismSectionComponent } from './home/ui/stylism-section/stylism-section.component';
-import { QuoteCardComponent } from './shared/ui/card/testimonial-card/testimonial-card.component';
 import { QuotesSectionComponent } from './home/ui/testimonials-section/testimonials-section.component';
 import { BaseCartButtonComponent } from './shared/ui/buttons/base-cart-button/base-cart-button.component';
 import { HttpClientModule } from '@angular/common/http';
@@ -23,10 +21,10 @@ import { BulletComponent } from './shared/ui/bullet/bullet.component';
 import { ProductsComponent } from './products/ui/products.component';
 import { AllProductsListComponent } from './products/ui/all-products-list/all-products-list.component';
 import { ProductCardComponent } from './shared/ui/card/product-card/product-card.component';
-import { ProductsTitleComponent } from './shared/ui/other/products-title/products-title.component'; 
+import { ProductsTitleComponent } from './shared/ui/other/products-title/products-title.component';
+
 import { CarouselModule } from './shared/ui/carousel/carousel.module';
-
-
+import { SharedModule } from './shared/shared.module';
 
 
 
@@ -42,7 +40,6 @@ import { CarouselModule } from './shared/ui/carousel/carousel.module';
     TheFooterComponent,
     HomeComponent,
     StylismSectionComponent,
-    QuoteCardComponent,
     QuotesSectionComponent,
     BaseCartButtonComponent,
     BulletComponent,
@@ -55,11 +52,11 @@ import { CarouselModule } from './shared/ui/carousel/carousel.module';
     AppRoutingModule,
     HttpClientModule,
     NgxsModule.forRoot([ProductsState, TestimonialsState]),
-    CarouselModule
-    
+    CarouselModule,
+    SharedModule,
   ],
-  
+
   bootstrap: [AppComponent],
-  exports:[AppComponent]
+  exports: [AppComponent],
 })
 export class AppModule {}

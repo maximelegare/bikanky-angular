@@ -1,8 +1,14 @@
-<swiper [slidesPerView]="2" [spaceBetween]="50">
-  <ng-template swiperSlide>Slide 1</ng-template>
-  <ng-template swiperSlide>Slide 2</ng-template>
-  <ng-template swiperSlide>Slide 3</ng-template>
-  <ng-template swiperSlide>Slide 4</ng-template>
-  <ng-template swiperSlide>Slide 5</ng-template>
-  <ng-template swiperSlide>Slide 6</ng-template>
+<swiper
+  [slidesPerView]="2"
+  [spaceBetween]="50"
+  [pagination]="{ clickable: true }"
+>
+  <ng-template swiperSlide *ngFor="let slide of slides">
+    <ng-container [ngSwitch]="variant">
+      <app-testimonial-card
+        [testimonial]="slide"
+        *ngSwitchCase="'testimonial'"
+      ></app-testimonial-card>
+    </ng-container>
+  </ng-template>
 </swiper>

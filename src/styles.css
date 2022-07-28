@@ -8,4 +8,7 @@
     .material-icon{
         @apply h-3 w-3;
     }
+    .swiper-pagination-bullet-active {
+        background-color:rgba(239, 203, 29, 1) !important;
+      }
 }
