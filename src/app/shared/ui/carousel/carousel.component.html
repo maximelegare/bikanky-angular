@@ -1,6 +1,6 @@
 <swiper
-  [slidesPerView]="2"
-  [spaceBetween]="50"
+  [slidesPerView]="slidePerView"
+  
   [pagination]="{ clickable: true }"
 >
   <ng-template swiperSlide *ngFor="let slide of slides">
@@ -9,6 +9,10 @@
         [testimonial]="slide"
         *ngSwitchCase="'testimonial'"
       ></app-testimonial-card>
+      <app-product-card
+        *ngSwitchCase="'product'"
+        [product]="slide"
+      ></app-product-card>
     </ng-container>
   </ng-template>
 </swiper>

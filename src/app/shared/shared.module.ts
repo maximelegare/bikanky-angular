@@ -1,15 +1,39 @@
 import { NgModule } from '@angular/core';
+
 import { CommonModule } from '@angular/common';
 import { TestimonialCardComponent } from './ui/card/testimonial-card/testimonial-card.component';
-
-
+import { TheHeaderComponent } from './layout/the-header/the-header.component';
+import { BaseButtonComponent } from './ui/buttons/base-button/base-button.component';
+import { LineDivisorComponent } from './ui/other/line-divisor/line-divisor.component';
+import { TheFooterComponent } from './layout/the-footer/the-footer.component';
+import { BaseCartButtonComponent } from './ui/buttons/base-cart-button/base-cart-button.component';
+import { BulletComponent } from './ui/bullet/bullet.component';
+import { ProductCardComponent } from './ui/card/product-card/product-card.component';
+import { ProductsTitleComponent } from './ui/other/products-title/products-title.component';
 
 @NgModule({
-  declarations: [TestimonialCardComponent],
-  imports: [
-    CommonModule
-  ],exports:[
-    TestimonialCardComponent
-  ]
+  declarations: [
+    TestimonialCardComponent,
+    TheHeaderComponent,
+    BaseButtonComponent,
+    LineDivisorComponent,
+    TheFooterComponent,
+    BaseCartButtonComponent,
+    BulletComponent,
+    ProductCardComponent,
+    ProductsTitleComponent,
+  ],
+  imports: [CommonModule],
+  exports: [
+    TestimonialCardComponent,
+    TheHeaderComponent,
+    BaseButtonComponent,
+    LineDivisorComponent,
+    TheFooterComponent,
+    BaseCartButtonComponent,
+    BulletComponent,
+    ProductCardComponent,
+    ProductsTitleComponent,
+  ],
 })
 export class SharedModule {}

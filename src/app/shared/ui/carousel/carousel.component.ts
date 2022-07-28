@@ -17,6 +17,7 @@ export class CarouselComponent implements OnInit {
 
   @Input() slides:Array<any> 
   @Input() variant:string
+  @Input() slidePerView:number = 3
 
   ngOnInit(): void {
      

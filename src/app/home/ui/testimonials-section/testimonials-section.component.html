@@ -2,11 +2,6 @@
   <p class="text-4xl font-semibold text-center mb-6">
     Commentaires de nos supportaires
   </p>
-    <!-- <div *ngFor="let testimonial of testimonials$ | async" class="flex-initial w-96">
-        <app-testimonial-card
-          [testimonial]="testimonial"
-        ></app-testimonial-card>  
-    </div> -->
     <ng-container *ngIf="testimonials$ | async as slides">
       <app-carousel [slides]="slides" [variant]="'testimonial'"></app-carousel>
     </ng-container>

@@ -11,4 +11,10 @@
     .swiper-pagination-bullet-active {
         background-color:rgba(239, 203, 29, 1) !important;
       }
+      .swiper-wrapper{
+        padding-top:60px !important; 
+        padding-bottom:60px !important; 
+        padding-left:5px !important; 
+        padding-right:5px !important; 
+      }
 }
