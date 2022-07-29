@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
-
+import { RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
+
 import { TestimonialCardComponent } from './ui/card/testimonial-card/testimonial-card.component';
 import { TheHeaderComponent } from './layout/the-header/the-header.component';
 import { BaseButtonComponent } from './ui/buttons/base-button/base-button.component';
@@ -23,7 +24,7 @@ import { ProductsTitleComponent } from './ui/other/products-title/products-title
     ProductCardComponent,
     ProductsTitleComponent,
   ],
-  imports: [CommonModule],
+  imports: [CommonModule, RouterModule],
   exports: [
     TestimonialCardComponent,
     TheHeaderComponent,

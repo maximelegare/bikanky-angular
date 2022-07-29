@@ -18,6 +18,8 @@ import { AllProductsListComponent } from './products/ui/all-products-list/all-pr
 
 import { CarouselModule } from './shared/ui/carousel/carousel.module';
 import { SharedModule } from './shared/shared.module';
+import { RouterModule } from '@angular/router';
+
 
 @NgModule({
   declarations: [
