@@ -14,7 +14,7 @@ export class BaseButtonComponent implements OnInit {
   @Input() color?: string = 'accent';
   @Input() textColor?:string = 'black';
   @Input() size?: string = 'small';
-  @Input() routerLink?:string;
+  @Input() routerLink:string| string[]
 
 
   constructor() {}

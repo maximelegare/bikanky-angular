@@ -2,7 +2,7 @@ interface Product {
   _id:string
   showOnHomePage?:boolean;
   title: string;
-  slug: string;
+  slug: any;
   defaultProductVariant: ProductVariant;
   variants: ProductVariant[];
   tags: string[];

@@ -18,7 +18,8 @@ import { AllProductsListComponent } from './products/ui/all-products-list/all-pr
 
 import { CarouselModule } from './shared/ui/carousel/carousel.module';
 import { SharedModule } from './shared/shared.module';
-import { RouterModule } from '@angular/router';
+import { ProductModule } from './product/product.module';
+import { ErrorComponent } from './error/error.component';
 
 
 @NgModule({
@@ -31,6 +32,7 @@ import { RouterModule } from '@angular/router';
     QuotesSectionComponent,
     AllProductsListComponent,
     ProductsComponent,
+    ErrorComponent,
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'serverApp' }),
@@ -39,6 +41,7 @@ import { RouterModule } from '@angular/router';
     NgxsModule.forRoot([ProductsState, TestimonialsState]),
     CarouselModule,
     SharedModule,
+    ProductModule
   ],
 
   bootstrap: [AppComponent],
