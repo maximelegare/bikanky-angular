@@ -11,6 +11,7 @@ import { BaseCartButtonComponent } from './ui/buttons/base-cart-button/base-cart
 import { BulletComponent } from './ui/bullet/bullet.component';
 import { ProductCardComponent } from './ui/card/product-card/product-card.component';
 import { ProductsTitleComponent } from './ui/other/products-title/products-title.component';
+import { EmplyCardComponent } from './ui/card/emply-card/emply-card.component';
 
 @NgModule({
   declarations: [
@@ -23,6 +24,7 @@ import { ProductsTitleComponent } from './ui/other/products-title/products-title
     BulletComponent,
     ProductCardComponent,
     ProductsTitleComponent,
+    EmplyCardComponent,
   ],
   imports: [CommonModule, RouterModule],
   exports: [
@@ -35,6 +37,7 @@ import { ProductsTitleComponent } from './ui/other/products-title/products-title
     BulletComponent,
     ProductCardComponent,
     ProductsTitleComponent,
+    EmplyCardComponent
   ],
 })
 export class SharedModule {}
