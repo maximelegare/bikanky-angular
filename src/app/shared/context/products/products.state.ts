@@ -6,12 +6,16 @@ import { Product } from './product.model';
 
 import {
   FectchProducts,
+  FectchHomeProductsSuccess,
+  FectchPageProductSuccess,
   FectchProductsFailure,
   FectchProductsSuccess,
 } from './products.actions';
 
 interface ProductsStateModel {
   products: Product[];
+  homeProducts: Product[];
+  pageProduct: Product[];
   status: 'pending' | 'loading' | 'success' | 'failure';
   error: '' | null;
 }
@@ -19,6 +23,8 @@ interface ProductsStateModel {
 @State<ProductsStateModel>({
   name: 'products',
   defaults: {
+    pageProduct: [],
+    homeProducts: [],
     products: [],
     status: 'pending',
     error: null,
@@ -35,28 +41,34 @@ export class ProductsState {
 
   @Selector()
   static getHomeProducts(state: ProductsStateModel) {
-    return state.products;
+    return state.homeProducts;
+  }
+
+  @Selector()
+  static getPageProduct(state: ProductsStateModel) {
+    return state.pageProduct;
   }
 
   @Action(FectchProducts)
   fectchProducts(
     ctx: StateContext<ProductsStateModel>,
-    { page }: FectchProducts
+    { page, slug }: FectchProducts
   ) {
     // Call the fetch products method and cancel if problem
 
-    let expression = "";
+    let expression = '';
 
     switch (page) {
-      case 'home': {
+      case 'home':
         expression = `_type == "product" && showOnHomePage == true`;
         break;
-      }
+      case 'product':
+        expression = `_type == "product" && slug.current == "${slug}"`;
+        break;
       default:
         expression = `_type == "product"`;
         break;
     }
-
     return from(
       this.sanity.fetchQuerry(
         `*[${expression}]{
@@ -76,16 +88,28 @@ export class ProductsState {
       )
     ).pipe(
       // Take the returned value and return a new success action containing the products
-      tap((products) => {
-        ctx.dispatch(new FectchProductsSuccess(products));
+      tap((payload) => {
+        switch (page) {
+          case 'home':
+            ctx.dispatch(new FectchHomeProductsSuccess(payload));
+            break;
+          case 'product':
+            console.log(payload);
+            ctx.dispatch(new FectchPageProductSuccess(payload));
+            break;
+          default:
+            ctx.dispatch(new FectchProductsSuccess(payload));
+            break;
+        }
       }),
       // Or... if it errors return a new failure action containing the error
       catchError((error) => ctx.dispatch(new FectchProductsFailure(error)))
     );
   }
 
+  // Fetch all products
   @Action(FectchProductsSuccess)
-  fectchHomeProductsSuccess(
+  fectchProductsSuccess(
     ctx: StateContext<ProductsStateModel>,
     { products }: FectchProductsSuccess
   ) {
@@ -99,8 +123,41 @@ export class ProductsState {
     });
   }
 
+  // Fetch Home products
+  @Action(FectchHomeProductsSuccess)
+  fectchProductSuccess(
+    ctx: StateContext<ProductsStateModel>,
+    { homeProducts }: FectchHomeProductsSuccess
+  ) {
+    const state = ctx.getState();
+
+    ctx.setState({
+      ...state,
+      homeProducts: homeProducts,
+      status: 'success',
+      error: null,
+    });
+  }
+
+  // Fetch Page product
+  @Action(FectchPageProductSuccess)
+  FectchPageProductSuccess(
+    ctx: StateContext<ProductsStateModel>,
+    { pageProduct }: FectchPageProductSuccess
+  ) {
+    const state = ctx.getState();
+    console.log(pageProduct);
+
+    ctx.setState({
+      ...state,
+      pageProduct: pageProduct,
+      status: 'success',
+      error: null,
+    });
+  }
+
   @Action(FectchProductsFailure)
-  fectchHomeProductsFailure(
+  fectchProductsFailure(
     ctx: StateContext<ProductsStateModel>,
     action: FectchProductsFailure
   ) {

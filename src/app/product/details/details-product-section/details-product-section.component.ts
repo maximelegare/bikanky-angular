@@ -1,15 +1,19 @@
 import { Component, OnInit } from '@angular/core';
+import { Input } from '@angular/core';
+
+import { Product } from 'src/app/shared/context/products/product.model';
 
 @Component({
   selector: 'app-details-product-section',
   templateUrl: './details-product-section.component.html',
-  styleUrls: ['./details-product-section.component.css']
+  styleUrls: ['./details-product-section.component.css'],
 })
 export class DetailsProductSectionComponent implements OnInit {
+  constructor() {}
 
-  constructor() { }
+  @Input() product: Product;
 
   ngOnInit(): void {
+  
   }
-
 }

@@ -5,17 +5,12 @@ import { ImageProductSectionComponent } from './image-product-section/image-prod
 import { SharedModule } from '../shared/shared.module';
 import { DetailsProductSectionComponent } from './details/details-product-section/details-product-section.component';
 
-
-
 @NgModule({
   declarations: [
     ProductComponent,
     ImageProductSectionComponent,
-    DetailsProductSectionComponent
+    DetailsProductSectionComponent,
   ],
-  imports: [
-    CommonModule,
-    SharedModule
-  ]
+  imports: [CommonModule, SharedModule],
 })
-export class ProductModule { }
+export class ProductModule {}
