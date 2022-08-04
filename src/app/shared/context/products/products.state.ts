@@ -5,9 +5,9 @@ import { SanityService } from 'src/app/shared/services/sanity/sanity.service';
 import { Product } from './product.model';
 
 import {
-  FectchAllProducts,
-  FectchAllProductsFailure,
-  FectchAllProductsSuccess,
+  FectchProducts,
+  FectchProductsFailure,
+  FectchProductsSuccess,
 } from './products.actions';
 
 interface ProductsStateModel {
@@ -24,7 +24,6 @@ interface ProductsStateModel {
     error: null,
   },
 })
-
 @Injectable()
 export class ProductsState {
   constructor(private sanity: SanityService) {}
@@ -36,21 +35,31 @@ export class ProductsState {
 
   @Selector()
   static getHomeProducts(state: ProductsStateModel) {
-    
-    return state.products.filter((product) => product.showOnHomePage)
+    return state.products;
   }
 
-
-
-
-
-
-  @Action(FectchAllProducts)
-  fectchAllProducts(ctx: StateContext<ProductsStateModel>) {
+  @Action(FectchProducts)
+  fectchProducts(
+    ctx: StateContext<ProductsStateModel>,
+    { page }: FectchProducts
+  ) {
     // Call the fetch products method and cancel if problem
+
+    let expression = "";
+
+    switch (page) {
+      case 'home': {
+        expression = `_type == "product" && showOnHomePage == true`;
+        break;
+      }
+      default:
+        expression = `_type == "product"`;
+        break;
+    }
+
     return from(
       this.sanity.fetchQuerry(
-        `*[_type == "product"]{
+        `*[${expression}]{
           _id,
           showOnHomePage,    
           title,
@@ -68,17 +77,17 @@ export class ProductsState {
     ).pipe(
       // Take the returned value and return a new success action containing the products
       tap((products) => {
-        ctx.dispatch(new FectchAllProductsSuccess(products));
+        ctx.dispatch(new FectchProductsSuccess(products));
       }),
       // Or... if it errors return a new failure action containing the error
-      catchError((error) => ctx.dispatch(new FectchAllProductsFailure(error)))
+      catchError((error) => ctx.dispatch(new FectchProductsFailure(error)))
     );
   }
 
-  @Action(FectchAllProductsSuccess)
-  fectchAllProductsSuccess(
+  @Action(FectchProductsSuccess)
+  fectchHomeProductsSuccess(
     ctx: StateContext<ProductsStateModel>,
-    { products }: FectchAllProductsSuccess
+    { products }: FectchProductsSuccess
   ) {
     const state = ctx.getState();
 
@@ -90,10 +99,10 @@ export class ProductsState {
     });
   }
 
-  @Action(FectchAllProductsFailure)
-  fectchAllProductsFailure(
+  @Action(FectchProductsFailure)
+  fectchHomeProductsFailure(
     ctx: StateContext<ProductsStateModel>,
-    action: FectchAllProductsFailure
+    action: FectchProductsFailure
   ) {
     const state = ctx.getState();
 

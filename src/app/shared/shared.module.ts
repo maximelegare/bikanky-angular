@@ -11,7 +11,7 @@ import { BaseCartButtonComponent } from './ui/buttons/base-cart-button/base-cart
 import { BulletComponent } from './ui/bullet/bullet.component';
 import { ProductCardComponent } from './ui/card/product-card/product-card.component';
 import { ProductsTitleComponent } from './ui/other/products-title/products-title.component';
-import { EmplyCardComponent } from './ui/card/emply-card/emply-card.component';
+import { EmplyCardComponent } from '../emply-card/emply-card.component';
 
 @NgModule({
   declarations: [
