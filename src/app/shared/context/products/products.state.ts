@@ -15,7 +15,7 @@ import {
 interface ProductsStateModel {
   products: Product[];
   homeProducts: Product[];
-  pageProduct: Product[];
+  pageProduct: Product | undefined;
   status: 'pending' | 'loading' | 'success' | 'failure';
   error: '' | null;
 }
@@ -23,7 +23,7 @@ interface ProductsStateModel {
 @State<ProductsStateModel>({
   name: 'products',
   defaults: {
-    pageProduct: [],
+    pageProduct: undefined,
     homeProducts: [],
     products: [],
     status: 'pending',
@@ -47,6 +47,7 @@ export class ProductsState {
   @Selector()
   static getPageProduct(state: ProductsStateModel) {
     return state.pageProduct;
+    
   }
 
   @Action(FectchProducts)
@@ -83,7 +84,9 @@ export class ProductsState {
           },
           variants,
           tags,
-          bulletPoints
+          bulletPoints,
+          shortDescription, 
+          body
         }`
       )
     ).pipe(
@@ -94,7 +97,6 @@ export class ProductsState {
             ctx.dispatch(new FectchHomeProductsSuccess(payload));
             break;
           case 'product':
-            console.log(payload);
             ctx.dispatch(new FectchPageProductSuccess(payload));
             break;
           default:
@@ -146,11 +148,10 @@ export class ProductsState {
     { pageProduct }: FectchPageProductSuccess
   ) {
     const state = ctx.getState();
-    console.log(pageProduct);
 
     ctx.setState({
       ...state,
-      pageProduct: pageProduct,
+      pageProduct: pageProduct? pageProduct[0] : undefined,
       status: 'success',
       error: null,
     });

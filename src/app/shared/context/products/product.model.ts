@@ -7,6 +7,8 @@ interface Product {
   variants: ProductVariant[];
   tags: string[];
   bulletPoints?: Bullet[];
+  shortDescription:any
+  body:any
 }
 
 interface ProductVariant {

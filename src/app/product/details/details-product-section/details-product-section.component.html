@@ -1,3 +1,10 @@
 <app-emply-card>
-    <p>{{product}}</p>
+  <p class="text-3xl font-medium">{{ product.title }}</p>
+  <p class="text-xl font-normal">
+    {{ product.defaultProductVariant.variantTitle }}
+  </p>
+  <!-- <p class="">{{product.}}</p> -->
+  <p *ngFor="let line of product.shortDescription[lang]">
+    {{ line.children[0].text }}
+  </p>
 </app-emply-card>

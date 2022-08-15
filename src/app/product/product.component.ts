@@ -17,7 +17,7 @@ export class ProductComponent implements OnInit {
 
 
 
-  @Select(ProductsState.getProducts) product$:Observable<Product>
+  @Select(ProductsState.getPageProduct) product$:Observable<Product>
 
 
   

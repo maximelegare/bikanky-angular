@@ -20,8 +20,8 @@ export class SanityService {
   urlFor = (source: any) =>
     imageUrlBuilder(this.sanityClientCredentials.option).image(source);
 
-  async fetchQuerry(querry: string): Promise<[]> {
-    const data = await this.sanityClientCredentials.option.fetch(querry);
+  async fetchQuerry(query: string): Promise<[]> {
+    const data = await this.sanityClientCredentials.option.fetch(query);
     return data;
   }
 }

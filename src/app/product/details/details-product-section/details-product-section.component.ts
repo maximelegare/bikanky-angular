@@ -12,8 +12,10 @@ export class DetailsProductSectionComponent implements OnInit {
   constructor() {}
 
   @Input() product: Product;
+  
+  lang = 'en'
 
   ngOnInit(): void {
-  
+    console.log(this.product)
   }
 }

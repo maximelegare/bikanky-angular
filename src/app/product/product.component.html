@@ -1,6 +1,6 @@
-<div *ngIf="product$ | async as product" class="flex">
-  <app-image-product-section>image</app-image-product-section>
-  <app-details-product-section [product]="product"
-    >details</app-details-product-section
-  >
+<div *ngIf="product$ | async as product" class="flex container">
+  <app-image-product-section></app-image-product-section>
+  <app-details-product-section
+    [product]="product"
+  ></app-details-product-section>
 </div>

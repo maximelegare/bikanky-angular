@@ -1,35 +1,36 @@
 export default {
-  title: 'Product variant',
-  name: 'productVariant',
-  type: 'object',
+  title: "Product variant",
+  name: "productVariant",
+  type: "object",
   fields: [
     {
-      title: 'Variant Title',
-      name: 'variantTitle',
-      type: 'string',
+      title: "Variant Title",
+      name: "variantTitle",
+      type: "string",
     },
     {
-      title: 'Weight in grams',
-      name: 'weight',
-      type: 'number',
+      title: "Weight in grams",
+      name: "weight",
+      type: "number",
     },
     {
-      title: 'Price',
-      name: 'price',
-      type: 'number',
+      title: "Price",
+      name: "price",
+      type: "number",
     },
     {
-      name: 'images',
-      title: 'Images',
-      type: 'array',
+      name: "images",
+      title: "Images",
+      type: "array",
       of: [
         {
-          type: 'image',
+          type: "image",
           options: {
             hotspot: true,
           },
         },
       ],
     },
+    
   ],
-}
+};

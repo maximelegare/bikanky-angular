@@ -87,9 +87,8 @@ export default {
         },
       ],
     },
-
     {
-      name: "shortDescriptiom",
+      name: "shortDescription",
       title: "Short Description",
       type: "localeBlockContent",
     },
