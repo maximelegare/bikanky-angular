@@ -1,8 +1,11 @@
-import { Injectable } from '@angular/core';
-import { Action, State, StateContext, Selector } from '@ngxs/store';
+import { Injectable,  } from '@angular/core';
+import { Action, State, StateContext, Selector, Select } from '@ngxs/store';
 import { from, tap, catchError } from 'rxjs';
 import { SanityService } from 'src/app/shared/services/sanity/sanity.service';
 import { Product } from './product.model';
+
+import { Observable } from 'rxjs';
+import { GeneralState } from '../general/general.state';
 
 import {
   FectchProducts,
@@ -31,8 +34,17 @@ interface ProductsStateModel {
   },
 })
 @Injectable()
-export class ProductsState {
-  constructor(private sanity: SanityService) {}
+export class ProductsState  {
+  constructor(private sanity: SanityService) {
+    this.lang$.subscribe((lang:string) => {
+      this.lang = lang
+    })
+  }
+  lang = "" 
+
+  @Select(GeneralState.getLang) lang$:Observable<string> 
+
+
 
   @Selector()
   static getProducts(state: ProductsStateModel) {
@@ -85,7 +97,13 @@ export class ProductsState {
           variants,
           tags,
           bulletPoints,
-          shortDescription, 
+          shortDescription{
+            ${this.lang}[]{
+              children[]{
+                text
+              }
+            }
+          }, 
           body
         }`
       )
