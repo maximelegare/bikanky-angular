@@ -1,10 +1,11 @@
 <app-emply-card>
-  <p class="text-3xl font-medium">{{ product.title }}</p>
-  <p class="text-xl font-normal">
-    {{ product.defaultProductVariant.variantTitle }}
-  </p>
-  <!-- <p class="">{{product.}}</p> -->
-  <p *ngFor="let line of product.shortDescription[lang]">
-    {{ line.children[0].text }}
-  </p>
+    <p class="text-3xl font-medium">{{product.title}}</p>
+    <p class="text-xl font-normal">{{product.defaultProductVariant.variantTitle}}</p>
+    <!-- <p class="">{{product.}}</p> -->
+    <ng-container *ngFor="let line of product.shortDescription[lang]">
+        <app-bullet *ngIf="line.listItem; else normal">{{line.children[0].text}}</app-bullet>
+        <ng-template #normal>
+            <p>{{line.children[0].text}}</p>
+        </ng-template>
+    </ng-container>
 </app-emply-card>

@@ -101,7 +101,8 @@ export class ProductsState  {
             ${this.lang}[]{
               children[]{
                 text
-              }
+              },
+              listItem
             }
           }, 
           body
@@ -134,7 +135,7 @@ export class ProductsState  {
     { products }: FectchProductsSuccess
   ) {
     const state = ctx.getState();
-
+    
     ctx.setState({
       ...state,
       products: products,
@@ -166,7 +167,7 @@ export class ProductsState  {
     { pageProduct }: FectchPageProductSuccess
   ) {
     const state = ctx.getState();
-
+    console.log(pageProduct)
     ctx.setState({
       ...state,
       pageProduct: pageProduct? pageProduct[0] : undefined,

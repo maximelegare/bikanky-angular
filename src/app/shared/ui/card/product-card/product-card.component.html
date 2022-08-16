@@ -31,7 +31,7 @@
     </div>
     <div *ngIf="!noBulletPoints">
       <div *ngFor="let bullet of product.bulletPoints">
-        <app-bullet [bullet]="bullet"></app-bullet>
+        <app-bullet >{{bullet.text.fr}}</app-bullet>
       </div>
     </div>
     <!-- button position absolute at the bottom of the relative container. container has pb-20 to prevent content to go on button  -->

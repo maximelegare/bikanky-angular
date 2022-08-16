@@ -1,9 +1,11 @@
 <div>
   <app-line-divisor [marginTop]="6"></app-line-divisor>
   <div class="flex items-start mt-3 mx-1">
-    <span *ngIf="bullet.icon" class="material-icons mt-1 mr-2 text-transparentAccent">{{bullet.icon}}</span>
+    <span class="material-icons mt-1 mr-2 text-transparentAccent"
+      >noise_control_off</span
+    >
     <p>
-      {{ bullet.text.fr }}
+      <ng-content></ng-content>
     </p>
   </div>
 </div>

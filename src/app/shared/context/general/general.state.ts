@@ -12,7 +12,7 @@ interface GeneralStateModel {
 @State<GeneralStateModel>({
   name: 'general',
   defaults: {
-    lang: "en",
+    lang: "fr",
   },
 })
 
