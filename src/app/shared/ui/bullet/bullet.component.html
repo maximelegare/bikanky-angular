@@ -1,5 +1,5 @@
 <div>
-  <app-line-divisor [marginTop]="6"></app-line-divisor>
+  <app-line-divisor *ngIf="!noDivisor" [marginTop]="6"></app-line-divisor>
   <div class="flex items-start mt-3 mx-1">
     <span class="material-icons mt-1 mr-2 text-transparentAccent"
       >noise_control_off</span

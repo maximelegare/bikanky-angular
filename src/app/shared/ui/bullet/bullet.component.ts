@@ -1,5 +1,4 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { Bullet } from 'src/app/shared/context/products/product.model';
 
 
 @Component({
@@ -9,7 +8,7 @@ import { Bullet } from 'src/app/shared/context/products/product.model';
 })
 export class BulletComponent implements OnInit {
 
-  @Input() bullet:Bullet; 
+  @Input() noDivisor?:boolean;
 
   constructor() { }
 
