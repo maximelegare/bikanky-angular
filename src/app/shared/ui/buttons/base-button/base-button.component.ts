@@ -12,10 +12,10 @@ export class BaseButtonComponent implements OnInit {
   @Input() type?: string;
   @Input() underlineOnHover?: boolean = false;
   @Input() color?: string = 'accent';
-  @Input() textColor?:string = 'black';
+  @Input() textColor?: string = 'black';
   @Input() size?: string = 'small';
-  @Input() routerLink:string| string[]
-
+  @Input() routerLink: string | string[];
+  @Input() addBorder: boolean = false;
 
   constructor() {}
 
@@ -25,21 +25,29 @@ export class BaseButtonComponent implements OnInit {
     switch (this.variant) {
       case 'text-only': {
         return `${
-          this.size === 'big' ? 'py-3 px-5 text-xl font-bold' : 'py-1 px-3 text-md font-semibold '
+          this.size === 'big'
+            ? 'py-3 px-5 text-xl font-bold'
+            : 'py-1 px-3 text-md font-semibold '
         } text-${this.textColor}  hover:opacity-100 ${
           this.underlineOnHover ? 'hover:underline' : ''
         }`;
       }
       case 'text-button': {
         return `${
-          this.size === 'big' ? 'py-3 px-5 text-xl font-bold' : 'py-1 px-3 text-md font-semibold'
+          this.size === 'big'
+            ? 'py-3 px-5 text-xl font-bold'
+            : 'py-1 px-3 text-md font-semibold'
         } text-${this.textColor} bg-${this.color}  rounded-md shadow-sm  ${
           this.underlineOnHover ? 'hover:underline' : ''
-        } hover:scale-105 transition-scale duration-100 hover:opacity-100  `;
+        } 
+        ${this.addBorder ? `border-solid border-2 border-${this.color}` : ''}
+        hover:scale-105 transition-scale duration-100 hover:opacity-100  `;
       }
       case 'text-button-border': {
         return `${
-          this.size === 'big' ? 'py-3 px-5 text-xl font-bold' : 'py-1 px-3 text-md font-semibold'
+          this.size === 'big'
+            ? 'py-3 px-5 text-xl font-bold'
+            : 'py-1 px-3 text-md font-semibold'
         } text-${this.textColor} border-solid border-2 border-${
           this.color
         } rounded-md shadow-sm  ${

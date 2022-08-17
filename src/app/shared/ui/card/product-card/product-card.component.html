@@ -22,13 +22,9 @@
         >{{ refactorPrice(product.defaultProductVariant.price) }}$</span
       >
     </p>
-    <div class="mt-6 flex justify-center gap-4">
-      <app-base-button
-        [icon]="'add_shopping_cart'"
-        [variant]="'text-button'"
-        [textColor]="'white'"
-      ></app-base-button>
-    </div>
+    <!-- <div class="mt-6 flex justify-center gap-4">
+      
+    </div> -->
     <div *ngIf="!noBulletPoints">
       <div *ngFor="let bullet of product.bulletPoints">
         <app-bullet >{{bullet.text.fr}}</app-bullet>
@@ -36,14 +32,19 @@
     </div>
     <!-- button position absolute at the bottom of the relative container. container has pb-20 to prevent content to go on button  -->
     <div
-      class="absolute bottom-0 translate-x-[-50%] translate-y-[-50%] left-[50%]"
+      class="absolute flex gap-2 bottom-0 translate-x-[-50%] translate-y-[-50%] left-[50%]"
     >
-      <app-base-button
-        [text]="'en savoir plus'"
-        [variant]="'text-only'"
-        [underlineOnHover]="true"
-        [routerLink]="routerLink"
+    <app-base-button
+    [text]="'Options'"
+    [variant]="'text-button-border'"
+    
+    [routerLink]="routerLink"
+    ></app-base-button>
+    <app-base-button
+        [icon]="'add_shopping_cart'"
+        [variant]="'text-button'"
+        [addBorder]="true"
       ></app-base-button>
-    </div>
+  </div>
   </div>
 </div>

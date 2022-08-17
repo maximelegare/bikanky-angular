@@ -3,6 +3,10 @@ import { Action, State, StateContext, Selector } from '@ngxs/store';
 import {  from, tap, catchError } from 'rxjs';
 import { SanityService } from 'src/app/shared/services/sanity/sanity.service';
 import { Testimonial } from './testimonial.model';
+import { Select } from '@ngxs/store';
+import { Observable } from 'rxjs';
+import { GeneralState } from '../general/general.state';
+
 
 import {
   FectchTestimonials,
@@ -26,7 +30,14 @@ interface TestimonialsStateModel {
 })
 @Injectable()
 export class TestimonialsState {
-  constructor(private sanity: SanityService) {}
+  constructor(private sanity: SanityService) {
+    this.lang$.subscribe((lang:string) => {
+      this.lang = lang
+    })  
+  }
+  @Select(GeneralState.getLang) lang$:Observable<string>
+
+  lang = ""
 
   @Selector()
   static getTestimonials(state: TestimonialsStateModel) {
@@ -42,13 +53,14 @@ export class TestimonialsState {
         `*[_type == "testimonial" && showOnHomePage == true]{
           _id,
          personName,
-         testimonial{ fr[0]{children[0]{text}}},
+         testimonial{ ${this.lang}[]{children[]{text}}},
          showOnHomePage
         }`
       )
     ).pipe(
       // Take the returned value and return a new success action containing the products
       tap((testimonials) => {
+        console.log(testimonials)
         ctx.dispatch(new FectchTestimonialsSuccess(testimonials));
       }),
       // Or... if it errors return a new failure action containing the error
