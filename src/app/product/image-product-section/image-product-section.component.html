@@ -1,3 +1,9 @@
-<app-emply-card>
-    <ng-content></ng-content>
+<app-emply-card [width]="'w-full'" >
+  <div class="flex-initial w-96 mx-auto">
+    <app-carousel
+      [slidePerView]="1"
+      [slides]="images"
+      [variant]="'image'"
+    ></app-carousel>
+  </div>
 </app-emply-card>

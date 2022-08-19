@@ -11,7 +11,7 @@ export class BaseButtonComponent implements OnInit {
   @Input() icon: string;
   @Input() type?: string;
   @Input() underlineOnHover?: boolean = false;
-  @Input() color?: string = 'accent';
+  @Input() color?: string;
   @Input() textColor?: string = 'black';
   @Input() size?: string = 'small';
   @Input() routerLink: string | string[];
@@ -37,10 +37,10 @@ export class BaseButtonComponent implements OnInit {
           this.size === 'big'
             ? 'py-3 px-5 text-xl font-bold'
             : 'py-1 px-3 text-md font-semibold'
-        } text-${this.textColor} bg-${this.color}  rounded-md shadow-sm  ${
+        } text-${this.textColor} bg-${this.color || 'accent'}  rounded-md shadow-sm  ${
           this.underlineOnHover ? 'hover:underline' : ''
         } 
-        ${this.addBorder ? `border-solid border-2 border-${this.color}` : ''}
+        ${this.addBorder ? `border-solid border-2 border-${this.color || "accent"}` : ''}
         hover:scale-105 transition-scale duration-100 hover:opacity-100  `;
       }
       case 'text-button-border': {
@@ -49,18 +49,18 @@ export class BaseButtonComponent implements OnInit {
             ? 'py-3 px-5 text-xl font-bold'
             : 'py-1 px-3 text-md font-semibold'
         } text-${this.textColor} border-solid border-2 border-${
-          this.color
+          this.color || "accent"
         } rounded-md shadow-sm  ${
           this.underlineOnHover ? 'hover:underline' : ''
         } hover:scale-105 transition-scale duration-100 hover:opacity-100  `;
       }
       case 'round': {
-        return `p-4 text-${this.textColor} bg-${this.color} rounded-full shadow-sm hover:scale-105 transition-scale duration-100 hover:opacity-100  `;
+        return `p-4 text-${this.textColor} bg-${this.color || 'accent'} rounded-full shadow-sm hover:scale-105 transition-scale duration-100 hover:opacity-100  `;
       }
       default: {
         return `${
           this.size === 'big' ? 'py-3 px-5 text-xl' : 'py-1 px-3 text-md'
-        } text-black bg-${this.color}  rounded-md shadow-sm font-semibold ${
+        } text-black bg-${this.color || 'accent'}  rounded-md shadow-sm font-semibold ${
           this.underlineOnHover ? 'hover:underline' : ''
         } hover:scale-105 transition-scale duration-100 hover:opacity-100  `;
       }

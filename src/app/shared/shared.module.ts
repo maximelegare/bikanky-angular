@@ -12,7 +12,7 @@ import { BulletComponent } from './ui/bullet/bullet.component';
 import { ProductCardComponent } from './ui/card/product-card/product-card.component';
 import { ProductsTitleComponent } from './ui/other/products-title/products-title.component';
 import { EmplyCardComponent } from './ui/card/emply-card/emply-card.component';
-
+import { ImageComponent } from './ui/image/image.component';
 @NgModule({
   declarations: [
     TestimonialCardComponent,
@@ -25,6 +25,7 @@ import { EmplyCardComponent } from './ui/card/emply-card/emply-card.component';
     ProductCardComponent,
     ProductsTitleComponent,
     EmplyCardComponent,
+    ImageComponent,
   ],
   imports: [CommonModule, RouterModule],
   exports: [
@@ -37,7 +38,8 @@ import { EmplyCardComponent } from './ui/card/emply-card/emply-card.component';
     BulletComponent,
     ProductCardComponent,
     ProductsTitleComponent,
-    EmplyCardComponent
+    EmplyCardComponent,
+    ImageComponent
   ],
 })
 export class SharedModule {}

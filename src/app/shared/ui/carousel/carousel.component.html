@@ -1,18 +1,19 @@
-<swiper
-  [slidesPerView]="slidePerView"
-  
-  [pagination]="{ clickable: true }"
->
+<swiper [slidesPerView]="slidePerView" [pagination]="{ clickable: true }">
   <ng-template swiperSlide *ngFor="let slide of slides">
     <ng-container [ngSwitch]="variant">
       <app-testimonial-card
         [testimonial]="slide"
         *ngSwitchCase="'testimonial'"
       ></app-testimonial-card>
+
+      <div class="mt-8">
       <app-product-card
+        
         *ngSwitchCase="'product'"
         [product]="slide"
       ></app-product-card>
+    </div>
+      <app-image *ngSwitchCase="'image'" [src]="slide.imageUrl"></app-image>
     </ng-container>
   </ng-template>
 </swiper>

@@ -1,13 +1,12 @@
 <div
-  class="relative h-full rounded-2xl bg-[#fcfcfcdd] hover:bg-white hover:-translate-y-3 transition-all ease-in-out duration-300 flex-initial w-[350px]"
+  class="relative h-full rounded-2xl bg-[#f9f9f9e5] hover:bg-white hover:-translate-y-3 transition-all ease-in-out duration-300 flex-initial w-[350px]"
 >
   <div
     class="w-fit mx-auto absolute top-14 translate-x-[-50%] translate-y-[-50%] left-[50%] drop-shadow-md"
   >
-    <div class="w-44 overflow-hidden rounded-lg mx-auto">
-      <img [src]="product.defaultProductVariant.images[0].imageUrl" alt="" />
-    </div>
+    <app-image [src]="''"></app-image>
   </div>
+  
   <div class="w-full px-4 pt-48 pb-20 h-full">
     <p class="text-2xl font-semibold text-center mt-3">{{ product.title }}</p>
     <p
@@ -37,10 +36,9 @@
     <app-base-button
     [text]="'Options'"
     [variant]="'text-button-border'"
-    
     [routerLink]="routerLink"
     ></app-base-button>
-    <app-base-button
+    <app-base-button   
         [icon]="'add_shopping_cart'"
         [variant]="'text-button'"
         [addBorder]="true"
@@ -48,3 +46,5 @@
   </div>
   </div>
 </div>
+
+<!-- <ng-container>product.defaultProductVariant.images[0].imageUrl</ng-container> -->

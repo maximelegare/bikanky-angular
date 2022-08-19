@@ -41,7 +41,6 @@ export class TestimonialsState {
 
   @Selector()
   static getTestimonials(state: TestimonialsStateModel) {
-    console.log(state.testimonials);
     return state.testimonials;
   }
 
@@ -60,7 +59,6 @@ export class TestimonialsState {
     ).pipe(
       // Take the returned value and return a new success action containing the products
       tap((testimonials) => {
-        console.log(testimonials)
         ctx.dispatch(new FectchTestimonialsSuccess(testimonials));
       }),
       // Or... if it errors return a new failure action containing the error
