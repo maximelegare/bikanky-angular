@@ -7,12 +7,13 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class BaseButtonComponent implements OnInit {
   @Input() text: string;
+  @Input() textColor?: string = 'text-black';
+  @Input() borderColor?: string = 'border-accent';
   @Input() variant: string;
   @Input() icon: string;
   @Input() type?: string;
   @Input() underlineOnHover?: boolean = false;
-  @Input() color?: string;
-  @Input() textColor?: string = 'black';
+  @Input() color?: string = 'bg-accent';
   @Input() size?: string = 'small';
   @Input() routerLink: string | string[];
   @Input() addBorder: boolean = false;
@@ -28,7 +29,7 @@ export class BaseButtonComponent implements OnInit {
           this.size === 'big'
             ? 'py-3 px-5 text-xl font-bold'
             : 'py-1 px-3 text-md font-semibold '
-        } text-${this.textColor}  hover:opacity-100 ${
+        } ${this.textColor}  hover:opacity-100 ${
           this.underlineOnHover ? 'hover:underline' : ''
         }`;
       }
@@ -37,10 +38,10 @@ export class BaseButtonComponent implements OnInit {
           this.size === 'big'
             ? 'py-3 px-5 text-xl font-bold'
             : 'py-1 px-3 text-md font-semibold'
-        } text-${this.textColor} bg-${this.color || 'accent'}  rounded-md shadow-sm  ${
+        } ${this.textColor} ${this.color}  rounded-md shadow-sm  ${
           this.underlineOnHover ? 'hover:underline' : ''
         } 
-        ${this.addBorder ? `border-solid border-2 border-${this.color || "accent"}` : ''}
+        ${this.addBorder ? `border-solid border-2 ${this.borderColor}` : ''}
         hover:scale-105 transition-scale duration-100 hover:opacity-100  `;
       }
       case 'text-button-border': {
@@ -48,19 +49,21 @@ export class BaseButtonComponent implements OnInit {
           this.size === 'big'
             ? 'py-3 px-5 text-xl font-bold'
             : 'py-1 px-3 text-md font-semibold'
-        } text-${this.textColor} border-solid border-2 border-${
-          this.color || "accent"
+        } ${this.textColor} border-solid border-2 ${
+          this.borderColor
         } rounded-md shadow-sm  ${
           this.underlineOnHover ? 'hover:underline' : ''
         } hover:scale-105 transition-scale duration-100 hover:opacity-100  `;
       }
       case 'round': {
-        return `p-4 text-${this.textColor} bg-${this.color || 'accent'} rounded-full shadow-sm hover:scale-105 transition-scale duration-100 hover:opacity-100  `;
+        return `p-4 ${this.textColor} ${this.color} rounded-full shadow-sm hover:scale-105 transition-scale duration-100 hover:opacity-100  `;
       }
       default: {
         return `${
           this.size === 'big' ? 'py-3 px-5 text-xl' : 'py-1 px-3 text-md'
-        } text-black bg-${this.color || 'accent'}  rounded-md shadow-sm font-semibold ${
+        } text-black ${
+          this.color || 'accent'
+        }  rounded-md shadow-sm font-semibold ${
           this.underlineOnHover ? 'hover:underline' : ''
         } hover:scale-105 transition-scale duration-100 hover:opacity-100  `;
       }
