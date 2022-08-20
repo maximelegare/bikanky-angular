@@ -6,14 +6,15 @@
         *ngSwitchCase="'testimonial'"
       ></app-testimonial-card>
 
-      <div class="mt-8">
-      <app-product-card
-        
-        *ngSwitchCase="'product'"
-        [product]="slide"
-      ></app-product-card>
-    </div>
-      <app-image *ngSwitchCase="'image'" [src]="slide.imageUrl"></app-image>
+      <div class="mt-8" *ngSwitchCase="'product'">
+        <app-product-card [product]="slide"></app-product-card>
+      </div>
+      <app-image
+        *ngSwitchCase="'image'"
+        [width]="'w-80'"
+        [height]="'h-96'"
+        [src]="slide.imageUrl"
+      ></app-image>
     </ng-container>
   </ng-template>
 </swiper>
