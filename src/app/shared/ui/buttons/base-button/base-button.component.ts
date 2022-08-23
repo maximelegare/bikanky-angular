@@ -9,14 +9,15 @@ export class BaseButtonComponent implements OnInit {
   @Input() text: string;
   @Input() textColor?: string = 'text-black';
   @Input() borderColor?: string = 'border-accent';
+  @Input() color?: string = 'bg-accent';
   @Input() variant: string;
   @Input() icon: string;
   @Input() type?: string;
   @Input() underlineOnHover?: boolean = false;
-  @Input() color?: string = 'bg-accent';
+  @Input() addBorder: boolean = false;
+
   @Input() size?: string = 'small';
   @Input() routerLink: string | string[];
-  @Input() addBorder: boolean = false;
 
   constructor() {}
 
