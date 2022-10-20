@@ -1,6 +1,13 @@
-export interface ContactPage {
-    _id:string;
-    personName:string;
-    testimonial:any;
-    showOnHomePage:boolean;
+export interface ContactData {
+  _id: string;
+  image: {
+    imageUrl: string;
+  };
+  contactText: object;
+  contactMedia: Media[];
+}
+
+interface Media {
+  mediaName: string;
+  mediaLink: string;
 }

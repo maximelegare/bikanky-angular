@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { Action, State, StateContext, Selector } from '@ngxs/store';
 import {  from, tap, catchError } from 'rxjs';
 import { SanityService } from 'src/app/shared/services/sanity/sanity.service';
-import { ContactPage } from './contact.model';
+import { ContactData } from './contact.model';
 import { Select } from '@ngxs/store';
 import { Observable } from 'rxjs';
 import { GeneralState } from '../general/general.state';
@@ -15,7 +15,7 @@ import {
 } from './contact.actions';
 
 interface ContactStateModel {
-  contactPageData: ContactPage |null;
+  contactPageData: ContactData | null;
   status: 'pending' | 'loading' | 'success' | 'failure';
   error: '' | null;
 }
@@ -40,7 +40,7 @@ export class ContactState {
   lang = ""
 
   @Selector()
-  static getTestimonials(state: ContactStateModel) {
+  static getContactPageData(state: ContactStateModel) {
     return state.contactPageData;
   }
 
@@ -52,16 +52,19 @@ export class ContactState {
       this.sanity.fetchQuerry(
         `*[_type == "contact" ]{
           _id,
-         image,
+         image{"imageUrl": asset->url},
          contactText{ ${this.lang}[]{children[]{text}}},
          contactMedias
-        }[0]`
+        }`
       )
     ).pipe(
       // Take the returned value and return a new success action containing the products
       tap((contactPageData) => {
-        console.log(contactPageData)
-        // ctx.dispatch(new FectchContactDataSuccess(contactPageData));
+
+        // puts in an array and take only the first element of it 
+        // bc even when i select only one element with sanity => returns an object but typecript doesnt recognize it.
+        // force to create an array => then select only its first element
+        ctx.dispatch(new FectchContactDataSuccess([contactPageData][0]));
       }),
       // Or... if it errors return a new failure action containing the error
       catchError((error) => ctx.dispatch(new FectchContactDataFailure(error)))
@@ -77,7 +80,7 @@ export class ContactState {
 
     ctx.setState({
       ...state,
-      contactPageData: contactPageData,
+      contactPageData: contactPageData[0],
       status: 'success',
       error: null,
     });

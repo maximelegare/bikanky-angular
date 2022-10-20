@@ -3,31 +3,5 @@
   <p class="text-xl font-normal">
     {{ product.defaultProductVariant.variantTitle }}
   </p>
-  <ng-container *ngIf="product.body">
-    <ng-container *ngFor="let line of product.body[lang]">
-      <ng-container
-        *ngIf="line.children[0].text === '/hr'; then divisor; else text"
-      ></ng-container>
-
-      <ng-template #divisor>
-        <app-line-divisor [marginTop]="6"></app-line-divisor>
-      </ng-template>
-
-      <ng-template #text>
-        <ng-container
-          *ngIf="line.listItem; then bullet; else normal"
-        ></ng-container>
-      </ng-template>
-
-      <ng-template #bullet>
-        <app-bullet *ngIf="line.listItem; else normal" [noDivisor]="true">{{
-          line.children[0].text
-        }}</app-bullet>
-      </ng-template>
-
-      <ng-template #normal>
-        <p class="pt-2">{{ line.children[0].text }}</p>
-      </ng-template>
-    </ng-container>
-  </ng-container>
+  <app-block-content [data]="product"></app-block-content>
 </app-emply-card>

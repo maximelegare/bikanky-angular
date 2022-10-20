@@ -2,9 +2,10 @@
   <div class="flex justify-center text-4xl text-black font-semibold mt-5">
     Me contacter
   </div>
-  <div class="flex">
-    <div></div>
+  <div class="flex" *ngIf="contactData$ | async as contact">
+    <div>
+      <app-image [width]="'w-60'" [height]="'h-80'" [src]="''"></app-image>
+    </div>
     <app-infos></app-infos>
   </div>
-
 </div>

@@ -1,4 +1,4 @@
-import { ContactPage } from "./contact.model";
+import { ContactData } from "./contact.model";
 
 
 export class FectchContactData {
@@ -7,7 +7,7 @@ export class FectchContactData {
   
   export class FectchContactDataSuccess {
     static readonly type = '[Contact API] Fetch Contact Success';
-    constructor(public contactPageData:ContactPage){}
+    constructor(public contactPageData:ContactData[]){}
   }
   
   export class FectchContactDataFailure {

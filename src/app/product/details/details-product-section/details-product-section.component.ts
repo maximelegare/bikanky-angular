@@ -16,14 +16,10 @@ export class DetailsProductSectionComponent implements OnInit {
 
   @Input() product: Product;
   
-  @Select(GeneralState.getLang) lang$:Observable<string> 
-  lang = ""  
+  
 
 
   ngOnInit(): void {
-    this.lang$.subscribe((lang) => {
-      this.lang = lang
-      console.log(lang)
-    })  
+     
   }
 }

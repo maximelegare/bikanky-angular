@@ -15,6 +15,7 @@ import { EmplyCardComponent } from './ui/card/emply-card/emply-card.component';
 import { ImageComponent } from './ui/image/image.component';
 import { SidebarComponent } from './ui/sidebar/sidebar.component';
 import { NbSidebarModule } from '@nebular/theme';
+import { BlockContentComponent } from './ui/block-content/block-content.component';
 
 
 @NgModule({
@@ -31,6 +32,7 @@ import { NbSidebarModule } from '@nebular/theme';
     EmplyCardComponent,
     ImageComponent,
     SidebarComponent,
+    BlockContentComponent,
   ],
   imports: [CommonModule, RouterModule, NbSidebarModule],
   exports: [
@@ -44,7 +46,8 @@ import { NbSidebarModule } from '@nebular/theme';
     ProductCardComponent,
     ProductsTitleComponent,
     EmplyCardComponent,
-    ImageComponent
+    ImageComponent,
+    BlockContentComponent
   ],
 })
 export class SharedModule {}
