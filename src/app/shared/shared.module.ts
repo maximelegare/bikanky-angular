@@ -13,6 +13,10 @@ import { ProductCardComponent } from './ui/card/product-card/product-card.compon
 import { ProductsTitleComponent } from './ui/other/products-title/products-title.component';
 import { EmplyCardComponent } from './ui/card/emply-card/emply-card.component';
 import { ImageComponent } from './ui/image/image.component';
+import { SidebarComponent } from './ui/sidebar/sidebar.component';
+import { NbSidebarModule } from '@nebular/theme';
+
+
 @NgModule({
   declarations: [
     TestimonialCardComponent,
@@ -26,8 +30,9 @@ import { ImageComponent } from './ui/image/image.component';
     ProductsTitleComponent,
     EmplyCardComponent,
     ImageComponent,
+    SidebarComponent,
   ],
-  imports: [CommonModule, RouterModule],
+  imports: [CommonModule, RouterModule, NbSidebarModule],
   exports: [
     TestimonialCardComponent,
     TheHeaderComponent,

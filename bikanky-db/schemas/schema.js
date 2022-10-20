@@ -9,7 +9,7 @@ import category from './category'
 import product from './product'
 import productVariant from './productVariant'
 import testimonials from './testimonials'
-
+import contact from './contact'
 
 import localeString from './locale/String'
 import localeText from './locale/Text'
@@ -33,6 +33,7 @@ export default createSchema({
     localeBlockContent,
     localeString,
     productVariant,
-    testimonials
+    testimonials,
+    contact
   ]),
 })

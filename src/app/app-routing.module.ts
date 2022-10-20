@@ -6,6 +6,7 @@ import { HomeComponent } from './home/ui/home.component';
 import { ProductsComponent } from './products/ui/products.component';
 import { ProductComponent } from './product/product.component';
 import { ErrorComponent } from './error/error.component';
+import { ContactComponent } from './contact/contact.component';
 
 const routes: Routes = [
   {
@@ -16,6 +17,11 @@ const routes: Routes = [
   {
     path: 'products',
     component: ProductsComponent,
+    pathMatch:'full', 
+  },
+  {
+    path: 'contact',
+    component: ContactComponent,
     pathMatch:'full', 
   },
   {
