@@ -53,7 +53,7 @@ export class ContactState {
         `*[_type == "contact" ]{
           _id,
          image{"imageUrl": asset->url},
-         contactText{ ${this.lang}[]{children[]{text}}},
+         body{ ${this.lang}[]},
          contactMedias
         }`
       )

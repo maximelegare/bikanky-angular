@@ -11,8 +11,8 @@ export default {
       },
     },
     {
-      name: "contactText",
-      title: "Contact text",
+      name: "body",
+      title: "Body",
       type: "localeBlockContent",
     },
 

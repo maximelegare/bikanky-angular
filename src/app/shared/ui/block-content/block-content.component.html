@@ -1,5 +1,5 @@
 <div>
-  <ng-container *ngIf="data.body">
+  <ng-container *ngIf="data?.body">
     <ng-container *ngFor="let line of data.body[lang]">
       <ng-container
         *ngIf="line.children[0].text === '/hr'; then divisor; else text"
