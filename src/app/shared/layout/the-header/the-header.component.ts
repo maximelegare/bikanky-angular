@@ -13,7 +13,6 @@ export class TheHeaderComponent implements OnInit {
   defaultHeader = true;
   headerChange = false;
 
-
   constructor(public router: Router) {
     router.events.subscribe(() => {
       if(this.router.url === "/"){
@@ -26,6 +25,7 @@ export class TheHeaderComponent implements OnInit {
   }
 
   ngOnInit(): void {}
+
 
   @HostListener('window:scroll', ['event'])
   scrollFunction(event: any) {

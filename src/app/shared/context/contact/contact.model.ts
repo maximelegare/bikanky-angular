@@ -4,10 +4,11 @@ export interface ContactData {
     imageUrl: string;
   };
   contactText: object;
-  contactMedia: Media[];
+  contactMedias: Media[];
 }
 
 interface Media {
   mediaName: string;
   mediaLink: string;
+  contact:string;
 }

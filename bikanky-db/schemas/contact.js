@@ -32,6 +32,11 @@ export default {
               type: "string",
             },
             {
+              name: "contact",
+              title: "Username / Contact Infos",
+              type: "string",
+            },
+            {
               name: "mediaLink",
               title: "media Link",
               type: "string",

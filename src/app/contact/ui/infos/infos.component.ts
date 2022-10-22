@@ -9,9 +9,14 @@ export class InfosComponent implements OnInit {
 
   constructor() { }
   @Input() contactData:ContactData
+     
+
+  getIcon(icon:string):string{
+    
+    
+    return `../../../../assets/svg/SVG/${icon}.svg`}
   
   ngOnInit(): void {
-    console.log(this.contactData)
   }
 
 }

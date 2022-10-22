@@ -1,11 +1,12 @@
 <div class="container">
-  <div class="flex justify-center text-4xl text-black font-semibold mt-5">
-    Me contacter
+  <div class="flex justify-center text-4xl text-black font-semibold mt-10 mb-6">
+    Vous avez des questions?
   </div>
-  <div class="flex" *ngIf="contactData$ | async as contact">
+  <div class="flex gap-4 justify-center mb-5" *ngIf="contactData$ | async as contact">
     <div>
-      <app-image [width]="'w-60'" [height]="'h-80'" [src]="''"></app-image>
+      <app-image [width]="'w-60'" [height]="'h-80'" [src]="contact.image.imageUrl"></app-image>
     </div>
-    <app-infos [contactData]="contact"></app-infos>
+    <app-infos  [contactData]="contact"></app-infos>
   </div>
 </div>
+ 
