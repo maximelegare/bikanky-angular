@@ -12,7 +12,7 @@ export class SanityService {
 
   sanityClientCredentials = {
     option: sanityClient({
-      projectId: '0mg3b574',
+      projectId: environment.NG_APP_SANITY_PROJECT_ID,
       dataset: 'production',
     }),
   };

@@ -3,5 +3,6 @@ declare var process: {
     NG_APP_SHOPIFY_DOMAIN:string
     NG_APP_SHOPIFY_ADMIN_ACCESS_TOKEN:string
     NG_APP_SHOPIFY_STOREFRONT_ACCESS_TOKEN:string
+    NG_APP_SANITY_PROJECT_ID:string
   };
 };

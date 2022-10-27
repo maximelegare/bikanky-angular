@@ -7,7 +7,8 @@ export const environment = {
   shopifyDomain:process.env["NG_APP_SHOPIFY_DOMAIN"],
   shopifyAccessToken:process.env["NG_APP_SHOPIFY_ADMIN_ACCESS_TOKEN"],
   shopifyStoreFrontAccessToken:process.env["NG_APP_SHOPIFY_STOREFRONT_ACCESS_TOKEN"],
-  // sanityProjectId:process.env.NG_APP_SANITY_PROJECT_ID,
+  
+  NG_APP_SANITY_PROJECT_ID:process.env["NG_APP_SANITY_PROJECT_ID"],
   // sanityDataset:process.env.NG_APP_SANITY_DATASET
 };
 
