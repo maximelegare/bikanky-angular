@@ -7,6 +7,7 @@ import { ProductsComponent } from './products/ui/products.component';
 import { ProductComponent } from './product/product.component';
 import { ErrorComponent } from './error/error.component';
 import { ContactComponent } from './contact/contact.component';
+import { StylismComponent } from './stylism/stylism.component';
 
 const routes: Routes = [
   {
@@ -19,6 +20,12 @@ const routes: Routes = [
     component: ProductsComponent,
     pathMatch:'full', 
   },
+  {
+    path: 'stylism',
+    component: StylismComponent,
+    pathMatch:'full', 
+  },
+  
   {
     path: 'contact',
     component: ContactComponent,
