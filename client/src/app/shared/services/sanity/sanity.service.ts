@@ -22,6 +22,7 @@ export class SanityService {
 
   async fetchQuerry(query: string): Promise<[]> {
     const data = await this.sanityClientCredentials.option.fetch(query);
+    console.log(data)
     return data;
   }
 }
