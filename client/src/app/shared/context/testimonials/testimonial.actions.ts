@@ -13,5 +13,4 @@ export class FectchTestimonials {
   export class FectchTestimonialsFailure {
     static readonly type = '[Home API] Fetch Testimonials Failure';
     constructor(public error:string){}  
-  
   }

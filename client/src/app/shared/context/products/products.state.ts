@@ -167,7 +167,6 @@ export class ProductsState  {
     { pageProduct }: FectchPageProductSuccess
   ) {
     const state = ctx.getState();
-    console.log(pageProduct)
     ctx.setState({
       ...state,
       pageProduct: pageProduct? pageProduct[0] : undefined,

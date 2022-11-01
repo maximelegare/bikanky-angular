@@ -7,9 +7,9 @@ import { GeneralState } from './shared/context/general/general.state';
 import { ProductsState } from './shared/context/products/products.state';
 import { TestimonialsState } from './shared/context/testimonials/testimonial.state';
 import { ContactState } from './shared/context/contact/contact.state';
+import { StylismServicesState } from './shared/context/stylism/stylism.state';
 
 import { CarouselModule } from './shared/ui/carousel/carousel.module';
-
 
 import { AppComponent } from './app.component';
 import { HeroSectionComponent } from './home/ui/hero-section/hero-section.component';
@@ -24,7 +24,7 @@ import { AllProductsListComponent } from './products/ui/all-products-list/all-pr
 import { SharedModule } from './shared/shared.module';
 import { ProductModule } from './product/product.module';
 import { ErrorComponent } from './error/error.component';
-import { NbThemeModule } from '@nebular/theme'
+import { NbThemeModule } from '@nebular/theme';
 import { NbSidebarModule } from '@nebular/theme';
 import { ContactModule } from './contact/contact.module';
 
@@ -44,12 +44,19 @@ import { ContactModule } from './contact/contact.module';
     BrowserModule.withServerTransition({ appId: 'serverApp' }),
     AppRoutingModule,
     HttpClientModule,
-    NgxsModule.forRoot([ProductsState, TestimonialsState, GeneralState, ContactState ]),
+    NgxsModule.forRoot([
+      ProductsState,
+      TestimonialsState,
+      GeneralState,
+      ContactState,
+      StylismServicesState
+    ]),
     CarouselModule,
     SharedModule,
     ProductModule,
-    ContactModule
+    ContactModule,
   ],
+  
 
   bootstrap: [AppComponent],
   exports: [AppComponent],

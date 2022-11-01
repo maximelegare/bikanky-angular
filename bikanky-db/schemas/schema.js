@@ -5,11 +5,12 @@ import schemaTypes from 'all:part:@sanity/base/schema-type'
 
 // We import object and document schemas
 import blockContent from './blockContent'
-import category from './category'
+import tag from './tag'
 import product from './product'
 import productVariant from './productVariant'
-import testimonials from './testimonials'
+import testimonial from './testimonial'
 import contact from './contact'
+import stylismService from './stylismService'
 
 import localeString from './locale/String'
 import localeText from './locale/Text'
@@ -25,7 +26,7 @@ export default createSchema({
     // The following are document types which will appear
     // in the studio.
     product,
-    category,
+    tag,
     // When added to this list, object types can be used as
     // { type: 'typename' } in other document schemas
     blockContent,
@@ -33,7 +34,8 @@ export default createSchema({
     localeBlockContent,
     localeString,
     productVariant,
-    testimonials,
-    contact
+    testimonial,
+    contact,
+    stylismService
   ]),
 })

@@ -9,11 +9,6 @@ export default {
       type: "string",
     },
     {
-      title: "Weight in grams",
-      name: "weight",
-      type: "number",
-    },
-    {
       title: "Price",
       name: "price",
       type: "number",
@@ -30,6 +25,18 @@ export default {
           },
         },
       ],
+    },
+    {
+      title: "Tags",
+      name: "tags",
+      type: "array",
+      of: [
+        {
+          type: "reference",
+          to:[{type:'tag'}],
+        },
+      ],
+      
     },
     
   ],

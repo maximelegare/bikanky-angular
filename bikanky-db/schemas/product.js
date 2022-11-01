@@ -39,19 +39,7 @@ export default {
         },
       ],
     },
-    {
-      title: "Tags",
-      name: "tags",
-      type: "array",
-      of: [
-        {
-          type: "string",
-        },
-      ],
-      options: {
-        layout: "tags",
-      },
-    },
+    
     // {
     //   name: 'categories',
     //   title: 'Categories',
@@ -63,30 +51,6 @@ export default {
     //     },
     //   ],
     // },
-
-    {
-      title: "Bullet Points",
-      name: "bulletPoints",
-      type: "array",
-      of: [
-        {
-          type: "object",
-          fields: [
-            {
-              name: "text",
-              title: "Text",
-              type: "localeString",
-
-            },
-            {
-              name: "icon",
-              title: "Icon",
-              type: "string",
-            },
-          ],
-        },
-      ],
-    },
     {
       name: "shortDescription",
       title: "Short Description",

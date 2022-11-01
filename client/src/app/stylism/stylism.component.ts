@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Store } from '@ngxs/store';
+import { FetchStylismServices } from '../shared/context/stylism/stylism.actions';
 
 @Component({
   selector: 'app-stylism',
@@ -7,9 +9,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class StylismComponent implements OnInit {
 
-  constructor() { }
+  constructor(public store:Store) { }
 
   ngOnInit(): void {
-  }
+    this.store.dispatch(new FetchStylismServices())
 
+  }
 }
