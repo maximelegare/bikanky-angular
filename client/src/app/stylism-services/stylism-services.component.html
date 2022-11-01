@@ -1,0 +1,6 @@
+<div class="container">
+    <!-- <div>{{stylismServices$ | async}}</div> -->
+    <div *ngFor="let service of stylismServices$ | async">
+       <div>{{service | json}}</div> 
+    </div>
+</div>

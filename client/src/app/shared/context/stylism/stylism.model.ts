@@ -1,4 +1,4 @@
-export interface stylismService {
+export interface StylismService {
     _id: string;
     image: {
       imageUrl: string;

@@ -24,6 +24,5 @@ export class TestimonialCardComponent implements OnInit {
     this.lang$.subscribe((lang) => {
       this.lang = lang;
     });
-    console.log(this.testimonial)
   }
 }

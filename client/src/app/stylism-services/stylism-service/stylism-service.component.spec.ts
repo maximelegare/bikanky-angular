@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { StylismComponent } from './stylism.component';
+import { StylismServiceComponent } from './stylism-service.component';
 
-describe('StylismComponent', () => {
-  let component: StylismComponent;
-  let fixture: ComponentFixture<StylismComponent>;
+describe('StylismServiceComponent', () => {
+  let component: StylismServiceComponent;
+  let fixture: ComponentFixture<StylismServiceComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ StylismComponent ]
+      declarations: [ StylismServiceComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(StylismComponent);
+    fixture = TestBed.createComponent(StylismServiceComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

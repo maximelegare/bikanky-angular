@@ -21,7 +21,6 @@ export class ProductCardComponent implements OnInit {
     } else {
       this.routerLink = ['products', this.product.slug.current];
     }
-    console.log(this.product)
   }
 
   

@@ -47,7 +47,6 @@ export class ContactState {
   @Action(FectchContactData)
   fectchAllProducts(ctx: StateContext<ContactStateModel>) {
     // Call the fetch products method and cancel if problem
-    console.log("here")
     return from(
       this.sanity.fetchQuerry(
         `*[_type == "contact" ]{

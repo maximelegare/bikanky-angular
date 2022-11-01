@@ -27,6 +27,8 @@ import { ErrorComponent } from './error/error.component';
 import { NbThemeModule } from '@nebular/theme';
 import { NbSidebarModule } from '@nebular/theme';
 import { ContactModule } from './contact/contact.module';
+import { CommonModule } from '@angular/common';
+import { StylismServicesModule } from './stylism-services/stylism-services.module';
 
 @NgModule({
   declarations: [
@@ -39,6 +41,7 @@ import { ContactModule } from './contact/contact.module';
     AllProductsListComponent,
     ProductsComponent,
     ErrorComponent,
+    
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'serverApp' }),
@@ -55,8 +58,9 @@ import { ContactModule } from './contact/contact.module';
     SharedModule,
     ProductModule,
     ContactModule,
+    StylismServicesModule
   ],
-  
+
 
   bootstrap: [AppComponent],
   exports: [AppComponent],

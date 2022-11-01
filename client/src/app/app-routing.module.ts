@@ -2,12 +2,11 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
 import { HomeComponent } from './home/ui/home.component';
-
+import { StylismServicesComponent } from './stylism-services/stylism-services.component';
 import { ProductsComponent } from './products/ui/products.component';
 import { ProductComponent } from './product/product.component';
 import { ErrorComponent } from './error/error.component';
 import { ContactComponent } from './contact/contact.component';
-import { StylismComponent } from './stylism/stylism.component';
 
 const routes: Routes = [
   {
@@ -22,9 +21,9 @@ const routes: Routes = [
   },
   {
     path: 'stylism',
-    component: StylismComponent,
+    component: StylismServicesComponent,
     pathMatch:'full', 
-  },
+  }, 
   
   {
     path: 'contact',

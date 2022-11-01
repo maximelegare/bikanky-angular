@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { Action, State, StateContext, Selector } from '@ngxs/store';
 import { from, tap, catchError } from 'rxjs';
 import { SanityService } from 'src/app/shared/services/sanity/sanity.service';
-import { stylismService } from './stylism.model';
+import { StylismService } from './stylism.model';
 import { Select } from '@ngxs/store';
 import { Observable } from 'rxjs';
 import { GeneralState } from '../general/general.state';
@@ -14,7 +14,7 @@ import {
 } from './stylism.actions';
 
 interface StylismServicesStateModel {
-  stylismServices: stylismService[] ;
+  stylismServices: StylismService[] ;
   status: 'pending' | 'loading' | 'success' | 'failure';
   error: '' | null;
 }
@@ -62,6 +62,7 @@ export class StylismServicesState {
     ).pipe(
       // Take the returned value and return a new success action containing the products
       tap((stylismServices) => {
+        console.log(stylismServices)
         // puts in an array and take only the first element of it
         // bc even when i select only one element with sanity => returns an object but typecript doesnt recognize it.
         // force to create an array => then select only its first element

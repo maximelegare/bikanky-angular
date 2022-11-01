@@ -16,7 +16,6 @@ export class BlockContentComponent implements OnInit {
     this.lang$.subscribe((lang) => {
       this.lang = lang;
     });
-    console.log(this.data)
   }
 
   @Select(GeneralState.getLang) lang$: Observable<string>;

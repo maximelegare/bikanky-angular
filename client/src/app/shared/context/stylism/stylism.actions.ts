@@ -1,4 +1,4 @@
-import { stylismService } from "./stylism.model";
+import { StylismService } from "./stylism.model";
 
 
 export class FetchStylismServices {
@@ -7,7 +7,7 @@ export class FetchStylismServices {
   
   export class FetchStylismServicesSuccess {
     static readonly type = '[Contact API] Fetch Stylism Services Success';
-    constructor(public stylismServices:stylismService[]){}
+    constructor(public stylismServices:StylismService[]){}
   }
   
   export class FetchStylismServicesFailure {
