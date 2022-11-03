@@ -4,6 +4,12 @@ export default {
     type: "document",
     fields: [
       {
+        name: "isActive",
+        title: "Is Active",
+        type: "boolean",
+        initialValue: false,
+      },
+      {
         name: "showOnHomePage",
         title: "Show on Home Page",
         type: "boolean",
@@ -39,7 +45,6 @@ export default {
             to:[{type:'tag'}]
           },
         ],
-       
       },
       // {
       //   name: 'categories',
@@ -62,12 +67,19 @@ export default {
         title: "Body",
         type: "localeBlockContent",
       },
+      {
+        name:"image",
+        type: "image",
+        options: {
+          hotspot: true,
+        },
+      },
     ],
     preview: {
       select: {
         title: "title",
         manufactor: "manufactor.title",
-        media: "defaultProductVariant.images[0]",
+        media: "image",
       },
     },
   };

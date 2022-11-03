@@ -50,13 +50,17 @@ export class StylismServicesState {
     // image{"imageUrl": asset->url},
     return from(
       this.sanity.fetchQuerry(
-        `*[_type == "stylismService" ]{
+        `*[_type == "stylismService" && isActive == true ]{
           _id,
+         isActive,
+         showOnHomeage,
+         tags, 
+         title,
          slug,
          price,
          shortDescription,
+         image{"imageUrl": asset->url}, 
          body{ ${this.lang}[]},
-         
         }`
       )
     ).pipe(

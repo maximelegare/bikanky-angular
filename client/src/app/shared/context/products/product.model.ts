@@ -1,6 +1,7 @@
 interface Product {
   _id:string
   showOnHomePage?:boolean;
+  isActive:boolean;
   title: string;
   slug: any;
   defaultProductVariant: ProductVariant;
@@ -8,7 +9,7 @@ interface Product {
   tags: string[];
   bulletPoints?: Bullet[];
   shortDescription:any
-  body:any
+  body:any,
 }
 
 interface ProductVariant {

@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { StylismServicesComponent } from './stylism-services.component';
-import { StylismServiceComponent } from './stylism-service/stylism-service.component';
+import { StylismServiceComponent } from './ui/stylism-service/stylism-service.component';
 import { SharedModule } from '../shared/shared.module';
 
 

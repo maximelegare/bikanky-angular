@@ -73,20 +73,21 @@ export class ProductsState  {
 
     switch (page) {
       case 'home':
-        expression = `_type == "product" && showOnHomePage == true`;
+        expression = `_type == "product" && isActive == true && showOnHomePage == true`;
         break;
       case 'product':
-        expression = `_type == "product" && slug.current == "${slug}"`;
+        expression = `_type == "product" && isActive == true && slug.current == "${slug}"`;
         break;
       default:
-        expression = `_type == "product"`;
+        expression = `_type == "product" && isActive`;
         break;
     }
     return from(
       this.sanity.fetchQuerry(
         `*[${expression}]{
           _id,
-          showOnHomePage,    
+          showOnHomePage,  
+          isActive,  
           title,
           slug,
           defaultProductVariant{

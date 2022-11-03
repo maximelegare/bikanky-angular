@@ -10,4 +10,5 @@ export interface StylismService {
     shortDescrition:string;
     body:object;
     showOnHomePage:boolean;
+    isActive:boolean;
   }

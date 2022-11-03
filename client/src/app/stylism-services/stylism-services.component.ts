@@ -18,8 +18,5 @@ export class StylismServicesComponent implements OnInit {
 
   ngOnInit(): void {
     this.store.dispatch(new FetchStylismServices())
-    this.stylismServices$.subscribe((services) => {
-      console.log(services)
-    })
   }
 }

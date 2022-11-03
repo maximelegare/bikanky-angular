@@ -1,6 +1,8 @@
+<div class="flex justify-center text-4xl text-black font-semibold mt-10 mb-6">
+Stylism Services
+</div>
 <div class="container">
-    <!-- <div>{{stylismServices$ | async}}</div> -->
-    <div *ngFor="let service of stylismServices$ | async">
-       <div>{{service | json}}</div> 
-    </div>
+  <div *ngFor="let service of stylismServices$ | async">
+    <app-stylism-service [service]="service"></app-stylism-service>
+  </div>
 </div>
