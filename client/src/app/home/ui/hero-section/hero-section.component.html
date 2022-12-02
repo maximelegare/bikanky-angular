@@ -5,16 +5,16 @@
 <div class="mb-12">
   <div class="bg-transparentAccent">
     <div class="flex container justify-end gap-8">
-      <div class="flex">
+      <div class="md:flex gap-20">
         <div class="left-32">
-          <p class="text-6xl mt-32 font-semibold">
+          <p class="text-4xl lg:text-5xl xl:text-6xl mt-32 font-semibold">
             Une paire de manches pour chaque outfit
           </p>
-          <p class="text-xl mt-6">
+          <p class="text-lg lg:text-xl mt-6">
             Une paire de manches pour chaque outfit htjhd dfjhgsdf sdjfhgs fsfgs
             sdfhdjfhsgdf sjdfhg
           </p>
-          <div class="mt-10">
+          <div class="mt-10 mb-12 xl:mb-28">
             <app-base-button
               [text]="'Voir les produits'"
               [size]="'big'"
@@ -25,14 +25,16 @@
           </div>
         </div>
         <!-- placeholder for the absolute image -->
-        <div class="w-[800px] h-[550px]"></div>
-      </div>
-      <div class="absolute my-12 right-0">
-        <img
-          src="assets/img/home_top.png"
-          class="2xl:w-[800px] xl:w-[600px] h-auto"
-          alt=""
-        />
+          <div
+            class="hidden md:block md:w-[450px] lg:w-[500px] xl:w-[700px] 2xl:w-[800px] w-[300px]"
+          ></div>
+        </div>
+        <div class="hidden md:block md:absolute my-12 right-0">
+          <img
+            src="assets/img/home_top.png"
+            class="w-[400px]  lg:w-[500px]  xl:w-[600px] 2xl:w-[800px] h-auto"
+            alt=""
+          />
       </div>
     </div>
   </div>
