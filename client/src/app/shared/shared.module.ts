@@ -4,6 +4,7 @@ import { CommonModule } from '@angular/common';
 
 import { TestimonialCardComponent } from './ui/card/testimonial-card/testimonial-card.component';
 import { TheHeaderComponent } from './layout/the-header/the-header.component';
+
 import { BaseButtonComponent } from './ui/buttons/base-button/base-button.component';
 import { LineDivisorComponent } from './ui/other/line-divisor/line-divisor.component';
 import { TheFooterComponent } from './layout/the-footer/the-footer.component';
@@ -16,7 +17,8 @@ import { ImageComponent } from './ui/image/image.component';
 import { SidebarComponent } from './ui/sidebar/sidebar.component';
 import { NbSidebarModule } from '@nebular/theme';
 import { BlockContentComponent } from './ui/block-content/block-content.component';
-
+import { HeaderDesktopComponent } from './layout/the-header/header-desktop/header-desktop.component';
+import { HeaderMobileComponent } from './layout/the-header/header-mobile/header-mobile.component';
 
 @NgModule({
   declarations: [
@@ -33,6 +35,8 @@ import { BlockContentComponent } from './ui/block-content/block-content.componen
     ImageComponent,
     SidebarComponent,
     BlockContentComponent,
+    HeaderDesktopComponent,
+    HeaderMobileComponent,
   ],
   imports: [CommonModule, RouterModule, NbSidebarModule],
   exports: [
@@ -47,7 +51,8 @@ import { BlockContentComponent } from './ui/block-content/block-content.componen
     ProductsTitleComponent,
     EmplyCardComponent,
     ImageComponent,
-    BlockContentComponent
+    BlockContentComponent,
+    HeaderDesktopComponent
   ],
 })
 export class SharedModule {}

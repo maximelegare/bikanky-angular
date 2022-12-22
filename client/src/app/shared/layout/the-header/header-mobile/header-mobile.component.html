@@ -1,0 +1,33 @@
+
+  <div
+    class="header-bg-color py-5 w-screen fixed  drop-shadow-md z-50"
+    [class]="
+      'bg-gray-100'
+    "
+  >
+    <!-- <div class="flex i mx-auto container"> -->
+    <!-- <div class="grow"></div> -->
+    <div class="flex gap-4 items-center justify-between container">
+      <!-- <BaseButton title="Produits" link="/products" variant="text-only"/>
+          <BaseButton title="Stylisme" link="/stylism" variant="text-only"/>
+          <BaseButton title="À Propos" link="/about" variant="text-only"/>
+          <BaseButton title="Me Contacter" link="/contact" variant="text-only"/>
+          <BaseButton title="Fr" variant="text-only"/> -->
+      <div>
+        <a routerLink="/">
+          <img
+            class="w-11 h-11 cursor-pointer outilne"
+            src="/assets/svg/bikanky-logo.svg"
+            alt="logo Bikanky"
+          />
+        </a>
+      </div>
+      <app-base-button
+        [icon]="'menu'"
+        [iconSize]="'text-3xl'"
+        [variant]="'text-only'"
+      ></app-base-button>
+    </div>
+  </div>
+  <div class="h-20"></div>
+

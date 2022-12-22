@@ -3,7 +3,7 @@
     {{ text }}
   </p>
   <div class="flex items-center justify-center">
-    <span *ngIf="icon" class="material-icons">{{ icon }}</span>
+    <span *ngIf="icon" class="material-icons" [class]="iconSize" >{{ icon }}</span>
   </div>
 </a>
 <button [class]="getStyles()" class="group block" *ngIf="!routerLink">
@@ -11,6 +11,6 @@
     {{ text }}
   </p>
   <div class="flex items-center justify-center">
-    <span *ngIf="icon" class="material-icons">{{ icon }}</span>
+    <span *ngIf="icon" class="material-icons" [class]="iconSize">{{ icon }}</span>
   </div>
 </button>

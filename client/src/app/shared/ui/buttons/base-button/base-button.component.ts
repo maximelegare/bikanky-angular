@@ -11,11 +11,11 @@ export class BaseButtonComponent implements OnInit {
   @Input() borderColor?: string = 'border-accent';
   @Input() color?: string = 'bg-accent';
   @Input() variant: string;
-  @Input() icon: string;
+  @Input() icon?: string;
+  @Input() iconSize?:string;
   @Input() type?: string;
   @Input() underlineOnHover?: boolean = false;
   @Input() addBorder: boolean = false;
-
   @Input() size?: string = 'small';
   @Input() routerLink: string | string[];
 

@@ -41,7 +41,6 @@ import { StylismServicesModule } from './stylism-services/stylism-services.modul
     AllProductsListComponent,
     ProductsComponent,
     ErrorComponent,
-    
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'serverApp' }),
