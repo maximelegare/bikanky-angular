@@ -1,6 +1,6 @@
 
   <div
-    class="header-bg-color py-5 w-screen fixed  drop-shadow-md z-50"
+    class="header-bg-color py-5 w-screen fixed  drop-shadow-md z-10"
     [class]="
       'bg-gray-100'
     "
@@ -25,7 +25,8 @@
       <app-base-button
         [icon]="'menu'"
         [iconSize]="'text-3xl'"
-        [variant]="'text-only'"
+        [variant]="'icon'"
+        (handleClick)="handleSidebarClick()"
       ></app-base-button>
     </div>
   </div>

@@ -14,7 +14,7 @@ import { ProductCardComponent } from './ui/card/product-card/product-card.compon
 import { ProductsTitleComponent } from './ui/other/products-title/products-title.component';
 import { EmplyCardComponent } from './ui/card/emply-card/emply-card.component';
 import { ImageComponent } from './ui/image/image.component';
-import { SidebarComponent } from './ui/sidebar/sidebar.component';
+import { SidebarComponent } from './layout/sidebar/sidebar.component';
 import { NbSidebarModule } from '@nebular/theme';
 import { BlockContentComponent } from './ui/block-content/block-content.component';
 import { HeaderDesktopComponent } from './layout/the-header/header-desktop/header-desktop.component';
@@ -52,7 +52,8 @@ import { HeaderMobileComponent } from './layout/the-header/header-mobile/header-
     EmplyCardComponent,
     ImageComponent,
     BlockContentComponent,
-    HeaderDesktopComponent
+    HeaderDesktopComponent,
+    SidebarComponent
   ],
 })
 export class SharedModule {}

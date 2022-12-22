@@ -1,0 +1,50 @@
+<div
+  class="bg-black fixed w-screen h-screen z-20 opacity-20"
+  (click)="handleClick()"
+></div>
+<div class="bg-black fixed w-[80%] h-screen z-30 right-0">
+  <div class="my-6 mx-2">
+    <app-base-button
+      [variant]="'icon'"
+      [icon]="'close'"
+      [iconColor]="'text-accent'"
+      [iconSize]="'text-3xl'"
+      [noHover]="true"
+      (handleClick)="handleClick()"
+    ></app-base-button>
+    <app-base-button
+      [text]="'Produits'"
+      [variant]="'text-only'"
+      [textColor]="'text-accent'"
+      [routerLink]="'products'"
+      [noHover]="true"
+    ></app-base-button>
+    <app-base-button
+      [text]="'Stylisme'"
+      [variant]="'text-only'"
+      [textColor]="'text-accent'"
+      [routerLink]="'stylism'"
+      [noHover]="true"
+    ></app-base-button>
+    <app-base-button
+      [text]="'À Propos'"
+      [variant]="'text-only'"
+      [textColor]="'text-accent'"
+      [noHover]="true"
+    ></app-base-button>
+    <app-base-button
+      [text]="'Me contacter'"
+      [variant]="'text-only'"
+      [routerLink]="'contact'"
+      [textColor]="'text-accent'"
+      [noHover]="true"
+    ></app-base-button>
+    <!-- <app-base-cart-button [numberItem]="4"></app-base-cart-button> -->
+    <app-base-button
+      [text]="'Fr'"
+      [variant]="'text-only'"
+      [textColor]="'text-accent'"
+      [noHover]="true"
+    ></app-base-button>
+  </div>
+</div>

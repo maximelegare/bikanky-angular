@@ -1,16 +1,33 @@
-<a [routerLink]="routerLink" [class]="getStyles()" class="group block w-fit" *ngIf="routerLink">
-  <p *ngIf="text" class="opacity-60 group-hover:opacity-100">
+<a
+  [routerLink]="routerLink"
+  [class]="getStyles()"
+  class="group block w-fit"
+  *ngIf="routerLink"
+>
+  <p
+    *ngIf="text"
+    class="opacity-60"
+    [class]="noHover ? '' : 'group-hover:opacity-100'"
+  >
     {{ text }}
   </p>
   <div class="flex items-center justify-center">
-    <span *ngIf="icon" class="material-icons" [class]="iconSize" >{{ icon }}</span>
+    <span *ngIf="icon" class="material-icons" [class]="getStyles()">{{
+      icon
+    }}</span>
   </div>
 </a>
-<button [class]="getStyles()" class="group block" *ngIf="!routerLink">
-  <p *ngIf="text" class="opacity-60 group-hover:opacity-100">
+<button [class]="getStyles()" class="group block" *ngIf="!routerLink" (click)="handleButtonClick()">
+  <p
+    *ngIf="text"
+    class="opacity-60"
+    [class]="noHover ? '' : ' group-hover:opacity-100'"
+  >
     {{ text }}
   </p>
   <div class="flex items-center justify-center">
-    <span *ngIf="icon" class="material-icons" [class]="iconSize">{{ icon }}</span>
+    <span *ngIf="icon" class="material-icons" [class]="getStyles()">{{
+      icon
+    }}</span>
   </div>
 </button>

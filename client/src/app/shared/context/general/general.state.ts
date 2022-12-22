@@ -1,21 +1,20 @@
 import { Injectable } from '@angular/core';
 import { Action, State, StateContext, Selector } from '@ngxs/store';
 import { from, tap, catchError } from 'rxjs';
-
-
+import { ToggleSideBarOpen } from './general.actions';
 
 interface GeneralStateModel {
   lang: string;
+  sidebarOpen: boolean;
 }
-
 
 @State<GeneralStateModel>({
   name: 'general',
   defaults: {
-    lang: "fr",
+    lang: 'fr',
+    sidebarOpen: false,
   },
 })
-
 @Injectable()
 export class GeneralState {
   constructor() {}
@@ -25,22 +24,19 @@ export class GeneralState {
     return state.lang;
   }
 
- 
+  @Selector()
+  static getSidebarOpen(state: GeneralStateModel) {
+    return state.sidebarOpen;
+  }
 
-  // Fetch all products
-  // @Action(FectchProductsSuccess)
-  // fectchProductsSuccess(
-  //   ctx: StateContext<ProductsStateModel>,
-  //   { products }: FectchProductsSuccess
-  // ) {
-  //   const state = ctx.getState();
+  // Toggle sidebarOpen
+  @Action(ToggleSideBarOpen)
+  fectchProductsSuccess(ctx: StateContext<GeneralStateModel>) {
+    const state = ctx.getState();
 
-  //   ctx.setState({
-  //     ...state,
-  //     products: products,
-  //     status: 'success',
-  //     error: null,
-  //   });
-  // }
- 
+    ctx.setState({
+      ...state,
+      sidebarOpen: !state.sidebarOpen,
+    });
+  }
 }

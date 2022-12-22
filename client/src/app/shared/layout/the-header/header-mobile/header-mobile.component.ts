@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Store } from '@ngxs/store';
+import { ToggleSideBarOpen } from 'src/app/shared/context/general/general.actions';
 
 @Component({
   selector: 'app-header-mobile',
@@ -7,9 +9,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeaderMobileComponent implements OnInit {
 
-  constructor() { }
+  constructor(public store:Store) { }
 
   ngOnInit(): void {
   }
 
+  handleSidebarClick(){
+    console.log("here")
+    this.store.dispatch(new ToggleSideBarOpen())
+  }
 }

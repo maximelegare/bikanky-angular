@@ -1,4 +1,4 @@
-<div class="header-bg-color py-4 w-screen fixed hover:bg-[#efcc1d37] drop-shadow-md z-50"
+<div class="header-bg-color py-4 w-screen fixed hover:bg-[#efcc1d37] drop-shadow-md z-10"
     [class]="headerChange || defaultHeader ? 'bg-gray-100 hover:bg-transparentHover transition-all ease-in-out duration-200' : ''"
     (scroll)="scrollFunction($event)">
       <!-- <div class="flex i mx-auto container"> -->
@@ -23,6 +23,7 @@
           [text]="'Produits'"
           [variant]="'text-only'"
           [underlineOnHover]="true"
+          
           [routerLink]="'products'"
         ></app-base-button>
         <app-base-button
