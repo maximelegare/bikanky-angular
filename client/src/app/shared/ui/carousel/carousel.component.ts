@@ -1,26 +1,35 @@
-import { Component, Input, OnInit, TemplateRef } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
-import SwiperCore from "swiper"
+import SwiperCore from 'swiper';
 import { Pagination, Navigation } from 'swiper';
 
-SwiperCore.use([Pagination, Navigation])
+import { Select } from '@ngxs/store';
 
+import { GeneralState } from 'src/app/shared/context/general/general.state';
+
+SwiperCore.use([Pagination, Navigation]);
 
 @Component({
   selector: 'app-carousel',
   templateUrl: './carousel.component.html',
-  styleUrls: ['./carousel.component.css']
+  styleUrls: ['./carousel.component.css'],
 })
 export class CarouselComponent implements OnInit {
+  constructor() {}
 
-  constructor() { }
+  @Input() slides: Array<any>;
+  @Input() variant: string;
+  @Select(GeneralState.carouselSlidePerView)
+  carouselSlidesPerView$: Observable<number>;
 
-  @Input() slides:Array<any> 
-  @Input() variant:string
-  @Input() slidePerView:number = 3
+  numberOfSlides: number = 3;
 
   ngOnInit(): void {
-     
+    this.carouselSlidesPerView$.subscribe((slidesPerView) => {
+      console.log('numberOfSlides', this.numberOfSlides);
+      console.log('slidesPerView', slidesPerView);
+      this.numberOfSlides = slidesPerView;
+      console.log('numberOfSlidesChanged', this.numberOfSlides);
+    });
   }
-
 }

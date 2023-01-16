@@ -1,4 +1,4 @@
-<swiper [slidesPerView]="slidePerView" [spaceBetween]="40" [pagination]="{ clickable: true }">
+<swiper [slidesPerView]="numberOfSlides" [spaceBetween]="40" [pagination]="{ clickable: true }">
   <ng-template swiperSlide *ngFor="let slide of slides">
     <ng-container [ngSwitch]="variant">
       <app-testimonial-card

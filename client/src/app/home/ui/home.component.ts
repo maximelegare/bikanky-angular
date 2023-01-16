@@ -3,7 +3,6 @@ import { Store } from '@ngxs/store';
 import { FectchTestimonials } from 'src/app/shared/context/testimonials/testimonial.actions';
 import { FectchProducts } from 'src/app/shared/context/products/products.actions';
 
-
 @Component({
   selector: 'app-index',
   templateUrl: './home.component.html',
@@ -15,5 +14,6 @@ export class HomeComponent implements OnInit {
   ngOnInit(): void {
     this.store.dispatch(new FectchTestimonials());
     this.store.dispatch(new FectchProducts('home'))
+    
   }
 }

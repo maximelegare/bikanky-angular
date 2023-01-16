@@ -15,7 +15,6 @@ export class HeaderMobileComponent implements OnInit {
   }
 
   handleSidebarClick(){
-    console.log("here")
     this.store.dispatch(new ToggleSideBarOpen())
   }
 }
