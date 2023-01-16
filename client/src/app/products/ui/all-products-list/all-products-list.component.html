@@ -3,7 +3,7 @@
     <app-products-title [title]="'Produits'"></app-products-title>
   </div>
   <div>
-    <div class="flex flex-wrap min-h-[400px] gap-6">
+    <div class="flex flex-wrap justify-between min-h-[400px] gap-6">
       <div
         *ngFor="let product of products$ | async"
         class="flex-initial w-[350px] pt-16"
