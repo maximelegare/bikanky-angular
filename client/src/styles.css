@@ -5,6 +5,33 @@
 @tailwind utilities;
 
 @layer {
+
+    .sidebar-open{
+      visibility: visible;
+      animation-duration: 4ms;
+      transition: ease-in;
+      animation-fill-mode: forwards;
+      /* animation-name: sidebar; */
+    }
+
+    .sidebar-close{
+      visibility: hidden;
+      animation-duration: 2ms;
+      transition: ease-out;
+      animation-fill-mode: forwards;
+      /* animation-name: sidebar; */
+      /* animation-name: sidebarClose;
+      animation-duration: 10ms;
+      animation-fill-mode: forwards;
+      visibility: hidden !important; */
+      }
+/* 
+      @keyframes sidebar{
+        from{visibility: hidden;}
+        to{visibility: visible;}
+      }   */
+
+
     .material-icon{
         @apply h-3 w-3;
     }
