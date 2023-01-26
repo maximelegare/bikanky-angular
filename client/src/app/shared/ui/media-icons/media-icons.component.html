@@ -1,0 +1,25 @@
+<div class="flex gap-2">
+    <ng-container *ngFor="let icon of mediaIcons">
+      <ng-container
+        *ngIf="icon.mediaLink; then media; else default"
+      ></ng-container>
+
+      <ng-template #default>
+        <img
+          class="w-6 h-6 cursor-pointer"
+          [src]="getIcon(icon.mediaName)"
+          [alt]="icon.mediaName"  
+        />
+      </ng-template>
+
+      <ng-template #media>
+        <a [href]="icon.mediaLink" target="_blank">
+          <img
+            class="w-6 h-6 cursor-pointer"
+            [src]="getIcon(icon.mediaName)"
+            [alt]="icon.mediaName"
+          />
+        </a>
+      </ng-template>
+    </ng-container>
+  </div>

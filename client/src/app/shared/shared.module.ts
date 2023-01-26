@@ -19,6 +19,7 @@ import { NbSidebarModule } from '@nebular/theme';
 import { BlockContentComponent } from './ui/block-content/block-content.component';
 import { HeaderDesktopComponent } from './layout/the-header/header-desktop/header-desktop.component';
 import { HeaderMobileComponent } from './layout/the-header/header-mobile/header-mobile.component';
+import { MediaIconsComponent } from './ui/media-icons/media-icons.component';
 
 @NgModule({
   declarations: [
@@ -37,6 +38,7 @@ import { HeaderMobileComponent } from './layout/the-header/header-mobile/header-
     BlockContentComponent,
     HeaderDesktopComponent,
     HeaderMobileComponent,
+    MediaIconsComponent,
   ],
   imports: [CommonModule, RouterModule, NbSidebarModule],
   exports: [
@@ -53,7 +55,9 @@ import { HeaderMobileComponent } from './layout/the-header/header-mobile/header-
     ImageComponent,
     BlockContentComponent,
     HeaderDesktopComponent,
-    SidebarComponent
+    SidebarComponent,
+    MediaIconsComponent
+    
   ],
 })
 export class SharedModule {}

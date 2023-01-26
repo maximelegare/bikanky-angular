@@ -12,10 +12,9 @@ export class InfosComponent implements OnInit {
      
 
   getIcon(icon:string):string{
-    
-    
     return `../../../../assets/svg/SVG/${icon}.svg`}
-  
+
+    
   ngOnInit(): void {
   }
 
