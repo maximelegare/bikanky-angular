@@ -18,7 +18,6 @@ export class ContactComponent implements OnInit {
     
   ngOnInit(): void {
     this.store.dispatch(new FectchContactData())
-    this.contactData$.subscribe((data) => console.log(data))   
   }
 
 }

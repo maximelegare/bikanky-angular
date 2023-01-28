@@ -54,22 +54,13 @@
           [variant]="'text-only'"
         ></app-base-button>
       </div>
-      <div class="flex flex-col items-start w-52">
-        <p class="py-1 px-3 text-lg text-black font-semibold">Medias sociaux</p>
-        <app-base-button
-          [text]="'Me Joindre'"
-          [variant]="'text-only'"
-
-        ></app-base-button>
-        <app-base-button
-          [text]="'FAQs'"
-          [variant]="'text-only'"
-        ></app-base-button>
-      </div>
+     
       <div>
         <span class="material-icons">language</span>
       </div>
     </div>
+    <app-media-icons [mediaIcons]="contactData.contactMedias"></app-media-icons>
+
     <p class="mx-3 text-sm opacity-60 pt-10 text-center">
       En utilisant ce site Web, vous acceptez nos Conditions générales. ©{{
         year

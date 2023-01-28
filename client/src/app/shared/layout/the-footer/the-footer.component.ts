@@ -1,4 +1,11 @@
 import { Component, OnInit } from '@angular/core';
+import { Select } from '@ngxs/store';
+import { ContactState } from '../../context/contact/contact.state';
+import { Observable } from 'rxjs';
+import { ContactData } from '../../context/contact/contact.model';
+import { Store } from '@ngxs/store';
+import { FectchContactData } from '../../context/contact/contact.actions';
+
 
 @Component({
   selector: 'app-the-footer',
@@ -7,14 +14,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TheFooterComponent implements OnInit {
 
-  constructor() { }
+  constructor(public store:Store) { }
+  @Select(ContactState.getContactPageData) contactData$:Observable<ContactData>
+
+    contactData:ContactData
+
 
   ngOnInit(): void {
+    this.store.dispatch(new FectchContactData())
+    this.contactData$.subscribe((data) => this.contactData = data)
   }
+
+
+
 
   d = new Date()
   year = this.d.getFullYear()
-
-
 
 }
