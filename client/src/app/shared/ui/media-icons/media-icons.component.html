@@ -1,4 +1,9 @@
 <div class="flex gap-2">
+  <ng-container *ngIf="!mediaIcons; then loading; else data"></ng-container>
+
+  <ng-template #loading></ng-template>
+
+  <ng-template #data>
     <ng-container *ngFor="let icon of mediaIcons">
       <ng-container
         *ngIf="icon.mediaLink; then media; else default"
@@ -8,7 +13,7 @@
         <img
           class="w-6 h-6 cursor-pointer"
           [src]="getIcon(icon.mediaName)"
-          [alt]="icon.mediaName"  
+          [alt]="icon.mediaName"
         />
       </ng-template>
 
@@ -22,4 +27,5 @@
         </a>
       </ng-template>
     </ng-container>
-  </div>
+  </ng-template>
+</div>

@@ -16,7 +16,7 @@ export class MediaIconsComponent implements OnInit {
   @Input() mediaIcons:{
     mediaLink:string;
     mediaName:string
-  }[]
+  }[] | null | undefined 
 
   ngOnInit(): void {
   }

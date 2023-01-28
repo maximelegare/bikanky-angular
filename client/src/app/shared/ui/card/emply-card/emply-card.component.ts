@@ -14,7 +14,7 @@ export class EmplyCardComponent implements OnInit {
 
 
   getStyles(){
-    return `bg-white rounded-md p-4 drop-shadow-md flex-initial ${this.width}`
+    return `bg-white rounded-md p-4 drop-shadow-md flex-initial ${this.width} `
   }
 
   ngOnInit(): void {

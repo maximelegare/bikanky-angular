@@ -17,7 +17,7 @@ export class TheFooterComponent implements OnInit {
   constructor(public store:Store) { }
   @Select(ContactState.getContactPageData) contactData$:Observable<ContactData>
 
-    contactData:ContactData
+    contactData:ContactData | null | undefined
 
 
   ngOnInit(): void {
