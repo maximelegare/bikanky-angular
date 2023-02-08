@@ -23,9 +23,6 @@ export class CarouselComponent implements OnInit {
     pagination: { clickable: true },
     navigation: true,
     breakpoints: {
-      1536: {
-        slidesPerView: 5,
-      },
       1280: {
         slidesPerView: 4,
       },
@@ -40,20 +37,12 @@ export class CarouselComponent implements OnInit {
       },
     },
   };
-  
+
   @Input() slides: Array<any>;
   @Input() variant: string;
-  // @Select(GeneralState.carouselSlidePerView)
-  // carouselSlidesPerView$: Observable<number>;
 
   numberOfSlides: number = 3;
 
   ngOnInit(): void {
-    // this.carouselSlidesPerView$.subscribe((slidesPerView) => {
-    //   console.log('numberOfSlides', this.numberOfSlides);
-    //   console.log('slidesPerView', slidesPerView);
-    //   this.numberOfSlides = slidesPerView;
-    //   console.log('numberOfSlidesChanged', this.numberOfSlides);
-    // });
   }
 }

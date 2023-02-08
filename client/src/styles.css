@@ -53,8 +53,13 @@
       }
       .swiper-button-next, .swiper-button-prev {
         color: rgba(239, 203, 29, 1) !important;
+      } 
 
-      }       
+      /* hides the drop-shadows  of the elements that overflow in carousel, otherwise we see the next one*/
+      .swiper-slide{
+        padding-left: 8px;
+        padding-right: 8px;
+      }
       
      
 }
