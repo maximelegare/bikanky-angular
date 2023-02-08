@@ -41,10 +41,20 @@
     .swiper-pagination-bullet-active {
         background-color:rgba(239, 203, 29, 1) !important;
       }
+      /* container of the swiper instance, same padding as the space between property in the props of swiper => puts the arrows outside of the container */
+      .swiper-initialized{
+        padding-left: 40px !important;
+        padding-right: 40px !important;
+      }
       .swiper-wrapper{
         padding-bottom:60px !important; 
         /* padding-left:5px !important; 
         padding-right:5px !important;  */
       }
+      .swiper-button-next, .swiper-button-prev {
+        color: rgba(239, 203, 29, 1) !important;
+
+      }       
+      
      
 }

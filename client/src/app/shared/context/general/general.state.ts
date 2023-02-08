@@ -6,7 +6,7 @@ import { ToggleSideBarOpen, CarouselSlidesPerView } from './general.actions';
 interface GeneralStateModel {
   lang: string;
   sidebarOpen: boolean;
-  carouselSlidePerView: number | undefined;
+  // carouselSlidePerView: number | undefined;
 }
 
 @State<GeneralStateModel>({
@@ -14,7 +14,7 @@ interface GeneralStateModel {
   defaults: {
     lang: 'fr',
     sidebarOpen: false,
-    carouselSlidePerView: 3,
+    // carouselSlidePerView: 3,
   },
 })
 @Injectable()
@@ -26,10 +26,10 @@ export class GeneralState {
     return state.lang;
   }
 
-  @Selector()
-  static carouselSlidePerView(state: GeneralStateModel) {
-    return state.carouselSlidePerView;
-  }
+  // @Selector()
+  // static carouselSlidePerView(state: GeneralStateModel) {
+  //   return state.carouselSlidePerView;
+  // }
 
   @Selector()
   static getSidebarOpen(state: GeneralStateModel) {
@@ -77,9 +77,9 @@ export class GeneralState {
     // xl	1280px	@media (min-width: 1280px) { ... }
     // 2xl	1536px
 
-    ctx.setState({
-      ...state,
-      carouselSlidePerView: numberOfSlides,
-    });
+    // ctx.setState({
+    //   ...state,
+    //   carouselSlidePerView: numberOfSlides,
+    // });
   }
 }

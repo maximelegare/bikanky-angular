@@ -1,4 +1,4 @@
-<swiper [slidesPerView]="numberOfSlides" class="max-w-[300px] md:max-w-none" [spaceBetween]="40" [pagination]="{ clickable: true }">
+<swiper [config]="swiperConfig" class="max-w-[300px] md:max-w-none"  >
   <ng-template swiperSlide *ngFor="let slide of slides">
     <ng-container [ngSwitch]="variant" >
       <app-testimonial-card
@@ -18,3 +18,5 @@
     </ng-container>
   </ng-template>
 </swiper>
+
+
