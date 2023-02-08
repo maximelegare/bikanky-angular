@@ -19,6 +19,7 @@ export class BaseButtonComponent implements OnInit {
   @Input() addBorder: boolean = false;
   @Input() size?: string = 'small';
   @Input() routerLink: string | string[];
+  @Input() fragment?:string;
 
   @Input() icon?: string;
   @Input() iconSize?: string;
@@ -100,7 +101,7 @@ export class BaseButtonComponent implements OnInit {
         } ${
           this.noHover
             ? ''
-            : 'hover:scale-105 transition-scale duration-100 hover:opacity-100  '
+            : 'hover:scale-105 transition-scale duration-100 hover:opacity-100'
         } `;
       }
     }

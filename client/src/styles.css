@@ -7,7 +7,7 @@
 @layer {
 
     .home-hero-gradiant{
-      background: linear-gradient(180deg, rgba(239, 203, 29, 0.4) 85%, rgba(239, 203, 29, 1) 85%);
+      background: linear-gradient(180deg, rgba(239, 203, 29, 0.4) 90%, rgba(239, 203, 29, 1) 90%);
     } 
     .sidebar-open{
       visibility: visible;
