@@ -12,6 +12,13 @@ export class ImageProductSectionComponent implements OnInit {
   @Input() images:any[];
   
 
+  swiperConfig: any = {
+    slidesPerView: 'auto',
+    spaceBetween: 40,
+    pagination: { clickable: true },
+    navigation: true,
+  };
+
   ngOnInit(): void {
   }
 

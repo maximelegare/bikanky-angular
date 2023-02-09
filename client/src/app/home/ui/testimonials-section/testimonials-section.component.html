@@ -3,6 +3,6 @@
     Commentaires de nos supportaires
   </p>
     <ng-container *ngIf="testimonials$ | async as slides">
-      <app-carousel [slides]="slides" [variant]="'testimonial'"></app-carousel>
+      <app-carousel [config]="swiperConfig" [slides]="slides" [variant]="'testimonial'"></app-carousel>
     </ng-container>
 </div>
