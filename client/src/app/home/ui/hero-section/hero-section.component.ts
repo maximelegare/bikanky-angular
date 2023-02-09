@@ -11,4 +11,11 @@ export class HeroSectionComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  handleClick(){
+    console.log('clicked')
+    let x = document.querySelector("#home_products")
+    if(x){
+      x.scrollIntoView()
+    }
+  }
 }

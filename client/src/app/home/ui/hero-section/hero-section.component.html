@@ -38,7 +38,7 @@
       </div>
     </div>
     <div class="flex justify-center">
-      <app-base-button  class="animate-bounce" [variant]="'icon'" [icon]="'arrow_downward'" [iconSize]="'text-5xl'" [iconColor]="'text-white'"></app-base-button>
+      <app-base-button (handleClick)="handleClick()" class="animate-bounce" [variant]="'icon'" [icon]="'arrow_downward'" [iconSize]="'text-5xl'" [iconColor]="'text-white'"></app-base-button>
     </div>
   </div>
   <!-- <div class="h-32 bg-accent"></div> -->

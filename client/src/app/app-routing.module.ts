@@ -44,6 +44,7 @@ const routes: Routes = [
   imports: [
     RouterModule.forRoot(routes, {
       initialNavigation: 'enabledBlocking',
+      anchorScrolling:'enabled'
     }),
   ],
   exports: [RouterModule],

@@ -40,6 +40,7 @@ export class CarouselComponent implements OnInit {
 
   @Input() slides: Array<any>;
   @Input() variant: string;
+  @Input() withBackgroundColor:boolean;
 
   numberOfSlides: number = 3;
 

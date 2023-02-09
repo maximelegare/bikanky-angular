@@ -5,6 +5,7 @@ module.exports = {
   theme: {
     extend: {
       colors: {
+        paleWhite:'rgba(216, 215, 205, 0.1)',
         transparentGray: "rgba(30, 41, 59, 0.4)",
         transparentAccent: "rgba(239, 203, 29, 0.4)",
         transparentHover: "#f3ecc7",
