@@ -1,12 +1,16 @@
-<swiper [config]="config"  class="max-w-[300px] md:max-w-none rounded-3xl bg-paleWhite"  >
+<swiper
+  [config]="config"
+  class="max-w-[300px] md:max-w-none rounded-3xl bg-paleWhite"
+>
   <ng-template swiperSlide *ngFor="let slide of slides">
-    <ng-container [ngSwitch]="variant" >
-      <app-testimonial-card
-        [testimonial]="slide"
-        *ngSwitchCase="'testimonial'"
-      ></app-testimonial-card>
-
-      <div class="mt-20" *ngSwitchCase="'product'">
+    <ng-container [ngSwitch]="variant">
+      <div data-aos="fade-up-custom">
+        <app-testimonial-card
+          [testimonial]="slide"
+          *ngSwitchCase="'testimonial'"
+        ></app-testimonial-card>
+      </div>
+      <div class="mt-20" *ngSwitchCase="'product'" data-aos="fade-up-custom">
         <app-product-card [product]="slide"></app-product-card>
       </div>
       <app-image
@@ -18,5 +22,3 @@
     </ng-container>
   </ng-template>
 </swiper>
-
-

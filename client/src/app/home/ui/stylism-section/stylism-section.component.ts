@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-
 @Component({
   selector: 'app-stylism-section',
   templateUrl: './stylism-section.component.html',
