@@ -3,7 +3,8 @@ import { Observable } from 'rxjs';
 import { GeneralState } from './shared/context/general/general.state';
 import { Select } from '@ngxs/store';
 import { Store } from '@ngxs/store';
-import { CarouselSlidesPerView } from './shared/context/general/general.actions';
+
+import * as AOS from "aos"
 
 @Component({
   selector: 'app-root',
@@ -11,7 +12,9 @@ import { CarouselSlidesPerView } from './shared/context/general/general.actions'
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent implements OnInit {
-  constructor(public store:Store){}
+  constructor(public store:Store){
+    
+  }
 
   @Select(GeneralState.getSidebarOpen) sidebarOpen$: Observable<boolean>;
   
@@ -19,10 +22,11 @@ export class AppComponent implements OnInit {
   sidebarOpen:boolean;
   
   ngOnInit(): void {
-    this.store.dispatch(new CarouselSlidesPerView())
     this.sidebarOpen$.subscribe((sidebar) => {
       this.sidebarOpen = sidebar;
     });
-  }
+    
+  }  
+  
   
 }

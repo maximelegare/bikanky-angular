@@ -11,7 +11,6 @@ import { ContactState } from './shared/context/contact/contact.state';
 import { StylismServicesState } from './shared/context/stylism/stylism.state';
 
 import { CarouselModule } from './shared/ui/carousel/carousel.module';
-
 import { AppComponent } from './app.component';
 import { HeroSectionComponent } from './home/ui/hero-section/hero-section.component';
 import { ProductsSectionComponent } from './home/ui/products-section/products-section.component';
@@ -25,11 +24,9 @@ import { AllProductsListComponent } from './products/ui/all-products-list/all-pr
 import { SharedModule } from './shared/shared.module';
 import { ProductModule } from './product/product.module';
 import { ErrorComponent } from './error/error.component';
-import { NbThemeModule } from '@nebular/theme';
-import { NbSidebarModule } from '@nebular/theme';
 import { ContactModule } from './contact/contact.module';
-import { CommonModule } from '@angular/common';
 import { StylismServicesModule } from './stylism-services/stylism-services.module';
+
 
 @NgModule({
   declarations: [
@@ -58,9 +55,9 @@ import { StylismServicesModule } from './stylism-services/stylism-services.modul
     SharedModule,
     ProductModule,
     ContactModule,
-    StylismServicesModule,
-    
+    StylismServicesModule, 
   ],
+ 
 
 
   bootstrap: [AppComponent],
