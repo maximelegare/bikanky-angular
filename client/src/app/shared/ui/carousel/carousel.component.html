@@ -4,13 +4,13 @@
 >
   <ng-template swiperSlide *ngFor="let slide of slides">
     <ng-container [ngSwitch]="variant">
-      <div data-aos="fade-up-custom">
+      <div data-aos="flip-left" data-aos-duration="1000">
         <app-testimonial-card
           [testimonial]="slide"
           *ngSwitchCase="'testimonial'"
         ></app-testimonial-card>
       </div>
-      <div class="mt-20" *ngSwitchCase="'product'" data-aos="fade-up-custom">
+      <div class="mt-20" *ngSwitchCase="'product'" data-aos="flip-right" data-aos-duration="1000">
         <app-product-card [product]="slide"></app-product-card>
       </div>
       <app-image
