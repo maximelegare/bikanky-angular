@@ -58,7 +58,8 @@ import { StylismServicesModule } from './stylism-services/stylism-services.modul
     SharedModule,
     ProductModule,
     ContactModule,
-    StylismServicesModule
+    StylismServicesModule,
+    
   ],
 
 
