@@ -20,6 +20,7 @@ import { BlockContentComponent } from './ui/block-content/block-content.componen
 import { HeaderDesktopComponent } from './layout/the-header/header-desktop/header-desktop.component';
 import { HeaderMobileComponent } from './layout/the-header/header-mobile/header-mobile.component';
 import { MediaIconsComponent } from './ui/media-icons/media-icons.component';
+import { SpinnerComponent } from './ui/spinner/spinner.component';
 
 @NgModule({
   declarations: [
@@ -39,6 +40,7 @@ import { MediaIconsComponent } from './ui/media-icons/media-icons.component';
     HeaderDesktopComponent,
     HeaderMobileComponent,
     MediaIconsComponent,
+    SpinnerComponent,
   ],
   imports: [CommonModule, RouterModule, NbSidebarModule],
   exports: [
@@ -56,7 +58,8 @@ import { MediaIconsComponent } from './ui/media-icons/media-icons.component';
     BlockContentComponent,
     HeaderDesktopComponent,
     SidebarComponent,
-    MediaIconsComponent
+    MediaIconsComponent,
+    SpinnerComponent
     
   ],
 })
