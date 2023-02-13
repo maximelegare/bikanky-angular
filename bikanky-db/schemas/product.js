@@ -16,6 +16,18 @@ export default {
         initialValue: false,
       },
       {
+        name: "star",
+        title: "Star",
+        type: "boolean",
+        initialValue: false,
+      },
+      {
+        name: "starOfTheSeason",
+        title: "Star of the Season",
+        type: "boolean",
+        initialValue: false,
+      },
+      {
         name: "title",
         title: "Title",
         type: "string",

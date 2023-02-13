@@ -1,4 +1,4 @@
-import { Injectable,  } from '@angular/core';
+import { Injectable } from '@angular/core';
 import { Action, State, StateContext, Selector, Select } from '@ngxs/store';
 import { from, tap, catchError } from 'rxjs';
 import { SanityService } from 'src/app/shared/services/sanity/sanity.service';
@@ -34,17 +34,15 @@ interface ProductsStateModel {
   },
 })
 @Injectable()
-export class ProductsState  {
+export class ProductsState {
   constructor(private sanity: SanityService) {
-    this.lang$.subscribe((lang:string) => {
-      this.lang = lang
-    })
+    this.lang$.subscribe((lang: string) => {
+      this.lang = lang;
+    });
   }
-  lang = "" 
+  lang = '';
 
-  @Select(GeneralState.getLang) lang$:Observable<string> 
-
-
+  @Select(GeneralState.getLang) lang$: Observable<string>;
 
   @Selector()
   static getProducts(state: ProductsStateModel) {
@@ -59,7 +57,6 @@ export class ProductsState  {
   @Selector()
   static getPageProduct(state: ProductsStateModel) {
     return state.pageProduct;
-    
   }
 
   @Action(FectchProducts)
@@ -75,6 +72,9 @@ export class ProductsState  {
       case 'home':
         expression = `_type == "product" && isActive == true && showOnHomePage == true`;
         break;
+      case 'stars':
+        expression = `_type == "product" && isActive && star`;
+        break;
       case 'product':
         expression = `_type == "product" && isActive == true && slug.current == "${slug}"`;
         break;
@@ -87,6 +87,8 @@ export class ProductsState  {
         `*[${expression}]{
           _id,
           showOnHomePage,  
+          star,
+          starOfTheSeason,
           isActive,  
           title,
           slug,
@@ -112,6 +114,7 @@ export class ProductsState  {
     ).pipe(
       // Take the returned value and return a new success action containing the products
       tap((payload) => {
+        console.log(payload)
         switch (page) {
           case 'home':
             ctx.dispatch(new FectchHomeProductsSuccess(payload));
@@ -136,7 +139,7 @@ export class ProductsState  {
     { products }: FectchProductsSuccess
   ) {
     const state = ctx.getState();
-    
+
     ctx.setState({
       ...state,
       products: products,
@@ -170,7 +173,7 @@ export class ProductsState  {
     const state = ctx.getState();
     ctx.setState({
       ...state,
-      pageProduct: pageProduct? pageProduct[0] : undefined,
+      pageProduct: pageProduct ? pageProduct[0] : undefined,
       status: 'success',
       error: null,
     });

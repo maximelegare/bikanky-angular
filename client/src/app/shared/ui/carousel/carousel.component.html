@@ -1,11 +1,11 @@
-<div data-aos="zoom-in" data-aos-duration="700">
+<div data-aos="zoom-in" data-aos-duration="700" data-aos-once="true">
   <swiper
     [config]="config"
     class="max-w-[300px] md:max-w-none rounded-3xl bg-paleWhite"
   >
     <ng-template swiperSlide *ngFor="let slide of slides">
       <ng-container [ngSwitch]="variant">
-        <div data-aos="flip-left" data-aos-duration="1000">
+        <div data-aos="flip-left" data-aos-duration="1000"  data-aos-once="true">
           <app-testimonial-card
             [testimonial]="slide"
             *ngSwitchCase="'testimonial'"
@@ -16,6 +16,7 @@
           *ngSwitchCase="'product'"
           data-aos="flip-right"
           data-aos-duration="1000"
+          data-aos-once="true"
         >
           <app-product-card [product]="slide"></app-product-card>
         </div>
