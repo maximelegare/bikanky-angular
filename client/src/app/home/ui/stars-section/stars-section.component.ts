@@ -23,18 +23,18 @@ export class StarsSectionComponent implements OnInit {
     pagination: { clickable: true },
     navigation: true,
     breakpoints: {
-      1280: {
-        slidesPerView: 4,
-      },
       1080: {
-        slidesPerView: 3,
-      },
-      768: {
         slidesPerView: 2,
       },
-      640: {
+      768: {
         slidesPerView: 1,
       },
+      
     },
   };
+
+  swiperConfigStarOfSeason: any = {
+    slidesPerView: 1,
+  };
+
 }

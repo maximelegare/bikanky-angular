@@ -1,16 +1,30 @@
-<div class="relative container mb-28">
+<div class="container mb-28 bg-paleWhite rounded-3xl" data-aos="zoom-in" data-aos-duration="700" data-aos-once="true" >
   <ng-container>
-    <!-- <div class="flex"> -->
-        <ng-container *ngIf="starOfTheSeasonProduct$ | async as starOfTheSeason">
-            <app-product-card [product]="starOfTheSeason"></app-product-card>
-        </ng-container>
-        <ng-container *ngIf="starProducts$ | async as products">
+    <div class="flex">
+      <ng-container *ngIf="starOfTheSeasonProduct$ | async as starOfTheSeason">
+        <div class="flex-none w-[400px]">
+          <div class="text-center text-2xl font-semibold">
+            Star of the Season
+          </div>
+          
+            <app-carousel
+              [config]="swiperConfigStarOfSeason"
+              [variant]="'product'"
+              [slides]="[starOfTheSeason]"
+            ></app-carousel>
+          
+        </div>
+      </ng-container>
+      <ng-container *ngIf="starProducts$ | async as products">
+        <div class="flex-auto w-64">
+          <div class="text-center text-2xl font-semibold">Previous Stars</div>
           <app-carousel
             [config]="swiperConfig"
             [variant]="'product'"
             [slides]="products"
           ></app-carousel>
-        </ng-container>
-    <!-- </div> -->
+        </div>
+      </ng-container>
+    </div>
   </ng-container>
 </div>

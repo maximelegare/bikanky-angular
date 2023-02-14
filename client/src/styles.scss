@@ -41,6 +41,9 @@
         from{visibility: hidden;}
         to{visibility: visible;}
       }   */
+  .w-max-80{
+    max-width: 800px
+  }    
 
   .material-icon {
     @apply h-3 w-3;
