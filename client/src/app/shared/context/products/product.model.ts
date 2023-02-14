@@ -2,6 +2,8 @@ interface Product {
   _id:string
   showOnHomePage?:boolean;
   isActive:boolean;
+  star:Boolean;
+  starOfTheSeason:Boolean;
   title: string;
   slug: any;
   defaultProductVariant: ProductVariant;

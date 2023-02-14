@@ -13,12 +13,15 @@ import {
   FectchPageProductSuccess,
   FectchProductsFailure,
   FectchProductsSuccess,
+  FectchStarProductsSuccess
 } from './products.actions';
 
 interface ProductsStateModel {
   products: Product[];
   homeProducts: Product[];
   pageProduct: Product | undefined;
+  starProducts:Product[];
+  starOfTheSeasonProduct:Product | undefined;
   status: 'pending' | 'loading' | 'success' | 'failure';
   error: '' | null;
 }
@@ -27,8 +30,10 @@ interface ProductsStateModel {
   name: 'products',
   defaults: {
     pageProduct: undefined,
+    starOfTheSeasonProduct:undefined,
     homeProducts: [],
     products: [],
+    starProducts:[],
     status: 'pending',
     error: null,
   },
@@ -59,6 +64,15 @@ export class ProductsState {
     return state.pageProduct;
   }
 
+  @Selector()
+  static getStarProducts(state:ProductsStateModel){
+    return state.starProducts
+  }
+  @Selector()
+  static getStarOfTheSeasonProduct(state:ProductsStateModel){
+    return state.starOfTheSeasonProduct
+  }
+
   @Action(FectchProducts)
   fectchProducts(
     ctx: StateContext<ProductsStateModel>,
@@ -73,7 +87,7 @@ export class ProductsState {
         expression = `_type == "product" && isActive == true && showOnHomePage == true`;
         break;
       case 'stars':
-        expression = `_type == "product" && isActive && star`;
+        expression = `_type == "product" && isActive && (star || starOfTheSeason)`;
         break;
       case 'product':
         expression = `_type == "product" && isActive == true && slug.current == "${slug}"`;
@@ -114,13 +128,18 @@ export class ProductsState {
     ).pipe(
       // Take the returned value and return a new success action containing the products
       tap((payload) => {
-        console.log(payload)
         switch (page) {
           case 'home':
             ctx.dispatch(new FectchHomeProductsSuccess(payload));
             break;
           case 'product':
             ctx.dispatch(new FectchPageProductSuccess(payload));
+            break;
+          case 'stars':
+            ctx.dispatch(new FectchStarProductsSuccess(payload));
+            break;
+          case 'starOfTheSeason':
+            ctx.dispatch(new FectchStarProductsSuccess(payload));
             break;
           default:
             ctx.dispatch(new FectchProductsSuccess(payload));
@@ -146,7 +165,35 @@ export class ProductsState {
       status: 'success',
       error: null,
     });
+    
+    
+
   }
+
+ // Fetch star products
+  @Action(FectchStarProductsSuccess)
+  FectchStarProductsSuccess(
+    ctx: StateContext<ProductsStateModel>,
+    { starProducts }: FectchStarProductsSuccess
+  ) {
+    const state = ctx.getState();
+
+    const starOfTheSeasonProduct = starProducts.filter((product) => product.starOfTheSeason === true)
+    const starProductsFilter = starProducts.filter((product) => product.starOfTheSeason !== true)
+
+    ctx.setState({
+      ...state,
+      starProducts: starProductsFilter,
+      starOfTheSeasonProduct:starOfTheSeasonProduct[0],
+      status: 'success',
+      error: null,
+    });
+
+ 
+    
+    
+  }
+
 
   // Fetch Home products
   @Action(FectchHomeProductsSuccess)
@@ -178,6 +225,11 @@ export class ProductsState {
       error: null,
     });
   }
+
+  // Fetch Page product
+  
+
+ 
 
   @Action(FectchProductsFailure)
   fectchProductsFailure(

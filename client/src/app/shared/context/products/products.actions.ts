@@ -22,6 +22,11 @@ export class FectchPageProductSuccess {
   constructor(public pageProduct:Product[]){}
 }
 
+export class FectchStarProductsSuccess {
+  static readonly type = '[Home API] Fetch Stars Products Success';
+  constructor(public starProducts:Product[]){}
+}
+
 export class FectchProductsFailure {
   static readonly type = '[Home API] Fetch Home Products Failure';
   constructor(public error:string){}  

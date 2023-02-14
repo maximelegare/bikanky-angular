@@ -4,7 +4,7 @@
   <div
     class="w-fit mx-auto absolute top-14 translate-x-[-50%] translate-y-[-50%] left-[50%] drop-shadow-md"
   >
-    <ng-container *ngIf="product.defaultProductVariant">
+    <ng-container *ngIf="product?.defaultProductVariant">
       <app-image
         [src]="product.defaultProductVariant.images[0].imageUrl"
       ></app-image>

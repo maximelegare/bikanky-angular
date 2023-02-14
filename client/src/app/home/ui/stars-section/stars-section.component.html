@@ -1,0 +1,16 @@
+<div class="relative container mb-28">
+  <ng-container>
+    <!-- <div class="flex"> -->
+        <ng-container *ngIf="starOfTheSeasonProduct$ | async as starOfTheSeason">
+            <app-product-card [product]="starOfTheSeason"></app-product-card>
+        </ng-container>
+        <ng-container *ngIf="starProducts$ | async as products">
+          <app-carousel
+            [config]="swiperConfig"
+            [variant]="'product'"
+            [slides]="products"
+          ></app-carousel>
+        </ng-container>
+    <!-- </div> -->
+  </ng-container>
+</div>

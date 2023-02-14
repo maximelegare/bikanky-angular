@@ -26,6 +26,7 @@ import { ProductModule } from './product/product.module';
 import { ErrorComponent } from './error/error.component';
 import { ContactModule } from './contact/contact.module';
 import { StylismServicesModule } from './stylism-services/stylism-services.module';
+import { StarsSectionComponent } from './home/ui/stars-section/stars-section.component';
 
 
 @NgModule({
@@ -39,6 +40,7 @@ import { StylismServicesModule } from './stylism-services/stylism-services.modul
     AllProductsListComponent,
     ProductsComponent,
     ErrorComponent,
+    StarsSectionComponent,
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'serverApp' }),
