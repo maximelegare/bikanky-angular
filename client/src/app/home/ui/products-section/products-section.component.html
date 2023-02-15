@@ -1,5 +1,15 @@
-<div class="relative container mb-28 bg-paleWhite rounded-3xl" data-aos="zoom-in" data-aos-duration="700" data-aos-once="true" >
+<div
+  class="relative container mb-28 bg-paleWhite rounded-3xl"
+  data-aos="zoom-in"
+  data-aos-duration="700"
+  data-aos-once="true"
+>
+  <app-card-title [title]="'Produits vedettes'"></app-card-title>
   <ng-container *ngIf="products$ | async as products">
-    <app-carousel [config]="swiperConfig"  [variant]="'product'" [slides]="products" ></app-carousel>
+    <app-carousel
+      [config]="swiperConfig"
+      [variant]="'product'"
+      [slides]="products"
+    ></app-carousel>
   </ng-container>
 </div>

@@ -21,6 +21,7 @@ import { HeaderDesktopComponent } from './layout/the-header/header-desktop/heade
 import { HeaderMobileComponent } from './layout/the-header/header-mobile/header-mobile.component';
 import { MediaIconsComponent } from './ui/media-icons/media-icons.component';
 import { SpinnerComponent } from './ui/spinner/spinner.component';
+import { CardTitleComponent } from './ui/other/card-title/card-title.component';
 
 @NgModule({
   declarations: [
@@ -41,6 +42,7 @@ import { SpinnerComponent } from './ui/spinner/spinner.component';
     HeaderMobileComponent,
     MediaIconsComponent,
     SpinnerComponent,
+    CardTitleComponent,
   ],
   imports: [CommonModule, RouterModule, NbSidebarModule],
   exports: [
@@ -59,7 +61,8 @@ import { SpinnerComponent } from './ui/spinner/spinner.component';
     HeaderDesktopComponent,
     SidebarComponent,
     MediaIconsComponent,
-    SpinnerComponent
+    SpinnerComponent,
+    CardTitleComponent
     
   ],
 })

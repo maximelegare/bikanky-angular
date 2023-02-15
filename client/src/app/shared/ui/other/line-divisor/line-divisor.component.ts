@@ -8,7 +8,7 @@ import { Component, Input, OnInit } from '@angular/core';
 export class LineDivisorComponent implements OnInit {
   @Input() marginTop: number;
   @Input() border: number = 1 ;
-  @Input() color: string ;
+  @Input() color: string;
 
   constructor() {}
   ngOnInit(): void {}
