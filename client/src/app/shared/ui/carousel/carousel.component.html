@@ -1,4 +1,4 @@
-  <swiper [config]="config" class="max-w-[300px] md:max-w-none">
+  <swiper [config]="config" class="min-w-[350px] max-w-[450px] md:max-w-none">
     <ng-template swiperSlide *ngFor="let slide of slides">
       <ng-container [ngSwitch]="variant">
         <app-testimonial-card

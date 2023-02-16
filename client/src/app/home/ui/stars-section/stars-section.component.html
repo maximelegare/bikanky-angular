@@ -1,8 +1,8 @@
 <div class="container mb-28 pt-3 bg-paleWhite rounded-3xl" data-aos="zoom-in" data-aos-duration="700" data-aos-once="true" >
   <ng-container>
-    <div class="flex">
+    <div class="flex flex-col items-center md:items-stretch md:flex-row">
       <ng-container *ngIf="starOfTheSeasonProduct$ | async as starOfTheSeason">
-        <div class="flex-none w-[400px]">
+        <div class="flex-initial w-[350px]">
           <app-card-title [title]="'Étoile de la saison'"></app-card-title>
           
             <app-carousel
@@ -14,7 +14,7 @@
         </div>
       </ng-container>
       <ng-container *ngIf="starProducts$ | async as products">
-        <div class="flex-auto w-64">
+        <div class="flex-initial w-[350px] md:flex-auto md:w-64">
           <app-card-title [title]="'Anciennes étoiles'"></app-card-title>
           <app-carousel
             [config]="swiperConfig"
