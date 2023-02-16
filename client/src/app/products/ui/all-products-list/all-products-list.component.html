@@ -1,17 +1,24 @@
-<div class="relative container mb-28 mt-16">
-  <div class="mb-10">
-    <app-products-title [title]="'Produits'"></app-products-title>
-  </div>
+
+<div
+  class="relative container mb-28 mt-16 bg-paleWhite rounded-3xl"
+  data-aos="zoom-in"
+  data-aos-duration="700"
+  data-aos-once="true"
+  
+>
+  <app-card-title [title]="'Produits'"></app-card-title>
   <div>
-    <div class="flex flex-wrap justify-between min-h-[400px] gap-6">
+    <div class="flex flex-wrap justify-between gap-4">
       <div
         *ngFor="let product of products$ | async"
         class="flex-initial w-[350px] pt-16"
       >
-        <app-product-card
-          [noBulletPoints]="true"
-          [product]="product"
-        ></app-product-card>
+        <div>
+          <app-product-card
+            [noBulletPoints]="true"
+            [product]="product"
+          ></app-product-card>
+        </div>
       </div>
     </div>
   </div>

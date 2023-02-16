@@ -6,6 +6,8 @@ import { StylismServicesState } from '../shared/context/stylism/stylism.state';
 import { Store } from '@ngxs/store';
 import { FetchStylismServices } from '../shared/context/stylism/stylism.actions';
 
+import * as AOS from 'aos'
+
 @Component({
   selector: 'app-stylism-services',
   templateUrl: './stylism-services.component.html',
@@ -18,5 +20,6 @@ export class StylismServicesComponent implements OnInit {
 
   ngOnInit(): void {
     this.store.dispatch(new FetchStylismServices())
+    AOS.init({ easing: 'ease-in-out-back', startEvent:'load' });
   }
 }

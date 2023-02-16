@@ -4,7 +4,8 @@ import { GeneralState } from './shared/context/general/general.state';
 import { Select } from '@ngxs/store';
 import { Store } from '@ngxs/store';
 
-import * as AOS from "aos"
+
+
 
 @Component({
   selector: 'app-root',
@@ -25,6 +26,7 @@ export class AppComponent implements OnInit {
     this.sidebarOpen$.subscribe((sidebar) => {
       this.sidebarOpen = sidebar;
     });
+    
     
   }  
   

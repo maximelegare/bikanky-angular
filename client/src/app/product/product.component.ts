@@ -7,6 +7,8 @@ import { ProductsState } from '../shared/context/products/products.state';
 import { Observable } from 'rxjs';
 import { Product } from '../shared/context/products/product.model';
 
+import * as AOS from 'aos'
+
 @Component({
   selector: 'app-product',
   templateUrl: './product.component.html',
@@ -26,5 +28,6 @@ export class ProductComponent implements OnInit {
   ngOnInit(): void {
     const slug =  this.route.snapshot.params["slug"]
     this.store.dispatch(new FectchProducts("product", slug))  
+    AOS.init({ easing: 'ease-in-out-back', startEvent:'load' });
   } 
 }
