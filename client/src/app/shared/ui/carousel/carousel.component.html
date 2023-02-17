@@ -1,19 +1,43 @@
-  <swiper [config]="config" class="min-w-[350px] max-w-[450px] md:max-w-none">
-    <ng-template swiperSlide *ngFor="let slide of slides">
-      <ng-container [ngSwitch]="variant">
-        <app-testimonial-card
-          [testimonial]="slide"
-          *ngSwitchCase="'testimonial'"
-        ></app-testimonial-card>
-        <div class="mt-[70px]" *ngSwitchCase="'product'">
-          <app-product-card [product]="slide"></app-product-card>
-        </div>
-        <app-image
-          *ngSwitchCase="'image'"
-          [width]="'w-auto'"
-          [height]="'h-full'"
-          [src]="slide.imageUrl"
-        ></app-image>
-      </ng-container>
-    </ng-template>
-  </swiper>
+<swiper
+  [config]="config"
+  class="min-w-[350px] max-w-[450px] md:max-w-none"
+  *ngIf="!withThumbs"
+>
+  <ng-template swiperSlide *ngFor="let slide of slides">
+    <ng-container [ngSwitch]="variant">
+      <app-testimonial-card
+        [testimonial]="slide"
+        *ngSwitchCase="'testimonial'"
+      ></app-testimonial-card>
+      <div class="mt-[70px]" *ngSwitchCase="'product'">
+        <app-product-card [product]="slide"></app-product-card>
+      </div>
+      <app-image
+        *ngSwitchCase="'image'"
+        [width]="'w-auto'"
+        [height]="'h-full'"
+        [src]="slide.imageUrl"
+      ></app-image>
+    </ng-container>
+  </ng-template>
+</swiper>
+
+<div
+  style="--swiper-navigation-color: #fff; --swiper-pagination-color: #fff"
+  class="swiper mySwiper2"
+>
+  <div class="swiper-wrapper">
+    <div class="swiper-slide" *ngFor="let slide of slides">
+      <img [src]="slide.imageUrl" />
+    </div>
+  </div>
+  <div class="swiper-button-next"></div>
+  <div class="swiper-button-prev"></div>
+</div>
+<div thumbsSlider="" class="swiper mySwiper">
+  <div class="swiper-wrapper">
+    <div class="swiper-slide" *ngFor="let slide of slides">
+      <img [src]="slide.imageUrl" />
+    </div>
+  </div>
+</div>
