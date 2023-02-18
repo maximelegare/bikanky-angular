@@ -16,6 +16,12 @@
       rgba(239, 203, 29, 1) 90%
     );
   }
+
+  .material-icon {
+    @apply h-3 w-3;
+  }
+
+  // Sidebar styles
   .sidebar-open {
     visibility: visible;
     animation-duration: 4ms;
@@ -30,24 +36,12 @@
     transition: ease-out;
     animation-fill-mode: forwards;
     background-color: rgb(216, 215, 205);
-    /* animation-name: sidebar; */
-    /* animation-name: sidebarClose;
-      animation-duration: 10ms;
-      animation-fill-mode: forwards;
-      visibility: hidden !important; */
   }
-  /* 
-      @keyframes sidebar{
-        from{visibility: hidden;}
-        to{visibility: visible;}
-      }   */
-  .w-max-80{
-    max-width: 800px
-  }    
 
-  .material-icon {
-    @apply h-3 w-3;
-  }
+
+
+
+  // Swiper styles
   .swiper-pagination-bullet-active {
     background-color: rgba(239, 203, 29, 1) !important;
   }
@@ -58,16 +52,11 @@
   }
   .swiper-wrapper {
     padding-bottom: 60px !important;
-    /* padding-left:5px !important; 
-        padding-right:5px !important;  */
   }
   .swiper-button-next,
   .swiper-button-prev {
     color: rgba(239, 203, 29, 1) !important;
   }
-
-  
-
 
   /* hides the drop-shadows  of the elements that overflow in carousel, otherwise we see the next one*/
   .swiper-slide {
@@ -75,23 +64,31 @@
     padding-right: 8px;
   }
 
+
+  .swiperThumbs .swiper-slide {
+    opacity: 0.6;
+  }
+
+  .swiperThumbs .swiper-slide-thumb-active {
+    @apply opacity-100;
+  }
+
   // aos animations
-  [data-aos="fade-left-custom"]{
+  [data-aos="fade-left-custom"] {
     opacity: 0;
     transform: translate(20px);
-    &.aos-animate{
+    &.aos-animate {
       opacity: 1;
       transform: translate(0);
     }
   }
 
-  [data-aos="fade-up-custom"]{
+  [data-aos="fade-up-custom"] {
     opacity: 0;
-    transform: translate(0,20px);
-    &.aos-animate{
+    transform: translate(0, 20px);
+    &.aos-animate {
       opacity: 1;
       transform: translate(0);
     }
   }
-
 }

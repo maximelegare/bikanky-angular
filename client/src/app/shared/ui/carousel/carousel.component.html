@@ -22,22 +22,29 @@
   </ng-template>
 </swiper>
 
-<div
-  style="--swiper-navigation-color: #fff; --swiper-pagination-color: #fff"
-  class="swiper mySwiper2"
->
-  <div class="swiper-wrapper">
-    <div class="swiper-slide" *ngFor="let slide of slides">
-      <img [src]="slide.imageUrl" />
+<div [class]="withThumbs?'block':'hidden'">
+  <div class="swiper swiperMain">
+    <div class="swiper-wrapper">
+      <div class="swiper-slide" *ngFor="let slide of slides">
+        <app-image
+          [width]="'w-auto'"
+          [height]="'h-full'"
+          [src]="slide.imageUrl"
+        ></app-image>
+      </div>
     </div>
+    <div class="swiper-button-next"></div>
+    <div class="swiper-button-prev"></div>
   </div>
-  <div class="swiper-button-next"></div>
-  <div class="swiper-button-prev"></div>
-</div>
-<div thumbsSlider="" class="swiper mySwiper">
-  <div class="swiper-wrapper">
-    <div class="swiper-slide" *ngFor="let slide of slides">
-      <img [src]="slide.imageUrl" />
+  <div class="swiper swiperThumbs">
+    <div class="swiper-wrapper">
+      <div class="swiper-slide cursor-pointer" *ngFor="let slide of slides">
+        <app-image
+          [width]="'w-auto'"
+          [height]="'h-full'"
+          [src]="slide.imageUrl"
+        ></app-image>
+      </div>
     </div>
   </div>
 </div>
