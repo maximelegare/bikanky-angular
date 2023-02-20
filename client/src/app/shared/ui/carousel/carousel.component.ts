@@ -23,21 +23,23 @@ export class CarouselComponent implements OnInit {
   numberOfSlides: number = 3;
 
   ngOnInit(): void {
-    var swiper = new Swiper(".swiperThumbs", {
-      spaceBetween: 10,
-      slidesPerView: 4,
-      freeMode: true,
-      watchSlidesProgress: true, 
-    });
-    var swiper2 = new Swiper(".swiperMain", {
-      spaceBetween: 40,
-      navigation: {
-        nextEl: ".swiper-button-next",
-        prevEl: ".swiper-button-prev",
-      },
-      thumbs: {
-        swiper: swiper,
-      },
-    });
+    if (this.withThumbs) {
+      let swiper = new Swiper('.swiperThumbs', {
+        spaceBetween: 10,
+        slidesPerView: 4,
+        freeMode: true,
+        watchSlidesProgress: true,
+      });
+      var swiper2 = new Swiper('.swiperMain', {
+        spaceBetween: 40,
+        navigation: {
+          nextEl: '.swiper-button-next',
+          prevEl: '.swiper-button-prev',
+        },
+        thumbs: {
+          swiper: swiper,
+        },
+      });
+    }
   }
 }

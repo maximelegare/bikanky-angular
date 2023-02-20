@@ -30,4 +30,5 @@ export class ProductComponent implements OnInit {
     this.store.dispatch(new FectchProducts("product", slug))  
     AOS.init({ easing: 'ease-in-out-back', startEvent:'load' });
   } 
+  
 }
