@@ -1,4 +1,4 @@
-<footer class="bg-transparentAccent py-12 flex flex-col items-center ">
+<footer class="bg-transparentAccent py-12 flex flex-col items-center">
   <div class="container">
     <div class="mb-6 ml-3">
       <img
@@ -24,22 +24,6 @@
         <app-base-button
           [text]="'À Propos'"
           [variant]="'text-only'"
-          
-        ></app-base-button>
-      </div>
-      <div class="flex flex-col items-start w-52">
-        <p class="py-1 px-3 text-lg text-black font-semibold">Termes</p>
-        <app-base-button
-          [text]="'Conditions générales'"
-          [variant]="'text-only'"
-        ></app-base-button>
-        <app-base-button
-          [text]="'Retours et échanges'"
-          [variant]="'text-only'"
-        ></app-base-button>
-        <app-base-button
-          [text]="'Garantie'"
-          [variant]="'text-only'"
         ></app-base-button>
       </div>
       <div class="flex flex-col items-start w-52">
@@ -54,12 +38,14 @@
           [variant]="'text-only'"
         ></app-base-button>
       </div>
-     
+
       <div>
         <span class="material-icons">language</span>
       </div>
     </div>
-    <app-media-icons [mediaIcons]="contactData?.contactMedias"></app-media-icons>
+    <app-media-icons
+      [mediaIcons]="contactData?.contactMedias"
+    ></app-media-icons>
 
     <p class="mx-3 text-sm opacity-60 pt-10 text-center">
       En utilisant ce site Web, vous acceptez nos Conditions générales. ©{{
