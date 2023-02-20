@@ -114,12 +114,7 @@ export class ProductsState {
             lengthType->{title},
             options, 
           },
-          variants{
-            images[]{"imageUrl": asset->url},
-            price,
-            variantTitle,
-            lengthType->{title},
-            options, 
+          variants,
           tags,
           bulletPoints,
           shortDescription{

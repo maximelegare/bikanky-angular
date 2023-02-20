@@ -9,7 +9,7 @@ import { Component, Input, OnInit } from '@angular/core';
 export class BulletComponent implements OnInit {
 
   @Input() noDivisor?:boolean;
-
+  
   constructor() { }
 
   ngOnInit(): void {
