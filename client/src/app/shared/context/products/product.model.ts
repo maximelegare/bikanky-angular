@@ -1,17 +1,18 @@
 interface Product {
-  _id:string
-  showOnHomePage?:boolean;
-  isActive:boolean;
-  star:Boolean;
-  starOfTheSeason:Boolean;
+  _id: string;
+  showOnHomePage?: boolean;
+  isActive: boolean;
+
+  star: boolean;
+  starOfTheSeason: Boolean;
   title: string;
   slug: any;
   defaultProductVariant: ProductVariant;
   variants: ProductVariant[];
   tags: string[];
   bulletPoints?: Bullet[];
-  shortDescription:any
-  body:any,
+  shortDescription: any;
+  body: any;
 }
 
 interface ProductVariant {
@@ -19,18 +20,17 @@ interface ProductVariant {
   weight: string;
   price: number;
   images: Image[];
+  lengthType: { title: string };
+  options: string[];
 }
 
 interface Image {
-  imageUrl:string
+  imageUrl: string;
 }
 
 interface Bullet {
   icon: string;
-  text:any;
+  text: any;
 }
 
 export { Product, Bullet };
-
-
-

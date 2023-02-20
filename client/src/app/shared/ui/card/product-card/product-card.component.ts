@@ -16,6 +16,8 @@ export class ProductCardComponent implements OnInit {
   constructor(private router: Router) {}
 
   ngOnInit(): void {
+
+     
     if (this.router.url === '/products') {
       this.routerLink = [this.product.slug.current];
     } else {

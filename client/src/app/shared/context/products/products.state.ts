@@ -13,15 +13,15 @@ import {
   FectchPageProductSuccess,
   FectchProductsFailure,
   FectchProductsSuccess,
-  FectchStarProductsSuccess
+  FectchStarProductsSuccess,
 } from './products.actions';
 
 interface ProductsStateModel {
   products: Product[];
   homeProducts: Product[];
   pageProduct: Product | undefined;
-  starProducts:Product[];
-  starOfTheSeasonProduct:Product | undefined;
+  starProducts: Product[];
+  starOfTheSeasonProduct: Product | undefined;
   status: 'pending' | 'loading' | 'success' | 'failure';
   error: '' | null;
 }
@@ -30,10 +30,10 @@ interface ProductsStateModel {
   name: 'products',
   defaults: {
     pageProduct: undefined,
-    starOfTheSeasonProduct:undefined,
+    starOfTheSeasonProduct: undefined,
     homeProducts: [],
     products: [],
-    starProducts:[],
+    starProducts: [],
     status: 'pending',
     error: null,
   },
@@ -65,12 +65,12 @@ export class ProductsState {
   }
 
   @Selector()
-  static getStarProducts(state:ProductsStateModel){
-    return state.starProducts
+  static getStarProducts(state: ProductsStateModel) {
+    return state.starProducts;
   }
   @Selector()
-  static getStarOfTheSeasonProduct(state:ProductsStateModel){
-    return state.starOfTheSeasonProduct
+  static getStarOfTheSeasonProduct(state: ProductsStateModel) {
+    return state.starOfTheSeasonProduct;
   }
 
   @Action(FectchProducts)
@@ -100,6 +100,7 @@ export class ProductsState {
       this.sanity.fetchQuerry(
         `*[${expression}]{
           _id,
+          
           showOnHomePage,  
           star,
           starOfTheSeason,
@@ -109,9 +110,16 @@ export class ProductsState {
           defaultProductVariant{
             images[]{"imageUrl": asset->url},
             price,
-            variantTitle
+            variantTitle,
+            lengthType->{title},
+            options, 
           },
-          variants,
+          variants{
+            images[]{"imageUrl": asset->url},
+            price,
+            variantTitle,
+            lengthType->{title},
+            options, 
           tags,
           bulletPoints,
           shortDescription{
@@ -165,12 +173,9 @@ export class ProductsState {
       status: 'success',
       error: null,
     });
-    
-    
-
   }
 
- // Fetch star products
+  // Fetch star products
   @Action(FectchStarProductsSuccess)
   FectchStarProductsSuccess(
     ctx: StateContext<ProductsStateModel>,
@@ -178,22 +183,21 @@ export class ProductsState {
   ) {
     const state = ctx.getState();
 
-    const starOfTheSeasonProduct = starProducts.filter((product) => product.starOfTheSeason === true)
-    const starProductsFilter = starProducts.filter((product) => product.starOfTheSeason !== true)
+    const starOfTheSeasonProduct = starProducts.filter(
+      (product) => product.starOfTheSeason === true
+    );
+    const starProductsFilter = starProducts.filter(
+      (product) => product.starOfTheSeason !== true
+    );
 
     ctx.setState({
       ...state,
       starProducts: starProductsFilter,
-      starOfTheSeasonProduct:starOfTheSeasonProduct[0],
+      starOfTheSeasonProduct: starOfTheSeasonProduct[0],
       status: 'success',
       error: null,
     });
-
- 
-    
-    
   }
-
 
   // Fetch Home products
   @Action(FectchHomeProductsSuccess)
@@ -227,9 +231,6 @@ export class ProductsState {
   }
 
   // Fetch Page product
-  
-
- 
 
   @Action(FectchProductsFailure)
   fectchProductsFailure(

@@ -11,6 +11,8 @@ import productVariant from './productVariant'
 import testimonial from './testimonial'
 import contact from './contact'
 import stylismService from './stylismService'
+import allLengthTypes from './allLengthTypes'
+
 
 import localeString from './locale/String'
 import localeText from './locale/Text'
@@ -36,6 +38,7 @@ export default createSchema({
     productVariant,
     testimonial,
     contact,
-    stylismService
+    stylismService,
+    allLengthTypes
   ]),
 })

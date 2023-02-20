@@ -9,6 +9,23 @@ export default {
       type: "string",
     },
     {
+      title: "Length Type",
+      name: "lengthType",
+      type: "reference",
+      to:[ { type: "allLengthTypes" }],
+    },
+    {
+      title: "Options",
+      name: "options",
+      type: "array",
+      of: [
+        {
+          name: "option",
+          type: "string",
+        },
+      ],
+    },
+    {
       title: "Price",
       name: "price",
       type: "number",
@@ -33,11 +50,9 @@ export default {
       of: [
         {
           type: "reference",
-          to:[{type:'tag'}],
+          to: [{ type: "tag" }],
         },
       ],
-      
     },
-    
   ],
 };
