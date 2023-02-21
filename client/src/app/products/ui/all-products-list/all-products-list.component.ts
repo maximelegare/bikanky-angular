@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { Select } from '@ngxs/store';
 import { ProductsState } from 'src/app/shared/context/products/products.state';
 import { Observable } from 'rxjs';
@@ -14,10 +14,9 @@ export class AllProductsListComponent implements OnInit {
   constructor() { }
   @Select(ProductsState.getProducts) products$:Observable<Product[]>
   
-
+  @Input() mapAllVariants:Boolean = false
   
   ngOnInit(): void {
-    
+    this.products$.subscribe((res) => console.log(res))
   }
-
 }

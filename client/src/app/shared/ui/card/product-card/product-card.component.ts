@@ -11,12 +11,20 @@ export class ProductCardComponent implements OnInit {
   @Input() product: Product;
   @Input() noBulletPoints?: boolean;
 
+  @Input()title?:string;
+  @Input()lengthType?:string;
+  @Input()price:number;
+  @Input()options:string[];
+  @Input()image:string;
+  @Input()starOfTheSeason:boolean
+
+
   routerLink: string[] = [];
 
   constructor(private router: Router) {}
 
   ngOnInit(): void {
-
+    console.log(this.product)
      
     if (this.router.url === '/products') {
       this.routerLink = [this.product.slug.current];
@@ -27,6 +35,6 @@ export class ProductCardComponent implements OnInit {
 
   
   refactorPrice(price: number) {
-    return price.toFixed(2);
+    return ;
   }
 }

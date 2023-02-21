@@ -22,7 +22,9 @@ export class CarouselComponent implements OnInit {
 
   numberOfSlides: number = 3;
 
+
   ngOnInit(): void {
+
     if (this.withThumbs) {
       let swiper = new Swiper('.swiperThumbs', {
         spaceBetween: 10,

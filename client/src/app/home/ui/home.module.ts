@@ -28,4 +28,5 @@ import { FindMeSectionComponent } from './find-me-section/find-me-section.compon
     FindMeSectionComponent,
   ],
 })
+
 export class HomeModule {}
