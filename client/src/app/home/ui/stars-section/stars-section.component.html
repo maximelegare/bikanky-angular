@@ -4,13 +4,11 @@
       <ng-container *ngIf="starOfTheSeasonProduct$ | async as starOfTheSeason">
         <div class="flex-initial w-[350px]">
           <app-card-title [title]="'Étoile de la saison'"></app-card-title>
-          
             <app-carousel
               [config]="swiperConfigStarOfSeason"
               [variant]="'product'"
               [slides]="[starOfTheSeason]"
-            ></app-carousel>
-          
+            ></app-carousel>     
         </div>
       </ng-container>
       <ng-container *ngIf="starProducts$ | async as products">
