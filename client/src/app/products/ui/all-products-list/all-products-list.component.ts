@@ -11,26 +11,14 @@ import { Product } from 'src/app/shared/context/products/product.model';
 })
 export class AllProductsListComponent implements OnInit {
   constructor() {}
-  @Select(ProductsState.getProducts) products$: Observable<Product[]>;
+  @Select(ProductsState.getAllMergedProducts) products$: Observable<Product[]>;
   
   @Input() mapAllVariants: boolean = false;
 
   products: any[];
 
   ngOnInit(): void {
-    // This adds all variants and product to the products variable to display everything on the screen.
-    this.products$.subscribe((products) => {
-      if (this.mapAllVariants) {
-        let allProducts = products.map((product) => {
-          if (product.variants)
-            return [...this.products, {...product}, ...product.variants];
-          else return [...this.products, product];
-        });
-        this.products = allProducts.flat(1);
-      } else {
-        this.products = products;
-        console.log(products)
-      }
-    });
+    this.products$.subscribe((products) => console.log(products))
+    
   }
 }

@@ -14,10 +14,12 @@ import {
   FectchProductsFailure,
   FectchProductsSuccess,
   FectchStarProductsSuccess,
+  MergeDefaultAndVariants,
 } from './products.actions';
 
 interface ProductsStateModel {
   products: Product[];
+  allMergedProducts: any[];
   homeProducts: Product[];
   pageProduct: Product | undefined;
   starProducts: Product[];
@@ -33,6 +35,7 @@ interface ProductsStateModel {
     starOfTheSeasonProduct: undefined,
     homeProducts: [],
     products: [],
+    allMergedProducts: [],
     starProducts: [],
     status: 'pending',
     error: null,
@@ -52,6 +55,10 @@ export class ProductsState {
   @Selector()
   static getProducts(state: ProductsStateModel) {
     return state.products;
+  }
+  @Selector()
+  static getAllMergedProducts(state: ProductsStateModel) {
+    return state.allMergedProducts;
   }
 
   @Selector()
@@ -143,6 +150,7 @@ export class ProductsState {
             break;
           case 'product':
             ctx.dispatch(new FectchPageProductSuccess(payload));
+            
             break;
           case 'stars':
             ctx.dispatch(new FectchStarProductsSuccess(payload));
@@ -167,10 +175,35 @@ export class ProductsState {
     { products }: FectchProductsSuccess
   ) {
     const state = ctx.getState();
-
     ctx.setState({
       ...state,
       products: products,
+      status: 'success',
+      error: null,
+    });
+
+    ctx.dispatch(new MergeDefaultAndVariants(products));
+  }
+
+  // Merges product and variants together in a single array
+  @Action(MergeDefaultAndVariants)
+  mergeDefaultAndVariants(
+    ctx: StateContext<ProductsStateModel>,
+    { products }: MergeDefaultAndVariants
+  ) {
+    const state = ctx.getState();
+    let mergedProducts: any = [];
+
+    let allProducts = products.map((product) => {
+      if (product.variants)
+        return [...mergedProducts, { ...product }, ...product.variants];
+      else return [...products, product];
+    });
+    mergedProducts = allProducts.flat(1);
+
+    ctx.setState({
+      ...state,
+      allMergedProducts:mergedProducts,
       status: 'success',
       error: null,
     });

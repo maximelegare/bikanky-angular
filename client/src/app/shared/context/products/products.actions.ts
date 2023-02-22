@@ -12,6 +12,12 @@ export class FectchProductsSuccess {
   constructor(public products:Product[]){}
 }
 
+export class MergeDefaultAndVariants {
+  static readonly type = '[Home API] Merge Default and Variants';
+  constructor(public products:Product[]){}
+}
+
+
 export class FectchHomeProductsSuccess {
   static readonly type = '[Home API] Fetch Home Products Success';
   constructor(public homeProducts:Product[]){}

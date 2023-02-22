@@ -10,7 +10,7 @@
         *ngSwitchCase="'testimonial'"
       ></app-testimonial-card>
       <div class="mt-[70px]" *ngSwitchCase="'product'">
-        <app-product-card [product]="slide"></app-product-card>
+        <app-product-card-wrapper [product]="slide"></app-product-card-wrapper>
       </div>
       <app-image
         *ngSwitchCase="'image'"
