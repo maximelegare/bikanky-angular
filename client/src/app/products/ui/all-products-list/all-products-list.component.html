@@ -11,20 +11,10 @@
         *ngFor="let product of products"
         class="flex-initial w-[250px] pt-16"
       >
-        <ng-container>
-          <div *ngIf="product.defaultProductVariant; else variant">
-            <app-product-card
-              [noBulletPoints]="true"
-              [product]="product.defaultProductVariant"
-            ></app-product-card>
-          </div>
-          <ng-template #variant>
-            <app-product-card
-              [noBulletPoints]="true"
-              [product]="product"
-            ></app-product-card>
-          </ng-template>
-        </ng-container>
+        <app-product-card-wrapper
+          [product]="product"
+          [noBulletPoints]="true"
+        ></app-product-card-wrapper>
       </div>
     </div>
   </div>

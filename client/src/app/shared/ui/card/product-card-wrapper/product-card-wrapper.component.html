@@ -1,0 +1,14 @@
+<ng-container>
+    <div *ngIf="product.defaultProductVariant; else variant">
+      <app-product-card
+        [noBulletPoints]="noBulletPoints"
+        [product]="product.defaultProductVariant"
+      ></app-product-card>
+    </div>
+    <ng-template #variant>
+      <app-product-card
+        [noBulletPoints]="noBulletPoints"
+        [product]="product"
+      ></app-product-card>
+    </ng-template>
+  </ng-container>

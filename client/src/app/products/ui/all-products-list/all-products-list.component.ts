@@ -12,6 +12,7 @@ import { Product } from 'src/app/shared/context/products/product.model';
 export class AllProductsListComponent implements OnInit {
   constructor() {}
   @Select(ProductsState.getProducts) products$: Observable<Product[]>;
+  
   @Input() mapAllVariants: boolean = false;
 
   products: any[];
