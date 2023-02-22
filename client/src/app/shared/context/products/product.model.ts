@@ -4,7 +4,7 @@ interface Product {
   isActive: boolean;
 
   star: boolean;
-  starOfTheSeason: Boolean;
+  starOfTheSeason: boolean;
   title: string;
   slug: any;
   defaultProductVariant: ProductVariant;
@@ -17,7 +17,6 @@ interface Product {
 
 interface ProductVariant {
   variantTitle: string;
-  weight: string;
   price: number;
   images: Image[];
   lengthType: { title: string };
@@ -33,4 +32,4 @@ interface Bullet {
   text: any;
 }
 
-export { Product, Bullet };
+export { Product, Bullet, ProductVariant };

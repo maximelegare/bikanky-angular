@@ -1,24 +1,30 @@
-
 <div
   class="relative container mb-28 mt-16 bg-paleWhite rounded-3xl"
   data-aos="zoom-in"
   data-aos-duration="700"
   data-aos-once="true"
-  
 >
   <app-card-title [title]="'Produits'"></app-card-title>
   <div>
     <div class="flex flex-wrap justify-around gap-6">
       <div
-        *ngFor="let product of products$ | async"
+        *ngFor="let product of products"
         class="flex-initial w-[250px] pt-16"
       >
-        <div>
-          <app-product-card
-            [noBulletPoints]="true"
-            [product]="product"
-          ></app-product-card>
-        </div>
+        <ng-container>
+          <div *ngIf="product.defaultProductVariant; else variant">
+            <app-product-card
+              [noBulletPoints]="true"
+              [product]="product.defaultProductVariant"
+            ></app-product-card>
+          </div>
+          <ng-template #variant>
+            <app-product-card
+              [noBulletPoints]="true"
+              [product]="product"
+            ></app-product-card>
+          </ng-template>
+        </ng-container>
       </div>
     </div>
   </div>
