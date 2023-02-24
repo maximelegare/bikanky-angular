@@ -10,7 +10,10 @@
         *ngSwitchCase="'testimonial'"
       ></app-testimonial-card>
       <div class="mt-[70px]" *ngSwitchCase="'product'">
-        <app-product-card-wrapper [product]="slide"></app-product-card-wrapper>
+        <app-product-card
+          [noBulletPoints]="true"
+          [product]="slide"
+        ></app-product-card>
       </div>
       <app-image
         *ngSwitchCase="'image'"
@@ -22,7 +25,7 @@
   </ng-template>
 </swiper>
 
-<div [class]="withThumbs?'block':'hidden'">
+<div [class]="withThumbs ? 'block' : 'hidden'">
   <div class="swiper swiperMain">
     <div class="swiper-wrapper">
       <div class="swiper-slide" *ngFor="let slide of slides">

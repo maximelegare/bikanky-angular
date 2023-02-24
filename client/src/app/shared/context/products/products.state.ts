@@ -14,7 +14,7 @@ import {
   FectchProductsFailure,
   FectchProductsSuccess,
   FectchStarProductsSuccess,
-  MergeDefaultAndVariants,
+  FetchAllMergedProductsSuccess,
 } from './products.actions';
 
 interface ProductsStateModel {
@@ -91,57 +91,62 @@ export class ProductsState {
 
     switch (page) {
       case 'home':
-        expression = `_type == "product" && isActive == true && showOnHomePage == true`;
-        break;
-      case 'stars':
-        expression = `_type == "product" && isActive && (star || starOfTheSeason)`;
+        expression = `{
+          'homeProducts': *[_type == "productVariant" && isActive && showOnHomePage && !starOfTheSeason]{
+            mainImage{"imageUrl":asset->url},
+            images[]{"imageUrl": asset->url},
+            price,
+            variantTitle,
+            lengthType->{title},
+            options,
+            showOnHomePage,
+            isActive,
+            star,
+            starOfTheSeason,
+          },
+          'stars': *[_type == "product" && isActive && (star || starOfTheSeason)]{
+            mainImage{"imageUrl":asset->url},
+            images[]{"imageUrl": asset->url},
+            price,
+            variantTitle,
+            lengthType->{title},
+            options,
+            showOnHomePage,
+            isActive,
+            star,
+            starOfTheSeason,
+          }
+        }
+        `;
         break;
       case 'product':
         expression = `_type == "product" && isActive == true && slug.current == "${slug}"`;
+        break;
+      case 'all-products':
+        expression = `
+        *[_type == "productVariant" && isActive]{
+          mainImage{"imageUrl":asset->url},
+          images[]{"imageUrl": asset->url},
+          price,
+          variantTitle,
+          lengthType->{title},
+          options,
+          showOnHomePage,
+          isActive,
+          star,
+          starOfTheSeason
+        }`;
         break;
       default:
         expression = `_type == "product" && isActive`;
         break;
     }
-    return from(
-      this.sanity.fetchQuerry(
-        `*[${expression}]{
-          _id,
-          
-          showOnHomePage,  
-          star,
-          starOfTheSeason,
-          isActive,  
-          title,
-          slug,
-          defaultProductVariant{
-            images[]{"imageUrl": asset->url},
-            price,
-            variantTitle,
-            lengthType->{title},
-            options, 
-          },
-          variants[]{
-            images[]{"imageUrl": asset->url},
-            price,
-            variantTitle,
-            lengthType->{title},
-            options, 
-          },
-          tags,
-          bulletPoints,
-          shortDescription{
-            ${this.lang}[]{
-              children[]{
-                text
-              },
-              listItem
-            }
-          }, 
-          body
-        }`
-      )
-    ).pipe(
+    // images[]{"imageUrl": asset->url},
+    //       price,
+    //       variantTitle,
+    //       lengthType->{title},
+    //       options,
+    return from(this.sanity.fetchQuerry(expression)).pipe(
       // Take the returned value and return a new success action containing the products
       tap((payload) => {
         switch (page) {
@@ -150,13 +155,15 @@ export class ProductsState {
             break;
           case 'product':
             ctx.dispatch(new FectchPageProductSuccess(payload));
-            
             break;
           case 'stars':
             ctx.dispatch(new FectchStarProductsSuccess(payload));
             break;
           case 'starOfTheSeason':
             ctx.dispatch(new FectchStarProductsSuccess(payload));
+            break;
+          case 'all-products':
+            ctx.dispatch(new FetchAllMergedProductsSuccess(payload));
             break;
           default:
             ctx.dispatch(new FectchProductsSuccess(payload));
@@ -168,7 +175,7 @@ export class ProductsState {
     );
   }
 
-  // Fetch all products
+  // Fetch products
   @Action(FectchProductsSuccess)
   fectchProductsSuccess(
     ctx: StateContext<ProductsStateModel>,
@@ -182,68 +189,65 @@ export class ProductsState {
       error: null,
     });
 
-    ctx.dispatch(new MergeDefaultAndVariants(products));
+    ctx.dispatch(new FetchAllMergedProductsSuccess(products));
   }
 
   // Merges product and variants together in a single array
-  @Action(MergeDefaultAndVariants)
-  mergeDefaultAndVariants(
+  @Action(FetchAllMergedProductsSuccess)
+  FetchAllMergedProductsSuccess(
     ctx: StateContext<ProductsStateModel>,
-    { products }: MergeDefaultAndVariants
+    { products }: FetchAllMergedProductsSuccess
   ) {
     const state = ctx.getState();
-    let mergedProducts: any = [];
-
-    let allProducts = products.map((product) => {
-      if (product.variants)
-        return [...mergedProducts, { ...product }, ...product.variants];
-      else return [...products, product];
-    });
-    mergedProducts = allProducts.flat(1);
 
     ctx.setState({
       ...state,
-      allMergedProducts:mergedProducts,
+      allMergedProducts: products,
       status: 'success',
       error: null,
     });
   }
 
   // Fetch star products
-  @Action(FectchStarProductsSuccess)
-  FectchStarProductsSuccess(
-    ctx: StateContext<ProductsStateModel>,
-    { starProducts }: FectchStarProductsSuccess
-  ) {
-    const state = ctx.getState();
+  // @Action(FectchStarProductsSuccess)
+  // FectchStarProductsSuccess(
+  //   ctx: StateContext<ProductsStateModel>,
+  //   { starProducts }: FectchStarProductsSuccess
+  // ) {
+  //   const state = ctx.getState();
 
-    const starOfTheSeasonProduct = starProducts.filter(
-      (product) => product.starOfTheSeason === true
-    );
-    const starProductsFilter = starProducts.filter(
-      (product) => product.starOfTheSeason !== true
-    );
+    
 
-    ctx.setState({
-      ...state,
-      starProducts: starProductsFilter,
-      starOfTheSeasonProduct: starOfTheSeasonProduct[0],
-      status: 'success',
-      error: null,
-    });
-  }
+  //   ctx.setState({
+  //     ...state,
+  //     starProducts: starProductsFilter,
+  //     starOfTheSeasonProduct: starOfTheSeasonProduct[0],
+  //     status: 'success',
+  //     error: null,
+  //   });
+  // }
 
   // Fetch Home products
   @Action(FectchHomeProductsSuccess)
   fectchProductSuccess(
     ctx: StateContext<ProductsStateModel>,
-    { homeProducts }: FectchHomeProductsSuccess
+    { homeData }: FectchHomeProductsSuccess
   ) {
     const state = ctx.getState();
 
+    const starOfTheSeasonProduct = homeData.stars.filter(
+      (product:any) => product.starOfTheSeason === true
+    );
+    const starProductsFilter = homeData.stars.filter(
+      (product:any) => product.starOfTheSeason !== true
+    );
+ 
+
     ctx.setState({
       ...state,
-      homeProducts: homeProducts,
+      homeProducts: homeData.homeProducts,
+      starProducts:starProductsFilter,
+      starOfTheSeasonProduct:starOfTheSeasonProduct,
       status: 'success',
       error: null,
     });
@@ -280,3 +284,35 @@ export class ProductsState {
     });
   }
 }
+
+// `*[${expression}]{
+//   _id,
+
+//   showOnHomePage,
+//   star,
+//   starOfTheSeason,
+//   isActive,
+//   title,
+//   slug,
+//   defaultProductVariant{
+//     images[]{"imageUrl": asset->url},
+//     price,
+//     variantTitle,
+//     lengthType->{title},
+//     options,
+//   },
+//   variants[]{
+//
+//   },
+//   tags,
+//   bulletPoints,
+//   shortDescription{
+//     ${this.lang}[]{
+//       children[]{
+//         text
+//       },
+//       listItem
+//     }
+//   },
+//   body
+// }`

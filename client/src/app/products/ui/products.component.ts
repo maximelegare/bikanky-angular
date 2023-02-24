@@ -14,7 +14,7 @@ export class ProductsComponent implements OnInit {
   constructor(public store:Store) { }
 
   ngOnInit(): void {
-    this.store.dispatch(new FectchProducts())
+    this.store.dispatch(new FectchProducts('all-products'))
     AOS.init({ easing: 'ease-in-out-back', startEvent:'load' });
   }
 }

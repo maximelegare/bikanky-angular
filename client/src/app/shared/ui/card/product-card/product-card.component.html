@@ -12,7 +12,7 @@
         class="w-fit mx-auto absolute translate-x-[-50%] translate-y-[-50%] left-[50%] drop-shadow-md top-16"
         [class]="product.starOfTheSeason ? 'top-[59px]' : 'top-16'"
       >
-        <ng-container *ngIf="product?.defaultProductVariant" class="relative">
+        <ng-container *ngIf="product" class="relative">
           <ng-container *ngIf="product.starOfTheSeason">
             <span
               class="material-icons absolute left-[-2rem] top-[20px] text-accent"
@@ -27,7 +27,7 @@
           </ng-container>
           <app-image
             *ngIf="product.images"
-            [src]="product.images[0].imageUrl"
+            [src]="product.mainImage.imageUrl"
           ></app-image>
         </ng-container>
       </div>
@@ -45,7 +45,7 @@
         >
           ({{ product.variantTitle }})
         </p>
-        <p class="text-sm text-center mt-2">
+        <p class="text-sm text-center mt-2" *ngIf="product.price">
           à partir de
           <span class="">{{ refactorPrice(product.price) }}$</span>
         </p>

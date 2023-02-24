@@ -11,10 +11,10 @@
         *ngFor="let product of products$ | async"
         class="flex-initial w-[250px] pt-16"
       >
-        <app-product-card-wrapper
-          [product]="product"
+        <app-product-card
           [noBulletPoints]="true"
-        ></app-product-card-wrapper>
+          [product]="product"
+        ></app-product-card>
       </div>
     </div>
   </div>
