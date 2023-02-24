@@ -104,7 +104,7 @@ export class ProductsState {
             star,
             starOfTheSeason,
           },
-          'stars': *[_type == "product" && isActive && (star || starOfTheSeason)]{
+          'stars': *[_type == "productVariant" && isActive && (star || starOfTheSeason)]{
             mainImage{"imageUrl":asset->url},
             images[]{"imageUrl": asset->url},
             price,
@@ -149,6 +149,7 @@ export class ProductsState {
     return from(this.sanity.fetchQuerry(expression)).pipe(
       // Take the returned value and return a new success action containing the products
       tap((payload) => {
+        console.log(payload)
         switch (page) {
           case 'home':
             ctx.dispatch(new FectchHomeProductsSuccess(payload));
@@ -242,12 +243,12 @@ export class ProductsState {
       (product:any) => product.starOfTheSeason !== true
     );
  
-
+      console.log("starOfSeason", starOfTheSeasonProduct)
     ctx.setState({
       ...state,
       homeProducts: homeData.homeProducts,
       starProducts:starProductsFilter,
-      starOfTheSeasonProduct:starOfTheSeasonProduct,
+      starOfTheSeasonProduct:starOfTheSeasonProduct[0],
       status: 'success',
       error: null,
     });
