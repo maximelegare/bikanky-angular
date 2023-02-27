@@ -4,7 +4,7 @@ export default {
   type: "document",
   fields: [
     {
-      name: "title",
+      name: "mainProductTitle",
       title: "Title",
       type: "string",
     },
@@ -14,8 +14,13 @@ export default {
       type: "slug",
       options: {
         source: "title",
-        maxLength: 96,
+        maxLength: 96, 
       },
+    },
+    {
+      name:"sku",
+      title:"SQU",
+      type:"string"
     },
     {
       title: "Default variant",
@@ -49,7 +54,7 @@ export default {
 
   preview: {
     select: {
-      title: "title",
+      title: "mainProductTitle",
       media: "",
     },
   },

@@ -20,14 +20,13 @@ export class ProductCardComponent implements OnInit {
 
   ngOnInit(): void { 
 
-    console.log(this.product)
-
+    
 
     if (this.product.slug) {
       if (this.router.url === '/products') {
-        this.routerLink = [this.product.slug.current];
+        this.routerLink = this.product.slug;
       } else {
-        this.routerLink = ['products', this.product.slug.current];
+        this.routerLink = ['products', this.product.slug[0], this.product.slug[1]];
       }
     }
   }

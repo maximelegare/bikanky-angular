@@ -93,6 +93,7 @@ export class ProductsState {
       case 'home':
         expression = `{
           'homeProducts': *[_type == "productVariant" && isActive && showOnHomePage && !starOfTheSeason]{
+            mainProductTitle,
             mainImage{"imageUrl":asset->url},
             images[]{"imageUrl": asset->url},
             price,
@@ -103,8 +104,12 @@ export class ProductsState {
             isActive,
             star,
             starOfTheSeason,
+            "slug": [*[_type == "product" && references(^._id)][0].slug.current, sku],
+            sku,
+            _id
           },
           'stars': *[_type == "productVariant" && isActive && (star || starOfTheSeason)]{
+            mainProductTitle,
             mainImage{"imageUrl":asset->url},
             images[]{"imageUrl": asset->url},
             price,
@@ -115,6 +120,9 @@ export class ProductsState {
             isActive,
             star,
             starOfTheSeason,
+            "slug": [*[_type == "product" && references(^._id)][0].slug.current, sku],
+            sku,
+            _id
           }
         }
         `;
@@ -125,6 +133,7 @@ export class ProductsState {
       case 'all-products':
         expression = `
         *[_type == "productVariant" && isActive]{
+          mainProductTitle,
           mainImage{"imageUrl":asset->url},
           images[]{"imageUrl": asset->url},
           price,
@@ -134,7 +143,10 @@ export class ProductsState {
           showOnHomePage,
           isActive,
           star,
-          starOfTheSeason
+          starOfTheSeason,
+          sku,
+          "slug": [*[_type == "product" && references(^._id)][0].slug.current, sku],
+          _id
         }`;
         break;
       default:

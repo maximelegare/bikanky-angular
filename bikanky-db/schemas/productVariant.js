@@ -9,7 +9,6 @@ export default {
       type: "boolean",
       initialValue: true,
     },
-    
     {
       name: "showOnHomePage",
       title: "Show on Home Page",
@@ -35,10 +34,16 @@ export default {
       initialValue: false,
     },
     {
-      title: "Variant Title",
-      name: "variantTitle",
+      title: "Main Product Title",
+      name: "mainProductTitle",
       type: "string",
     },
+    {
+      title: "SKU",
+      name: "sku",
+      type: "string",
+    },
+  
     {
       title: "Length Type",
       name: "lengthType",
@@ -78,6 +83,7 @@ export default {
           },
         },
       ],
+     
     },
     {
       title: "Tags",
@@ -94,7 +100,8 @@ export default {
   ],
   preview: {
     select: {
-      title: "variantTitle",
+      mainProductTitle: "mainProductTitle",
+      sku:"sku",
       media: "mainImage",
       starOfTheSeason:"starOfTheSeason",
       isActive:"isActive",
@@ -102,7 +109,7 @@ export default {
       star:"star",
       limitedEdition:"limitedEdition"
     },
-    prepare({title, media, starOfTheSeason, isActive, showOnHomePage, star, limitedEdition}){
+    prepare({mainProductTitle, sku, media, starOfTheSeason, isActive, showOnHomePage, star, limitedEdition}){
       let status = []
       if(isActive) status.push("🟢")  
       if(showOnHomePage) status.push("🏠")
@@ -110,10 +117,11 @@ export default {
       if(starOfTheSeason) status.push("🔅")
       if(limitedEdition) status.push("⏳")
 
-     let format =  status.toString().replace(/[ ,.]/g, " ");
+      let formatTitle =  mainProductTitle && sku?  `${mainProductTitle} | ${sku.toLowerCase()}` : 'No title yet'
+      let formatSubtitle =  status.toString().replace(/[ ,.]/g, " ");
       return{
-        title,
-        subtitle:format,
+        title:formatTitle,
+        subtitle:formatSubtitle,
         media
       }
     }
