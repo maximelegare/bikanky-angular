@@ -23,12 +23,6 @@ export default {
       type:"string"
     },
     {
-      title: "Default variant",
-      name: "defaultProductVariant",
-      type: "reference",
-      to: [{ type: "productVariant" }],
-    },
-    {
       title: "Variants",
       name: "variants",
       type: "array",

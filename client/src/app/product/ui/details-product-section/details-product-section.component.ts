@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Input } from '@angular/core';
 import { Select } from '@ngxs/store';
 import { GeneralState } from 'src/app/shared/context/general/general.state';
-import { Product } from 'src/app/shared/context/products/product.model';
+import { ProductVariant } from 'src/app/shared/context/products/product.model';
 import { Observable } from 'rxjs';
 
 
@@ -14,12 +14,11 @@ import { Observable } from 'rxjs';
 export class DetailsProductSectionComponent implements OnInit {
   constructor() {}
 
-  @Input() product: Product;
+  @Input() product: ProductVariant;
   
   
 
 
   ngOnInit(): void {
-  console.log(this.product)   
   }
 }

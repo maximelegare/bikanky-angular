@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { Action, State, StateContext, Selector, Select } from '@ngxs/store';
 import { from, tap, catchError } from 'rxjs';
 import { SanityService } from 'src/app/shared/services/sanity/sanity.service';
-import { Product } from './product.model';
+import { Product, ProductVariant } from './product.model';
 
 import { Observable } from 'rxjs';
 import { GeneralState } from '../general/general.state';
@@ -128,7 +128,27 @@ export class ProductsState {
         `;
         break;
       case 'product':
-        expression = `_type == "product" && isActive == true && slug.current == "${slug}"`;
+        expression = `*[_type == "product"  && slug.current == '${slug}']{
+          _id,
+          body,
+          mainProductTitle,
+          "slug":[slug.current],
+          variants[]->{
+            _id,
+            isActive,
+            limitedEdition,
+            mainImage{"imageUrl": asset->url},
+            images[]{"imageUrl": asset->url},
+            mainProductTitle,
+            options,
+            price,
+            showOnHomePage,
+            sku,
+            star,
+            starOfTheSeason,
+            tags
+          }
+        }`;
         break;
       case 'all-products':
         expression = `
@@ -161,7 +181,7 @@ export class ProductsState {
     return from(this.sanity.fetchQuerry(expression)).pipe(
       // Take the returned value and return a new success action containing the products
       tap((payload) => {
-        console.log(payload)
+        console.log("paylaod", payload)
         switch (page) {
           case 'home':
             ctx.dispatch(new FectchHomeProductsSuccess(payload));
@@ -248,11 +268,11 @@ export class ProductsState {
   ) {
     const state = ctx.getState();
 
-    const starOfTheSeasonProduct = homeData.stars.filter(
-      (product:any) => product.starOfTheSeason === true
+    const starOfTheSeasonProduct = homeData?.stars.filter(
+      (product:ProductVariant) => product.starOfTheSeason === true
     );
-    const starProductsFilter = homeData.stars.filter(
-      (product:any) => product.starOfTheSeason !== true
+    const starProductsFilter = homeData?.stars.filter(
+      (product:ProductVariant) => product.starOfTheSeason !== true
     );
  
       console.log("starOfSeason", starOfTheSeasonProduct)
