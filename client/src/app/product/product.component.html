@@ -9,5 +9,8 @@
   <app-details-product-section
     [product]="currentVariant"
   ></app-details-product-section>
-  <app-dropdown-select [variants]="allVariants"></app-dropdown-select>
+  <app-select-product-section
+    [allVariants]="allVariants"
+    [currentVariant]="currentVariant"
+  ></app-select-product-section>
 </div>

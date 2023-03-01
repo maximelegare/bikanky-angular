@@ -1,6 +1,10 @@
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
+import { NgSelectModule } from '@ng-select/ng-select';
+import { FormsModule } from '@angular/forms';
+
+
 
 import { TestimonialCardComponent } from './ui/card/testimonial-card/testimonial-card.component';
 import { TheHeaderComponent } from './layout/the-header/the-header.component';
@@ -24,6 +28,8 @@ import { SpinnerComponent } from './ui/spinner/spinner.component';
 import { CardTitleComponent } from './ui/other/card-title/card-title.component';
 import { DropdownSelectComponent } from './ui/dropdown-select/dropdown-select.component';
 
+
+
 @NgModule({
   declarations: [
     TestimonialCardComponent,
@@ -46,7 +52,7 @@ import { DropdownSelectComponent } from './ui/dropdown-select/dropdown-select.co
     CardTitleComponent,
     DropdownSelectComponent,
   ],
-  imports: [CommonModule, RouterModule, NbSidebarModule],
+  imports: [CommonModule, RouterModule, NbSidebarModule, FormsModule, NgSelectModule],
   exports: [
     TestimonialCardComponent,
     TheHeaderComponent,
