@@ -28,6 +28,7 @@
     "@ngxs/store": "^3.7.4",
     "@sanity/client": "^3.3.2",
     "@sanity/image-url": "^1.0.1",
+    "aos": "^2.3.4",
     "firebase": "^9.13.0",
     "material-icons": "^1.11.7",
     "rxjs": "^7.5.5",
