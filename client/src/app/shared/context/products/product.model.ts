@@ -1,7 +1,6 @@
 interface Product {
   _id: string;
   mainProductTitle: string;
-  slug: any;
   bulletPoints?: Bullet[];
   shortDescription: any;
   body: any;
@@ -19,7 +18,7 @@ interface ProductVariant {
   star: boolean;
   starOfTheSeason: boolean;
   tags: string[];
-  
+  slug: string[];
   sku: string;
   showOnHomePage?: boolean;
   isActive: boolean;

@@ -11,6 +11,12 @@ export class DropdownSelectComponent implements OnInit {
   @Input() variants:ProductVariant[]
   @Input()currentProduct:ProductVariant
 
+  showSelectDropdown:boolean = false
+  
+  handleShowSelectDropdown(){
+    this.showSelectDropdown = !this.showSelectDropdown
+  }
+
   ngOnInit(): void {
     console.log("variants", this.variants)
   }

@@ -146,7 +146,8 @@ export class ProductsState {
             sku,
             star,
             starOfTheSeason,
-            tags
+            tags,
+            "slug": [*[_type == "product" && references(^._id)][0].slug.current, sku],
           }
         }`;
         break;
