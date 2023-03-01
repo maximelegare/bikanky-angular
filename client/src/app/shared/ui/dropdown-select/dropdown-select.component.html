@@ -1,0 +1,13 @@
+<app-emply-card>
+  <div class="flex flex-wrap gap-2">
+    <app-base-button [text]="'selectionnez une variante'"></app-base-button>
+    <div class="w-fit absolute mt-9">
+      <app-emply-card [width]="'w-fit'" marginsY="'my-0'">
+        <div *ngFor="let variant of variants">
+          <app-base-button [routerLink]="[variant.sku]" [text]="variant.sku" [variant]="'text-only'">
+          </app-base-button>
+        </div>
+      </app-emply-card>
+    </div>
+  </div>
+</app-emply-card>

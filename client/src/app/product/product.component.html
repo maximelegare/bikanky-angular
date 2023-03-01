@@ -1,6 +1,13 @@
 <div *ngIf="currentVariant" class="flex container w-100 gap-2">
-<app-image-product-section [images]="currentVariant.images? currentVariant.images:[currentVariant.mainImage]" class="flex-grow">this is the image section</app-image-product-section>
+  <app-image-product-section
+    [images]="
+      currentVariant.images ? currentVariant.images : [currentVariant.mainImage]
+    "
+    class="flex-grow"
+    >this is the image section</app-image-product-section
+  >
   <app-details-product-section
     [product]="currentVariant"
   ></app-details-product-section>
+  <app-dropdown-select [variants]="allVariants"></app-dropdown-select>
 </div>

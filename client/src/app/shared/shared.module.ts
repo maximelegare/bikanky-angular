@@ -22,6 +22,7 @@ import { HeaderMobileComponent } from './layout/the-header/header-mobile/header-
 import { MediaIconsComponent } from './ui/media-icons/media-icons.component';
 import { SpinnerComponent } from './ui/spinner/spinner.component';
 import { CardTitleComponent } from './ui/other/card-title/card-title.component';
+import { DropdownSelectComponent } from './ui/dropdown-select/dropdown-select.component';
 
 @NgModule({
   declarations: [
@@ -43,6 +44,7 @@ import { CardTitleComponent } from './ui/other/card-title/card-title.component';
     MediaIconsComponent,
     SpinnerComponent,
     CardTitleComponent,
+    DropdownSelectComponent,
   ],
   imports: [CommonModule, RouterModule, NbSidebarModule],
   exports: [
@@ -63,6 +65,7 @@ import { CardTitleComponent } from './ui/other/card-title/card-title.component';
     MediaIconsComponent,
     SpinnerComponent,
     CardTitleComponent,
+    DropdownSelectComponent
   ],
 })
 export class SharedModule {}

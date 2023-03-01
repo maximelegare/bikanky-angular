@@ -20,15 +20,20 @@ export class ProductComponent implements OnInit {
   @Select(ProductsState.getPageProduct) product$: Observable<Product>;
 
   currentVariant: ProductVariant;
+  allVariants:ProductVariant[];
 
   ngOnInit(): void {
     const slugParam = this.route.snapshot.params['slug'];
     const skuParam = this.route.snapshot.params['sku'];
 
+
+
     this.store.dispatch(new FectchProducts('product', slugParam));
     AOS.init({ easing: 'ease-in-out-back', startEvent: 'load' });
 
     this.product$.subscribe((product) => {
+      this.allVariants = product.variants
+
       this.currentVariant = product.variants
         .filter((variant) => variant.sku === skuParam)
         .map((variant) => {
