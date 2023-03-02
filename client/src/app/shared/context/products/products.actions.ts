@@ -1,4 +1,4 @@
-import { Product } from './product.model';
+import { Product, ProductVariant } from './product.model';
 import { Observable } from 'rxjs';
 
 export class FectchProducts {
@@ -26,6 +26,11 @@ export class FectchHomeProductsSuccess {
 export class FectchPageProductSuccess {
   static readonly type = '[Home API] Fetch Home Products Success';
   constructor(public pageProduct: Product[]) {}
+}
+
+export class FilterCurrentProductVariant {
+  static readonly type = '[Home API] Filter Current Product Variant';
+  constructor(public productVariants: ProductVariant[], public sku:string) {}
 }
 
 export class FectchStarProductsSuccess {

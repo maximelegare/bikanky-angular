@@ -15,6 +15,7 @@ import {
   FectchProductsSuccess,
   FectchStarProductsSuccess,
   FetchAllMergedProductsSuccess,
+  FilterCurrentProductVariant,
 } from './products.actions';
 
 interface ProductsStateModel {
@@ -22,16 +23,18 @@ interface ProductsStateModel {
   allMergedProducts: any[];
   homeProducts: Product[];
   pageProduct: Product | undefined;
+  currentVariant: any;
   starProducts: Product[];
   starOfTheSeasonProduct: Product | undefined;
   status: 'pending' | 'loading' | 'success' | 'failure';
-  error: '' | null;
+  error: string | null;
 }
 
 @State<ProductsStateModel>({
   name: 'products',
   defaults: {
     pageProduct: undefined,
+    currentVariant: undefined,
     starOfTheSeasonProduct: undefined,
     homeProducts: [],
     products: [],
@@ -69,6 +72,10 @@ export class ProductsState {
   @Selector()
   static getPageProduct(state: ProductsStateModel) {
     return state.pageProduct;
+  }
+  @Selector()
+  static getCurrentVariant(state: ProductsStateModel) {
+    return state.currentVariant;
   }
 
   @Selector()
@@ -175,11 +182,7 @@ export class ProductsState {
         expression = `_type == "product" && isActive`;
         break;
     }
-    // images[]{"imageUrl": asset->url},
-    //       price,
-    //       variantTitle,
-    //       lengthType->{title},
-    //       options,
+
     return from(this.sanity.fetchQuerry(expression)).pipe(
       // Take the returned value and return a new success action containing the products
       tap((payload) => {
@@ -215,15 +218,17 @@ export class ProductsState {
     ctx: StateContext<ProductsStateModel>,
     { products }: FectchProductsSuccess
   ) {
-    const state = ctx.getState();
-    ctx.setState({
-      ...state,
-      products: products,
-      status: 'success',
-      error: null,
-    });
+    if (products) {
+      const state = ctx.getState();
+      ctx.setState({
+        ...state,
+        products: products,
+        status: 'success',
+        error: null,
+      });
 
-    ctx.dispatch(new FetchAllMergedProductsSuccess(products));
+      ctx.dispatch(new FetchAllMergedProductsSuccess(products));
+    }
   }
 
   // Merges product and variants together in a single array
@@ -232,32 +237,17 @@ export class ProductsState {
     ctx: StateContext<ProductsStateModel>,
     { products }: FetchAllMergedProductsSuccess
   ) {
-    const state = ctx.getState();
+    if (products) {
+      const state = ctx.getState();
 
-    ctx.setState({
-      ...state,
-      allMergedProducts: products,
-      status: 'success',
-      error: null,
-    });
+      ctx.setState({
+        ...state,
+        allMergedProducts: products,
+        status: 'success',
+        error: null,
+      });
+    }
   }
-
-  // Fetch star products
-  // @Action(FectchStarProductsSuccess)
-  // FectchStarProductsSuccess(
-  //   ctx: StateContext<ProductsStateModel>,
-  //   { starProducts }: FectchStarProductsSuccess
-  // ) {
-  //   const state = ctx.getState();
-
-  //   ctx.setState({
-  //     ...state,
-  //     starProducts: starProductsFilter,
-  //     starOfTheSeasonProduct: starOfTheSeasonProduct[0],
-  //     status: 'success',
-  //     error: null,
-  //   });
-  // }
 
   // Fetch Home products
   @Action(FectchHomeProductsSuccess)
@@ -265,23 +255,25 @@ export class ProductsState {
     ctx: StateContext<ProductsStateModel>,
     { homeData }: FectchHomeProductsSuccess
   ) {
-    const state = ctx.getState();
-    console.log('homeData');
-    const starOfTheSeasonProduct = homeData?.stars.filter(
-      (product: ProductVariant) => product.starOfTheSeason === true
-    );
-    const starProductsFilter = homeData?.stars.filter(
-      (product: ProductVariant) => product.starOfTheSeason !== true
-    );
+    if (homeData) {
+      const state = ctx.getState();
+      console.log('homeData');
+      const starOfTheSeasonProduct = homeData?.stars.filter(
+        (product: ProductVariant) => product.starOfTheSeason === true
+      );
+      const starProductsFilter = homeData?.stars.filter(
+        (product: ProductVariant) => product.starOfTheSeason !== true
+      );
 
-    ctx.setState({
-      ...state,
-      homeProducts: homeData ? homeData.homeProducts : undefined,
-      starProducts: starProductsFilter,
-      starOfTheSeasonProduct: starOfTheSeasonProduct?  starOfTheSeasonProduct[0] : undefined,
-      status: 'success',
-      error: null,
-    });
+      ctx.setState({
+        ...state,
+        homeProducts: homeData ? homeData.homeProducts : undefined,
+        starProducts: starProductsFilter,
+        starOfTheSeasonProduct: starOfTheSeasonProduct[0],
+        status: 'success',
+        error: null,
+      });
+    }
   }
 
   // Fetch Page product
@@ -290,16 +282,47 @@ export class ProductsState {
     ctx: StateContext<ProductsStateModel>,
     { pageProduct }: FectchPageProductSuccess
   ) {
-    const state = ctx.getState();
-    ctx.setState({
-      ...state,
-      pageProduct: pageProduct ? pageProduct[0] : undefined,
-      status: 'success',
-      error: null,
-    });
+    if (pageProduct) {
+      const state = ctx.getState();
+      ctx.setState({
+        ...state,
+        pageProduct: pageProduct[0],
+        status: 'success',
+        error: null,
+      });
+    }
   }
 
-  // Fetch Page product
+  // Filter current product variant
+  @Action(FilterCurrentProductVariant)
+  FilterCurrentProductVariant(
+    ctx: StateContext<ProductsStateModel>,
+    { productVariants, sku }: FilterCurrentProductVariant
+  ) {
+    if (productVariants) {
+      const state = ctx.getState();
+      console.log('productVariants', productVariants);
+
+      const currentVariant = productVariants
+        .filter((variant) => variant.sku === sku)
+        .map((variant) => {
+          return {
+            ...variant,
+            body: state.pageProduct?.body,
+            mainProductTitle: state.pageProduct?.mainProductTitle,
+          };
+        })[0];
+
+      console.log(currentVariant);
+
+      ctx.setState({
+        ...state,
+        currentVariant: currentVariant,
+        status: 'success',
+        error: null,
+      });
+    }
+  }
 
   @Action(FectchProductsFailure)
   fectchProductsFailure(
@@ -311,39 +334,7 @@ export class ProductsState {
     ctx.setState({
       ...state,
       status: 'failure',
-      error: null,
+      error: 'something went wrong!',
     });
   }
 }
-
-// `*[${expression}]{
-//   _id,
-
-//   showOnHomePage,
-//   star,
-//   starOfTheSeason,
-//   isActive,
-//   title,
-//   slug,
-//   defaultProductVariant{
-//     images[]{"imageUrl": asset->url},
-//     price,
-//     variantTitle,
-//     lengthType->{title},
-//     options,
-//   },
-//   variants[]{
-//
-//   },
-//   tags,
-//   bulletPoints,
-//   shortDescription{
-//     ${this.lang}[]{
-//       children[]{
-//         text
-//       },
-//       listItem
-//     }
-//   },
-//   body
-// }`

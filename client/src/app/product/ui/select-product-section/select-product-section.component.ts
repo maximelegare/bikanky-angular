@@ -11,7 +11,7 @@ export class SelectProductSectionComponent implements OnInit {
   constructor() { }
 
 
-  @Input() currentVariant:ProductVariant
+  @Input() currentVariant:ProductVariant | null
   @Input() allVariants:ProductVariant[]
 
   ngOnInit(): void {

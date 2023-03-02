@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Store } from '@ngxs/store';
-import { FectchProducts } from '../shared/context/products/products.actions';
+import { FectchProducts, FilterCurrentProductVariant } from '../shared/context/products/products.actions';
 import { Select } from '@ngxs/store';
 import { ProductsState } from '../shared/context/products/products.state';
 import { Observable } from 'rxjs';
@@ -10,6 +10,8 @@ import { ProductVariant } from '../shared/context/products/product.model';
 import * as AOS from 'aos';
 import { Router } from '@angular/router';
 import { Event } from '@angular/router';
+
+
 
 @Component({
   selector: 'app-product',
@@ -28,18 +30,8 @@ export class ProductComponent implements OnInit {
       const skuParam = this.route.snapshot.params['sku'];
       
       this.product$.subscribe((product) => {
-        this.allVariants = product.variants;
-        
-        this.currentVariant = product.variants
-        
-        .filter((variant) => variant.sku === skuParam)
-        .map((variant) => {
-            return {
-              ...variant,
-              body: product.body,
-              mainProductTitle: product.mainProductTitle,
-            };
-          })[0];
+        this.allVariants = product.variants;  
+        this.store.dispatch(new FilterCurrentProductVariant(product.variants, skuParam));
         });
     });
   }
@@ -47,11 +39,13 @@ export class ProductComponent implements OnInit {
   allVariants: ProductVariant[];
 
   @Select(ProductsState.getPageProduct) product$: Observable<Product>;
+  @Select(ProductsState.getCurrentVariant) currentVariant$: Observable<ProductVariant>;
 
 
   ngOnInit(): void {
     const slugParam = this.route.snapshot.params['slug'];
 
+    
     this.store.dispatch(new FectchProducts('product', slugParam));
     AOS.init({ easing: 'ease-in-out-back', startEvent: 'load' });
   }

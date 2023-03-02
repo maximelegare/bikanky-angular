@@ -1,4 +1,4 @@
-<div *ngIf="currentVariant" class="flex container w-100 gap-2">
+<div *ngIf="currentVariant$ | async as currentVariant" class="flex container w-100 gap-2">
   <app-image-product-section
     [images]="
       currentVariant.images ? currentVariant.images : [currentVariant.mainImage]
