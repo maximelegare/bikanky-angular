@@ -5,12 +5,14 @@ import { ImageProductSectionComponent } from './ui/image-product-section/image-p
 import { SharedModule } from '../shared/shared.module';
 import { DetailsProductSectionComponent } from './ui/details-product-section/details-product-section.component';
 import { CarouselModule } from '../shared/ui/carousel/carousel.module';
+import { SelectProductSectionComponent } from './ui/select-product-section/select-product-section.component';
 
 @NgModule({
   declarations: [
     ProductComponent,
     ImageProductSectionComponent,
     DetailsProductSectionComponent,
+    SelectProductSectionComponent,
   ],
   imports: [CommonModule, SharedModule, CarouselModule],
 })

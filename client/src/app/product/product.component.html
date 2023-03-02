@@ -1,6 +1,16 @@
-<div *ngIf="product$ | async as product" class="flex container w-100 gap-2">
-<app-image-product-section [images]="product.defaultProductVariant.images" class="flex-grow">this is the image section</app-image-product-section>
+<div *ngIf="currentVariant$ | async as currentVariant" class="flex container w-100 gap-2">
+  <app-image-product-section
+    [images]="
+      currentVariant.images ? currentVariant.images : [currentVariant.mainImage]
+    "
+    class="flex-grow"
+    >this is the image section</app-image-product-section
+  >
   <app-details-product-section
-    [product]="product"
+    [currentVariant]="currentVariant"
   ></app-details-product-section>
+  <app-select-product-section
+    [allVariants]="allVariants"
+    [currentVariant]="currentVariant"
+  ></app-select-product-section>
 </div>

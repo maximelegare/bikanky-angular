@@ -7,15 +7,16 @@ import { Product } from 'src/app/shared/context/products/product.model';
 @Component({
   selector: 'app-all-products-list',
   templateUrl: './all-products-list.component.html',
-  styleUrls: ['./all-products-list.component.css']
+  styleUrls: ['./all-products-list.component.css'],
 })
 export class AllProductsListComponent implements OnInit {
+  constructor() {}
+  @Select(ProductsState.getAllMergedProducts) products$: Observable<Product[]>;
+  
+  @Input() mapAllVariants: boolean = false;
 
-  constructor() { }
-  @Select(ProductsState.getProducts) products$:Observable<Product[]>
-  
-  @Input() mapAllVariants:Boolean = false
-  
+  products: any[];
+
   ngOnInit(): void {
     this.products$.subscribe((res) => console.log(res))
   }

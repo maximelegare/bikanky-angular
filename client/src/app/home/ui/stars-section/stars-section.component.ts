@@ -12,7 +12,8 @@ import { Product } from 'src/app/shared/context/products/product.model';
 export class StarsSectionComponent implements OnInit {
   constructor() {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+  }
 
   @Select(ProductsState.getStarProducts) starProducts$: Observable<Product[]>;
   @Select(ProductsState.getStarOfTheSeasonProduct) starOfTheSeasonProduct$: Observable<Product>;

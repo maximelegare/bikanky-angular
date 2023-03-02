@@ -35,6 +35,10 @@ const routes: Routes = [
     component: ProductComponent,
   },
   {
+    path: 'products/:slug/:sku',
+    component: ProductComponent,
+  },
+  {
     path: '**',
     component: ErrorComponent,
   },

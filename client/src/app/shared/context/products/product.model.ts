@@ -1,26 +1,27 @@
 interface Product {
   _id: string;
-  showOnHomePage?: boolean;
-  isActive: boolean;
-
-  star: boolean;
-  starOfTheSeason: boolean;
-  title: string;
-  slug: any;
-  defaultProductVariant: ProductVariant;
-  variants: ProductVariant[];
-  tags: string[];
+  mainProductTitle: string;
   bulletPoints?: Bullet[];
   shortDescription: any;
   body: any;
+  variants: ProductVariant[];
 }
 
 interface ProductVariant {
+  mainProductTitle: string;
   variantTitle: string;
   price: number;
   images: Image[];
+  mainImage:Image;
   lengthType: { title: string };
   options: string[];
+  star: boolean;
+  starOfTheSeason: boolean;
+  tags: string[];
+  slug: string[];
+  sku: string;
+  showOnHomePage?: boolean;
+  isActive: boolean;
 }
 
 interface Image {
@@ -32,4 +33,4 @@ interface Bullet {
   text: any;
 }
 
-export { Product, Bullet };
+export { Product, Bullet, ProductVariant };

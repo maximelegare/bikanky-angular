@@ -1,6 +1,9 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { Product } from 'src/app/shared/context/products/product.model';
+import {
+  Product,
+  ProductVariant,
+} from 'src/app/shared/context/products/product.model';
 
 @Component({
   selector: 'app-product-card',
@@ -8,7 +11,7 @@ import { Product } from 'src/app/shared/context/products/product.model';
   styleUrls: ['./product-card.component.css'],
 })
 export class ProductCardComponent implements OnInit {
-  @Input() product: Product;
+  @Input() product: any;
   @Input() noBulletPoints?: boolean;
 
   @Input()title?:string;
@@ -23,17 +26,19 @@ export class ProductCardComponent implements OnInit {
 
   constructor(private router: Router) {}
 
-  ngOnInit(): void {
-    console.log(this.product)
-     
-    if (this.router.url === '/products') {
-      this.routerLink = [this.product.slug.current];
-    } else {
-      this.routerLink = ['products', this.product.slug.current];
+  ngOnInit(): void { 
+
+    
+
+    if (this.product.slug) {
+      if (this.router.url === '/products') {
+        this.routerLink = this.product.slug;
+      } else {
+        this.routerLink = ['products', this.product.slug[0], this.product.slug[1]];
+      }
     }
   }
 
-  
   refactorPrice(price: number) {
     return ;
   }

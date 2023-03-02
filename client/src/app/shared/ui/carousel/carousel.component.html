@@ -11,13 +11,8 @@
       ></app-testimonial-card>
       <div class="mt-[70px]" *ngSwitchCase="'product'">
         <app-product-card
-          [title]="slide.title"
-          [lengthType]="slide.defaultProductVariant.lengthType.title"
-          [price]="slide.defaultProductVariant.price"
-          [options]="slide.defaultProductVariant.options"
-          [image]="slide.defaultProductVariant.images[0].imageUrl"
+          [noBulletPoints]="true"
           [product]="slide"
-          [starOfTheSeason]="slide.starOfTheSeason"
         ></app-product-card>
       </div>
       <app-image

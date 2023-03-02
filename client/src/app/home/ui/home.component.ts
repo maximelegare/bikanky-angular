@@ -16,7 +16,6 @@ export class HomeComponent implements OnInit {
   ngOnInit(): void {
     this.store.dispatch(new FectchTestimonials());
     this.store.dispatch(new FectchProducts('home'));
-    this.store.dispatch(new FectchProducts('stars'));
     AOS.init({ easing: 'ease-in-out-back', startEvent:'load' });
   }
 }

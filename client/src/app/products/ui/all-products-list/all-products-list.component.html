@@ -14,27 +14,8 @@
         <div>
           <app-product-card
             [noBulletPoints]="true"
-            [title]="product.title"
-            [lengthType]="product.defaultProductVariant.lengthType.title"
-            [price]="product.defaultProductVariant.price"
-            [options]="product.defaultProductVariant.options"
-            [image]="product.defaultProductVariant.images[0].imageUrl"
             [product]="product"
-            [starOfTheSeason]="product.starOfTheSeason"
           ></app-product-card>
-          <div *ngIf="mapAllVariants">
-            <ng-container *ngFor="let variantProduct of product.variants">
-              <app-product-card
-                [noBulletPoints]="true"
-                [title]="product.title"
-                [lengthType]="variantProduct.lengthType.title"
-                [price]="variantProduct.price"
-                [options]="variantProduct.options"
-                [image]="variantProduct.images[0].imageUrl"
-                [starOfTheSeason]="product.starOfTheSeason"
-              ></app-product-card>
-            </ng-container>
-          </div>
         </div>
       </div>
     </div>

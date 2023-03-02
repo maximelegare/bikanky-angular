@@ -66,7 +66,6 @@ export class StylismServicesState {
     ).pipe(
       // Take the returned value and return a new success action containing the products
       tap((stylismServices) => {
-        console.log(stylismServices)
         // puts in an array and take only the first element of it
         // bc even when i select only one element with sanity => returns an object but typecript doesnt recognize it.
         // force to create an array => then select only its first element

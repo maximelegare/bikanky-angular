@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { Action, State, StateContext, Selector, Select } from '@ngxs/store';
 import { from, tap, catchError } from 'rxjs';
 import { SanityService } from 'src/app/shared/services/sanity/sanity.service';
-import { Product } from './product.model';
+import { Product, ProductVariant } from './product.model';
 
 import { Observable } from 'rxjs';
 import { GeneralState } from '../general/general.state';
@@ -14,25 +14,31 @@ import {
   FectchProductsFailure,
   FectchProductsSuccess,
   FectchStarProductsSuccess,
+  FetchAllMergedProductsSuccess,
+  FilterCurrentProductVariant,
 } from './products.actions';
 
 interface ProductsStateModel {
   products: Product[];
+  allMergedProducts: any[];
   homeProducts: Product[];
   pageProduct: Product | undefined;
+  currentVariant: any;
   starProducts: Product[];
   starOfTheSeasonProduct: Product | undefined;
   status: 'pending' | 'loading' | 'success' | 'failure';
-  error: '' | null;
+  error: string | null;
 }
 
 @State<ProductsStateModel>({
   name: 'products',
   defaults: {
     pageProduct: undefined,
+    currentVariant: undefined,
     starOfTheSeasonProduct: undefined,
     homeProducts: [],
     products: [],
+    allMergedProducts: [],
     starProducts: [],
     status: 'pending',
     error: null,
@@ -53,6 +59,10 @@ export class ProductsState {
   static getProducts(state: ProductsStateModel) {
     return state.products;
   }
+  @Selector()
+  static getAllMergedProducts(state: ProductsStateModel) {
+    return state.allMergedProducts;
+  }
 
   @Selector()
   static getHomeProducts(state: ProductsStateModel) {
@@ -62,6 +72,10 @@ export class ProductsState {
   @Selector()
   static getPageProduct(state: ProductsStateModel) {
     return state.pageProduct;
+  }
+  @Selector()
+  static getCurrentVariant(state: ProductsStateModel) {
+    return state.currentVariant;
   }
 
   @Selector()
@@ -84,57 +98,92 @@ export class ProductsState {
 
     switch (page) {
       case 'home':
-        expression = `_type == "product" && isActive == true && showOnHomePage == true`;
-        break;
-      case 'stars':
-        expression = `_type == "product" && isActive && (star || starOfTheSeason)`;
+        expression = `{
+          'homeProducts': *[_type == "productVariant" && isActive && showOnHomePage && !starOfTheSeason]{
+            mainProductTitle,
+            mainImage{"imageUrl":asset->url},
+            images[]{"imageUrl": asset->url},
+            price,
+            variantTitle,
+            lengthType->{title},
+            options,
+            showOnHomePage,
+            isActive,
+            star,
+            starOfTheSeason,
+            "slug": [*[_type == "product" && references(^._id)][0].slug.current, sku],
+            sku,
+            _id
+          },
+          'stars': *[_type == "productVariant" && isActive && (star || starOfTheSeason)]{
+            mainProductTitle,
+            mainImage{"imageUrl":asset->url},
+            images[]{"imageUrl": asset->url},
+            price,
+            variantTitle,
+            lengthType->{title},
+            options,
+            showOnHomePage,
+            isActive,
+            star,
+            starOfTheSeason,
+            "slug": [*[_type == "product" && references(^._id)][0].slug.current, sku],
+            sku,
+            _id
+          }
+        }
+        `;
         break;
       case 'product':
-        expression = `_type == "product" && isActive == true && slug.current == "${slug}"`;
+        expression = `*[_type == "product"  && slug.current == '${slug}']{
+          _id,
+          body,
+          mainProductTitle,
+          "slug":[slug.current],
+          variants[]->{
+            _id,
+            isActive,
+            limitedEdition,
+            mainImage{"imageUrl": asset->url},
+            images[]{"imageUrl": asset->url},
+            mainProductTitle,
+            options,
+            price,
+            showOnHomePage,
+            sku,
+            star,
+            starOfTheSeason,
+            lengthType->{title},
+            tags,
+            "slug": [*[_type == "product" && references(^._id)][0].slug.current, sku],
+          }
+        }`;
+        break;
+      case 'all-products':
+        expression = `
+        *[_type == "productVariant" && isActive]{
+          mainProductTitle,
+          mainImage{"imageUrl":asset->url},
+          images[]{"imageUrl": asset->url},
+          price,
+          variantTitle,
+          lengthType->{title},
+          options,
+          showOnHomePage,
+          isActive,
+          star,
+          starOfTheSeason,
+          sku,
+          "slug": [*[_type == "product" && references(^._id)][0].slug.current, sku],
+          _id
+        }`;
         break;
       default:
         expression = `_type == "product" && isActive`;
         break;
     }
-    return from(
-      this.sanity.fetchQuerry(
-        `*[${expression}]{
-          _id,
-          
-          showOnHomePage,  
-          star,
-          starOfTheSeason,
-          isActive,  
-          title,
-          slug,
-          defaultProductVariant{
-            images[]{"imageUrl": asset->url},
-            price,
-            variantTitle,
-            lengthType->{title},
-            options, 
-          },
-          variants[]{
-            images[]{"imageUrl": asset->url},
-            price,
-            variantTitle,
-            lengthType->{title},
-            options, 
-          },
-          tags,
-          bulletPoints,
-          shortDescription{
-            ${this.lang}[]{
-              children[]{
-                text
-              },
-              listItem
-            }
-          }, 
-          body
-        }`
-      )
-    ).pipe(
+
+    return from(this.sanity.fetchQuerry(expression)).pipe(
       // Take the returned value and return a new success action containing the products
       tap((payload) => {
         switch (page) {
@@ -150,6 +199,9 @@ export class ProductsState {
           case 'starOfTheSeason':
             ctx.dispatch(new FectchStarProductsSuccess(payload));
             break;
+          case 'all-products':
+            ctx.dispatch(new FetchAllMergedProductsSuccess(payload));
+            break;
           default:
             ctx.dispatch(new FectchProductsSuccess(payload));
             break;
@@ -160,60 +212,67 @@ export class ProductsState {
     );
   }
 
-  // Fetch all products
+  // Fetch products
   @Action(FectchProductsSuccess)
   fectchProductsSuccess(
     ctx: StateContext<ProductsStateModel>,
     { products }: FectchProductsSuccess
   ) {
-    const state = ctx.getState();
+    if (products) {
+      const state = ctx.getState();
+      ctx.setState({
+        ...state,
+        products: products,
+        status: 'success',
+        error: null,
+      });
 
-    ctx.setState({
-      ...state,
-      products: products,
-      status: 'success',
-      error: null,
-    });
+      ctx.dispatch(new FetchAllMergedProductsSuccess(products));
+    }
   }
 
-  // Fetch star products
-  @Action(FectchStarProductsSuccess)
-  FectchStarProductsSuccess(
+  // Merges product and variants together in a single array
+  @Action(FetchAllMergedProductsSuccess)
+  FetchAllMergedProductsSuccess(
     ctx: StateContext<ProductsStateModel>,
-    { starProducts }: FectchStarProductsSuccess
+    { products }: FetchAllMergedProductsSuccess
   ) {
-    const state = ctx.getState();
+    if (products) {
+      const state = ctx.getState();
 
-    const starOfTheSeasonProduct = starProducts.filter(
-      (product) => product.starOfTheSeason === true
-    );
-    const starProductsFilter = starProducts.filter(
-      (product) => product.starOfTheSeason !== true
-    );
-
-    ctx.setState({
-      ...state,
-      starProducts: starProductsFilter,
-      starOfTheSeasonProduct: starOfTheSeasonProduct[0],
-      status: 'success',
-      error: null,
-    });
+      ctx.setState({
+        ...state,
+        allMergedProducts: products,
+        status: 'success',
+        error: null,
+      });
+    }
   }
 
   // Fetch Home products
   @Action(FectchHomeProductsSuccess)
   fectchProductSuccess(
     ctx: StateContext<ProductsStateModel>,
-    { homeProducts }: FectchHomeProductsSuccess
+    { homeData }: FectchHomeProductsSuccess
   ) {
-    const state = ctx.getState();
+    if (homeData) {
+      const state = ctx.getState();
+      const starOfTheSeasonProduct = homeData?.stars.filter(
+        (product: ProductVariant) => product.starOfTheSeason === true
+      );
+      const starProductsFilter = homeData?.stars.filter(
+        (product: ProductVariant) => product.starOfTheSeason !== true
+      );
 
-    ctx.setState({
-      ...state,
-      homeProducts: homeProducts,
-      status: 'success',
-      error: null,
-    });
+      ctx.setState({
+        ...state,
+        homeProducts: homeData ? homeData.homeProducts : undefined,
+        starProducts: starProductsFilter,
+        starOfTheSeasonProduct: starOfTheSeasonProduct[0],
+        status: 'success',
+        error: null,
+      });
+    }
   }
 
   // Fetch Page product
@@ -222,16 +281,45 @@ export class ProductsState {
     ctx: StateContext<ProductsStateModel>,
     { pageProduct }: FectchPageProductSuccess
   ) {
-    const state = ctx.getState();
-    ctx.setState({
-      ...state,
-      pageProduct: pageProduct ? pageProduct[0] : undefined,
-      status: 'success',
-      error: null,
-    });
+    if (pageProduct) {
+      const state = ctx.getState();
+      ctx.setState({
+        ...state,
+        pageProduct: pageProduct[0],
+        status: 'success',
+        error: null,
+      });
+    }
   }
 
-  // Fetch Page product
+  // Filter current product variant
+  @Action(FilterCurrentProductVariant)
+  FilterCurrentProductVariant(
+    ctx: StateContext<ProductsStateModel>,
+    { productVariants, sku }: FilterCurrentProductVariant
+  ) {
+    if (productVariants) {
+      const state = ctx.getState();
+
+      const currentVariant = productVariants
+        .filter((variant) => variant.sku === sku)
+        .map((variant) => {
+          return {
+            ...variant,
+            body: state.pageProduct?.body,
+            mainProductTitle: state.pageProduct?.mainProductTitle,
+          };
+        })[0];
+
+
+      ctx.setState({
+        ...state,
+        currentVariant: currentVariant,
+        status: 'success',
+        error: null,
+      });
+    }
+  }
 
   @Action(FectchProductsFailure)
   fectchProductsFailure(
@@ -243,7 +331,7 @@ export class ProductsState {
     ctx.setState({
       ...state,
       status: 'failure',
-      error: null,
+      error: 'something went wrong!',
     });
   }
 }
