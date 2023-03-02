@@ -15,7 +15,6 @@ export class DropdownSelectComponent implements OnInit {
       
       const variantSku = this.route.snapshot.params['sku'];
       this.currentVariantSelected = variantSku;
-      // console.log(this.currentVariantSelected)
     });
   }
 
@@ -25,4 +24,5 @@ export class DropdownSelectComponent implements OnInit {
 
   @Input() variants: ProductVariant[];
   @Input() currentVariant: ProductVariant | null;
+  @Input() label:string|null
 }

@@ -27,6 +27,7 @@ import { MediaIconsComponent } from './ui/media-icons/media-icons.component';
 import { SpinnerComponent } from './ui/spinner/spinner.component';
 import { CardTitleComponent } from './ui/other/card-title/card-title.component';
 import { DropdownSelectComponent } from './ui/dropdown-select/dropdown-select.component';
+import { PriceComponent } from './ui/price/price.component';
 
 
 
@@ -51,6 +52,7 @@ import { DropdownSelectComponent } from './ui/dropdown-select/dropdown-select.co
     SpinnerComponent,
     CardTitleComponent,
     DropdownSelectComponent,
+    PriceComponent,
   ],
   imports: [CommonModule, RouterModule, NbSidebarModule, FormsModule, NgSelectModule],
   exports: [
@@ -71,7 +73,8 @@ import { DropdownSelectComponent } from './ui/dropdown-select/dropdown-select.co
     MediaIconsComponent,
     SpinnerComponent,
     CardTitleComponent,
-    DropdownSelectComponent
+    DropdownSelectComponent,
+    PriceComponent
   ],
 })
 export class SharedModule {}

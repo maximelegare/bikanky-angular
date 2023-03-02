@@ -1,6 +1,19 @@
-<app-emply-card [width]="'w-72'">
-  <app-dropdown-select
-    [variants]="allVariants"
-    [currentVariant]="currentVariant"
-  ></app-dropdown-select>
-</app-emply-card>
+<ng-container *ngIf="currentVariant">
+  <app-emply-card [width]="'w-72'">
+    <div class="text-3xl font-semibold ">{{ currentVariant.mainProductTitle }}</div>
+    <div class="text-base font-normal  leading-none text-paleGray">{{ currentVariant.sku.toUpperCase() }}</div>
+    <div class="mt-3">
+      <app-price [price]="currentVariant.price"></app-price>
+    </div>
+    
+    
+    <app-line-divisor [marginTop]="6"></app-line-divisor>
+    <div class="mt-3">
+      <app-dropdown-select
+        [label]="'selectionnez un model:'"
+        [variants]="allVariants"
+        [currentVariant]="currentVariant"
+      ></app-dropdown-select>
+    </div>
+  </app-emply-card>
+</ng-container>

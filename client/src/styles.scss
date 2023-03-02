@@ -39,9 +39,6 @@
     background-color: rgb(216, 215, 205);
   }
 
-
-
-
   // Swiper styles
   .swiper-pagination-bullet-active {
     background-color: rgba(239, 203, 29, 1) !important;
@@ -64,7 +61,6 @@
     padding-left: 8px;
     padding-right: 8px;
   }
-
 
   .swiperThumbs .swiper-slide {
     opacity: 0.6;
@@ -92,4 +88,7 @@
       transform: translate(0);
     }
   }
+
+  // ng-select input styles
+  
 }

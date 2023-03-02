@@ -14,7 +14,7 @@ import { Observable } from 'rxjs';
 export class DetailsProductSectionComponent implements OnInit {
   constructor() {}
 
-  @Input() product: ProductVariant;
+  @Input() currentVariant: ProductVariant;
   
   
 

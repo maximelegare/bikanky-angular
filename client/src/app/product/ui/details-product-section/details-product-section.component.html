@@ -1,7 +1,10 @@
 <app-emply-card>
-  <p class="text-3xl font-medium">{{ product.mainProductTitle }}</p>
-  <!-- <p class="text-xl font-normal">
-    {{ product.defaultProductVariant.variantTitle }}
-  </p> -->
-  <app-block-content [data]="product"></app-block-content>
+  <app-block-content [data]="currentVariant"></app-block-content>
+  <app-line-divisor [marginTop]="6"></app-line-divisor>
+    <div class="font-semibold text-lg mt-2">Options</div>
+    <div *ngIf="currentVariant.options">
+      <div *ngFor="let option of currentVariant.options">
+        <app-bullet [noDivisor]="true">{{ option }}</app-bullet>
+      </div>
+    </div>
 </app-emply-card>

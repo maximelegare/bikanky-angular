@@ -257,7 +257,6 @@ export class ProductsState {
   ) {
     if (homeData) {
       const state = ctx.getState();
-      console.log('homeData');
       const starOfTheSeasonProduct = homeData?.stars.filter(
         (product: ProductVariant) => product.starOfTheSeason === true
       );
@@ -301,7 +300,6 @@ export class ProductsState {
   ) {
     if (productVariants) {
       const state = ctx.getState();
-      console.log('productVariants', productVariants);
 
       const currentVariant = productVariants
         .filter((variant) => variant.sku === sku)
@@ -313,7 +311,6 @@ export class ProductsState {
           };
         })[0];
 
-      console.log(currentVariant);
 
       ctx.setState({
         ...state,
