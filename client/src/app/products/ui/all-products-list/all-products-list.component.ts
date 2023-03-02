@@ -18,7 +18,6 @@ export class AllProductsListComponent implements OnInit {
   products: any[];
 
   ngOnInit(): void {
-    this.products$.subscribe((products) => console.log(products))
     
   }
 }

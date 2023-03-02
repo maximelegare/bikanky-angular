@@ -183,7 +183,6 @@ export class ProductsState {
     return from(this.sanity.fetchQuerry(expression)).pipe(
       // Take the returned value and return a new success action containing the products
       tap((payload) => {
-        console.log("paylaod", payload)
         switch (page) {
           case 'home':
             ctx.dispatch(new FectchHomeProductsSuccess(payload));
@@ -251,8 +250,6 @@ export class ProductsState {
   // ) {
   //   const state = ctx.getState();
 
-    
-
   //   ctx.setState({
   //     ...state,
   //     starProducts: starProductsFilter,
@@ -269,20 +266,19 @@ export class ProductsState {
     { homeData }: FectchHomeProductsSuccess
   ) {
     const state = ctx.getState();
-
+    console.log('homeData');
     const starOfTheSeasonProduct = homeData?.stars.filter(
-      (product:ProductVariant) => product.starOfTheSeason === true
+      (product: ProductVariant) => product.starOfTheSeason === true
     );
     const starProductsFilter = homeData?.stars.filter(
-      (product:ProductVariant) => product.starOfTheSeason !== true
+      (product: ProductVariant) => product.starOfTheSeason !== true
     );
- 
-      console.log("starOfSeason", starOfTheSeasonProduct)
+
     ctx.setState({
       ...state,
-      homeProducts: homeData.homeProducts,
-      starProducts:starProductsFilter,
-      starOfTheSeasonProduct:starOfTheSeasonProduct[0],
+      homeProducts: homeData ? homeData.homeProducts : undefined,
+      starProducts: starProductsFilter,
+      starOfTheSeasonProduct: starOfTheSeasonProduct?  starOfTheSeasonProduct[0] : undefined,
       status: 'success',
       error: null,
     });

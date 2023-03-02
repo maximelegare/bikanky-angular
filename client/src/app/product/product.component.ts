@@ -8,6 +8,8 @@ import { Observable } from 'rxjs';
 import { Product } from '../shared/context/products/product.model';
 import { ProductVariant } from '../shared/context/products/product.model';
 import * as AOS from 'aos';
+import { Router } from '@angular/router';
+import { Event } from '@angular/router';
 
 @Component({
   selector: 'app-product',
@@ -15,34 +17,42 @@ import * as AOS from 'aos';
   styleUrls: ['./product.component.css'],
 })
 export class ProductComponent implements OnInit {
-  constructor(public route: ActivatedRoute, public store: Store) {}
+  constructor(
+    public route: ActivatedRoute,
+    public store: Store,
+    public router: Router
+  ) {
+
+    // Run this code each time the route changes to filter again the variant 
+    router.events.subscribe(() => {
+      const skuParam = this.route.snapshot.params['sku'];
+      
+      this.product$.subscribe((product) => {
+        this.allVariants = product.variants;
+        
+        this.currentVariant = product.variants
+        
+        .filter((variant) => variant.sku === skuParam)
+        .map((variant) => {
+            return {
+              ...variant,
+              body: product.body,
+              mainProductTitle: product.mainProductTitle,
+            };
+          })[0];
+        });
+    });
+  }
+  currentVariant: ProductVariant;
+  allVariants: ProductVariant[];
 
   @Select(ProductsState.getPageProduct) product$: Observable<Product>;
 
-  currentVariant: ProductVariant;
-  allVariants:ProductVariant[];
 
   ngOnInit(): void {
     const slugParam = this.route.snapshot.params['slug'];
-    const skuParam = this.route.snapshot.params['sku'];
-
-
 
     this.store.dispatch(new FectchProducts('product', slugParam));
     AOS.init({ easing: 'ease-in-out-back', startEvent: 'load' });
-
-    this.product$.subscribe((product) => {
-      this.allVariants = product.variants
-
-      this.currentVariant = product.variants
-        .filter((variant) => variant.sku === skuParam)
-        .map((variant) => {
-          return {
-            ...variant,
-            body: product.body,
-            mainProductTitle: product.mainProductTitle,
-          };
-        })[0];
-    });
   }
 }

@@ -13,7 +13,6 @@ export class StarsSectionComponent implements OnInit {
   constructor() {}
 
   ngOnInit(): void {
-    this.starOfTheSeasonProduct$.subscribe((product) => console.log("starOfSeason", product))
   }
 
   @Select(ProductsState.getStarProducts) starProducts$: Observable<Product[]>;

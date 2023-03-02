@@ -33,7 +33,6 @@ export class GeneralState {
   @Action(ToggleSideBarOpen)
   toggleSideBarOpen(ctx: StateContext<GeneralStateModel>) {
     const state = ctx.getState();
-    console.log('sidebar');
     ctx.setState({
       ...state,
       sidebarOpen: !state.sidebarOpen,

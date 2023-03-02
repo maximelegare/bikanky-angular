@@ -13,7 +13,6 @@ export class StylismServiceComponent implements OnInit {
   @Input() service:StylismService
 
   ngOnInit(): void {
-    console.log(this.service)
   }
 
 }
