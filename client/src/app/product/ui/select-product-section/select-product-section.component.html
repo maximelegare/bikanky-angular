@@ -1,7 +1,8 @@
 <ng-container *ngIf="currentVariant">
   <app-emply-card [width]="'w-72'">
-    <div class="text-3xl font-semibold ">{{ currentVariant.mainProductTitle }}</div>
-    <div class="text-base font-normal  leading-none text-paleGray">{{ currentVariant.sku.toUpperCase() }}</div>
+    <div class="text-3xl font-semibold leading-none">{{ currentVariant.mainProductTitle.toUpperCase() }}</div>
+    <div class="text-lg font-semibold leading-none">{{ currentVariant.lengthType.title.toUpperCase() }}<span class="material-icons text-accent text-xl">help</span> </div>
+    <div class="text-base font-normal  leading-none text-paleGray mt-1">{{ currentVariant.sku.toUpperCase() }}</div>
     <div class="mt-3">
       <app-price [price]="currentVariant.price"></app-price>
     </div>
@@ -17,3 +18,12 @@
     </div>
   </app-emply-card>
 </ng-container>
+<style>
+  .material-symbols-outlined {
+    font-variation-settings:
+    'FILL' 0,
+    'wght' 400,
+    'GRAD' 0,
+    'opsz' 48
+  }
+  </style>
