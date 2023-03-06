@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Testimonial } from 'src/app/shared/context/testimonials/testimonial.model';
+import { Testimonial } from 'src/app/shared/context/other-cards/other-cards.model';
 import { Input } from '@angular/core';
 import { Select } from '@ngxs/store';
 import { GeneralState } from 'src/app/shared/context/general/general.state';

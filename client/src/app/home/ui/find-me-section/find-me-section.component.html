@@ -1,1 +1,21 @@
-<div class="container mb-28 pt-3 bg-paleWhite rounded-3xl">find me</div>
+<div class="container mb-28 pt-3 bg-paleWhite rounded-3xl">
+  <div *ngIf="findMeLocations$ | async as locations">
+    <div *ngFor="let location of locations">
+      <div class="group">
+        <app-image
+          [darkOnHover]="true"
+          [landScape]="true"
+          [width]="'60'"
+          [height]="'80'"
+          [src]="location.image.imageUrl"
+        >
+          <div class="absolute w-full h-full text-center">
+            <div class="text-lg font-semibold text-white">{{ location.title }}</div>
+            <div class="text-white">{{ formatAddress(location.address) }}</div>
+            <div class="text-white">{{location.phoneNumber}}</div>
+          </div>
+        </app-image>
+      </div>
+    </div>
+  </div>
+</div>

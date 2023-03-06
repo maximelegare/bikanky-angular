@@ -1,16 +1,16 @@
-import { Testimonial } from "./testimonial.model";
+import { Testimonial, findMeLocations } from "./other-cards.model";
 
 
-export class FectchTestimonials {
+export class FectchHomeDataOtherCards {
     static readonly type = '[Home API] Fetch Testimonials';
   }
   
-  export class FectchTestimonialsSuccess {
+  export class FectchHomeDataSuccess {
     static readonly type = '[Home API] Fetch Testimonials Success';
-    constructor(public testimonials:Testimonial[]){}
+    constructor(public homeData:any ){}
   }
   
-  export class FectchTestimonialsFailure {
+  export class FectchHomeDataFailure {
     static readonly type = '[Home API] Fetch Testimonials Failure';
     constructor(public error:string){}  
   }

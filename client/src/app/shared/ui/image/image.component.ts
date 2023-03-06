@@ -9,11 +9,15 @@ import { Input } from '@angular/core';
 export class ImageComponent implements OnInit {
   constructor() {}
   @Input() src: string;
-  @Input() width?: string  = 'w-40'
-  @Input() height?: string = 'h-60'
+  @Input() width?: string = '40';
+  @Input() height?: string = '60';
+  @Input() landScape: boolean = false;
+  @Input() darkOnHover: boolean = false
 
   ngOnInit(): void {}
   getStyles() {
-    return `${this.width} ${this.height} overflow-hidden rounded-lg mx-auto bg-slate-200`;
+    return `w-${this.landScape ? this.height : this.width} h-${
+      this.landScape ? this.width : this.height
+    } overflow-hidden rounded-lg mx-auto`;
   }
 }

@@ -4,7 +4,7 @@
   </div>
   <div class="flex gap-4 justify-center mb-5" *ngIf="contactData$ | async as contact">
     <div>
-      <app-image [width]="'w-60'" [height]="'h-80'" [src]="contact.image.imageUrl"></app-image>
+      <app-image [width]="'60'" [height]="'80'" [src]="contact.image.imageUrl"></app-image>
     </div>
     <app-infos  [contactData]="contact"></app-infos>
   </div>

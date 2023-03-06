@@ -12,7 +12,7 @@ import testimonial from './testimonial'
 import contact from './contact'
 import stylismService from './stylismService'
 import allLengthTypes from './allLengthTypes'
-
+import findMe from './findMe'
 
 import localeString from './locale/String'
 import localeText from './locale/Text'
@@ -39,6 +39,7 @@ export default createSchema({
     testimonial,
     contact,
     stylismService,
-    allLengthTypes
+    allLengthTypes,
+    findMe
   ]),
 })

@@ -1,5 +1,13 @@
-<div [class]="getStyles()">
-    <img 
-    [src]="src"
-     alt="" />
+<div [class]="getStyles()" class="relative">
+  <div class="group relative">
+    <img [src]="src" alt="" class="z-0" />
+    <div
+      class="absolute top-0 left-0 w-full h-full bg-slate-900 opacity-0 group-hover:opacity-50 duration-500"
+    ></div>
+    <div
+      class="absolute top-0 left-0 w-full h-full bg-transparent opacity-0 group-hover:opacity-100 duration-500"
+    >
+      <ng-content></ng-content>
+    </div>
   </div>
+</div>

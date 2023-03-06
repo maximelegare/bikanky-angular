@@ -5,7 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 
 import { GeneralState } from './shared/context/general/general.state';
 import { ProductsState } from './shared/context/products/products.state';
-import { TestimonialsState } from './shared/context/testimonials/testimonial.state';
+import { OtherCardsState } from './shared/context/other-cards/other-cards.state';
 import { ContactState } from './shared/context/contact/contact.state';
 import { StylismServicesState } from './shared/context/stylism/stylism.state';
 
@@ -39,7 +39,7 @@ import { HomeModule } from './home/ui/home.module';
     HttpClientModule,
     NgxsModule.forRoot([
       ProductsState,
-      TestimonialsState,
+      OtherCardsState,
       GeneralState,
       ContactState,
       StylismServicesState,
