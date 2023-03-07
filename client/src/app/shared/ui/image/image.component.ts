@@ -14,8 +14,10 @@ export class ImageComponent implements OnInit {
   @Input() landScape?: boolean = false;
   @Input() overlayOnHover: boolean = false;
   @Input() class?: string;
+  @Input() noRadiusBottom?:boolean
+
   ngOnInit(): void {}
   getStyles() {
-    return `${this.width} ${ this.height} overflow-hidden rounded-lg mx-auto`;
+    return `${this.width} ${ this.height} overflow-hidden ${this.noRadiusBottom? "rounded-t-lg":"rounded-lg"} mx-auto`;
   }
 }

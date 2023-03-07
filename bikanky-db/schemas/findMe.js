@@ -3,6 +3,13 @@ export default {
     title: 'Find me',
     type: 'document',
     fields: [
+      
+      {
+        name: 'isActive',
+        title: 'Is Active',
+        type: 'boolean',
+        initialValue: true,
+      },
       {
         name: 'title',
         title: 'Title',

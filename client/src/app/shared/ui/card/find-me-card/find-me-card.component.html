@@ -1,27 +1,35 @@
-<!-- <app-emply-card class="group"> -->
-<div class="group w-96 rounded-md drop-shadow-md flex-initial">
+<div
+  class="group w-96 rounded-md drop-shadow-md flex-initial"
+  data-aos-once="true"
+  data-aos="flip-left"
+>
   <app-image
     [overlayOnHover]="true"
     [landScape]="true"
     [width]="'60'"
     [height]="'80'"
     [src]="location.image.imageUrl"
-    [class]="''"
+    [noRadiusBottom]="true"
   >
-    <div class="mt-10">
-      <app-image [src]="location.logo.imageUrl"></app-image>
-    </div>
-
-    <div class="absolute w-full h-full text-center">
-      <div class="text-2xl font-semibold text-white">
+    <div
+      class="absolute w-full h-full text-center flex flex-col justify-around"
+    >
+      <div class="" *ngIf="location.logo">
+        <app-image [src]="location.logo.imageUrl"></app-image>
+      </div>
+      <!-- <div class="text-2xl font-semibold text-white">
         {{ location.title }}
-      </div>
-      <div class="text-white">{{ formatAddress(location.address) }}</div>
-      <div class="text-white">
-        {{ formatPhoneNumber(location.phoneNumber) }}
-      </div>
+      </div> -->
     </div>
   </app-image>
+  <div class="bg-white rounded-b-lg py-4">
+    <app-bullet [noDivisor]="true" *ngIf="location.address">
+      <div class="leading-4">
+        {{ formatAddress(location.address) }}
+      </div>
+    </app-bullet>
+    <app-bullet [noDivisor]="true"
+      ><div class="font-semibold">{{ formatPhoneNumber(location.phoneNumber) }}</div>
+    </app-bullet>
+  </div>
 </div>
-<!-- </app-emply-card> -->
-<!-- </app-emply-card> -->

@@ -62,7 +62,7 @@ export class OtherCardsState {
          testimonial{ ${this.lang}[]{children[]{text}}},
          showOnHomePage
         },
-        'findMeLocations': *[_type == "findMe"]{
+        'findMeLocations': *[_type == "findMe" && isActive]{
           _id,
          title,
          phoneNumber,
