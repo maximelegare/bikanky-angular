@@ -5,7 +5,7 @@ export interface Testimonial {
   showOnHomePage: boolean;
 }
 
-export interface findMeLocations {
+export interface FindMeLocations {
   _id: string;
   title: string;
   address: {
@@ -17,6 +17,9 @@ export interface findMeLocations {
   };
   phoneNumber:number;
   image: {
+    imageUrl: string;
+  };
+  logo: {
     imageUrl: string;
   };
 }

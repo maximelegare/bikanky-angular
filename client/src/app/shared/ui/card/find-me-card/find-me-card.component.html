@@ -1,0 +1,27 @@
+<!-- <app-emply-card class="group"> -->
+<div class="group w-96 rounded-md drop-shadow-md flex-initial">
+  <app-image
+    [overlayOnHover]="true"
+    [landScape]="true"
+    [width]="'60'"
+    [height]="'80'"
+    [src]="location.image.imageUrl"
+    [class]="''"
+  >
+    <div class="mt-10">
+      <app-image [src]="location.logo.imageUrl"></app-image>
+    </div>
+
+    <div class="absolute w-full h-full text-center">
+      <div class="text-2xl font-semibold text-white">
+        {{ location.title }}
+      </div>
+      <div class="text-white">{{ formatAddress(location.address) }}</div>
+      <div class="text-white">
+        {{ formatPhoneNumber(location.phoneNumber) }}
+      </div>
+    </div>
+  </app-image>
+</div>
+<!-- </app-emply-card> -->
+<!-- </app-emply-card> -->

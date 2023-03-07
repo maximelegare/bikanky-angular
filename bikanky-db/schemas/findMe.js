@@ -49,8 +49,16 @@ export default {
 
       
       {
+        name:"logo",
+        title:"Logo",
+        type: "image",
+        options: {
+          hotspot: true,
+        },
+      },
+      {
         name:"image",
-        title:"image",
+        title:"Image",
         type: "image",
         options: {
           hotspot: true,

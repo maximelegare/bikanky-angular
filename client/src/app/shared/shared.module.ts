@@ -28,6 +28,7 @@ import { SpinnerComponent } from './ui/spinner/spinner.component';
 import { CardTitleComponent } from './ui/other/card-title/card-title.component';
 import { DropdownSelectComponent } from './ui/dropdown-select/dropdown-select.component';
 import { PriceComponent } from './ui/price/price.component';
+import { FindMeCardComponent } from './ui/card/find-me-card/find-me-card.component';
 
 
 
@@ -53,6 +54,7 @@ import { PriceComponent } from './ui/price/price.component';
     CardTitleComponent,
     DropdownSelectComponent,
     PriceComponent,
+    FindMeCardComponent,
   ],
   imports: [CommonModule, RouterModule, NbSidebarModule, FormsModule, NgSelectModule],
   exports: [
@@ -74,7 +76,8 @@ import { PriceComponent } from './ui/price/price.component';
     SpinnerComponent,
     CardTitleComponent,
     DropdownSelectComponent,
-    PriceComponent
+    PriceComponent,
+    FindMeCardComponent
   ],
 })
 export class SharedModule {}

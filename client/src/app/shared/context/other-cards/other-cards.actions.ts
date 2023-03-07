@@ -1,4 +1,4 @@
-import { Testimonial, findMeLocations } from "./other-cards.model";
+import { Testimonial, FindMeLocations } from "./other-cards.model";
 
 
 export class FectchHomeDataOtherCards {

@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { Action, State, StateContext, Selector } from '@ngxs/store';
 import { from, tap, catchError } from 'rxjs';
 import { SanityService } from 'src/app/shared/services/sanity/sanity.service';
-import { Testimonial, findMeLocations } from './other-cards.model';
+import { Testimonial, FindMeLocations } from './other-cards.model';
 import { Select } from '@ngxs/store';
 import { Observable } from 'rxjs';
 import { GeneralState } from '../general/general.state';
@@ -67,7 +67,8 @@ export class OtherCardsState {
          title,
          phoneNumber,
          address,
-         image{"imageUrl": asset->url}
+         image{"imageUrl": asset->url},
+         logo{"imageUrl": asset->url}
         }
       }
       `
@@ -88,7 +89,7 @@ export class OtherCardsState {
     { homeData }: FectchHomeDataSuccess
   ) {
     const state = ctx.getState();
-
+    console.log("homeData",homeData)
     ctx.setState({
       ...state,
       testimonials: homeData.testimonials,
