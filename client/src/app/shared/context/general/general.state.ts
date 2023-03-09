@@ -4,7 +4,7 @@ import { from, tap, catchError } from 'rxjs';
 import { ToggleSideBarOpen, CarouselSlidesPerView } from './general.actions';
 
 interface GeneralStateModel {
-  lang: string;
+  lang: "fr" | "en";
   sidebarOpen: boolean;
 }
 

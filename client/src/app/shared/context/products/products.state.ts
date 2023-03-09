@@ -112,7 +112,7 @@ export class ProductsState {
             star,
             starOfTheSeason,
             "slug": [*[_type == "product" && references(^._id)][0].slug.current, sku],
-            sku,
+            "sku":sku.current,
             _id
           },
           'stars': *[_type == "productVariant" && isActive && (star || starOfTheSeason)]{
@@ -128,7 +128,7 @@ export class ProductsState {
             star,
             starOfTheSeason,
             "slug": [*[_type == "product" && references(^._id)][0].slug.current, sku],
-            sku,
+            "sku":sku.current,
             _id
           }
         }
@@ -155,7 +155,8 @@ export class ProductsState {
             starOfTheSeason,
             lengthType->{title},
             tags,
-            "slug": [*[_type == "product" && references(^._id)][0].slug.current, sku],
+            "sku":sku.current,
+            "slug": [*[_type == "product" && references(^._id)][0].slug.current, sku.current],
           }
         }`;
         break;
@@ -173,8 +174,8 @@ export class ProductsState {
           isActive,
           star,
           starOfTheSeason,
-          sku,
-          "slug": [*[_type == "product" && references(^._id)][0].slug.current, sku],
+          "sku":sku.current,
+          "slug": [*[_type == "product" && references(^._id)][0].slug.current, sku.current],
           _id
         }`;
         break;
@@ -186,6 +187,7 @@ export class ProductsState {
     return from(this.sanity.fetchQuerry(expression)).pipe(
       // Take the returned value and return a new success action containing the products
       tap((payload) => {
+        console.log(payload)
         switch (page) {
           case 'home':
             ctx.dispatch(new FectchHomeProductsSuccess(payload));

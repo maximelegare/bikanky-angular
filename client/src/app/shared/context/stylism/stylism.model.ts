@@ -1,3 +1,5 @@
+
+
 export interface StylismService {
     _id: string;
     image: {
@@ -7,7 +9,7 @@ export interface StylismService {
     slug: string[];
     price:number;
     tags:string[];
-    shortDescrition:string;
+    shortDescription:any;
     body:object;
     showOnHomePage:boolean;
     isActive:boolean;

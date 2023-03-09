@@ -41,8 +41,9 @@ export default {
     {
       title: "SKU",
       name: "sku",
-      type: "string",
+      type: "slug",
     },
+    
   
     {
       title: "Length Type",
@@ -117,7 +118,7 @@ export default {
       if(starOfTheSeason) status.push("🔅")
       if(limitedEdition) status.push("⏳")
 
-      let formatTitle =  mainProductTitle && sku?  `${mainProductTitle} | ${sku.toLowerCase()}` : 'No title yet'
+      let formatTitle =  mainProductTitle && sku?  `${mainProductTitle} | ${sku.current.toLowerCase()}` : 'No title yet'
       let formatSubtitle =  status.toString().replace(/[ ,.]/g, " ");
       return{
         title:formatTitle,

@@ -14,7 +14,7 @@ import {
 } from './stylism.actions';
 
 interface StylismServicesStateModel {
-  stylismServices: StylismService[] ;
+  stylismServices: StylismService[];
   status: 'pending' | 'loading' | 'success' | 'failure';
   error: '' | null;
 }
@@ -27,7 +27,6 @@ interface StylismServicesStateModel {
     error: null,
   },
 })
-
 @Injectable()
 export class StylismServicesState {
   constructor(private sanity: SanityService) {
@@ -50,15 +49,15 @@ export class StylismServicesState {
     // image{"imageUrl": asset->url},
     return from(
       this.sanity.fetchQuerry(
-        `*[_type == "stylismService" && isActive == true ]{
+        `*[_type == "stylismService" && isActive && showOnHomePage  ]{
           _id,
          isActive,
-         showOnHomeage,
+         showOnHomePge,
          tags, 
          title,
          slug,
          price,
-         shortDescription,
+         shortDescription{${this.lang}[0]{children[0]{text}}},
          image{"imageUrl": asset->url}, 
          body{ ${this.lang}[]},
         }`
@@ -72,7 +71,9 @@ export class StylismServicesState {
         ctx.dispatch(new FetchStylismServicesSuccess(stylismServices));
       }),
       // Or... if it errors return a new failure action containing the error
-      catchError((error) => ctx.dispatch(new FetchStylismServicesFailure(error)))
+      catchError((error) =>
+        ctx.dispatch(new FetchStylismServicesFailure(error))
+      )
     );
   }
 

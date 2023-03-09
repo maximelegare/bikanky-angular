@@ -2,6 +2,7 @@ import { Component, Input, OnInit, ViewChild } from '@angular/core';
 import { Observable } from 'rxjs';
 import SwiperCore, { Swiper } from 'swiper';
 import { Pagination, Navigation, Thumbs } from 'swiper';
+import { Router } from '@angular/router';
 
 // import { GeneralState } from 'src/app/shared/context/general/general.state';
 
@@ -13,7 +14,9 @@ SwiperCore.use([Pagination, Navigation, Thumbs]);
   styleUrls: ['./carousel.component.css'],
 })
 export class CarouselComponent implements OnInit {
-  constructor() {}
+  constructor(public router: Router) {
+    this.startSwiper()
+  }
 
   @Input() slides: Array<any>;
   @Input() variant: string;
@@ -21,10 +24,8 @@ export class CarouselComponent implements OnInit {
   @Input() withThumbs: boolean = false;
 
   numberOfSlides: number = 3;
-
-
-  ngOnInit(): void {
-
+  
+  startSwiper() {
     if (this.withThumbs) {
       let swiper = new Swiper('.swiperThumbs', {
         spaceBetween: 10,
@@ -43,5 +44,9 @@ export class CarouselComponent implements OnInit {
         },
       });
     }
+  }
+
+  ngOnInit(): void {
+    this.startSwiper()
   }
 }
