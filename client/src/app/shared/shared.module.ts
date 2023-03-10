@@ -23,7 +23,7 @@ import { NbSidebarModule } from '@nebular/theme';
 import { BlockContentComponent } from './ui/block-content/block-content.component';
 import { HeaderDesktopComponent } from './layout/the-header/header-desktop/header-desktop.component';
 import { HeaderMobileComponent } from './layout/the-header/header-mobile/header-mobile.component';
-import { MediaIconsComponent } from './ui/media-icons/media-icons.component';
+import { MediaIconsComponent } from './ui/media-icon/media-icon.component';
 import { SpinnerComponent } from './ui/spinner/spinner.component';
 import { CardTitleComponent } from './ui/other/card-title/card-title.component';
 import { DropdownSelectComponent } from './ui/dropdown-select/dropdown-select.component';

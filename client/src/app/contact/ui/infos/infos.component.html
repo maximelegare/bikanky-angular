@@ -1,6 +1,9 @@
 <app-emply-card width="'w-[200px]'" class="flex">
   <app-block-content [data]="contactData"></app-block-content>
-  <app-media-icons [mediaIcons]="contactData.contactMedias"></app-media-icons>
+
+  <ng-container *ngFor="let media of contactData?.contactMedias">
+    <app-media-icons [mediaIcon]="media"></app-media-icons>
+  </ng-container>
 </app-emply-card>
 
 <ng-template #media>

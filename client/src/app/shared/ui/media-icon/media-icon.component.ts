@@ -2,8 +2,8 @@ import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'app-media-icons',
-  templateUrl: './media-icons.component.html',
-  styleUrls: ['./media-icons.component.css']
+  templateUrl: './media-icon.component.html',
+  styleUrls: ['./media-icon.component.css']
 })
 
 
@@ -13,15 +13,17 @@ export class MediaIconsComponent implements OnInit {
 
   constructor() { }
 
-  @Input() mediaIcons:{
+  @Input() mediaIcon:{
     mediaLink:string;
     mediaName:string
-  }[] | null | undefined 
+    contact:string
+    isSocialMedia:boolean
+  }
 
   ngOnInit(): void {
   }
   getIcon(icon:string):string{
     return `../../../../assets/svg/SVG/${icon}.svg`}
-
+ 
 
 }

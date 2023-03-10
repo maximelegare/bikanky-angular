@@ -11,4 +11,5 @@ interface Media {
   mediaName: string;
   mediaLink: string;
   contact:string;
+  isSocialMedia:boolean;
 }

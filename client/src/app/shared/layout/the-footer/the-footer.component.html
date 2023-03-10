@@ -1,15 +1,16 @@
 <footer class="bg-transparentAccent py-12 flex flex-col items-center">
   <div class="container">
-    <div class="mb-6 ml-3">
-      <img
-        class="w-10 h-10 cursor-pointer"
-        src="/assets/svg/bikanky-logo.svg"
-        alt="logo Bikanky"
-      />
-    </div>
-
-    <div class="flex justify-between gap-2">
-      <div class="flex flex-col items-start w-52">
+    <div class="flex gap-2">
+      <div class="flex flex-col items-center">
+        <div class="mb-6 ml-3">
+          <img
+            class="w-10 h-10 cursor-pointer"
+            src="/assets/svg/bikanky-logo.svg"
+            alt="logo Bikanky"
+          />
+        </div>
+      </div>
+      <div class="flex flex-col items-center">
         <p class="py-1 px-3 text-lg text-black font-semibold">Entreprise</p>
         <app-base-button
           [text]="'Produits'"
@@ -26,7 +27,7 @@
           [variant]="'text-only'"
         ></app-base-button>
       </div>
-      <div class="flex flex-col items-start w-52">
+      <div class="flex flex-col items-center">
         <p class="py-1 px-3 text-lg text-black font-semibold">Assistance</p>
         <app-base-button
           [text]="'Me Joindre'"
@@ -40,17 +41,26 @@
       </div>
 
       <div>
-        <span class="material-icons">language</span>
+        <span class="material-icons py-2 px-2">language</span>
       </div>
     </div>
-    <app-media-icons
-      [mediaIcons]="contactData?.contactMedias"
-    ></app-media-icons>
+    <div class="flex gap-2">
+      <ng-container *ngFor="let media of contactData?.contactMedias">
+        <ng-container *ngIf="media.isSocialMedia">
+          <app-media-icons [mediaIcon]="media"></app-media-icons>
+        </ng-container>
+      </ng-container>
+    </div>
+    <div class="flex gap-2">
+      <ng-container *ngFor="let media of contactData?.contactMedias">
+        <ng-container *ngIf="!media.isSocialMedia">
+          <app-media-icons [mediaIcon]="media"></app-media-icons>
+        </ng-container>
+      </ng-container>
+    </div>
 
     <p class="mx-3 text-sm opacity-60 pt-10 text-center">
-      En utilisant ce site Web, vous acceptez nos Conditions générales. ©{{
-        year
-      }}
+      ©{{ year }}
       Bikanky
     </p>
   </div>

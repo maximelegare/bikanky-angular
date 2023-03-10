@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { MediaIconsComponent } from './media-icons.component';
+import { MediaIconsComponent } from './media-icon.component';
 
 describe('MediaIconsComponent', () => {
   let component: MediaIconsComponent;

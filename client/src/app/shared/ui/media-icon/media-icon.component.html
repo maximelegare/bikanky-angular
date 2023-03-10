@@ -1,0 +1,36 @@
+<div class="flex gap-2">
+  <ng-container *ngIf="!mediaIcon; then loading; else data"></ng-container>
+
+  <ng-template #loading></ng-template>
+
+  <ng-template #data>
+    <ng-container>
+      <ng-container
+        *ngIf="mediaIcon.mediaLink; then media; else default"
+      ></ng-container>
+
+      <ng-template #default>
+        <div class="flex">
+          <img
+            class="w-6 h-6 cursor-pointer"
+            [src]="getIcon(mediaIcon.mediaName)"
+            [alt]="mediaIcon.mediaName"
+          />
+          <div>{{ mediaIcon.contact }}</div>
+        </div>
+      </ng-template>
+
+      <ng-template #media>
+        <a [href]="mediaIcon.mediaLink" target="_blank">
+          <div class="px-1 py-1 opacity-75 hover:opacity-100">
+            <img
+              class="w-6 h-6 cursor-pointer"
+              [src]="getIcon(mediaIcon.mediaName)"
+              [alt]="mediaIcon.mediaName"
+            />
+          </div>
+        </a>
+      </ng-template>
+    </ng-container>
+  </ng-template>
+</div>

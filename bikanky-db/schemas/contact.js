@@ -27,6 +27,12 @@ export default {
           type:"document",
           fields: [
             {
+              name: "isSocialMedia",
+              title: "Is Social Media",
+              type: "boolean",
+              initialValue: false 
+            },
+            {
               name: "mediaName",
               title: "Media Name",
               type: "string",
