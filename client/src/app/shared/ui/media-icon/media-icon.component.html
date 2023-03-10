@@ -10,19 +10,27 @@
       ></ng-container>
 
       <ng-template #default>
-        <div class="flex">
-          <img
-            class="w-6 h-6 cursor-pointer"
-            [src]="getIcon(mediaIcon.mediaName)"
-            [alt]="mediaIcon.mediaName"
-          />
-          <div>{{ mediaIcon.contact }}</div>
+        <div class="flex gap-2 items-center  opacity-75 hover:opacity-100 hover:cursor-pointer">
+          <!-- <div>
+            <img
+              class="w-6 h-6 cursor-pointer"
+              [src]="getIcon(mediaIcon.mediaName)"
+              [alt]="mediaIcon.mediaName"
+            />
+          </div> -->
+          <div class="font-semibold">
+            {{
+              mediaIcon.mediaName === "phone"
+                ? formatString.formatPhoneNumber(mediaIcon.contact)
+                : mediaIcon.contact
+            }}
+          </div>
         </div>
       </ng-template>
 
       <ng-template #media>
         <a [href]="mediaIcon.mediaLink" target="_blank">
-          <div class="px-1 py-1 opacity-75 hover:opacity-100">
+          <div class=" opacity-75 hover:opacity-100">
             <img
               class="w-6 h-6 cursor-pointer"
               [src]="getIcon(mediaIcon.mediaName)"

@@ -1,6 +1,5 @@
 import { Component, Input, OnInit, EventEmitter, Output } from '@angular/core';
 
-
 @Component({
   selector: 'app-base-button',
   templateUrl: './base-button.component.html',
@@ -15,36 +14,34 @@ export class BaseButtonComponent implements OnInit {
   @Input() type?: string;
   @Input() underlineOnHover?: boolean = false;
   @Input() noHover?: boolean = false;
+  @Input() noXPadding?: boolean = false;
 
   @Input() addBorder: boolean = false;
   @Input() size?: string = 'small';
   @Input() routerLink: string | string[];
-  @Input() fragment?:string;
+  @Input() fragment?: string;
 
   @Input() icon?: string;
   @Input() iconSize?: string;
   @Input() iconColor?: string;
 
-  @Output() handleClick = new EventEmitter()
-  
-  
+  @Output() handleClick = new EventEmitter();
+
   constructor() {}
 
   ngOnInit(): void {}
 
-
-  handleButtonClick(){
-    this.handleClick.emit()    
+  handleButtonClick() {
+    this.handleClick.emit();
   }
-
 
   getStyles() {
     switch (this.variant) {
       case 'text-only': {
         return `${
           this.size === 'big'
-            ? 'py-3 px-5 text-xl font-bold'
-            : 'py-1 px-3 text-md font-semibold '
+            ? `py-3 ${this.noXPadding ? '' : 'px-5'} text-xl font-bold`
+            : `py-1 ${this.noXPadding ? '' : 'px-5'} text-md font-semibold `
         } ${this.textColor}  ${this.noHover ? '' : 'hover:opacity-100'}  ${
           this.underlineOnHover ? 'hover:underline' : ''
         }`;

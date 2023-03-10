@@ -1,67 +1,83 @@
-<footer class="bg-transparentAccent py-12 flex flex-col items-center">
+<footer class="bg-transparentAccent py-8">
   <div class="container">
-    <div class="flex gap-2">
-      <div class="flex flex-col items-center">
-        <div class="mb-6 ml-3">
-          <img
-            class="w-10 h-10 cursor-pointer"
-            src="/assets/svg/bikanky-logo.svg"
-            alt="logo Bikanky"
-          />
+    <div class="flex flex-col items-center">
+      <div class="mb-6">
+        <img
+          class="w-10 h-10 cursor-pointer"
+          src="/assets/svg/bikanky-logo.svg"
+          alt="logo Bikanky"
+        />
+      </div>
+    </div>
+    <div class="flex gap-6">
+      <div class="flex-col md:flex-row md:flex md:flex-1 gap-6">
+        <div class="mb-4 md:mb-0 flex flex-col flex-1">
+          <p class="py-1 text-lg text-black font-semibold">Entreprise</p>
+          <app-base-button
+            [text]="'Produits'"
+            [variant]="'text-only'"
+            [routerLink]="'products'"
+            [noXPadding]="true"
+          ></app-base-button>
+          <app-base-button
+            [text]="'Stylisme'"
+            [variant]="'text-only'"
+            [routerLink]="'stylism'"
+            [noXPadding]="true"
+          ></app-base-button>
+          <app-base-button
+            [text]="'À Propos'"
+            [variant]="'text-only'"
+            [noXPadding]="true"
+          ></app-base-button>
+        </div>
+        <div class="flex flex-col flex-1">
+          <p class="py-1 text-lg text-black font-semibold">Assistance</p>
+          <app-base-button
+            [text]="'Me Joindre'"
+            [variant]="'text-only'"
+            [routerLink]="'contact'"
+            [noXPadding]="true"
+          ></app-base-button>
+          <app-base-button
+            [text]="'FAQs'"
+            [variant]="'text-only'"
+            [noXPadding]="true"
+          ></app-base-button>
         </div>
       </div>
-      <div class="flex flex-col items-center">
-        <p class="py-1 px-3 text-lg text-black font-semibold">Entreprise</p>
-        <app-base-button
-          [text]="'Produits'"
-          [variant]="'text-only'"
-          [routerLink]="'products'"
-        ></app-base-button>
-        <app-base-button
-          [text]="'Stylisme'"
-          [variant]="'text-only'"
-          [routerLink]="'stylism'"
-        ></app-base-button>
-        <app-base-button
-          [text]="'À Propos'"
-          [variant]="'text-only'"
-        ></app-base-button>
-      </div>
-      <div class="flex flex-col items-center">
-        <p class="py-1 px-3 text-lg text-black font-semibold">Assistance</p>
-        <app-base-button
-          [text]="'Me Joindre'"
-          [variant]="'text-only'"
-          [routerLink]="'contact'"
-        ></app-base-button>
-        <app-base-button
-          [text]="'FAQs'"
-          [variant]="'text-only'"
-        ></app-base-button>
-      </div>
-
-      <div>
+      <div class="flex-col  md:flex-row md:flex md:flex-1 gap-6">
+        <div class="mb-4 md:mb-0 flex flex-col flex-1">
+          <p class="py-1 text-lg text-black font-semibold">Me contacter</p>
+          <div class="flex flex-col gap-2">
+            <ng-container *ngFor="let media of contactData?.contactMedias">
+              <ng-container *ngIf="!media.isSocialMedia">
+                <app-media-icons [mediaIcon]="media"></app-media-icons>
+              </ng-container>
+            </ng-container>
+          </div>
+        </div>
+        <div class="flex flex-col flex-1">
+          <p class="py-1 text-lg text-black font-semibold">
+            Medias&nbsp;Sociaux
+          </p>
+          <div class="flex gap-3">
+            <ng-container *ngFor="let media of contactData?.contactMedias">
+              <ng-container *ngIf="media.isSocialMedia">
+                <app-media-icons [mediaIcon]="media"></app-media-icons>
+              </ng-container>
+            </ng-container>
+          </div>
+        </div>
+        <!-- <div>
         <span class="material-icons py-2 px-2">language</span>
+      </div> -->
       </div>
-    </div>
-    <div class="flex gap-2">
-      <ng-container *ngFor="let media of contactData?.contactMedias">
-        <ng-container *ngIf="media.isSocialMedia">
-          <app-media-icons [mediaIcon]="media"></app-media-icons>
-        </ng-container>
-      </ng-container>
-    </div>
-    <div class="flex gap-2">
-      <ng-container *ngFor="let media of contactData?.contactMedias">
-        <ng-container *ngIf="!media.isSocialMedia">
-          <app-media-icons [mediaIcon]="media"></app-media-icons>
-        </ng-container>
-      </ng-container>
     </div>
 
     <p class="mx-3 text-sm opacity-60 pt-10 text-center">
       ©{{ year }}
-      Bikanky
+      Bikanky Montréal | Made by Maximel
     </p>
   </div>
 </footer>

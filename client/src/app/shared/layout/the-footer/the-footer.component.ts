@@ -6,7 +6,6 @@ import { ContactData } from '../../context/contact/contact.model';
 import { Store } from '@ngxs/store';
 import { FectchContactData } from '../../context/contact/contact.actions';
 
-
 @Component({
   selector: 'app-the-footer',
   templateUrl: './the-footer.component.html',
@@ -14,7 +13,7 @@ import { FectchContactData } from '../../context/contact/contact.actions';
 })
 export class TheFooterComponent implements OnInit {
 
-  constructor(public store:Store) { }
+  constructor(public store:Store ) { }
   @Select(ContactState.getContactPageData) contactData$:Observable<ContactData>
 
     contactData:ContactData | null | undefined

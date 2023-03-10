@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-
+import { FormatString } from '../../services/utils/format-string.service';
 @Component({
   selector: 'app-media-icons',
   templateUrl: './media-icon.component.html',
@@ -11,7 +11,7 @@ import { Component, OnInit, Input } from '@angular/core';
 
 export class MediaIconsComponent implements OnInit {
 
-  constructor() { }
+  constructor(public formatString:FormatString) { }
 
   @Input() mediaIcon:{
     mediaLink:string;

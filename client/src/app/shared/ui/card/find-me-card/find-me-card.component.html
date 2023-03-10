@@ -25,11 +25,11 @@
   <div class="bg-white rounded-b-lg py-4">
     <app-bullet [noDivisor]="true" *ngIf="location.address">
       <div class="leading-4">
-        {{ formatAddress(location.address) }}
+        {{ formatString.formatAddress(location.address) }}
       </div>
     </app-bullet>
     <app-bullet [noDivisor]="true"
-      ><div class="font-semibold">{{ formatPhoneNumber(location.phoneNumber) }}</div>
+      ><div class="font-semibold">{{ formatString.formatPhoneNumber(location.phoneNumber) }}</div>
     </app-bullet>
   </div>
 </div>
