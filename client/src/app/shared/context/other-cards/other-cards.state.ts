@@ -68,7 +68,8 @@ export class OtherCardsState {
          phoneNumber,
          address,
          image{"imageUrl": asset->url},
-         logo{"imageUrl": asset->url}
+         logo{"imageUrl": asset->url},
+         website
         }
       }
       `

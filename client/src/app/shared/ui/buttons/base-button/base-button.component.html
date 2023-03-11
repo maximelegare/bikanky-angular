@@ -17,7 +17,21 @@
     }}</span>
   </div>
 </a>
-<button [class]="getStyles()" class="group block" *ngIf="!routerLink" (click)="handleButtonClick()">
+<a
+  [href]="href"
+  [class]="getStyles()"
+  class="group block w-fit"
+  *ngIf="href"
+  target="_blank"
+>
+  {{ text }}
+</a>
+<!-- <button
+  [class]="getStyles()"
+  class="group block"
+  *ngIf="!routerLink"
+  (click)="handleButtonClick()"
+>
   <p
     *ngIf="text"
     class="opacity-60"
@@ -30,4 +44,4 @@
       icon
     }}</span>
   </div>
-</button>
+</button> -->

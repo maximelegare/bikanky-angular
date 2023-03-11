@@ -20,6 +20,11 @@ export default {
         title: 'Phone number',
         type: 'string',
       },
+      {
+        name: 'website',
+        title: 'Website',
+        type: 'string',
+      },
       
       {
         name: 'address',

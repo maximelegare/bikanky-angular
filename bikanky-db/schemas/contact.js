@@ -4,6 +4,11 @@ export default {
   type: "document",
   fields: [
     {
+      title:"title",
+      name:"title",
+      type:"string"
+    },
+    {
       name: "image",
       type: "image",
       options: {
@@ -54,7 +59,7 @@ export default {
   ],
   preview: {
     select: {
-      title: "personName",
+      title: "title",
     },
   },
 };

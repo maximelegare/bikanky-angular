@@ -29,7 +29,14 @@
       </div>
     </app-bullet>
     <app-bullet [noDivisor]="true"
-      ><div class="font-semibold">{{ formatString.formatPhoneNumber(location.phoneNumber) }}</div>
+      ><div class="font-semibold">
+        {{ formatString.formatPhoneNumber(location.phoneNumber) }}
+      </div>
+    </app-bullet>
+    <app-bullet *ngIf="location.website" [noDivisor]="true"
+      >
+      <!-- <div class="font-semibold">{{ location.website }}</div> -->
+      <app-base-button [noPadding]="true" [variant]="'text-only'" [text]="location.website" [href]="location.website"></app-base-button>
     </app-bullet>
   </div>
 </div>

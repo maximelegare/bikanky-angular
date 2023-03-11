@@ -9,7 +9,7 @@
         />
       </div>
     </div>
-    <div class="flex gap-6">
+    <div class="justify-around flex gap-6">
       <div class="flex-col md:flex-row md:flex md:flex-1 gap-6">
         <div class="mb-4 md:mb-0 flex flex-col flex-1">
           <p class="py-1 text-lg text-black font-semibold">Entreprise</p>
@@ -17,18 +17,19 @@
             [text]="'Produits'"
             [variant]="'text-only'"
             [routerLink]="'products'"
-            [noXPadding]="true"
+            [noPadding]="true"
           ></app-base-button>
           <app-base-button
             [text]="'Stylisme'"
             [variant]="'text-only'"
             [routerLink]="'stylism'"
-            [noXPadding]="true"
+            [noPadding]="true"
           ></app-base-button>
           <app-base-button
             [text]="'À Propos'"
             [variant]="'text-only'"
-            [noXPadding]="true"
+            [noPadding]="true"
+            [routerLink]="'about'"
           ></app-base-button>
         </div>
         <div class="flex flex-col flex-1">
@@ -37,12 +38,12 @@
             [text]="'Me Joindre'"
             [variant]="'text-only'"
             [routerLink]="'contact'"
-            [noXPadding]="true"
+            [noPadding]="true"
           ></app-base-button>
           <app-base-button
             [text]="'FAQs'"
             [variant]="'text-only'"
-            [noXPadding]="true"
+            [noPadding]="true"
           ></app-base-button>
         </div>
       </div>

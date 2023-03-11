@@ -8,12 +8,14 @@ export interface Testimonial {
 export interface FindMeLocations {
   _id: string;
   title: string;
+  website:string;
   address: {
     street: string;
     city: string;
     state: string;
     postalCode: string;
     country: string;
+
   };
   phoneNumber:number;
   image: {

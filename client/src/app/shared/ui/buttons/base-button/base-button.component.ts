@@ -12,18 +12,21 @@ export class BaseButtonComponent implements OnInit {
   @Input() color?: string = 'bg-accent';
   @Input() variant: string;
   @Input() type?: string;
-  @Input() underlineOnHover?: boolean = false;
+
   @Input() noHover?: boolean = false;
-  @Input() noXPadding?: boolean = false;
+  @Input() underlineOnHover?: boolean = false;
+  @Input() noPadding?: boolean = false;
 
   @Input() addBorder: boolean = false;
   @Input() size?: string = 'small';
+  @Input() href?:string
   @Input() routerLink: string | string[];
   @Input() fragment?: string;
-
+  
   @Input() icon?: string;
   @Input() iconSize?: string;
   @Input() iconColor?: string;
+
 
   @Output() handleClick = new EventEmitter();
 
@@ -40,8 +43,8 @@ export class BaseButtonComponent implements OnInit {
       case 'text-only': {
         return `${
           this.size === 'big'
-            ? `py-3 ${this.noXPadding ? '' : 'px-5'} text-xl font-bold`
-            : `py-1 ${this.noXPadding ? '' : 'px-5'} text-md font-semibold `
+            ? `${this.noPadding ? '' : 'py-3 px-5'} text-xl font-bold`
+            : `${this.noPadding ? '' : 'py-1  px-5'} text-md font-semibold `
         } ${this.textColor}  ${this.noHover ? '' : 'hover:opacity-100'}  ${
           this.underlineOnHover ? 'hover:underline' : ''
         }`;
@@ -49,8 +52,8 @@ export class BaseButtonComponent implements OnInit {
       case 'text-button': {
         return `${
           this.size === 'big'
-            ? 'py-3 px-5 text-xl font-bold'
-            : 'py-1 px-3 text-md font-semibold'
+            ? `${this.noPadding ? '' : 'py-1 px-3'}`
+            : `${this.noPadding ? '' : 'py-1 px-3'} text-md font-semibold`
         } ${this.textColor} ${this.color}  rounded-md shadow-sm  ${
           this.underlineOnHover ? 'hover:underline' : ''
         } 
@@ -65,8 +68,8 @@ export class BaseButtonComponent implements OnInit {
       case 'text-button-border': {
         return `${
           this.size === 'big'
-            ? 'py-3 px-5 text-xl font-bold'
-            : 'py-1 px-3 text-md font-semibold'
+            ? `${this.noPadding ? '' : 'py-3 px-5'}  text-xl font-bold`
+            : `${this.noPadding ? '' : 'py-1 px-3'} text-md font-semibold`
         } ${this.textColor} border-solid border-2 ${
           this.borderColor
         } rounded-md shadow-sm  ${
@@ -90,7 +93,7 @@ export class BaseButtonComponent implements OnInit {
       }
       default: {
         return `${
-          this.size === 'big' ? 'py-3 px-5 text-xl' : 'py-1 px-3 text-md'
+          this.size === 'big' ? `${this.noPadding ? '' : 'py-3 px-5'} text-xl` : `${this.noPadding ? '' : 'py-1 px-3'} text-md`
         } text-black ${
           this.color || 'accent'
         }  rounded-md shadow-sm font-semibold ${
