@@ -89,6 +89,7 @@ export class BaseButtonComponent implements OnInit {
         } `;
       }
       case 'icon': {
+        console.log(this.icon)
         return `${this.iconSize} ${this.iconColor}`;
       }
       default: {
