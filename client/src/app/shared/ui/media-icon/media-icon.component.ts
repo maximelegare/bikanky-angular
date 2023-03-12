@@ -9,7 +9,7 @@ import { FormatString } from '../../services/utils/format-string.service';
 
 
 
-export class MediaIconsComponent implements OnInit {
+export class MediaIconComponent implements OnInit {
 
   constructor(public formatString:FormatString) { }
 

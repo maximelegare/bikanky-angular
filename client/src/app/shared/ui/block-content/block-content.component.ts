@@ -18,6 +18,23 @@ export class BlockContentComponent implements OnInit {
     });
   }
 
+  getLineStyle(size){
+    switch (size){
+
+      case "h5" :{
+        return 'text-base font-semibold'
+      }
+      case "h4" :{
+        return 'text-lg font-semibold'
+      }
+      default:{
+        return 'text-sm'
+      }
+    }  
+
+  }
+
+
   @Select(GeneralState.getLang) lang$: Observable<string>;
   lang = '';
 }

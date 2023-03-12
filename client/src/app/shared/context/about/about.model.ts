@@ -3,8 +3,8 @@ export interface AboutData {
     image: {
       imageUrl: string;
     };
-    aboutText: object;
-    contactMedias: Media[];
+    aboutText: any;
+    medias: Media[];
   }
   
   interface Media {

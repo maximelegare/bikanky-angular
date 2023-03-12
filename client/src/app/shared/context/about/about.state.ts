@@ -46,7 +46,7 @@ export class AboutState {
   @Action(FectchAboutData)
   fectchAboutData(ctx: StateContext<AboutStateModel>) {
     // Call the fetch products method and cancel if problem
-    console.log("[about] fetch")
+    console.log('[about] fetch');
 
     return from(
       this.sanity.fetchQuerry(
@@ -54,13 +54,15 @@ export class AboutState {
           _id,
          image{"imageUrl": asset->url},
          body{ ${this.lang}[]},
-         medias
-        }`
+         "medias":*[_type == "infos" && title == "contact"]{
+          medias
+         }[0].medias
+}`
       )
     ).pipe(
       // Take the returned value and return a new success action containing the products
       tap((aboutPageData) => {
-        console.log(aboutPageData)
+        console.log(aboutPageData);
         // puts in an array and take only the first element of it
         // bc even when i select only one element with sanity => returns an object but typecript doesnt recognize it.
         // force to create an array => then select only its first element
