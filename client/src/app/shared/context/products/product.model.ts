@@ -3,6 +3,7 @@ interface Product {
   mainProductTitle: string;
   bulletPoints?: Bullet[];
   shortDescription: any;
+  origin: any;
   body: any;
   variants: ProductVariant[];
 }

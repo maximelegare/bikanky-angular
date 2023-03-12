@@ -6,6 +6,7 @@ import { SharedModule } from '../shared/shared.module';
 import { DetailsProductSectionComponent } from './ui/details-product-section/details-product-section.component';
 import { CarouselModule } from '../shared/ui/carousel/carousel.module';
 import { SelectProductSectionComponent } from './ui/select-product-section/select-product-section.component';
+import { OriginProductSectionComponent } from './ui/origin-product-section/origin-product-section.component';
 
 @NgModule({
   declarations: [
@@ -13,6 +14,7 @@ import { SelectProductSectionComponent } from './ui/select-product-section/selec
     ImageProductSectionComponent,
     DetailsProductSectionComponent,
     SelectProductSectionComponent,
+    OriginProductSectionComponent,
   ],
   imports: [CommonModule, SharedModule, CarouselModule],
 })

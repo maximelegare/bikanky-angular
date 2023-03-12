@@ -17,7 +17,11 @@ export default {
         maxLength: 96, 
       },
     },
-
+    {
+      name:"origin",
+      title:"Origin",
+      type:"localeBlockContent"
+    },
     {
       title: "Variants",
       name: "variants",

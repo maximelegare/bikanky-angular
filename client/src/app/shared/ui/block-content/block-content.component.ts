@@ -11,7 +11,7 @@ import { Observable } from 'rxjs';
 export class BlockContentComponent implements OnInit {
   constructor() {}
   @Input() data: any;
-
+  @Input() objectKey:string
   ngOnInit(): void {
     this.lang$.subscribe((lang) => {
       this.lang = lang;

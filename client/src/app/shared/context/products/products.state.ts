@@ -140,6 +140,7 @@ export class ProductsState {
           body,
           mainProductTitle,
           "slug":[slug.current],
+          origin{ ${this.lang}[]},
           variants[]->{
             _id,
             isActive,

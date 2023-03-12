@@ -1,4 +1,7 @@
-<div *ngIf="currentVariant$ | async as currentVariant" class="flex container w-100 gap-2">
+<div
+  *ngIf="currentVariant$ | async as currentVariant"
+  class="flex container w-100 gap-2"
+>
   <app-image-product-section
     [images]="
       currentVariant.images ? currentVariant.images : [currentVariant.mainImage]
@@ -8,9 +11,13 @@
   >
   <app-details-product-section
     [currentVariant]="currentVariant"
+    
   ></app-details-product-section>
-  <app-select-product-section
-    [allVariants]="allVariants"
-    [currentVariant]="currentVariant"
-  ></app-select-product-section>
+  <div>
+    <app-select-product-section
+      [allVariants]="allVariants"
+      [currentVariant]="currentVariant"
+    ></app-select-product-section>
+    <app-origin-product-section [productOrigin]="productOrigin"></app-origin-product-section>
+  </div>
 </div>

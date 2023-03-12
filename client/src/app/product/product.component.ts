@@ -30,13 +30,15 @@ export class ProductComponent implements OnInit {
       const skuParam = this.route.snapshot.params['sku'];
       
       this.product$.subscribe((product) => {
-        this.allVariants = product.variants;  
-        this.store.dispatch(new FilterCurrentProductVariant(product.variants, skuParam));
+        this.productOrigin = product
+        this.allVariants = product?.variants;  
+        this.store.dispatch(new FilterCurrentProductVariant(product?.variants, skuParam));
         });
     });
   }
   currentVariant: ProductVariant;
   allVariants: ProductVariant[];
+  productOrigin:any
 
   @Select(ProductsState.getPageProduct) product$: Observable<Product>;
   @Select(ProductsState.getCurrentVariant) currentVariant$: Observable<ProductVariant>;

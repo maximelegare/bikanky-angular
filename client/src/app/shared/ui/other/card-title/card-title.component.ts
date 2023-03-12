@@ -14,4 +14,12 @@ export class CardTitleComponent implements OnInit {
   ngOnInit(): void {
   }
 
+
+
+  getStyles(){
+    
+  }
+
+
+
 }
