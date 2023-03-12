@@ -9,7 +9,7 @@ import tag from './tag'
 import product from './product'
 import productVariant from './productVariant'
 import testimonial from './testimonial'
-import contact from './contact'
+import infos from "./infos"
 import stylismService from './stylismService'
 import allLengthTypes from './allLengthTypes'
 import findMe from './findMe'
@@ -36,7 +36,7 @@ export default createSchema({
     localeString,
     productVariant,
     testimonial,
-    contact,
+    infos,
     stylismService,
     allLengthTypes,
     findMe,

@@ -1,6 +1,6 @@
 export default {
-  name: "contact",
-  title: "Contact",
+  name: "infos",
+  title: "Infos",
   type: "document",
   fields: [
     {
@@ -22,8 +22,8 @@ export default {
     },
 
     {
-      name: "contactMedias",
-      title: "Contact Medias",
+      name: "medias",
+      title: "Medias",
       type: "array",
       of: [
         {

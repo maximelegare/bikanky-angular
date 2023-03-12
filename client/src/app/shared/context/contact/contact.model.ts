@@ -4,7 +4,7 @@ export interface ContactData {
     imageUrl: string;
   };
   contactText: object;
-  contactMedias: Media[];
+  medias: Media[];
 }
 
 interface Media {

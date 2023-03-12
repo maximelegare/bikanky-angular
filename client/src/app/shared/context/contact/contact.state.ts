@@ -49,17 +49,16 @@ export class ContactState {
     // Call the fetch products method and cancel if problem
     return from(
       this.sanity.fetchQuerry(
-        `*[_type == "contact" ]{
+        `*[_type == "infos" && title == "contact" ]{
           _id,
          image{"imageUrl": asset->url},
          body{ ${this.lang}[]},
-         contactMedias
+         medias
         }`
       )
     ).pipe(
       // Take the returned value and return a new success action containing the products
       tap((contactPageData) => {
-
         // puts in an array and take only the first element of it 
         // bc even when i select only one element with sanity => returns an object but typecript doesnt recognize it.
         // force to create an array => then select only its first element

@@ -20,7 +20,7 @@ interface AboutStateModel {
 }
 
 @State<AboutStateModel>({
-  name: 'contact',
+  name: 'about',
   defaults: {
     aboutPageData: null,
     status: 'pending',
@@ -44,24 +44,27 @@ export class AboutState {
   }
 
   @Action(FectchAboutData)
-  fectchAllProducts(ctx: StateContext<AboutStateModel>) {
+  fectchAboutData(ctx: StateContext<AboutStateModel>) {
     // Call the fetch products method and cancel if problem
+    console.log("[about] fetch")
+
     return from(
       this.sanity.fetchQuerry(
-        `*[_type == "contact" ]{
+        `*[_type == "infos" && title == "about"]{
           _id,
          image{"imageUrl": asset->url},
          body{ ${this.lang}[]},
-         contactMedias
+         medias
         }`
       )
     ).pipe(
       // Take the returned value and return a new success action containing the products
       tap((aboutPageData) => {
+        console.log(aboutPageData)
         // puts in an array and take only the first element of it
         // bc even when i select only one element with sanity => returns an object but typecript doesnt recognize it.
         // force to create an array => then select only its first element
-        ctx.dispatch(new FectchAboutDataSuccess([aboutPageData][1]));
+        ctx.dispatch(new FectchAboutDataSuccess([aboutPageData][0]));
       }),
       // Or... if it errors return a new failure action containing the error
       catchError((error) => ctx.dispatch(new FectchAboutDataFailure(error)))

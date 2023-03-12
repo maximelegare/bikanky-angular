@@ -51,7 +51,7 @@
         <div class="mb-4 md:mb-0 flex flex-col flex-1">
           <p class="py-1 text-lg text-black font-semibold">Me contacter</p>
           <div class="flex flex-col gap-2">
-            <ng-container *ngFor="let media of contactData?.contactMedias">
+            <ng-container *ngFor="let media of contactData?.medias">
               <ng-container *ngIf="!media.isSocialMedia">
                 <app-media-icons [mediaIcon]="media"></app-media-icons>
               </ng-container>
@@ -63,7 +63,7 @@
             Medias&nbsp;Sociaux
           </p>
           <div class="flex gap-3">
-            <ng-container *ngFor="let media of contactData?.contactMedias">
+            <ng-container *ngFor="let media of contactData?.medias">
               <ng-container *ngIf="media.isSocialMedia">
                 <app-media-icons [mediaIcon]="media"></app-media-icons>
               </ng-container>

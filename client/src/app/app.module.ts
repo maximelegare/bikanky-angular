@@ -8,6 +8,8 @@ import { ProductsState } from './shared/context/products/products.state';
 import { OtherCardsState } from './shared/context/other-cards/other-cards.state';
 import { ContactState } from './shared/context/contact/contact.state';
 import { StylismServicesState } from './shared/context/stylism/stylism.state';
+import { AboutState } from './shared/context/about/about.state';
+
 
 import { CarouselModule } from './shared/ui/carousel/carousel.module';
 import { AppComponent } from './app.component';
@@ -44,6 +46,7 @@ import { AboutModule } from './about/about.module';
       GeneralState,
       ContactState,
       StylismServicesState,
+      AboutState
     ]),
     CarouselModule,
     SharedModule,
