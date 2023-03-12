@@ -9,10 +9,9 @@ export class OriginProductSectionComponent implements OnInit {
 
   constructor() { }
 
-  @Input() productOrigin:any
+  @Input() product:any
 
   ngOnInit(): void {
-    console.log(this.productOrigin)
   }
 
 }

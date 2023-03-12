@@ -11,13 +11,16 @@
   >
   <app-details-product-section
     [currentVariant]="currentVariant"
-    
   ></app-details-product-section>
   <div>
     <app-select-product-section
       [allVariants]="allVariants"
       [currentVariant]="currentVariant"
     ></app-select-product-section>
-    <app-origin-product-section [productOrigin]="productOrigin"></app-origin-product-section>
+    <ng-container *ngIf="productOrigin.origin">
+      <app-origin-product-section
+        [product]="productOrigin"
+      ></app-origin-product-section>
+    </ng-container>
   </div>
 </div>
