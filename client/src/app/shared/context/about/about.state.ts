@@ -14,7 +14,7 @@ import {
 } from './about.actions';
 
 interface AboutStateModel {
-  contactPageData: AboutData | null;
+  aboutPageData: AboutData | null;
   status: 'pending' | 'loading' | 'success' | 'failure';
   error: '' | null;
 }
@@ -22,7 +22,7 @@ interface AboutStateModel {
 @State<AboutStateModel>({
   name: 'contact',
   defaults: {
-    contactPageData: null,
+    aboutPageData: null,
     status: 'pending',
     error: null,
   },
@@ -40,7 +40,7 @@ export class AboutState {
 
   @Selector()
   static getAboutPageData(state: AboutStateModel) {
-    return state.contactPageData;
+    return state.aboutPageData;
   }
 
   @Action(FectchAboutData)
@@ -57,34 +57,34 @@ export class AboutState {
       )
     ).pipe(
       // Take the returned value and return a new success action containing the products
-      tap((contactPageData) => {
+      tap((aboutPageData) => {
         // puts in an array and take only the first element of it
         // bc even when i select only one element with sanity => returns an object but typecript doesnt recognize it.
         // force to create an array => then select only its first element
-        ctx.dispatch(new FectchContactDataSuccess([contactPageData][0]));
+        ctx.dispatch(new FectchAboutDataSuccess([aboutPageData][1]));
       }),
       // Or... if it errors return a new failure action containing the error
-      catchError((error) => ctx.dispatch(new FectchContactDataFailure(error)))
+      catchError((error) => ctx.dispatch(new FectchAboutDataFailure(error)))
     );
   }
 
-  @Action(FectchContactDataSuccess)
+  @Action(FectchAboutDataSuccess)
   fectchAllProductsSuccess(
-    ctx: StateContext<ContactStateModel>,
-    { contactPageData }: FectchContactDataSuccess
+    ctx: StateContext<AboutStateModel>,
+    { aboutPageData }: FectchAboutDataSuccess
   ) {
     const state = ctx.getState();
 
     ctx.setState({
       ...state,
-      contactPageData: contactPageData[0],
+      aboutPageData: aboutPageData[0],
       status: 'success',
       error: null,
     });
   }
 
-  @Action(FectchContactDataFailure)
-  fectchAllProductsFailure(ctx: StateContext<ContactStateModel>) {
+  @Action(FectchAboutDataFailure)
+  fectchAllProductsFailure(ctx: StateContext<AboutStateModel>) {
     const state = ctx.getState();
 
     ctx.setState({

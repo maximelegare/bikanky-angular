@@ -24,6 +24,7 @@ import { ErrorComponent } from './error/error.component';
 import { ContactModule } from './contact/contact.module';
 import { StylismServicesModule } from './stylism-services/stylism-services.module';
 import { HomeModule } from './home/ui/home.module';
+import { AboutModule } from './about/about.module';
 
 @NgModule({
   declarations: [
@@ -50,6 +51,7 @@ import { HomeModule } from './home/ui/home.module';
     ContactModule,
     StylismServicesModule,
     HomeModule,
+    AboutModule,
   ],
 
   bootstrap: [AppComponent],

@@ -7,6 +7,8 @@ import { ProductsComponent } from './products/ui/products.component';
 import { ProductComponent } from './product/product.component';
 import { ErrorComponent } from './error/error.component';
 import { ContactComponent } from './contact/contact.component';
+import { AboutComponent } from './about/about.component';
+
 
 const routes: Routes = [
   {
@@ -24,7 +26,11 @@ const routes: Routes = [
     component: StylismServicesComponent,
     pathMatch:'full', 
   }, 
-  
+  {
+    path: 'about',
+    component: AboutComponent,
+    pathMatch:'full', 
+  }, 
   {
     path: 'contact',
     component: ContactComponent,
