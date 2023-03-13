@@ -52,7 +52,7 @@ export class BaseButtonComponent implements OnInit {
       case 'text-button': {
         return `${
           this.size === 'big'
-            ? `${this.noPadding ? '' : 'py-1 px-3'}`
+            ? `${this.noPadding ? '' : 'py-1 px-3'} text-lg font-bold`
             : `${this.noPadding ? '' : 'py-1 px-3'} text-md font-semibold`
         } ${this.textColor} ${this.color}  rounded-md shadow-sm  ${
           this.underlineOnHover ? 'hover:underline' : ''

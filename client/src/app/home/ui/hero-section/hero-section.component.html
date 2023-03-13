@@ -3,29 +3,39 @@
 </div> -->
 
 <div class="mb-12">
-  <div class="home-hero-gradiant h-screen flex flex-col justify-between">
-    <div class="flex container justify-end gap-8">
+  <div class="home-hero-gradiant h-screen flex flex-col">
+    <div class="flex container gap-8">
       <div class="md:flex gap-20">
-        <div class="left-32">
+        <div class="relative">
+          <div
+            class="absolute w-[550px] h-[550px] opacity-20 translate-x-[-20rem] translate-y-[-10rem] bg-accent rounded-full"
+          ></div>
+          <div
+            class="absolute w-[200px] h-[200px] opacity-20 translate-x-[20rem] translate-y-[20rem] bg-accent rounded-full"
+          ></div>
+          <div
+            class="absolute w-[500px] h-[500px] opacity-20 translate-x-[50rem] translate-y-[10rem] bg-accent rounded-full"
+          ></div>
           <p
             data-aos="fade-up-custom"
             data-aos-duration="1000"
             class="text-4xl lg:text-5xl xl:text-5xl mt-32 font-semibold w-36"
           >
-            Vous&nbsp;voulez&nbsp;ajouter un&nbsp;peu&nbsp;de&nbsp;piquant à&nbsp;votre&nbsp;tenue?
+            Vous&nbsp;voulez&nbsp;ajouter un&nbsp;peu&nbsp;de&nbsp;piquant
+            à&nbsp;votre&nbsp;tenue?
             <!-- Your&nbsp;outfit&nbsp;could&nbsp;use an&nbsp;extra&nbsp;touch of&nbsp;pizzazz? -->
           </p>
 
           <p
             data-aos="fade-up-custom"
             data-aos-duration="1000"
-            class="text-lg lg:text-xl mt-6"
+            class="text-lg lg:text-xl mt-4"
           >
-            Ajoutez-y une touche de vous-même avec les manches uniques et
-            personnalisables de Bikanky
+            Ajoutez-y&nbsp;une&nbsp;touche&nbsp;de&nbsp;vous-même&nbsp;avec&nbsp;les&nbsp;manches
+            uniques&nbsp;et&nbsp;personnalisables&nbsp;de&nbsp;<span class="font-semibold">Bikanky</span>.
           </p>
           <div
-            class="mt-10 w-fit"
+            class="mt-14 w-fit"
             data-aos="zoom-in"
             data-aos-duration="300"
             data-aos-delay="700"
@@ -52,6 +62,7 @@
         data-aos-delay="200"
         data-aos-ease="ease-in-out"
       >
+        
         <img
           src="assets/img/home_top.png"
           class="w-[400px] lg:w-[500px] xl:w-[600px] 2xl:w-[800px] h-auto"
@@ -59,7 +70,7 @@
         />
       </div>
     </div>
-    <div class="flex justify-center">
+    <div class="flex flex-grow flex-col items-center justify-end">
       <app-base-button
         (handleClick)="handleClick()"
         class="animate-bounce"
