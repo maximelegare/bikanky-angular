@@ -34,7 +34,7 @@
 <button
   [class]="getStyles()"
   class="group block"
-  *ngIf="!routerLink"
+  *ngIf="!routerLink && !href"
   (click)="handleButtonClick()"
 >
   <p

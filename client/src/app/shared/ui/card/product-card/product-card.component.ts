@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { FormatString } from 'src/app/shared/services/utils/format-string.service';
 import {
   Product,
   ProductVariant,
@@ -24,7 +25,7 @@ export class ProductCardComponent implements OnInit {
 
   routerLink: string[] = [];
 
-  constructor(private router: Router) {}
+  constructor(private router: Router, private formatString:FormatString) {}
 
   ngOnInit(): void { 
 
