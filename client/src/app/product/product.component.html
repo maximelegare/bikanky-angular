@@ -1,26 +1,52 @@
-<div
-  *ngIf="currentVariant$ | async as currentVariant"
-  class="flex container w-100 gap-2"
->
-  <app-image-product-section
-    [images]="
-      currentVariant.images ? currentVariant.images : [currentVariant.mainImage]
-    "
-    class="flex-grow"
-    >this is the image section</app-image-product-section
-  >
-  <app-details-product-section
-    [currentVariant]="currentVariant"
-  ></app-details-product-section>
-  <div>
-    <app-select-product-section
-      [allVariants]="allVariants"
+<div *ngIf="currentVariant$ | async as currentVariant" class="container w-100">
+  <div class="flex flex-col gap-2 lg:flex-row">
+    <div class="flex-grow order-2 lg:order-none">
+      <app-image-product-section
+        [images]="
+          currentVariant.images
+            ? currentVariant.images
+            : [currentVariant.mainImage]
+        "
+      ></app-image-product-section>
+    </div>
+    <div class="hidden order-3 xl:block lg:order-none w-72">
+      <app-details-product-section
+        [currentVariant]="currentVariant"
+      ></app-details-product-section>
+    </div>
+
+    <div class="flex flex-col w-72 gap-2">
+      <div class="order-1 lg:order-none ">
+        <app-select-product-section
+          [allVariants]="allVariants"
+          [currentVariant]="currentVariant"
+        ></app-select-product-section>
+      </div>
+      <div class="hidden lg:block">
+        <ng-container *ngIf="productOrigin.origin">
+          <app-origin-product-section
+          
+            [product]="productOrigin"
+          ></app-origin-product-section>
+        </ng-container>
+      </div>
+    </div>
+    <div class="block order-4 lg:hidden lg:order-none">
+      <ng-container *ngIf="productOrigin.origin">
+        <app-origin-product-section
+          [product]="productOrigin"
+        ></app-origin-product-section>
+      </ng-container>
+    </div>
+    <div class="block order-5 lg:hidden lg:order-none">
+      <app-details-product-section
+        [currentVariant]="currentVariant"
+      ></app-details-product-section>
+    </div>
+  </div>
+  <div class="hidden lg:block xl:hidden">
+    <app-details-product-section
       [currentVariant]="currentVariant"
-    ></app-select-product-section>
-    <ng-container *ngIf="productOrigin.origin">
-      <app-origin-product-section
-        [product]="productOrigin"
-      ></app-origin-product-section>
-    </ng-container>
+    ></app-details-product-section>
   </div>
 </div>

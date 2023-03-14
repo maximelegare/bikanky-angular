@@ -1,6 +1,6 @@
 <div class="z-20 relative">
 <ng-container *ngIf="currentVariant">
-  <app-emply-card [width]="'w-72'" [marginsY]="'mt-10'">
+  <app-emply-card [width]="'w-full'" >
     <div class="text-3xl font-semibold leading-none">{{ currentVariant.mainProductTitle.toUpperCase() }}</div>
     <div class="text-lg font-semibold leading-none">{{ currentVariant.lengthType.title.toUpperCase() }}<span class="material-icons text-accent text-xl">help</span> </div>
     <div class="text-base font-normal  leading-none text-paleGray mt-1">{{ currentVariant.sku.toUpperCase() }}</div>

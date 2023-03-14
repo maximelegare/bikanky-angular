@@ -8,14 +8,13 @@ import { Input } from '@angular/core';
 })
 export class EmplyCardComponent implements OnInit {
   constructor() {}
-  @Input() width?: string = 'w-96';
-  @Input() marginsY: string = 'my-10';
+  @Input() width?: string = 'w-full';
   @Input() borderHilight: boolean;
 
   getStyles() {
     return `bg-white rounded-md p-4 drop-shadow-md flex-initial ${
       !this.borderHilight ? '' : 'border-solid border-4 border-transparentAccent'
-    } ${this.width} ${this.marginsY}`;
+    } ${this.width}`;
   }
 
   ngOnInit(): void {}
