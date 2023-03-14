@@ -29,9 +29,17 @@ export class CarouselComponent implements OnInit {
     if (this.withThumbs) {
       let swiper = new Swiper('.swiperThumbs', {
         spaceBetween: 10,
-        slidesPerView: 4,
+        slidesPerView: 2,
         freeMode: true,
         watchSlidesProgress: true,
+        breakpoints:{
+          640: {
+            slidesPerView:3
+          },
+          768: {
+            slidesPerView:4
+          },
+        }
       });
       var swiper2 = new Swiper('.swiperMain', {
         spaceBetween: 40,

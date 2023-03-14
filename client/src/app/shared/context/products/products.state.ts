@@ -129,7 +129,7 @@ export class ProductsState {
             isActive,
             star,
             starOfTheSeason,
-            "slug": [*[_type == "product" && references(^._id)][0].slug.current, sku],
+            "slug": [*[_type == "product" && references(^._id)][0].slug.current, sku.current],
             "sku":sku.current,
             _id
           }
