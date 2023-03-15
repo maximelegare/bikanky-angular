@@ -21,11 +21,11 @@ const routes: Routes = [
     component: ProductsComponent,
     pathMatch:'full', 
   },
-  // {
-  //   path: 'stylism',
-  //   component: StylismServicesComponent,
-  //   pathMatch:'full', 
-  // }, 
+  {
+    path: 'stylism',
+    component: StylismServicesComponent,
+    pathMatch:'full', 
+  }, 
   {
     path: 'about',
     component: AboutComponent,

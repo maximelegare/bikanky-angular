@@ -1,7 +1,5 @@
-<div class="flex justify-center text-4xl text-black font-semibold mt-10 mb-6">
-Services de stylisme
-</div>
-<div class="container">
+<div class="container mt-10 bg-paleWhite rounded-3xl ">
+  <app-card-title [title]="'Services de stylisme'"></app-card-title>
   <div *ngFor="let service of stylismServices$ | async">
     <app-stylism-service [service]="service"></app-stylism-service>
   </div>

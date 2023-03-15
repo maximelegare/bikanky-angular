@@ -1,11 +1,11 @@
 <div
-  class="relative container mb-28 mt-16 bg-paleWhite rounded-3xl"
+  class="relative container mb-28 mt-16 pb-4 bg-paleWhite rounded-3xl"
   data-aos="zoom-in"
   data-aos-duration="700"
   data-aos-once="true"
 >
   <app-card-title [title]="'Produits'"></app-card-title>
-  <div>
+  <div class="">
     <div class="flex flex-wrap justify-around gap-6">
       <div
         *ngFor="let product of products$ | async"
