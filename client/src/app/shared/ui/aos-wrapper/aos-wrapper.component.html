@@ -20,6 +20,14 @@
     >
       <ng-container *ngTemplateOutlet="content"></ng-container>
     </div>
+    <div
+      *ngIf="animation === 'zoom-in'"
+      data-aos="fade-up-custom"
+      data-aos-duration="1000"
+      data-aos-once="true"
+    >
+      <ng-container *ngTemplateOutlet="content"></ng-container>
+    </div>
   </div>
 </ng-container>
 

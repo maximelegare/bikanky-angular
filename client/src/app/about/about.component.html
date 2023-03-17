@@ -1,11 +1,5 @@
 <ng-container *ngIf="aboutData$ | async as aboutData">
-  <div
-    class="relative container mb-28 bg-paleWhite rounded-3xl mt-5"
-    data-aos="zoom-in"
-    data-aos-duration="700"
-    data-aos-once="true"
-    class="relative container mb-28 bg-paleWhite rounded-3xl"
-  >
+  <app-container>
     <div class="py-5">
       <app-emply-card [width]="'w-[80%] mx-auto'">
         <div class="flex gap-6">
@@ -51,5 +45,5 @@
         </div>
       </app-emply-card>
     </div>
-  </div>
+  </app-container>
 </ng-container>

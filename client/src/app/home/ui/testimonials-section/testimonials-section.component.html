@@ -1,9 +1,4 @@
-<div
-  class="container bg-paleWhite rounded-3xl pb-4"
-  data-aos="zoom-in"
-  data-aos-duration="700"
-  data-aos-once="true"
->
+<app-container>
   <app-card-title [title]="'Commentaires de nos supportaires'"></app-card-title>
   <ng-container *ngIf="testimonials$ | async as slides">
     <app-carousel
@@ -12,4 +7,4 @@
       [variant]="'testimonial'"
     ></app-carousel>
   </ng-container>
-</div>
+</app-container>

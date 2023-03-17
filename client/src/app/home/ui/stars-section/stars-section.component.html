@@ -1,12 +1,6 @@
 <ng-container *ngIf="starOfTheSeasonProduct$ | async as starOfTheSeason">
   <ng-container *ngIf="starProducts$ | async as products">
-    <div
-      class="container bg-paleWhite rounded-3xl pb-4"
-      data-aos="zoom-in"
-      data-aos-duration="700"
-      data-aos-once="true"
-      *ngIf="starOfTheSeason || products"
-    >
+    <app-container>
       <ng-container>
         <div class="flex flex-col items-center md:items-stretch md:flex-row">
           <div class="flex-initial w-[350px]">
@@ -27,6 +21,6 @@
           </div>
         </div>
       </ng-container>
-    </div>
+    </app-container>
   </ng-container>
 </ng-container>

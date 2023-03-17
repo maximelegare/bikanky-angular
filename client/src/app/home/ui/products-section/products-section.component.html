@@ -1,9 +1,4 @@
-<div
-  class="relative container bg-paleWhite rounded-3xl pb-4"
-  data-aos="zoom-in"
-  data-aos-duration="700"
-  data-aos-once="true"
->
+<app-container>
   <app-card-title [title]="'Produits vedettes'"></app-card-title>
   <ng-container *ngIf="products$ | async as products">
     <app-carousel
@@ -12,4 +7,4 @@
       [slides]="products"
     ></app-carousel>
   </ng-container>
-</div>
+</app-container>
