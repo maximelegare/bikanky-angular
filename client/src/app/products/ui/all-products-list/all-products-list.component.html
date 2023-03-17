@@ -12,10 +12,12 @@
         class="flex-initial w-[250px] pt-16"
       >
         <div>
-          <app-product-card
-            [noBulletPoints]="true"
-            [product]="product"
-          ></app-product-card>
+          <app-aos-wrapper [animation]="'flip-right'">
+            <app-product-card
+              [noBulletPoints]="true"
+              [product]="product"
+            ></app-product-card>
+          </app-aos-wrapper>
         </div>
       </div>
     </div>

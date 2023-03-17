@@ -5,15 +5,19 @@
 >
   <ng-template swiperSlide *ngFor="let slide of slides">
     <ng-container [ngSwitch]="variant">
-      <app-testimonial-card
-        [testimonial]="slide"
-        *ngSwitchCase="'testimonial'"
-      ></app-testimonial-card>
+      <app-aos-wrapper [animation]="'flip-right'">
+        <app-testimonial-card
+          [testimonial]="slide"
+          *ngSwitchCase="'testimonial'"
+        ></app-testimonial-card>
+      </app-aos-wrapper>
       <div class="mt-[70px]" *ngSwitchCase="'product'">
-        <app-product-card
-          [noBulletPoints]="true"
-          [product]="slide"
-        ></app-product-card>
+        <app-aos-wrapper [animation]="'flip-right'">
+          <app-product-card
+            [noBulletPoints]="true"
+            [product]="slide"
+          ></app-product-card>
+        </app-aos-wrapper>
       </div>
       <app-image
         *ngSwitchCase="'image'"

@@ -11,7 +11,12 @@ export class AosWrapperComponent implements OnInit {
 
   @Input() animation:string;
   @Input() noAnimation:boolean   
+  windowWidth:number
+
+
   ngOnInit(): void {
+    this.windowWidth = window.innerWidth
+
   }
 
 }

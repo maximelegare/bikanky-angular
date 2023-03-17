@@ -5,7 +5,9 @@
     *ngIf="findMeLocations$ | async as locations"
   >
     <div *ngFor="let location of locations" class="flex">
-      <app-find-me-card [location]="location"></app-find-me-card>
+      <app-aos-wrapper [animation]="'flip-right'">
+        <app-find-me-card [location]="location"></app-find-me-card>
+      </app-aos-wrapper>
     </div>
   </div>
 </div>

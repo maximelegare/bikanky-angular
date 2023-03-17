@@ -1,17 +1,28 @@
-<div
-  class="block sm:hidden"
-  data-aos="flip-right"
-  data-aos-duration="1000"
-  data-aos-once="true"
->
-<ng-container *ngTemplateOutlet="content"></ng-container>
-</div>
+<ng-container>
+  <div *ngIf="windowWidth < 640">
+    <ng-container *ngTemplateOutlet="content"></ng-container>
+  </div>
 
-<div class="hidden sm:block">
-  <ng-container *ngTemplateOutlet="content"></ng-container>
-</div>
-
+  <div *ngIf="windowWidth > 640">
+    <div
+      *ngIf="animation === 'flip-right'"
+      data-aos="flip-right"
+      data-aos-duration="1000"
+      data-aos-once="true"
+    >
+      <ng-container *ngTemplateOutlet="content"></ng-container>
+    </div>
+    <div
+      *ngIf="animation === 'fade-up-custom'"
+      data-aos="fade-up-custom"
+      data-aos-duration="1000"
+      data-aos-once="true"
+    >
+      <ng-container *ngTemplateOutlet="content"></ng-container>
+    </div>
+  </div>
+</ng-container>
 
 <ng-template #content>
-    <ng-content></ng-content>
+  <ng-content></ng-content>
 </ng-template>
