@@ -1,0 +1,17 @@
+<div
+  class="block sm:hidden"
+  data-aos="flip-right"
+  data-aos-duration="1000"
+  data-aos-once="true"
+>
+<ng-container *ngTemplateOutlet="content"></ng-container>
+</div>
+
+<div class="hidden sm:block">
+  <ng-container *ngTemplateOutlet="content"></ng-container>
+</div>
+
+
+<ng-template #content>
+    <ng-content></ng-content>
+</ng-template>

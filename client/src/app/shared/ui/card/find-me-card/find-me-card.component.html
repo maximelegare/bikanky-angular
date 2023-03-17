@@ -1,47 +1,43 @@
-<div
-  class="group w-96 rounded-md drop-shadow-md flex-initial"
-  data-aos-once="true"
-  data-aos="flip-left"
-  data-aos-duration="1000"
-  
->
-  <app-image
-    [overlayOnHover]="true"
-    [landScape]="true"
-    [width]="'60'"
-    [height]="'80'"
-    [src]="location.image.imageUrl"
-    [noRadiusBottom]="true"
-  >
-    <div
-      class="absolute w-full h-full text-center flex flex-col justify-around"
+  <div class="group w-96 rounded-md drop-shadow-md flex-initial">
+    <app-image
+      [overlayOnHover]="true"
+      [landScape]="true"
+      [width]="'60'"
+      [height]="'80'"
+      [src]="location.image.imageUrl"
+      [noRadiusBottom]="true"
     >
-      <div class="" *ngIf="location.logo">
-        <app-image [src]="location.logo.imageUrl"></app-image>
+      <div
+        class="absolute w-full h-full text-center flex flex-col justify-around"
+      >
+        <div class="" *ngIf="location.logo">
+          <app-image [src]="location.logo.imageUrl"></app-image>
+        </div>
+        <!-- <div class="text-2xl font-semibold text-white">
+    {{ location.title }}
+  </div> -->
       </div>
-      <!-- <div class="text-2xl font-semibold text-white">
-        {{ location.title }}
-      </div> -->
+    </app-image>
+    <div class="bg-white rounded-b-lg py-4">
+      <app-bullet [noDivisor]="true" *ngIf="location.address">
+        <div class="leading-4">
+          {{ formatString.formatAddress(location.address) }}
+        </div>
+      </app-bullet>
+      <app-bullet [noDivisor]="true"
+        ><div class="font-semibold">
+          {{ formatString.formatPhoneNumber(location.phoneNumber) }}
+        </div>
+      </app-bullet>
+      <app-bullet *ngIf="location.website" [noDivisor]="true">
+        <app-base-button
+          [noPadding]="true"
+          [variant]="'text-only'"
+          [text]="location.website"
+          [href]="location.website"
+        ></app-base-button>
+      </app-bullet>
     </div>
-  </app-image>
-  <div class="bg-white rounded-b-lg py-4">
-    <app-bullet [noDivisor]="true" *ngIf="location.address">
-      <div class="leading-4">
-        {{ formatString.formatAddress(location.address) }}
-      </div>
-    </app-bullet>
-    <app-bullet [noDivisor]="true"
-      ><div class="font-semibold">
-        {{ formatString.formatPhoneNumber(location.phoneNumber) }}
-      </div>
-    </app-bullet>
-    <app-bullet *ngIf="location.website" [noDivisor]="true">
-      <app-base-button
-        [noPadding]="true"
-        [variant]="'text-only'"
-        [text]="location.website"
-        [href]="location.website"
-      ></app-base-button>
-    </app-bullet>
   </div>
-</div>
+
+

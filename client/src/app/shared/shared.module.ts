@@ -29,6 +29,7 @@ import { CardTitleComponent } from './ui/other/card-title/card-title.component';
 import { DropdownSelectComponent } from './ui/dropdown-select/dropdown-select.component';
 import { PriceComponent } from './ui/price/price.component';
 import { FindMeCardComponent } from './ui/card/find-me-card/find-me-card.component';
+import { AosWrapperComponent } from './ui/aos-wrapper/aos-wrapper.component';
 
 
 
@@ -55,6 +56,7 @@ import { FindMeCardComponent } from './ui/card/find-me-card/find-me-card.compone
     DropdownSelectComponent,
     PriceComponent,
     FindMeCardComponent,
+    AosWrapperComponent,
   ],
   imports: [CommonModule, RouterModule, NbSidebarModule, FormsModule, NgSelectModule],
   exports: [
@@ -77,7 +79,8 @@ import { FindMeCardComponent } from './ui/card/find-me-card/find-me-card.compone
     CardTitleComponent,
     DropdownSelectComponent,
     PriceComponent,
-    FindMeCardComponent
+    FindMeCardComponent,
+    AosWrapperComponent
   ],
 })
 export class SharedModule {}
