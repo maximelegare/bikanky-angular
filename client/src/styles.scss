@@ -9,6 +9,7 @@
 @layer {
   html {
     scroll-behavior: smooth;
+    overscroll-behavior: contain;
   }
   .home-hero-gradiant {
     background: linear-gradient(

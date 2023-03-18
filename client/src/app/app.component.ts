@@ -26,8 +26,6 @@ export class AppComponent implements OnInit {
     this.sidebarOpen$.subscribe((sidebar) => {
       this.sidebarOpen = sidebar;
     });
-    
-    
   }  
   
   

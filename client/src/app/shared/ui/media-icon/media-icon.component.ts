@@ -20,10 +20,16 @@ export class MediaIconComponent implements OnInit {
     isSocialMedia:boolean
   }
 
+  @Input() textColor:string 
+
+
   ngOnInit(): void {
   }
   getIcon(icon:string):string{
     return `../../../../assets/svg/SVG/${icon}.svg`}
- 
+    
+  getStyles(){
+    return `font-semibold ${this.textColor} opacity-80`
+  }  
 
 }

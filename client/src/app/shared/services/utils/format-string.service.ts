@@ -21,4 +21,8 @@ export class FormatString {
       address.state
     } ${address.postalCode.toUpperCase()}, ${address.country}`;
   }
+
+  capitalize(string:string){
+    return`${string.slice(0,1).toUpperCase()}${string.slice(1,string.length -1).toLowerCase()}`
+  }
 }

@@ -10,7 +10,7 @@
       ></ng-container>
 
       <ng-template #default>
-        <div class="flex gap-2 items-center  opacity-75 hover:opacity-100 hover:cursor-pointer">
+        <div class="flex gap-2 items-center opacity-75 hover:opacity-100 hover:cursor-pointer">
           <!-- <div>
             <img
               class="w-6 h-6 cursor-pointer"
@@ -18,7 +18,7 @@
               [alt]="mediaIcon.mediaName"
             />
           </div> -->
-          <div class="font-semibold">
+          <div [class]="getStyles()">
             {{
               mediaIcon.mediaName === "phone"
                 ? formatString.formatPhoneNumber(mediaIcon.contact)

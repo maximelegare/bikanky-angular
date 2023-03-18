@@ -8,12 +8,12 @@ import { Component, Input, OnInit } from '@angular/core';
 export class LineDivisorComponent implements OnInit {
   @Input() marginTop: number;
   @Input() border: number = 1 ;
-  @Input() color: string;
+  @Input() color: string = "accent";
 
   constructor() {}
   ngOnInit(): void {}
 
   getStyles() {
-    return `border-${this.border} border-solid rounded-sm border-${this.color? this.color: "accent"} mt-${this.marginTop}`;
+    return `border-${this.border} border-solid rounded-sm border-${ this.color} mt-${this.marginTop}`;
   }
 }

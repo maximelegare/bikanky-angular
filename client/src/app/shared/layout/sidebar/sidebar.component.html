@@ -1,54 +1,143 @@
-  <div
+<div
   [class]="sidebarOpen ? 'visible' : 'hidden'"
-    class="bg-black fixed w-screen h-screen z-50 opacity-20"
-    (click)="handleClick()"
-  ></div>
-  <div
-    class="bg-black fixed w-[80%] h-screen z-50"
-    [class]="sidebarOpen ? 'right-0 transition-all duration-500' : 'right-[-100%] transition-all duration-200'"
-  >
-    <div class="my-6 mx-2">
-      <app-base-button
+  class="bg-transparentDarkGray opacity-20 fixed w-screen h-screen z-30"
+  (click)="handleClick()"
+></div>
+<div
+  class="bg-transparentDarkGray fixed w-[80%] h-screen z-30"
+  [class]="
+    sidebarOpen
+      ? 'right-0 transition-all duration-500'
+      : 'right-[-100%] transition-all duration-200'
+  "
+>
+  <div class="mt-24 mx-2 flex flex-col gap-2">
+    <!-- <app-base-button
         [variant]="'icon'"
         [icon]="'close'"
-        [iconColor]="'text-accent'"
+        [iconColor]="'text-white'"
         [iconSize]="'text-3xl'"
         [noHover]="true"
         (handleClick)="handleClick()"
-      ></app-base-button>
+      ></app-base-button> -->
+    <!-- <app-line-divisor
+      [marginTop]="5"
+      [color]="'transparentAccent'"
+    ></app-line-divisor> -->
+    <app-base-button
+      [text]="'PRODUITS'"
+      [variant]="'text-only'"
+      [textColor]="'text-white'"
+      [routerLink]="'products'"
+      [noHover]="true"
+      [routerLink]="'products'"
+      [noPadding]="true"
+    ></app-base-button>
+    <div class="pl-3 flex flex-col gap-1">
       <app-base-button
-        [text]="'Produits'"
+        [text]="'Tous les produits'"
         [variant]="'text-only'"
-        [textColor]="'text-accent'"
+        [textColor]="'text-white font-normal'"
         [routerLink]="'products'"
         [noHover]="true"
+        [noPadding]="true"
       ></app-base-button>
       <app-base-button
-        [text]="'Stylisme'"
+        [text]="'Éditions limitées'"
         [variant]="'text-only'"
-        [textColor]="'text-accent'"
-        [routerLink]="'stylism'"
+        [textColor]="'text-white font-normal'"
+        [routerLink]="'products'"
         [noHover]="true"
+        [noPadding]="true"
       ></app-base-button>
       <app-base-button
-        [text]="'À Propos'"
+        [text]="'Étoiles'"
         [variant]="'text-only'"
-        [textColor]="'text-accent'"
+        [textColor]="'text-white font-normal'"
+        [routerLink]="'products'"
         [noHover]="true"
+        [noPadding]="true"
       ></app-base-button>
-      <app-base-button
+    </div>
+    <app-line-divisor
+      [marginTop]="5"
+      [color]="'transparentAccent'"
+    ></app-line-divisor>
+
+    <app-base-button
+      [text]="'STYLISME'"
+      [variant]="'text-only'"
+      [textColor]="'text-white'"
+      [routerLink]="'stylism'"
+      [noHover]="true"
+      [noPadding]="true"
+    ></app-base-button>
+    <div class="flex flex-col gap-1">
+      <ng-container *ngIf="stylismServices$ | async as services">
+        <div class="pl-3" *ngFor="let service of services">
+          <app-base-button
+            [text]="formatString.capitalize(service.title)"
+            [variant]="'text-only'"
+            [textColor]="'text-white font-normal'"
+            [routerLink]="'stylism'"
+            [noHover]="true"
+            [noPadding]="true"
+          ></app-base-button>
+        </div>
+      </ng-container>
+    </div>
+    <app-line-divisor
+      [marginTop]="5"
+      [color]="'transparentAccent'"
+    ></app-line-divisor>
+    <app-base-button
+      [text]="'À PROPOS'"
+      [variant]="'text-only'"
+      [textColor]="'text-white'"
+      [noHover]="true"
+      [routerLink]="'/about'"
+      [noPadding]="true"
+      [noPadding]="true"
+    ></app-base-button>
+    <app-line-divisor
+      [marginTop]="5"
+      [color]="'transparentAccent'"
+    ></app-line-divisor>
+    <div class="flex flex-col gap-1">
+      <ng-container *ngIf="contactData$ | async as contactData">
+        <ng-container *ngFor="let media of contactData?.medias">
+          <ng-container *ngIf="!media.isSocialMedia">
+            <app-media-icons
+              [textColor]="'text-white font-normal'"
+              [mediaIcon]="media"
+            ></app-media-icons>
+          </ng-container>
+        </ng-container>
+      </ng-container>
+    </div>
+    <div class="absolute bottom-6 translate-x-[-50%] left-[50%]">
+      <a routerLink="/">
+        <img
+          class="w-10 h-auto cursor-pointer outilne"
+          src="/assets/svg/bikanky-logo.svg"
+          alt="logo Bikanky"
+        />
+      </a>
+    </div>
+
+    <!-- <app-base-button
         [text]="'Me contacter'"
         [variant]="'text-only'"
         [routerLink]="'contact'"
         [textColor]="'text-accent'"
         [noHover]="true"
-      ></app-base-button>
-      <!-- <app-base-cart-button [numberItem]="4"></app-base-cart-button> -->
-      <app-base-button
+      ></app-base-button> -->
+    <!-- <app-base-cart-button [numberItem]="4"></app-base-cart-button> -->
+    <!-- <app-base-button
         [text]="'Fr'"
         [variant]="'text-only'"
         [textColor]="'text-accent'"
         [noHover]="true"
-      ></app-base-button>
-    </div>
+      ></app-base-button> -->
   </div>
+</div>
