@@ -3,6 +3,7 @@
   [class]="getStyles()"
   class="group block w-fit"
   *ngIf="routerLink"
+  (click)="handleButtonClick()"
 >
   <p
     *ngIf="text"
@@ -28,6 +29,7 @@
   class="group block w-fit"
   *ngIf="href"
   target="_blank"
+  (click)="handleButtonClick()"
 >
   {{ text }}
 </a>

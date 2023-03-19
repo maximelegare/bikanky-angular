@@ -33,6 +33,8 @@ export class SidebarComponent implements OnInit {
     });
   }
 
+  
+
   handleClick() {
     this.store.dispatch(new ToggleSideBarOpen());
   }
