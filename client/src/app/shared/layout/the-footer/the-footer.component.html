@@ -18,18 +18,21 @@
             [variant]="'text-only'"
             [routerLink]="'products'"
             [noPadding]="true"
+            (handleClick)="handleClick()"
           ></app-base-button>
           <app-base-button
             [text]="'Stylisme'"
             [variant]="'text-only'"
             [routerLink]="'stylism'"
             [noPadding]="true"
+            (handleClick)="handleClick()"
           ></app-base-button>
           <app-base-button
             [text]="'À propos'"
             [variant]="'text-only'"
             [noPadding]="true"
             [routerLink]="'about'"
+            (handleClick)="handleClick()"
           ></app-base-button>
         </div>
         <div class="flex flex-col flex-1">

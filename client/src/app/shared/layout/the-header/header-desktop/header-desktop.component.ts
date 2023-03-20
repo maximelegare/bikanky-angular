@@ -26,6 +26,13 @@ export class HeaderDesktopComponent implements OnInit {
 
   ngOnInit(): void {}
 
+  handleClick(noScroll?: boolean) {
+    if (noScroll) {
+      return
+    } else {
+      window.scrollTo(0, 0);
+    }
+  }
 
   @HostListener('window:scroll', ['event'])
   scrollFunction(event: any) {

@@ -17,25 +17,31 @@ import { FormatString } from '../../services/utils/format-string.service';
   styleUrls: ['./sidebar.component.css'],
 })
 export class SidebarComponent implements OnInit {
-  constructor(public store: Store, public formatString:FormatString) {}
+  constructor(public store: Store, public formatString: FormatString) {}
 
   @Select(GeneralState.getSidebarOpen) sidebarOpen$: Observable<boolean>;
-  @Select(StylismServicesState.getStylismServices) stylismServices$:Observable<StylismService[]>;
-  @Select(ContactState.getContactPageData) contactData$:Observable<ContactData>;
+  @Select(StylismServicesState.getStylismServices) stylismServices$: Observable<
+    StylismService[]
+  >;
+  @Select(ContactState.getContactPageData)
+  contactData$: Observable<ContactData>;
 
-  sidebarOpen:boolean
+  sidebarOpen: boolean;
 
   ngOnInit(): void {
-    this.store.dispatch(new FectchContactData())
-    this.store.dispatch(new FetchStylismServices())
+    this.store.dispatch(new FectchContactData());
+    this.store.dispatch(new FetchStylismServices());
     this.sidebarOpen$.subscribe((sidebar) => {
       this.sidebarOpen = sidebar;
     });
   }
 
-  
-
-  handleClick() {
+  handleClick(noScroll?: boolean) {
     this.store.dispatch(new ToggleSideBarOpen());
+    if (noScroll) {
+      return
+    } else {
+      window.scrollTo(0, 0);
+    }
   }
 }

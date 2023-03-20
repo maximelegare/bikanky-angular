@@ -1,7 +1,7 @@
 <div
   [class]="sidebarOpen ? 'visible' : 'hidden'"
   class="bg-transparentDarkGray opacity-20 fixed w-screen h-screen z-30"
-  (click)="handleClick()"
+  (click)="handleClick(true)"
 ></div>
 <div
   class="bg-transparentDarkGray fixed w-[80%] h-screen z-30"
@@ -120,8 +120,11 @@
         </ng-container>
       </ng-container>
     </div>
-    <div class="absolute bottom-6 translate-x-[-50%] left-[50%]">
-      <a routerLink="/">
+    <div
+      class="absolute bottom-6 translate-x-[-50%] left-[50%]"
+      
+    >
+      <a routerLink="/" (click)="handleClick()">
         <img
           class="w-10 h-auto cursor-pointer outilne"
           src="/assets/svg/bikanky-logo.svg"

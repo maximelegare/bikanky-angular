@@ -19,7 +19,7 @@
           <BaseButton title="Me Contacter" link="/contact" variant="text-only"/>
           <BaseButton title="Fr" variant="text-only"/> -->
 
-    <div>
+    <div (click)="handleClick()">
       <a routerLink="/">
         <img
           class="w-10 h-auto cursor-pointer outilne"
@@ -28,24 +28,30 @@
         />
       </a>
     </div>
-    <app-base-button
-      [text]="'Produits'"
-      [variant]="'text-only'"
-      [underlineOnHover]="true"
-      [routerLink]="'products'"
-    ></app-base-button>
-    <app-base-button
-      [text]="'Stylisme'"
-      [variant]="'text-only'"
-      [underlineOnHover]="true"
-      [routerLink]="'stylism'"
-    ></app-base-button>
-    <app-base-button
-      [text]="'À propos ☎'"
-      [variant]="'text-only'"
-      [routerLink]="'about'"
-      [underlineOnHover]="true"
-    ></app-base-button>
+    <div (click)="handleClick()">
+      <app-base-button
+        [text]="'Produits'"
+        [variant]="'text-only'"
+        [underlineOnHover]="true"
+        [routerLink]="'products'"
+      ></app-base-button>
+    </div>
+    <div (click)="handleClick()">
+      <app-base-button
+        [text]="'Stylisme'"
+        [variant]="'text-only'"
+        [underlineOnHover]="true"
+        [routerLink]="'stylism'"
+      ></app-base-button>
+    </div>
+    <div (click)="handleClick()">
+      <app-base-button
+        [text]="'À propos ☎'"
+        [variant]="'text-only'"
+        [routerLink]="'about'"
+        [underlineOnHover]="true"
+      ></app-base-button>
+    </div>
     <!-- <app-base-button
       [text]="'Me contacter'"
       [variant]="'text-only'"

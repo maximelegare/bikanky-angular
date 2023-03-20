@@ -24,7 +24,13 @@ export class TheFooterComponent implements OnInit {
     this.contactData$.subscribe((data) => this.contactData = data)
   }
 
-
+  handleClick(noScroll?: boolean) {
+    if (noScroll) {
+      return
+    } else {
+      window.scrollTo(0, 0);
+    }
+  }
 
 
   d = new Date()
