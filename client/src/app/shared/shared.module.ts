@@ -31,6 +31,8 @@ import { PriceComponent } from './ui/price/price.component';
 import { FindMeCardComponent } from './ui/card/find-me-card/find-me-card.component';
 import { AosWrapperComponent } from './ui/aos-wrapper/aos-wrapper.component';
 import { ContainerComponent } from './ui/container/container.component';
+import { MaterialCardComponent } from './ui/card/material-card/material-card.component';
+import { LimitedEditionFlagComponent } from './ui/limited-edition-flag/limited-edition-flag.component';
 
 
 
@@ -59,6 +61,8 @@ import { ContainerComponent } from './ui/container/container.component';
     FindMeCardComponent,
     AosWrapperComponent,
     ContainerComponent,
+    MaterialCardComponent,
+    LimitedEditionFlagComponent,
   ],
   imports: [CommonModule, RouterModule, NbSidebarModule, FormsModule, NgSelectModule],
   exports: [
@@ -83,7 +87,9 @@ import { ContainerComponent } from './ui/container/container.component';
     PriceComponent,
     FindMeCardComponent,
     AosWrapperComponent,
-    ContainerComponent
+    ContainerComponent,
+    MaterialCardComponent,
+    LimitedEditionFlagComponent
   ],
 })
 export class SharedModule {}

@@ -46,6 +46,14 @@
     </div>
     <div (click)="handleClick()">
       <app-base-button
+        [text]="'Matériaux'"
+        [variant]="'text-only'"
+        [routerLink]="'materials'"
+        [underlineOnHover]="true"
+      ></app-base-button>
+    </div>
+    <div (click)="handleClick()">
+      <app-base-button
         [text]="'À propos ☎'"
         [variant]="'text-only'"
         [routerLink]="'about'"

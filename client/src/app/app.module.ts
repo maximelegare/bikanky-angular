@@ -27,6 +27,8 @@ import { ContactModule } from './contact/contact.module';
 import { StylismServicesModule } from './stylism-services/stylism-services.module';
 import { HomeModule } from './home/ui/home.module';
 import { AboutModule } from './about/about.module';
+import { MaterialsModule } from './materials/materials.module';
+
 
 @NgModule({
   declarations: [
@@ -55,6 +57,7 @@ import { AboutModule } from './about/about.module';
     StylismServicesModule,
     HomeModule,
     AboutModule,
+    MaterialsModule
   ],
 
   bootstrap: [AppComponent],

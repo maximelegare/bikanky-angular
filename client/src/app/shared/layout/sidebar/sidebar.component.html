@@ -95,6 +95,20 @@
       [color]="'transparentAccent'"
     ></app-line-divisor>
     <app-base-button
+      [text]="'MATÉRIAUX'"
+      [variant]="'text-only'"
+      [textColor]="'text-white'"
+      [noHover]="true"
+      [routerLink]="'/materials'"
+      [noPadding]="true"
+      [noPadding]="true"
+      (handleClick)="handleClick()"
+    ></app-base-button>
+    <app-line-divisor
+      [marginTop]="5"
+      [color]="'transparentAccent'"
+    ></app-line-divisor>
+    <app-base-button
       [text]="'À PROPOS'"
       [variant]="'text-only'"
       [textColor]="'text-white'"
@@ -120,10 +134,7 @@
         </ng-container>
       </ng-container>
     </div>
-    <div
-      class="absolute bottom-6 translate-x-[-50%] left-[50%]"
-      
-    >
+    <div class="absolute bottom-6 translate-x-[-50%] left-[50%]">
       <a routerLink="/" (click)="handleClick()">
         <img
           class="w-10 h-auto cursor-pointer outilne"

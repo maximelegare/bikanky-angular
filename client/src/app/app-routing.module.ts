@@ -8,7 +8,7 @@ import { ProductComponent } from './product/product.component';
 import { ErrorComponent } from './error/error.component';
 import { ContactComponent } from './contact/contact.component';
 import { AboutComponent } from './about/about.component';
-
+import { MaterialsComponent } from './materials/materials.component';
 
 const routes: Routes = [
   {
@@ -34,6 +34,11 @@ const routes: Routes = [
   {
     path: 'contact',
     component: ContactComponent,
+    pathMatch:'full', 
+  },
+  {
+    path: 'materials',
+    component: MaterialsComponent,
     pathMatch:'full', 
   },
   {
