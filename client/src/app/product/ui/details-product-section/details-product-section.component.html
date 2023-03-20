@@ -1,10 +1,28 @@
 <app-emply-card>
   <app-block-content [objectKey]="'body'" [data]="currentVariant"></app-block-content>
   <app-line-divisor [marginTop]="6"></app-line-divisor>
-    <div class="font-semibold text-lg mt-2">Options</div>
-    <div *ngIf="currentVariant.options">
-      <div *ngFor="let option of currentVariant.options">
-        <app-bullet [noDivisor]="true">{{ option }}</app-bullet>
-      </div>
+  <div *ngIf="currentVariant.dimensions">
+    <div class="font-semibold text-lg mt-2">Dimensions</div>
+    <div *ngFor="let dimension of currentVariant.dimensions">
+      <app-bullet [noDivisor]="true">{{ dimension }}</app-bullet>
     </div>
+  </div>
+  <div *ngIf="currentVariant.fabrics">
+    <div class="font-semibold text-lg mt-2">Composantes</div>
+    <div *ngFor="let fabric of currentVariant.fabrics">
+      <app-bullet [noDivisor]="true">{{ fabric }}</app-bullet>
+    </div>
+  </div>
+  <div *ngIf="currentVariant.maintenance">
+    <div class="font-semibold text-lg mt-2">Entretien</div>
+    <div *ngFor="let bullet of currentVariant.maintenance">
+      <app-bullet [noDivisor]="true">{{ bullet }}</app-bullet>
+    </div>
+  </div>
+  <div *ngIf="currentVariant.options">
+    <div class="font-semibold text-lg mt-2">Options</div>
+    <div *ngFor="let option of currentVariant.options">
+      <app-bullet [noDivisor]="true">{{ option }}</app-bullet>
+    </div>
+  </div>
 </app-emply-card>

@@ -16,6 +16,9 @@ interface ProductVariant {
   mainImage:Image;
   lengthType: { title: string };
   options: string[];
+  dimensions: string[];
+  fabrics: string[];
+  maintenance: string[];
   star: boolean;
   starOfTheSeason: boolean;
   tags: string[];

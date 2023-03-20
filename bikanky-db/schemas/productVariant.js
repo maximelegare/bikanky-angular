@@ -43,13 +43,44 @@ export default {
       name: "sku",
       type: "slug",
     },
-    
-  
     {
       title: "Length Type",
       name: "lengthType",
       type: "reference",
       to:[ { type: "allLengthTypes" }],
+    },
+    {
+      title: "Dimensions",
+      name: "dimensions",
+      type: "array",
+      of: [
+        {
+          name: "dimension",
+          type: "string",
+        },
+      ],
+    },
+    {
+      title: "Fabrics",
+      name: "fabrics",
+      type: "array",
+      of: [
+        {
+          name: "fabric",
+          type: "string",
+        },
+      ],
+    },
+    {
+      title: "Maintenance",
+      name: "maintenance",
+      type: "array",
+      of: [
+        {
+          name: "bullet",
+          type: "string",
+        },
+      ],
     },
     {
       title: "Options",

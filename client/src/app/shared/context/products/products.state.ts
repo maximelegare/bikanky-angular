@@ -112,7 +112,7 @@ export class ProductsState {
             limitedEdition,
             star,
             starOfTheSeason,
-            "slug": [*[_type == "product" && references(^._id)][0].slug.current, sku],
+            "slug": [*[_type == "product" && references(^._id)][0].slug.current, sku.current],
             "sku":sku.current,
             _id
           },
@@ -151,6 +151,9 @@ export class ProductsState {
             images[]{"imageUrl": asset->url},
             mainProductTitle,
             options,
+            dimensions,
+            fabrics,
+            maintenance,
             price,
             showOnHomePage,
             sku,

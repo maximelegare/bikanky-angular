@@ -20,5 +20,6 @@ export class DetailsProductSectionComponent implements OnInit {
 
 
   ngOnInit(): void {
+    console.log(this.currentVariant)
   }
 }
