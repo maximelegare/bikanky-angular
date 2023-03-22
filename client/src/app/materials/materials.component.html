@@ -1,6 +1,8 @@
 <app-container>
-  <app-card-title [title]="'Materiaux'"></app-card-title>  
-  <app-material-section></app-material-section>
-  <app-material-section></app-material-section>
-  <app-material-section></app-material-section>
+  <app-card-title [title]="'Materiaux'"></app-card-title>
+  <ng-container *ngIf="materialsCategories$ | async as materialsCategories">
+    <ng-container *ngFor="let materialsCategory of materialsCategories">
+      <app-material-section [materialsCategory]="materialsCategory"></app-material-section>
+    </ng-container>
+  </ng-container>
 </app-container>

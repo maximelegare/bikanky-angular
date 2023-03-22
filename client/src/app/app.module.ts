@@ -28,6 +28,7 @@ import { StylismServicesModule } from './stylism-services/stylism-services.modul
 import { HomeModule } from './home/ui/home.module';
 import { AboutModule } from './about/about.module';
 import { MaterialsModule } from './materials/materials.module';
+import { MaterialsCategoriesState } from './shared/context/materials/materials.state';
 
 
 @NgModule({
@@ -48,7 +49,8 @@ import { MaterialsModule } from './materials/materials.module';
       GeneralState,
       ContactState,
       StylismServicesState,
-      AboutState
+      AboutState,
+      MaterialsCategoriesState
     ]),
     CarouselModule,
     SharedModule,

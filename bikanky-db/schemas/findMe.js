@@ -1,6 +1,6 @@
 export default {
     name: 'findMe',
-    title: 'Find me',
+    title: '-- Find me',
     type: 'document',
     fields: [
       

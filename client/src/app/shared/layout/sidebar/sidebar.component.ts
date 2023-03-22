@@ -20,6 +20,8 @@ export class SidebarComponent implements OnInit {
   constructor(public store: Store, public formatString: FormatString) {}
 
   @Select(GeneralState.getSidebarOpen) sidebarOpen$: Observable<boolean>;
+  @Select(GeneralState.getLang) lang$: Observable<string>;
+  
   @Select(StylismServicesState.getStylismServices) stylismServices$: Observable<
     StylismService[]
   >;

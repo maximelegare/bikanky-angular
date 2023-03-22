@@ -3,8 +3,9 @@ export interface MaterialsCategory {
   materials: Material[];
 }
 
-interface Material {
+export interface Material {
   mainImage: { imageUrl: string };
   tags: { title: string }[];
   title: any;
+  isLimitedQuantity:boolean;
 }

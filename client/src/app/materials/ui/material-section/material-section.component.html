@@ -1,12 +1,10 @@
 <div class="mb-7">
-    <p class="mb-2 font-semibold text-lg">title</p>
-    <div class="flex flex-wrap gap-3">
-        <app-material-card></app-material-card>
-        <app-material-card></app-material-card>
-        <app-material-card></app-material-card>
-        <app-material-card></app-material-card>
-        <app-material-card></app-material-card>
-        <app-material-card></app-material-card>
-    </div>
+  <ng-container *ngIf="lang$ | async as lang">
+    <p class="mb-2 font-semibold text-lg">{{ materialsCategory.title[lang] }}</p>
+  </ng-container>
+  <div class="flex flex-wrap gap-3">
+    <ng-container *ngFor="let material of materialsCategory.materials">
+      <app-material-card [material]="material"></app-material-card>
+    </ng-container>
+  </div>
 </div>
-

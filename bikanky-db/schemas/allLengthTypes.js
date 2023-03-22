@@ -1,6 +1,6 @@
 export default {
   name: 'allLengthTypes',
-  title: 'All Length Types',
+  title: '-- All Length Types',
   type: 'document',
   fields: [
     {

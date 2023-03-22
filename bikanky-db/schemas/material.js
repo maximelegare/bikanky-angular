@@ -1,8 +1,14 @@
 export default {
   name: "material",
-  title: "Material",
+  title: "-- Material",
   type: "document",
   fields: [
+    {
+      name: "isLimitedQuantity",
+      title: "Limited Quantity",
+      type: "boolean",
+      initialValue: false,
+    },
     {
       name: "title",
       title: "Title",
@@ -29,7 +35,7 @@ export default {
   preview: {
     select: {
       title: "title.en",
-      media:"mainImage"
+      media: "mainImage",
     },
   },
 };

@@ -29,20 +29,20 @@ export default createSchema({
     // The following are document types which will appear
     // in the studio.
     product,
-    tag,
+    productVariant,
     // When added to this list, object types can be used as
     // { type: 'typename' } in other document schemas
     blockContent,
     localeText,
     localeBlockContent,
     localeString,
-    productVariant,
-    testimonial,
-    infos,
     stylismService,
+    testimonial,
     allLengthTypes,
     findMe,
+    infos,
+    material,
     materialsCategories,
-    material
+    tag,
   ]),
 })

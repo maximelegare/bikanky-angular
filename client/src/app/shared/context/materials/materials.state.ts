@@ -39,12 +39,12 @@ export class MaterialsCategoriesState {
   lang = '';
 
   @Selector()
-  static getS(state: MaterialsCategoriesStateModel) {
+  static getMaterialCategories(state: MaterialsCategoriesStateModel) {
     return state.materialsCategories;
   }
 
   @Action(FetchMaterialsCategories)
-  fetchStylismServices(ctx: StateContext<MaterialsCategoriesStateModel>) {
+  fetchMaterialsCategories(ctx: StateContext<MaterialsCategoriesStateModel>) {
     // Call the fetch products method and cancel if problem
     // image{"imageUrl": asset->url},
     return from(
@@ -56,6 +56,7 @@ export class MaterialsCategoriesState {
             mainImage{
                 "imageUrl": asset->url
             },
+            isLimitedQuantity,
             title{${this.lang}},
             tags[]->{
                 title
@@ -95,7 +96,7 @@ export class MaterialsCategoriesState {
   }
 
   @Action(FetchMaterialsCategoriesFailure)
-  fetchStylismServicesFailure(
+  fetchMaterialsCategoriesFailure(
     ctx: StateContext<MaterialsCategoriesStateModel>
   ) {
     const state = ctx.getState();

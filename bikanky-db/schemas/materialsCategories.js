@@ -1,6 +1,6 @@
 export default {
   name: "materialsCategories",
-  title: "Materials Categories",
+  title: "-- Materials Categories",
   type: "document",
   fields: [
     {
