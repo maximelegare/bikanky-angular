@@ -56,18 +56,19 @@ export default {
       of: [
         {
           name: "dimension",
-          type: "string",
+          type: "localeString",
         },
       ],
     },
     {
-      title: "Fabrics",
-      name: "fabrics",
+      title: "Materials",
+      name: "materials",
       type: "array",
       of: [
         {
-          name: "fabric",
-          type: "string",
+          name: "material",
+          type: "reference",
+          to: [{ type: "material" }],
         },
       ],
     },
@@ -78,7 +79,7 @@ export default {
       of: [
         {
           name: "bullet",
-          type: "string",
+          type: "localeString",
         },
       ],
     },
@@ -89,7 +90,7 @@ export default {
       of: [
         {
           name: "option",
-          type: "string",
+          type: "localeString",
         },
       ],
     },

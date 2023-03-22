@@ -12,6 +12,7 @@ export class BlockContentComponent implements OnInit {
   constructor() {}
   @Input() data: any;
   @Input() objectKey:string
+
   ngOnInit(): void {
     this.lang$.subscribe((lang) => {
       this.lang = lang;
@@ -33,8 +34,6 @@ export class BlockContentComponent implements OnInit {
     }  
 
   }
-
-
   @Select(GeneralState.getLang) lang$: Observable<string>;
   lang = '';
 }

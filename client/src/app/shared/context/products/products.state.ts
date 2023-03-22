@@ -150,10 +150,9 @@ export class ProductsState {
             mainImage{"imageUrl": asset->url},
             images[]{"imageUrl": asset->url},
             mainProductTitle,
-            options,
-            dimensions,
-            fabrics,
-            maintenance,
+            options[]{${this.lang}},
+            dimensions[]{${this.lang}},
+            maintenance[]{${this.lang}},
             price,
             showOnHomePage,
             sku,
@@ -163,6 +162,7 @@ export class ProductsState {
             tags,
             "sku":sku.current,
             "slug": [*[_type == "product" && references(^._id)][0].slug.current, sku.current],
+            materials[]->{mainImage{"imageUrl": asset-> url}, title{${this.lang}}, tags[]->{title}},
           }
         }`;
         break;

@@ -13,11 +13,11 @@ interface ProductVariant {
   variantTitle: string;
   price: number;
   images: Image[];
-  mainImage:Image;
+  mainImage: Image;
   lengthType: { title: string };
   options: string[];
   dimensions: string[];
-  fabrics: string[];
+  materials: material[];
   maintenance: string[];
   star: boolean;
   starOfTheSeason: boolean;
@@ -35,6 +35,12 @@ interface Image {
 interface Bullet {
   icon: string;
   text: any;
+}
+
+interface material {
+  imageUrl: string;
+  title: any;
+  tags: { title: string }[];
 }
 
 export { Product, Bullet, ProductVariant };

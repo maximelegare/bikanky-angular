@@ -16,10 +16,14 @@ export class DetailsProductSectionComponent implements OnInit {
 
   @Input() currentVariant: ProductVariant;
   
-  
+  @Select(GeneralState.getLang) lang$: Observable<string>;
 
+  lang = ""
 
   ngOnInit(): void {
     console.log(this.currentVariant)
+    this.lang$.subscribe((lang) => {
+      this.lang = lang;
+    });
   }
 }

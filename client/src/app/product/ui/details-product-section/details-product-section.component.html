@@ -4,25 +4,25 @@
   <div *ngIf="currentVariant.dimensions">
     <div class="font-semibold text-lg mt-2">Dimensions</div>
     <div *ngFor="let dimension of currentVariant.dimensions">
-      <app-bullet [noDivisor]="true">{{ dimension }}</app-bullet>
+      <app-bullet [noDivisor]="true">{{ dimension[lang] }}</app-bullet>
     </div>
   </div>
-  <div *ngIf="currentVariant.fabrics">
+  <div *ngIf="currentVariant.materials">
     <div class="font-semibold text-lg mt-2">Composantes</div>
-    <div *ngFor="let fabric of currentVariant.fabrics">
-      <app-bullet [noDivisor]="true">{{ fabric }}</app-bullet>
+    <div *ngFor="let material of currentVariant.materials">
+      <app-bullet [noDivisor]="true">{{ material.title[lang] }}</app-bullet>
     </div>
   </div>
   <div *ngIf="currentVariant.maintenance">
     <div class="font-semibold text-lg mt-2">Entretien</div>
     <div *ngFor="let bullet of currentVariant.maintenance">
-      <app-bullet [noDivisor]="true">{{ bullet }}</app-bullet>
+      <app-bullet [noDivisor]="true">{{ bullet[lang] }}</app-bullet>
     </div>
   </div>
   <div *ngIf="currentVariant.options">
     <div class="font-semibold text-lg mt-2">Options</div>
     <div *ngFor="let option of currentVariant.options">
-      <app-bullet [noDivisor]="true">{{ option }}</app-bullet>
+      <app-bullet [noDivisor]="true">{{ option[lang] }}</app-bullet>
     </div>
   </div>
 </app-emply-card>

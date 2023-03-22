@@ -2,7 +2,7 @@
   
   <app-emply-card [width]="'w-full  lg:w-[80%] mx-auto'">
     <div class="mb-10">
-      <div class="text-xl font-semibold">{{ service.title }}</div>
+      <div class="text-xl font-semibold">{{ service.title[lang] }}</div>
       <app-block-content [objectKey]="'body'" [data]="service"></app-block-content>
     </div>
   </app-emply-card>

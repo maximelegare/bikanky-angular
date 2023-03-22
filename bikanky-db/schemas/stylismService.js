@@ -18,7 +18,7 @@ export default {
       {
         name: "title",
         title: "Title",
-        type: "string",
+        type: "localeString",
       },
       {
         name: "slug",
@@ -77,8 +77,7 @@ export default {
     ],
     preview: {
       select: {
-        title: "title",
-        manufactor: "manufactor.title",
+        title: "title.fr",
         media: "image",
       },
     },

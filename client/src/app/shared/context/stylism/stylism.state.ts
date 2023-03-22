@@ -54,7 +54,7 @@ export class StylismServicesState {
          isActive,
          showOnHomePge,
          tags, 
-         title,
+         title{${this.lang}},
          slug,
          price,
          shortDescription{${this.lang}[0]{children[0]{text}}},
