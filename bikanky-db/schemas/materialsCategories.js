@@ -1,11 +1,11 @@
 export default {
-  name: "materialCategories",
-  title: "Material Categories",
+  name: "materialsCategories",
+  title: "Materials Categories",
   type: "document",
   fields: [
     {
       title: "Materials Category Title",
-      name: "materialsCategoryTitle",
+      name: "title",
       type: "localeString",
     },
     {
@@ -20,7 +20,7 @@ export default {
 
   preview: {
     select: {
-      title: "materialsCategoryTitle.en",
+      title: "title.en",
     },
   },
 };

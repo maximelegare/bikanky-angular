@@ -13,7 +13,7 @@ import infos from "./infos"
 import stylismService from './stylismService'
 import allLengthTypes from './allLengthTypes'
 import findMe from './findMe'
-import materialCategories from './materialCategories'
+import materialsCategories from './materialsCategories'
 import material from './material'
 
 import localeString from './locale/String'
@@ -42,7 +42,7 @@ export default createSchema({
     stylismService,
     allLengthTypes,
     findMe,
-    materialCategories,
+    materialsCategories,
     material
   ]),
 })
