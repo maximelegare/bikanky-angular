@@ -1,8 +1,7 @@
-<app-container>
-  <app-card-title [title]="'Materiaux'"></app-card-title>
+<div class="flex flex-col gap-10 sm:gap-24 my-10">
   <ng-container *ngIf="materialsCategories$ | async as materialsCategories">
-    <ng-container *ngFor="let materialsCategory of materialsCategories">
-      <app-material-section [materialsCategory]="materialsCategory"></app-material-section>
+      <ng-container *ngFor="let materialsCategory of materialsCategories">
+        <app-material-section [materialsCategory]="materialsCategory"></app-material-section>
+      </ng-container>
     </ng-container>
-  </ng-container>
-</app-container>
+</div>

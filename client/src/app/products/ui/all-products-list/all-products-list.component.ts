@@ -13,7 +13,6 @@ export class AllProductsListComponent implements OnInit {
   constructor() {}
   @Select(ProductsState.getAllMergedProducts) products$: Observable<Product[]>;
   
-  @Input() mapAllVariants: boolean = false;
 
   products: any[];
 

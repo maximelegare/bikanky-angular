@@ -4,6 +4,7 @@ import { MaterialsCategory } from 'src/app/shared/context/materials/materials.mo
 import { GeneralState } from 'src/app/shared/context/general/general.state';
 import { Observable } from 'rxjs';
 import { Select } from '@ngxs/store';
+import { FormatString } from 'src/app/shared/services/utils/format-string.service';
 
 @Component({
   selector: 'app-material-section',
@@ -13,7 +14,7 @@ import { Select } from '@ngxs/store';
 export class MaterialSectionComponent implements OnInit {
   @Select(GeneralState.getLang) lang$: Observable<string>;
 
-  constructor() {}
+  constructor(public formatString:FormatString) {}
   @Input() materialsCategory: MaterialsCategory;
 
   ngOnInit(): void {}

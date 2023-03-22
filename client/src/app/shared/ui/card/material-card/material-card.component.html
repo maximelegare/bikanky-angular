@@ -1,14 +1,20 @@
-<app-emply-card [width]="'w-fit'">
-  <app-limited-edition-flag
-    [text]="'Quantité Limité'"
-    [isVisible]="material.isLimitedQuantity"
-  ></app-limited-edition-flag>
-  <div>
-    <div class="w-28 h-28 overflow-hidden">
-      <app-image [src]="material.mainImage.imageUrl" [width]="'w-28'" [height]="'w-28 object-cover'"></app-image>
+<app-aos-wrapper [animation]="'flip-right'">
+  <app-emply-card [width]="'w-fit'">
+    <app-limited-edition-flag
+      [text]="'Quantité Limité'"
+      [isVisible]="material.isLimitedQuantity"
+    ></app-limited-edition-flag>
+    <div>
+      <div class="w-28 h-28 overflow-hidden">
+        <app-image
+          [src]="material.mainImage.imageUrl"
+          [width]="'w-28'"
+          [height]="'w-28 object-cover'"
+        ></app-image>
+      </div>
+      <ng-container *ngIf="lang$ | async as lang">
+        <p>{{ material.title[lang] }}</p>
+      </ng-container>
     </div>
-    <ng-container *ngIf="lang$ | async as lang">
-      <p>{{ material.title[lang] }}</p>
-    </ng-container>
-  </div>
-</app-emply-card>
+  </app-emply-card>
+</app-aos-wrapper>

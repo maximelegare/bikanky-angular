@@ -1,10 +1,12 @@
-<div class="mb-7">
-  <ng-container *ngIf="lang$ | async as lang">
-    <p class="mb-2 font-semibold text-lg">{{ materialsCategory.title[lang] }}</p>
-  </ng-container>
-  <div class="flex flex-wrap gap-3">
-    <ng-container *ngFor="let material of materialsCategory.materials">
-      <app-material-card [material]="material"></app-material-card>
-    </ng-container>
-  </div>
-</div>
+<app-container>
+    <div class="mb-7">
+      <ng-container *ngIf="lang$ | async as lang">
+        <app-card-title [title]="formatString.capitalize(materialsCategory.title[lang])"></app-card-title>
+      </ng-container>
+      <div class="flex flex-wrap gap-3">
+        <ng-container *ngFor="let material of materialsCategory.materials">
+          <app-material-card [material]="material"></app-material-card>
+        </ng-container>
+      </div>
+    </div>
+</app-container>

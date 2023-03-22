@@ -1,6 +1,9 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { FormatString } from 'src/app/shared/services/utils/format-string.service';
+import { Select } from '@ngxs/store';
+import { Observable } from 'rxjs';
+import { GeneralState } from 'src/app/shared/context/general/general.state';
 import {
   Product,
   ProductVariant,
@@ -22,6 +25,7 @@ export class ProductCardComponent implements OnInit {
   @Input()image:string;
   @Input()starOfTheSeason:boolean
 
+  @Select(GeneralState.getLang) lang$:Observable<string>
 
   routerLink: string[] = [];
 

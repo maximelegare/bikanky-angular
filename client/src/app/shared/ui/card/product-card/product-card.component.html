@@ -57,11 +57,13 @@
         <app-price class="inline" [price]="product.price"></app-price>
       </div>
       <app-line-divisor [marginTop]="3"></app-line-divisor>
-      <div *ngIf="product.options">
-        <div *ngFor="let option of product.options">
-          <app-bullet [noDivisor]="true">{{ option }}</app-bullet>
+      <ng-container *ngIf="lang$ | async as lang">
+        <div *ngIf="product.options">
+          <div *ngFor="let option of product.options">
+            <app-bullet [noDivisor]="true">{{ option[lang] }}</app-bullet>
+          </div>
         </div>
-      </div>
+      </ng-container>
       <!-- <div class="mt-6 flex justify-center gap-4">
         
 
