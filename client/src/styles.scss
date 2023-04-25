@@ -48,8 +48,15 @@
   .swiper-initialized {
     padding-left: 40px !important;
     padding-right: 40px !important;
+    padding-bottom: 40px !important;
+  }
+
+  swiper-pagination-bullets.swiper-pagination-horizontal{
+    bottom: 0;
   }
   
+  
+
   .swiper-button-next,
   .swiper-button-prev {
     color: rgba(239, 203, 29, 1) !important;

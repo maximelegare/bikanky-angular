@@ -28,7 +28,7 @@
             (handleClick)="handleClick()"
           ></app-base-button>
           <app-base-button
-            [text]="'Materiaux'"
+            [text]="'Matières'"
             [variant]="'text-only'"
             [routerLink]="'materials'"
             [noPadding]="true"
@@ -45,7 +45,7 @@
         <div class="flex flex-col flex-1">
           <p class="py-1 text-lg text-black font-semibold">Assistance</p>
           <app-base-button
-            [text]="'Me Contacter'"
+            [text]="'Me contacter'"
             [variant]="'text-only'"
             [routerLink]="'about'"
             [noPadding]="true"
@@ -70,7 +70,7 @@
         </div>
         <div class="flex flex-col flex-1">
           <p class="py-1 text-lg text-black font-semibold">
-            Medias&nbsp;Sociaux
+            Médias&nbsp;sociaux
           </p>
           <div class="flex gap-3">
             <ng-container *ngFor="let media of contactData?.medias">
@@ -87,8 +87,8 @@
     </div>
 
     <p class="mx-3 text-sm opacity-60 pt-10 text-center">
-      ©{{ year }}
-      Bikanky Montréal | Made by Maximel
+      ©&nbsp;{{ year }}
+      Bikanky Montréal | Créé par <a href="https://maximel.dev/fr/" target="_blank" class="underline font-semibold">Maximel</a> 
     </p>
   </div>
 </footer>

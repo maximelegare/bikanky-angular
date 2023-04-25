@@ -1,5 +1,5 @@
 <app-container>
-  <app-card-title [title]="'Commentaires de nos supportaires'"></app-card-title>
+  <app-card-title [title]="'Commentaires'"></app-card-title>
   <ng-container *ngIf="testimonials$ | async as slides">
     <app-carousel
       [config]="swiperConfig"
